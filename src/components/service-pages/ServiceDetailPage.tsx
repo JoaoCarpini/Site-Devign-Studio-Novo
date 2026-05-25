@@ -25,7 +25,7 @@ export function ServiceDetailPage({ service }: { service: Service }) {
                 <ArrowRight className="h-4 w-4" />
               </ButtonLink>
               <ButtonLink to="/projetos" variant="secondary">
-                Ver projetos
+                Explorar cases
               </ButtonLink>
             </div>
           </Reveal>
@@ -44,9 +44,9 @@ export function ServiceDetailPage({ service }: { service: Service }) {
       <section className="section-band">
         <div className="container-premium grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <SectionIntro
-            eyebrow="Benefícios"
-            title="A entrega precisa gerar valor visível para o negócio."
-            text="Cada decisão de interface, arquitetura e tecnologia é tomada para apoiar crescimento, eficiência e confiança comercial."
+            eyebrow="Valor"
+            title="A entrega precisa melhorar percepção, operação ou escala."
+            text="Cada decisão de interface, arquitetura e tecnologia existe para sustentar valor real."
           />
           <div className="grid gap-3">
             {service.benefits.map((benefit, index) => (
@@ -59,18 +59,18 @@ export function ServiceDetailPage({ service }: { service: Service }) {
         </div>
       </section>
 
-      <section className="section-band bg-frost text-ink">
+      <section className="section-band bg-frost text-ink" data-cursor-glow="off">
         <div className="container-premium">
           <div className="grid gap-8 lg:grid-cols-[1fr_1.15fr] lg:items-center">
             <Reveal>
               <span className="inline-flex rounded-full border border-ink/10 bg-ink/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-violet-700">
-                Diferenciais
+                Direção
               </span>
               <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-normal text-ink sm:text-5xl">
-                Técnica, estética e direção comercial no mesmo projeto.
+                Técnica, estética e direção estratégica no mesmo projeto.
               </h2>
               <p className="mt-5 text-base leading-8 text-[#4a4658]">
-                O objetivo não é entregar telas bonitas isoladas. É construir um ativo digital que pareça sólido, funcione bem e faça sentido para a operação.
+                O objetivo não é produzir telas isoladas. É construir um ativo digital sólido, útil e defensável.
               </p>
             </Reveal>
             <div className="grid gap-4 sm:grid-cols-2">
@@ -88,9 +88,9 @@ export function ServiceDetailPage({ service }: { service: Service }) {
       <section className="section-band">
         <div className="container-premium">
           <SectionIntro
-            eyebrow="Stack tecnológica"
-            title="Tecnologia escolhida pela necessidade do projeto, não por moda."
-            text="A stack é definida para entregar performance, manutenção e integração com o ecossistema da empresa."
+            eyebrow="Stack"
+            title="Tecnologia escolhida pela função do projeto."
+            text="A stack é definida para performance, manutenção e integração com o ecossistema da empresa."
             align="center"
           />
           <Reveal className="mx-auto mt-10 flex max-w-4xl flex-wrap justify-center gap-3">
@@ -107,8 +107,8 @@ export function ServiceDetailPage({ service }: { service: Service }) {
         <div className="container-premium grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionIntro
             eyebrow="Processo de entrega"
-            title="Método claro para reduzir risco e aumentar previsibilidade."
-            text="Você acompanha decisões, prioridades e evolução com um processo objetivo do diagnóstico à publicação."
+            title="Método claro para reduzir risco."
+            text="Decisões, prioridades e evolução ficam visíveis do diagnóstico à publicação."
           />
           <div className="grid gap-3">
             {service.process.map((item, index) => (
@@ -127,8 +127,8 @@ export function ServiceDetailPage({ service }: { service: Service }) {
         <div className="container-premium grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <SectionIntro
             eyebrow="FAQ"
-            title="Perguntas comuns antes de iniciar."
-            text="Algumas respostas rápidas para entender escopo, integração e formato de entrega."
+            title="Perguntas antes de iniciar."
+            text="Respostas objetivas sobre escopo, integração e formato de entrega."
           />
           <Reveal>
             <FaqAccordion items={service.faq} />
@@ -141,12 +141,12 @@ export function ServiceDetailPage({ service }: { service: Service }) {
           <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(141,92,255,0.22),rgba(255,255,255,0.06)_42%,rgba(77,212,198,0.1))] p-8 shadow-premium sm:p-12">
             <Reveal className="max-w-3xl">
               <span className="eyebrow mb-5">Próximo passo</span>
-              <h2 className="heading-lg">Vamos transformar esse escopo em um plano técnico e comercial.</h2>
+              <h2 className="heading-lg">Vamos transformar esse escopo em direção técnica.</h2>
               <p className="body-lead mt-5">
-                Envie um briefing inicial e receba uma leitura objetiva sobre caminho, prioridade, prazo e investimento provável.
+                Envie um briefing inicial e receba uma leitura objetiva sobre caminho, prioridade e investimento provável.
               </p>
               <ButtonLink to="/orcamento" className="mt-8">
-                Solicitar orçamento
+                Iniciar diagnóstico
                 <ArrowRight className="h-4 w-4" />
               </ButtonLink>
             </Reveal>

@@ -1,6 +1,6 @@
 export const brandAssets = {
   symbol: '/brand/logo-symbol.png?v=2',
-  horizontalLockup: '/brand/logo-horizontal-lockup.png',
+  horizontalLockup: '/brand/logo-navbar-symbol.png?v=2',
   verticalDeck: '/brand/logo-vertical-deck.png',
   favicon: '/brand/favicon.svg?v=3',
   faviconPng32: '/brand/favicon-32.png?v=3',

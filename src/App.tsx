@@ -2,6 +2,7 @@ import { AnimatePresence } from 'framer-motion';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { ScrollManager } from './components/animations/ScrollManager';
 import { PageTransition } from './components/animations/PageTransition';
+import { CursorGlowLayer } from './components/animations/CursorGlowLayer';
 import { Footer } from './components/layout/Footer';
 import { Header } from './components/layout/Header';
 import Home from './pages/Home';
@@ -25,6 +26,7 @@ export default function App() {
   return (
     <div className="page-shell">
       <ScrollManager />
+      <CursorGlowLayer />
       <Header />
       <AnimatePresence mode="wait">
         <PageTransition key={location.pathname}>

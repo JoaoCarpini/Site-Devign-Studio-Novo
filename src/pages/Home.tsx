@@ -15,18 +15,18 @@ import { services } from '../data/site';
 
 const companySignals = [
   {
-    title: 'Arquitetura técnica',
-    text: 'Módulos, APIs, dados, integrações e permissões pensados antes da interface final.',
+    title: 'Arquitetura antes da interface',
+    text: 'Módulos, dados, permissões e integrações definidos antes do acabamento visual.',
     icon: ShieldCheck,
   },
   {
-    title: 'Produto operacional',
-    text: 'Interfaces e fluxos desenhados para times que usam o sistema todos os dias.',
+    title: 'Produto em operação',
+    text: 'Interfaces desenhadas para rotina real, decisão rápida e uso recorrente.',
     icon: ServerCog,
   },
   {
     title: 'Ecossistema conectado',
-    text: 'APIs, automações e dados integrados para reduzir ilhas de informação.',
+    text: 'APIs, automações e dados integrados para eliminar fricção operacional.',
     icon: Network,
   },
 ];
@@ -35,22 +35,22 @@ const institutionalRoutes = [
   {
     label: 'Serviços',
     to: '/servicos',
-    text: 'Conheça as frentes de desenvolvimento web, sistemas, APIs, automação, IA e integrações.',
+    text: 'Conheça as camadas de tecnologia que estruturam presença, operação e escala.',
   },
   {
     label: 'Projetos',
     to: '/projetos',
-    text: 'Veja cases com contexto, problema, solução, stack e resultado operacional.',
+    text: 'Explore fragmentos de produtos digitais, sistemas e soluções em operação.',
   },
   {
     label: 'Processo',
     to: '/processo',
-    text: 'Entenda como a Devign conduz briefing, estratégia, design, desenvolvimento, entrega e suporte.',
+    text: 'Entenda como estratégia, design e engenharia avançam com controle.',
   },
   {
     label: 'Sobre',
     to: '/sobre',
-    text: 'Conheça a visão, os princípios e o padrão de colaboração da software house.',
+    text: 'Conheça a visão, os princípios e o padrão de exigência da Devign.',
   },
 ];
 
@@ -59,13 +59,13 @@ export default function Home() {
     <>
       <CinematicHero />
 
-      <section className="section-band light-section">
+      <section className="section-band light-section" data-cursor-glow="off">
         <div className="container-premium">
           <div className="grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-start">
             <SectionIntro
               eyebrow="Institucional"
-              title="Uma estrutura de software house, não uma página promocional."
-              text="A Home apresenta a visão executiva. As páginas internas aprofundam serviços, processo, cases, diferenciais e orçamento para que a experiência pareça uma empresa real, organizada e preparada para projetos de maior valor."
+              title="Uma estrutura digital para empresas que precisam parecer maiores."
+              text="A Home apresenta a visão executiva. As páginas internas aprofundam tecnologia, processo e direção estratégica para projetos de maior valor."
               tone="light"
             />
             <div className="grid gap-4 sm:grid-cols-2">
@@ -95,8 +95,8 @@ export default function Home() {
         <div className="container-premium">
           <SectionIntro
             eyebrow="Frentes de entrega"
-            title="Produtos digitais, sistemas internos e automações com base técnica consistente."
-            text="A Devign atua em frentes complementares para criar software com valor comercial, sustentação operacional e possibilidade real de evolução."
+            title="Software, automação e presença digital com a mesma direção estratégica."
+            text="A Devign combina interface, dados e engenharia para construir ativos digitais com valor comercial e sustentação operacional."
           />
           <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {services.slice(0, 4).map((service, index) => (
@@ -107,7 +107,7 @@ export default function Home() {
           </div>
           <div className="mt-8">
             <ButtonLink to="/servicos" variant="secondary">
-              Ver todas as frentes de serviço
+              Explorar serviços
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
           </div>
@@ -123,8 +123,8 @@ export default function Home() {
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <SectionIntro
               eyebrow="Tecnologia"
-              title="Stack moderna organizada por camada de produto."
-              text="React, TypeScript, APIs, Python, PostgreSQL, IA, Automação, GitHub e Vercel aparecem como parte de uma arquitetura integrada, não como lista decorativa."
+              title="Stack moderna, escolhida por função."
+              text="React, TypeScript, APIs, Python, PostgreSQL, IA e automação entram quando sustentam performance, integração e evolução."
             />
             <TechCloud />
           </div>
@@ -159,12 +159,12 @@ export default function Home() {
             <div className="absolute inset-x-8 top-0 h-px bg-premium-line" />
             <Reveal className="max-w-4xl">
               <span className="eyebrow mb-5">Orçamento</span>
-              <h2 className="heading-lg text-balance">Comece por um briefing, não por uma proposta genérica.</h2>
+              <h2 className="heading-lg text-balance">Comece por uma leitura estratégica, não por uma estimativa rasa.</h2>
               <p className="body-lead mt-5 max-w-3xl">
-                A Devign qualifica contexto, prioridade, escopo e investimento para indicar o melhor caminho técnico com segurança.
+                A Devign qualifica contexto, prioridade, escopo e investimento antes de sugerir o caminho técnico.
               </p>
               <ButtonLink to="/orcamento" className="mt-8">
-                Solicitar Projeto
+                Iniciar diagnóstico
                 <ArrowRight className="h-4 w-4" />
               </ButtonLink>
             </Reveal>

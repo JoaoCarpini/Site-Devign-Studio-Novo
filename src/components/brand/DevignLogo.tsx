@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { cn } from '../../utils/cn';
 import { brandAssets } from '../../config/brand';
-import { BrandSymbol } from './BrandSymbol';
 
 type DevignLogoProps = {
   variant?: 'navbar' | 'footer' | 'deck';
@@ -27,52 +26,49 @@ export function DevignLogo({
       <span
         className={cn(
           'inline-flex items-center',
-          variant === 'navbar' ? 'gap-4' : 'gap-3.5',
+          variant === 'navbar' ? 'gap-2.5 sm:gap-3' : 'gap-3',
         )}
       >
-        {/* Símbolo */}
-        <div
+        <img
+          src={brandAssets.horizontalLockup}
+          alt=""
+          aria-hidden="true"
           className={cn(
-            'relative transition duration-500 group-hover:scale-[1.03]',
-            variant === 'navbar'
-              ? 'drop-shadow-[0_0_14px_rgba(139,92,246,0.18)]'
-              : 'drop-shadow-[0_0_10px_rgba(139,92,246,0.12)]',
+            'shrink-0 object-contain transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-95',
+            variant === 'navbar' ? 'h-[2.125rem] w-[2.125rem]' : 'h-10 w-10',
           )}
-        >
-          <BrandSymbol
-            size={variant === 'navbar' ? 'md' : 'sm'}
-            glow="none"
-          />
-        </div>
-
-        {/* Texto */}
-        <span className="leading-none">
+          loading="eager"
+          decoding="async"
+        />
+        <span className="flex flex-col justify-center leading-none">
           <span
             className={cn(
-              'block font-semibold uppercase text-frost transition-colors duration-300',
+              'font-bold text-frost transition-colors duration-300',
               variant === 'navbar'
-                ? 'text-[1.08rem] tracking-[0.045em]'
-                : 'text-sm tracking-[0.08em]',
+                ? 'text-[1.12rem] tracking-[0.015em] sm:text-[1.2rem]'
+                : 'text-lg tracking-[0.015em]',
             )}
             style={{
               fontFamily:
-                '"Space Grotesk", "Inter Tight", Inter, sans-serif',
+                '"Space Grotesk", "Inter Tight", "Segoe UI Variable Display", Inter, system-ui, sans-serif',
             }}
           >
-            DEVIGN
+            Devign
           </span>
-
-          {variant !== 'navbar' && (
-            <span
-              className="mt-1 block text-xs italic tracking-[0.06em] text-muted/80"
-              style={{
-                fontFamily:
-                  '"Cormorant Garamond", Georgia, serif',
-              }}
-            >
-              Studio
-            </span>
-          )}
+          <span
+            className={cn(
+              'mt-0.5 font-normal text-white/60 transition-colors duration-300 group-hover:text-white/72',
+              variant === 'navbar'
+                ? 'text-[0.72rem] tracking-[0.035em] sm:text-[0.76rem]'
+                : 'text-sm tracking-[0.035em]',
+            )}
+            style={{
+              fontFamily:
+                '"Inter Tight", "Space Grotesk", "Segoe UI Variable Display", Inter, system-ui, sans-serif',
+            }}
+          >
+            Studio
+          </span>
         </span>
       </span>
     );
@@ -91,7 +87,7 @@ export function DevignLogo({
     <Link
       to={to}
       className={classes}
-      aria-label="Devign Studio — início"
+      aria-label="Devign Studio - início"
     >
       {content}
     </Link>

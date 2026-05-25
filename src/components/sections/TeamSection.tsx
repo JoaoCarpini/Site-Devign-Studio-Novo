@@ -15,21 +15,21 @@ const teamMembers = [
     name: 'Gabrielle Almeida',
     initials: 'GA',
     role: 'Head of Design & Branding',
-    description: 'Interfaces, identidade visual e experiências digitais construídas para gerar presença e percepção premium.',
+    description: 'Direção visual, identidade e experiências digitais para marcas que precisam sustentar percepção premium.',
     signal: 'Design system',
   },
   {
     name: 'Isabely Perez',
     initials: 'IP',
     role: 'Customer Success & Strategy',
-    description: 'Relacionamento, estratégia e alinhamento entre negócio, experiência e entrega.',
+    description: 'Estratégia, relacionamento e alinhamento entre contexto de negócio, experiência e entrega.',
     signal: 'Client strategy',
   },
   {
     name: 'João Pedro Carpini',
     initials: 'JP',
     role: 'Lead Developer & Automation',
-    description: 'Sistemas, automações e arquitetura tecnológica focadas em eficiência, escala e performance.',
+    description: 'Sistemas, automações e arquitetura tecnológica para eficiência, escala e performance.',
     signal: 'Software architecture',
   },
 ];
@@ -63,11 +63,11 @@ export function TeamSection({ compact = false }: TeamSectionProps) {
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <SectionIntro
             eyebrow="Equipe"
-            title={compact ? 'Direção estratégica, design premium e engenharia no mesmo núcleo.' : 'Uma equipe enxuta, técnica e orientada a projetos de alto valor.'}
+            title={compact ? 'Estratégia, design premium e engenharia no mesmo núcleo.' : 'Uma equipe enxuta para projetos digitais de alto valor.'}
             text={
               compact
-                ? 'A Devign combina visão de marca, relacionamento consultivo e arquitetura de software para entregar experiências digitais com padrão high-end.'
-                : 'A estrutura da Devign foi desenhada para unir clareza comercial, acabamento visual e execução técnica. Cada frente atua como parte de um mesmo sistema: posicionamento, experiência, software e evolução.'
+                ? 'A Devign combina visão de marca, relacionamento consultivo e arquitetura de software para entregar experiências digitais high-end.'
+                : 'A estrutura da Devign une clareza comercial, acabamento visual e execução técnica. Posicionamento, experiência, software e evolução trabalham como sistema.'
             }
           />
 
@@ -112,7 +112,7 @@ export function TeamSection({ compact = false }: TeamSectionProps) {
         {compact ? (
           <Reveal delay={0.12} className="mt-10 flex justify-center">
             <Link className={buttonStyles('secondary')} to="/sobre">
-              Conheça a equipe
+              Conhecer núcleo
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Reveal>

@@ -8,6 +8,8 @@ type ButtonLinkProps = {
   children: ReactNode;
   to?: string;
   href?: string;
+  target?: string;
+  rel?: string;
   className?: string;
   variant?: ButtonVariant;
   onClick?: () => void;
@@ -31,12 +33,12 @@ export function buttonStyles(variant: ButtonVariant = 'primary') {
   return cn(base, variants[variant]);
 }
 
-export function ButtonLink({ children, to, href, className, variant = 'primary', onClick }: ButtonLinkProps) {
+export function ButtonLink({ children, to, href, target, rel, className, variant = 'primary', onClick }: ButtonLinkProps) {
   const classes = cn(buttonStyles(variant), className);
 
   if (href) {
     return (
-      <a className={classes} href={href} onClick={onClick}>
+      <a className={classes} href={href} target={target} rel={rel} onClick={onClick}>
         {children}
       </a>
     );

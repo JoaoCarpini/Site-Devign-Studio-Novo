@@ -113,7 +113,12 @@ export function ProjectShowcaseCard({ project, featured = false }: { project: Pr
               Conversar sobre projeto semelhante
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
-            <ButtonLink to="/projetos" variant="secondary">
+            <ButtonLink
+              href="https://gabriellefernandesnutricionista.my.canva.site/portf-lio-devign-site"
+              target="_blank"
+              rel="noreferrer"
+              variant="secondary"
+            >
               Ver case no portfólio
             </ButtonLink>
           </div>

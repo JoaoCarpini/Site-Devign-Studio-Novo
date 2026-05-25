@@ -7,31 +7,31 @@ import { SectionIntro } from '../components/ui/SectionIntro';
 import { services } from '../data/site';
 
 const pillars = [
-  'Arquitetura técnica antes da execução visual.',
-  'Sistemas e integrações para reduzir operação manual.',
+  'Arquitetura antes da execução visual.',
+  'Sistemas e integrações para reduzir fricção operacional.',
   'APIs, automações e IA conectadas ao fluxo real da empresa.',
-  'Dashboards para transformar dados em clareza executiva.',
+  'Dashboards para transformar dados em decisão.',
 ];
 
 const deliveryStandards = [
   {
-    title: 'Contratos e APIs',
-    text: 'Rotas, payloads, validações e autenticação definidos com previsibilidade para integrações futuras.',
+    title: 'Contratos digitais',
+    text: 'Rotas, payloads, validações e autenticação desenhados para integração confiável.',
     icon: Network,
   },
   {
-    title: 'Dados operacionais',
-    text: 'Modelagem, persistência e relatórios pensados para reduzir divergências e apoiar decisões.',
+    title: 'Dados com direção',
+    text: 'Modelagem e persistência para reduzir divergência e acelerar leitura executiva.',
     icon: Database,
   },
   {
-    title: 'Automação de fluxo',
-    text: 'Jobs, webhooks, alertas e gatilhos para diminuir tarefas manuais e padronizar execução.',
+    title: 'Fluxos automatizados',
+    text: 'Jobs, webhooks, alertas e gatilhos para padronizar execução sem ruído.',
     icon: Workflow,
   },
   {
-    title: 'Entrega versionada',
-    text: 'Git, deploy, documentação e ciclos de evolução para manter a base sustentável.',
+    title: 'Base versionada',
+    text: 'Deploy, documentação e ciclos de evolução para manter o produto sustentável.',
     icon: GitBranch,
   },
 ];
@@ -44,12 +44,12 @@ export default function Services() {
         <div className="container-premium relative pb-20 pt-8 lg:pb-28">
           <Reveal className="max-w-4xl">
             <span className="eyebrow mb-6">Serviços</span>
-            <h1 className="heading-xl text-balance">Engenharia de software sob medida para operação, dados e escala.</h1>
+            <h1 className="heading-xl text-balance">Infraestrutura digital para operação, dados e escala.</h1>
             <p className="body-lead mt-7 max-w-3xl">
-              A Devign Studio atua da interface à infraestrutura lógica: sistemas, APIs, automações, integrações, dashboards e IA aplicada com foco em performance, governança e evolução.
+              Da interface à lógica operacional, a Devign estrutura sistemas, APIs, automações e IA aplicada com foco em performance, controle e evolução.
             </p>
             <ButtonLink to="/orcamento" className="mt-9">
-              Discutir meu projeto
+              Discutir escopo
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
           </Reveal>
@@ -70,8 +70,8 @@ export default function Services() {
         <div className="container-premium">
           <SectionIntro
             eyebrow="Padrão técnico"
-            title="Cada serviço é tratado como parte de uma arquitetura, não como entrega isolada."
-            text="A construção considera dados, permissões, integrações, manutenção e próximos módulos desde a fase de escopo."
+            title="Cada serviço é uma camada de arquitetura."
+            text="Dados, permissões, integrações, manutenção e evolução entram no escopo desde o início."
           />
           <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {deliveryStandards.map((standard, index) => {
@@ -97,17 +97,17 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="section-band bg-frost text-ink">
+      <section className="section-band bg-frost text-ink" data-cursor-glow="off">
         <div className="container-premium grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <Reveal>
             <span className="inline-flex rounded-full border border-ink/10 bg-ink/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-violet-700">
-              Direção de escopo
+              Direção estratégica
             </span>
             <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-normal text-ink sm:text-5xl">
-              O projeto certo nasce de uma leitura técnica da operação.
+              O projeto certo nasce de uma leitura precisa da operação.
             </h2>
             <p className="mt-5 text-base leading-8 text-[#4a4658]">
-              Nem toda empresa precisa começar por um sistema completo. Às vezes o maior retorno vem de uma API crítica, um dashboard confiável, uma automação de fluxo ou uma camada de IA aplicada.
+              Nem toda empresa precisa começar por um sistema completo. Às vezes o maior valor está em uma API crítica, um dashboard confiável ou uma automação bem posicionada.
             </p>
           </Reveal>
           <div className="grid gap-4">

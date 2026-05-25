@@ -6,10 +6,10 @@ import { ButtonLink } from '../components/ui/Button';
 import { SectionIntro } from '../components/ui/SectionIntro';
 
 const guarantees = [
-  'Escopo documentado com entregáveis, prioridades e limites.',
-  'Validações por etapa para evitar surpresas no final.',
-  'Decisões técnicas explicadas de forma objetiva.',
-  'Entrega com base preparada para manutenção e evolução.',
+  'Escopo com entregáveis, prioridades e limites claros.',
+  'Validações por etapa para reduzir surpresa no final.',
+  'Decisões técnicas traduzidas com objetividade.',
+  'Base preparada para manutenção, suporte e evolução.',
 ];
 
 export default function Process() {
@@ -20,9 +20,9 @@ export default function Process() {
         <div className="container-premium relative pb-20 pt-8 lg:pb-28">
           <Reveal className="max-w-4xl">
             <span className="eyebrow mb-6">Processo</span>
-            <h1 className="heading-xl text-balance">Um método de trabalho que transmite segurança do briefing ao suporte.</h1>
+            <h1 className="heading-xl text-balance">Um método para transformar intenção em direção técnica.</h1>
             <p className="body-lead mt-7 max-w-3xl">
-              Projetos digitais de alto valor precisam de clareza. A Devign organiza diagnóstico, estratégia, design, desenvolvimento e entrega para reduzir risco e manter foco no resultado.
+              Projetos digitais de alto valor exigem controle. A Devign organiza diagnóstico, estratégia, design, desenvolvimento e entrega para reduzir risco e manter foco no que importa.
             </p>
           </Reveal>
         </div>
@@ -34,14 +34,14 @@ export default function Process() {
         </div>
       </section>
 
-      <section className="section-band bg-frost text-ink">
+      <section className="section-band bg-frost text-ink" data-cursor-glow="off">
         <div className="container-premium grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <Reveal>
             <span className="inline-flex rounded-full border border-ink/10 bg-ink/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-violet-700">
               Governança
             </span>
             <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-normal text-ink sm:text-5xl">
-              O cliente sabe o que está sendo construído, por quê e em qual ordem.
+              Clareza sobre o que será construído, por quê e em qual ordem.
             </h2>
           </Reveal>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -58,11 +58,11 @@ export default function Process() {
         <div className="container-premium rounded-[2rem] border border-white/10 bg-white/[0.055] p-8 shadow-premium backdrop-blur-2xl sm:p-12">
           <SectionIntro
             eyebrow="Próximo passo"
-            title="Comece com um briefing bem estruturado."
-            text="O formulário de orçamento coleta as informações necessárias para transformar intenção em caminho técnico e comercial."
+            title="Comece com uma leitura bem estruturada."
+            text="O briefing reúne contexto suficiente para transformar intenção em caminho técnico e comercial."
           />
           <ButtonLink to="/orcamento" className="mt-8">
-            Solicitar Projeto
+            Iniciar diagnóstico
             <ArrowRight className="h-4 w-4" />
           </ButtonLink>
         </div>

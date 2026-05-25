@@ -12,7 +12,7 @@ export default function Contact() {
             <span className="eyebrow mb-6">Contato / Orçamento</span>
             <h1 className="heading-xl text-balance">Vamos qualificar o projeto antes da proposta.</h1>
             <p className="body-lead mt-7">
-              Preencha o briefing inicial para entendermos tipo de projeto, objetivo, investimento, prazo e funcionalidades. Isso permite uma conversa mais estratégica e uma proposta menos genérica.
+              Preencha o briefing inicial para entendermos tipo de projeto, objetivo, investimento, prazo e funcionalidades. Isso permite uma conversa mais precisa e uma proposta com direção real.
             </p>
             <div className="mt-8 rounded-[1.5rem] border border-white/10 bg-white/[0.055] p-5 backdrop-blur-xl">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-violet-400">Retorno</p>

@@ -1,6 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { BrandSymbol } from './BrandSymbol';
+import { DevignLogo } from './DevignLogo';
 
 const LOADER_MIN_MS = 1400;
 const LOADER_STORAGE_KEY = 'devign-loader-seen';
@@ -50,22 +50,22 @@ export function PremiumLoader({ onComplete }: PremiumLoaderProps) {
 
       <div className="relative flex flex-col items-center px-6 text-center">
         <motion.div
-          className="relative grid h-24 w-24 place-items-center sm:h-28 sm:w-28"
+          className="relative grid h-24 w-56 place-items-center sm:w-64"
           initial={{ opacity: 0, scale: 0.88, filter: 'blur(12px)' }}
           animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.span
-            className="absolute inset-0 rounded-full border border-violet-400/25"
+            className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
             animate={{ rotate: 360 }}
             transition={{ duration: 14, repeat: Infinity, ease: 'linear' }}
           />
           <motion.span
-            className="absolute inset-2 rounded-full border border-white/10"
-            animate={{ rotate: -360 }}
-            transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
+            className="absolute inset-x-8 top-1/2 h-px -translate-y-1/2 rounded-full bg-gradient-to-r from-transparent via-violet-300/30 to-transparent"
+            animate={{ opacity: [0.45, 0.9, 0.45] }}
+            transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
           />
-          <BrandSymbol size="lg" glow="medium" animate />
+          <DevignLogo to="" variant="footer" className="relative" />
         </motion.div>
 
         <motion.p

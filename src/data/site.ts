@@ -47,31 +47,31 @@ export const services: Service[] = [
     path: '/servicos/desenvolvimento-web',
     title: 'Desenvolvimento Web',
     menuTitle: 'Desenvolvimento Web',
-    kicker: 'Presença digital premium',
+    kicker: 'Presença de alto valor',
     summary:
-      'Sites institucionais com arquitetura sólida, performance real e percepção de marca acima da média.',
+      'Experiências digitais construídas para posicionamento premium, clareza comercial e autoridade.',
     hero:
-      'Sites premium para empresas que precisam comunicar valor antes mesmo da primeira reunião comercial.',
+      'Experiências digitais para marcas que precisam parecer tão fortes quanto a solução que entregam.',
     strategic:
-      'Um site institucional precisa sustentar posicionamento, confiança e conversão. A Devign estrutura cada página como uma experiência comercial: narrativa clara, design refinado, performance técnica e uma jornada que conduz o visitante até o contato.',
+      'Presença digital não é vitrine. É infraestrutura de percepção. A Devign desenha interfaces com narrativa, performance e direção visual para sustentar conversas comerciais de maior valor.',
     benefits: [
-      'Percepção premium para marcas que vendem serviços, produtos ou tecnologia de maior valor.',
-      'Arquitetura pensada para SEO, carregamento rápido e leitura objetiva em qualquer tela.',
-      'Páginas que equilibram impacto visual, autoridade e chamadas de conversão bem posicionadas.',
-      'Base técnica pronta para evoluir com integrações, analytics, CRM e automações.',
+      'Percepção premium desde o primeiro contato.',
+      'Arquitetura de conteúdo clara, rápida e orientada a decisão.',
+      'Interfaces que combinam autoridade, estética e conversão qualificada.',
+      'Base pronta para analytics, CRM, automações e evolução.',
     ],
     differentials: [
-      'Design sob medida, sem cara de template pronto.',
-      'Copy orientada a decisão, com foco em valor e clareza comercial.',
-      'Componentização para manutenção simples e evolução futura.',
-      'Entrega com refinamento visual, responsividade e validação de experiência.',
+      'Direção visual proprietária, sem estética de template.',
+      'Copy de posicionamento, não texto decorativo.',
+      'Componentes preparados para manutenção e expansão.',
+      'Refinamento visual validado em cada breakpoint.',
     ],
     stack: ['React', 'Next.js', 'TypeScript', 'TailwindCSS', 'Vercel', 'Analytics'],
     process: [
       'Diagnóstico de posicionamento e público de maior valor.',
       'Arquitetura das páginas e definição das mensagens principais.',
       'Design visual com direção premium e protótipo navegável.',
-      'Desenvolvimento responsivo, otimização e publicação.',
+      'Implementação, otimização e publicação com precisão.',
     ],
     faq: [
       {
@@ -95,31 +95,31 @@ export const services: Service[] = [
       { label: 'Performance alvo', value: '90+' },
       { label: 'Páginas-chave', value: '5-12' },
     ],
-    cta: 'Quero um site institucional premium',
+    cta: 'Construir presença premium',
   },
   {
     key: 'web-systems',
     path: '/servicos/sistemas-web',
     title: 'Sistemas Web',
     menuTitle: 'Sistemas Web',
-    kicker: 'Operação com clareza',
+    kicker: 'Operação escalável',
     summary:
-      'Sistemas sob medida para centralizar dados, reduzir retrabalho e dar escala para rotinas críticas.',
+      'Infraestruturas digitais para organizar dados, fluxos e decisões críticas.',
     hero:
-      'Plataformas web desenhadas para operações que precisam de controle, velocidade e confiabilidade.',
+      'Sistemas web para operações que exigem controle, precisão e escala.',
     strategic:
-      'Sistemas internos mal planejados criam atrito, planilhas paralelas e decisões lentas. A Devign projeta plataformas web com fluxos claros, permissões, dashboards e integrações para transformar processos em operação mensurável.',
+      'Sistemas internos devem reduzir ruído, não criar mais uma camada de complexidade. A Devign projeta plataformas com fluxos claros, permissões, dados confiáveis e visão executiva.',
     benefits: [
-      'Centralização de cadastros, fluxos, aprovações e indicadores.',
-      'Interfaces desenhadas para uso recorrente, com menos fricção para o time.',
-      'Arquitetura preparada para autenticação, permissões e crescimento modular.',
-      'Dados organizados para relatórios, dashboards e decisões executivas.',
+      'Cadastros, fluxos e indicadores em uma base coerente.',
+      'Interfaces de uso recorrente, desenhadas para reduzir fricção.',
+      'Permissões, autenticação e módulos preparados desde o início.',
+      'Dados estruturados para relatórios, dashboards e decisão.',
     ],
     differentials: [
-      'Modelagem de processos antes do código.',
-      'UX funcional para times que usam o sistema todos os dias.',
-      'Back-end pensado para performance, segurança e manutenção.',
-      'Documentação técnica e visão de evolução do produto.',
+      'Processo modelado antes da interface.',
+      'UX operacional para uso diário.',
+      'Back-end com performance, segurança e manutenção em vista.',
+      'Documentação e visão de evolução do produto.',
     ],
     stack: ['React', 'TypeScript', 'Node.js', 'Python', 'PostgreSQL', 'APIs'],
     process: [
@@ -150,24 +150,24 @@ export const services: Service[] = [
       { label: 'Fluxos mapeados', value: '100%' },
       { label: 'Evolução', value: 'modular' },
     ],
-    cta: 'Quero planejar um sistema web',
+    cta: 'Planejar um sistema sob medida',
   },
   {
     key: 'apis',
     path: '/servicos/apis',
     title: 'APIs',
     menuTitle: 'APIs',
-    kicker: 'Conectividade confiável',
+    kicker: 'Conectividade estratégica',
     summary:
-      'APIs robustas para conectar sistemas, expor dados, automatizar fluxos e sustentar produtos digitais.',
+      'Contratos digitais para conectar dados, produtos e operações com previsibilidade.',
     hero:
-      'APIs bem desenhadas para empresas que precisam integrar, escalar e operar com previsibilidade.',
+      'APIs desenhadas para empresas que precisam integrar, escalar e manter controle.',
     strategic:
-      'Uma API não é apenas um ponto de conexão. Ela define como dados circulam, como sistemas conversam e como a operação cresce sem depender de gambiarras. A Devign cria APIs com contratos claros, segurança e documentação útil.',
+      'Uma API define como a operação respira. A Devign cria contratos claros, seguros e documentados para que sistemas conversem sem improviso.',
     benefits: [
-      'Conexão entre sistemas internos, plataformas comerciais e produtos digitais.',
-      'Padronização de dados para reduzir inconsistências e retrabalho.',
-      'Rotas documentadas, versionamento e autenticação adequados ao contexto.',
+      'Conexão entre sistemas internos, plataformas e produtos digitais.',
+      'Dados padronizados para reduzir inconsistência.',
+      'Rotas versionadas, autenticadas e documentadas.',
       'Base preparada para dashboards, automações e integrações futuras.',
     ],
     differentials: [
@@ -205,25 +205,25 @@ export const services: Service[] = [
       { label: 'Autenticação', value: 'segura' },
       { label: 'Integrações', value: 'sob medida' },
     ],
-    cta: 'Quero desenvolver uma API',
+    cta: 'Desenhar uma API estratégica',
   },
   {
     key: 'automation',
     path: '/servicos/automacao',
     title: 'Automação',
     menuTitle: 'Automação',
-    kicker: 'Menos processo manual',
+    kicker: 'Fluxos sem fricção',
     summary:
-      'Automações para eliminar tarefas repetitivas, conectar fluxos e liberar tempo operacional.',
+      'Fluxos inteligentes eliminando fricção operacional e trabalho repetitivo.',
     hero:
-      'Automação para empresas que precisam ganhar tempo, reduzir falhas e operar com mais precisão.',
+      'Automações para operações que precisam de velocidade, controle e consistência.',
     strategic:
-      'Rotinas manuais consomem margem, criam erros e travam crescimento. A Devign identifica gargalos, desenha fluxos automatizados e conecta ferramentas para que a operação dependa menos de esforço repetitivo.',
+      'Rotinas manuais consomem margem e atenção. A Devign transforma gargalos em fluxos automatizados, conectando ferramentas sem perder rastreabilidade.',
     benefits: [
-      'Redução de retrabalho em tarefas administrativas, comerciais e operacionais.',
-      'Fluxos automáticos entre formulários, planilhas, CRM, sistemas e APIs.',
+      'Menos retrabalho em rotinas administrativas, comerciais e operacionais.',
+      'Fluxos entre formulários, planilhas, CRM, sistemas e APIs.',
       'Alertas, relatórios e atualizações sem intervenção manual.',
-      'Operação mais previsível, com menos falhas por esquecimento ou duplicidade.',
+      'Operação mais previsível, com menos falhas de execução.',
     ],
     differentials: [
       'Mapeamento antes de automatizar para evitar complexidade desnecessária.',
@@ -260,20 +260,20 @@ export const services: Service[] = [
       { label: 'Erros manuais', value: 'menor' },
       { label: 'Fluxos', value: 'auditáveis' },
     ],
-    cta: 'Quero automatizar minha operação',
+    cta: 'Projetar automações inteligentes',
   },
   {
     key: 'ai',
     path: '/servicos/ia',
-    title: 'Soluções com IA',
+    title: 'IA Aplicada',
     menuTitle: 'IA',
     kicker: 'Inteligência aplicada',
     summary:
-      'IA aplicada a atendimento, análise, conteúdo, automação e sistemas internos com utilidade real.',
+      'Inteligência aplicada onde performance, contexto e decisão realmente importam.',
     hero:
-      'IA incorporada à operação com foco em produtividade, contexto e controle.',
+      'IA incorporada à operação com contexto, controle e utilidade mensurável.',
     strategic:
-      'IA só gera valor quando resolve um fluxo específico. A Devign cria camadas inteligentes para atendimento, análise de dados, geração assistida, triagem, sumarização e automações, sempre conectadas ao contexto do negócio.',
+      'IA só importa quando melhora um fluxo real. A Devign cria camadas inteligentes para triagem, análise, atendimento, sumarização e automação com contexto de negócio.',
     benefits: [
       'Assistentes internos para acelerar pesquisa, triagem, atendimento e análise.',
       'Automação de leitura, classificação e geração de respostas com contexto.',
@@ -315,24 +315,24 @@ export const services: Service[] = [
       { label: 'Contexto', value: 'controlado' },
       { label: 'Valor', value: 'medido' },
     ],
-    cta: 'Quero aplicar IA no meu negócio',
+    cta: 'Aplicar IA com estratégia',
   },
   {
     key: 'landing-pages',
     path: '/servicos/landing-pages',
     title: 'Landing Pages',
     menuTitle: 'Landing Pages',
-    kicker: 'Conversão com percepção',
+    kicker: 'Conversão refinada',
     summary:
-      'Páginas de campanha e captação com narrativa forte, design premium e foco em conversão qualificada.',
+      'Páginas de campanha com narrativa precisa, estética premium e conversão qualificada.',
     hero:
-      'Landing pages para ofertas que precisam parecer valiosas, claras e prontas para vender.',
+      'Landing pages para ofertas que precisam comunicar valor com precisão.',
     strategic:
-      'Uma landing page high-ticket não pode ser só bonita. Ela precisa sustentar promessa, prova, objeções, diferenciais e CTA com precisão. A Devign cria páginas de campanha com narrativa, estética e velocidade.',
+      'Uma oferta premium precisa de foco. A Devign estrutura páginas com promessa clara, prova, hierarquia visual e CTA sem excesso.',
     benefits: [
       'Comunicação direta para lançamento, tráfego pago, captação ou validação.',
       'Estrutura de copy focada em decisão, objeções e valor percebido.',
-      'Design responsivo com impacto visual e leitura rápida.',
+      'Direção visual com impacto e leitura precisa em qualquer tela.',
       'Integrações com WhatsApp, formulários, CRM, pixels e analytics.',
     ],
     differentials: [
@@ -370,20 +370,20 @@ export const services: Service[] = [
       { label: 'Campanhas', value: 'ready' },
       { label: 'Integrações', value: 'CRM' },
     ],
-    cta: 'Quero uma landing page premium',
+    cta: 'Criar uma página de conversão premium',
   },
   {
     key: 'integrations',
     path: '/servicos/integracoes',
     title: 'Integrações',
     menuTitle: 'Integrações',
-    kicker: 'Sistemas conversando',
+    kicker: 'Ecossistema conectado',
     summary:
-      'Integrações entre plataformas, dados e operações para reduzir ilhas de informação.',
+      'Integrações entre plataformas, dados e operações para eliminar ilhas de informação.',
     hero:
-      'Integrações sob medida para empresas que precisam conectar ferramentas sem perder controle.',
+      'Integrações sob medida para conectar ferramentas sem perder controle operacional.',
     strategic:
-      'Quando cada ferramenta guarda uma parte da operação, decisões ficam lentas e processos duplicam. A Devign conecta sistemas, normaliza dados e cria fluxos confiáveis entre plataformas internas e externas.',
+      'Quando dados vivem separados, a operação perde precisão. A Devign conecta sistemas, normaliza informações e cria fluxos confiáveis entre plataformas.',
     benefits: [
       'Conexão entre CRM, ERP, pagamentos, formulários, dashboards e sistemas internos.',
       'Dados mais consistentes para acompanhamento comercial e operacional.',
@@ -425,7 +425,7 @@ export const services: Service[] = [
       { label: 'Falhas', value: 'tratadas' },
       { label: 'Operação', value: 'conectada' },
     ],
-    cta: 'Quero conectar meus sistemas',
+    cta: 'Conectar meu ecossistema digital',
   },
 ];
 
@@ -536,27 +536,27 @@ export const projects: Project[] = [
 export const processSteps = [
   {
     title: 'Briefing',
-    text: 'Entendemos negócio, objetivos, restrições, público e o impacto esperado antes de sugerir qualquer tela.',
+    text: 'Mapeamos negócio, restrições e impacto esperado antes de propor qualquer tela.',
   },
   {
     title: 'Estratégia',
-    text: 'Definimos arquitetura, prioridades, narrativa, integrações e critérios de sucesso para o projeto.',
+    text: 'Definimos arquitetura, prioridades, narrativa e critérios de sucesso.',
   },
   {
     title: 'Design',
-    text: 'Criamos uma experiência visual com hierarquia forte, usabilidade e percepção premium desde o primeiro contato.',
+    text: 'Desenhamos hierarquia, interação e percepção premium com precisão.',
   },
   {
     title: 'Desenvolvimento',
-    text: 'Implementamos com componentes reutilizáveis, código limpo, performance e estrutura preparada para evolução.',
+    text: 'Construímos com componentes, performance e base preparada para evoluir.',
   },
   {
     title: 'Entrega',
-    text: 'Validamos responsividade, fluxos principais, deploy, ajustes finais e documentação essencial.',
+    text: 'Validamos fluxos, responsividade, deploy e documentação essencial.',
   },
   {
     title: 'Suporte',
-    text: 'Acompanhamos a entrada em produção e planejamos melhorias para manter o produto evoluindo com segurança.',
+    text: 'Acompanhamos a entrada em produção e planejamos ciclos de evolução.',
   },
 ];
 
@@ -574,9 +574,9 @@ export const technologies = [
 ];
 
 export const proofPoints = [
-  { label: 'Serviços digitais', value: '360°' },
+  { label: 'Camadas digitais', value: '360°' },
   { label: 'Arquitetura', value: 'sob medida' },
-  { label: 'Entrega', value: 'orientada a valor' },
+  { label: 'Entrega', value: 'estratégica' },
   { label: 'Foco', value: 'B2B e high-ticket' },
 ];
 

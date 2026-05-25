@@ -5,29 +5,29 @@ import { SectionIntro } from '../ui/SectionIntro';
 const deliverySteps = [
   {
     title: 'Arquitetura',
-    text: 'Definição de módulos, entidades, integrações, permissões e fluxos críticos antes da execução visual.',
+    text: 'Módulos, entidades, integrações, permissões e fluxos críticos antes da execução visual.',
     icon: FileCode2,
   },
   {
     title: 'Back-end e dados',
-    text: 'APIs, validações, persistência, regras de negócio e estrutura para auditoria e relatórios.',
+    text: 'APIs, validações, persistência e regras de negócio preparadas para leitura e auditoria.',
     icon: Database,
   },
   {
     title: 'Interface operacional',
-    text: 'Telas com hierarquia clara, estados de sistema, feedback visual e uso consistente em desktop e mobile.',
+    text: 'Telas com hierarquia clara, estados de sistema e uso consistente em desktop e mobile.',
     icon: Code2,
   },
   {
     title: 'Deploy e evolução',
-    text: 'Publicação, monitoramento inicial, documentação e roadmap técnico para próximas versões.',
+    text: 'Publicação, monitoramento inicial e roadmap técnico para próximas versões.',
     icon: Rocket,
   },
 ];
 
 export function DevelopmentSystem() {
   return (
-    <section className="section-band bg-frost text-ink">
+    <section className="section-band bg-frost text-ink" data-cursor-glow="off">
       <div className="container-premium">
         <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <Reveal>
@@ -35,10 +35,10 @@ export function DevelopmentSystem() {
               Processo de desenvolvimento
             </span>
             <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-normal text-ink sm:text-5xl">
-              Um ciclo técnico para construir software com previsibilidade.
+              Um ciclo técnico para construir software com controle.
             </h2>
             <p className="mt-5 text-base leading-8 text-[#4a4658]">
-              Cada etapa reduz ambiguidade: primeiro entendemos regras e arquitetura, depois construímos interfaces, integrações e automações com validação progressiva.
+              Primeiro entendemos regras e arquitetura. Depois construímos interfaces, integrações e automações com validação progressiva.
             </p>
 
             <div className="mt-8 rounded-[1.5rem] border border-ink/10 bg-white p-5 shadow-[0_16px_40px_rgba(5,5,9,0.08)]">

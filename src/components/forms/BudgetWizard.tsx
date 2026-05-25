@@ -30,13 +30,13 @@ import {
   Users,
   Workflow,
 } from 'lucide-react';
-import { BrandSymbol } from '../brand/BrandSymbol';
 import { BriefingApiError, submitBriefing } from '../../services/briefingApi';
 import { executeRecaptcha } from '../../services/recaptcha';
 import { buildWhatsAppUrl, openWhatsApp } from '../../services/whatsapp';
 import type { BriefingPayload } from '../../types/briefing';
 import { buttonStyles } from '../ui/Button';
 import { cn } from '../../utils/cn';
+import { DevignLogo } from '../brand/DevignLogo';
 
 type FormState = Omit<BriefingPayload, 'startedAt'>;
 type SubmitPhase = 'idle' | 'validating' | 'sending' | 'whatsapp';
@@ -426,7 +426,7 @@ export function BudgetWizard() {
                 transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                 className="mb-5 inline-flex"
               >
-                <BrandSymbol size="sm" glow="soft" />
+                <DevignLogo to="" variant="navbar" />
               </motion.div>
               <span className="text-xs font-semibold uppercase tracking-[0.22em] text-violet-400">
                 Onboarding estratégico

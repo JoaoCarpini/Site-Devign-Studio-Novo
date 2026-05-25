@@ -1,4 +1,3 @@
-import { type CSSProperties, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CalendarDays, CheckCircle2, Layers3, Sparkles } from 'lucide-react';
 import { HeroBrandBackdrop } from '../brand/HeroBrandBackdrop';
@@ -16,37 +15,21 @@ const particles = [
   { left: '93%', top: '34%', delay: 1.4, size: 2 },
 ];
 
-const capabilityPills = ['Sistemas web', 'APIs', 'Automações', 'IA aplicada', 'Dashboards'];
+const capabilityPills = ['Sistemas sob medida', 'APIs estratégicas', 'Automações', 'IA aplicada', 'Dashboards'];
 
 const heroMetrics = [
   { value: '360°', label: 'Estratégia, design e engenharia' },
-  { value: 'High-ticket', label: 'Presença digital de alto valor' },
-  { value: 'Sob medida', label: 'Arquitetura para operação real' },
+  { value: 'Premium', label: 'Percepção digital de alto valor' },
+  { value: 'Escala', label: 'Arquitetura para operação real' },
 ];
 
 export function CinematicHero() {
-  const [spotlight, setSpotlight] = useState({ x: '62%', y: '34%' });
-
-  const style = {
-    '--hero-x': spotlight.x,
-    '--hero-y': spotlight.y,
-  } as CSSProperties;
-
   return (
     <section
       className="relative isolate min-h-[min(900px,100vh)] overflow-hidden pt-32 sm:pt-36"
-      style={style}
-      onMouseMove={(event) => {
-        const rect = event.currentTarget.getBoundingClientRect();
-        setSpotlight({
-          x: `${event.clientX - rect.left}px`,
-          y: `${event.clientY - rect.top}px`,
-        });
-      }}
     >
       <AuroraBackground />
       <HeroBrandBackdrop />
-      <div aria-hidden="true" className="hero-cursor-glow absolute inset-0 z-0" />
       <div aria-hidden="true" className="hero-fine-grid absolute inset-0 z-0" />
       <div aria-hidden="true" className="absolute left-1/2 top-24 z-0 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-violet-500/18 blur-[120px]" />
       <div aria-hidden="true" className="absolute right-[-12rem] top-36 z-0 h-[28rem] w-[28rem] rounded-full bg-signal/10 blur-[110px]" />
@@ -76,7 +59,7 @@ export function CinematicHero() {
             className="mb-7 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.065] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-violet-300 shadow-[0_0_50px_rgba(141,92,255,0.16)] backdrop-blur-2xl"
           >
             <Sparkles className="h-4 w-4" />
-            Devign Studio / Software house premium
+            Devign Studio / Luxury software house
           </motion.div>
 
           <motion.h1
@@ -85,7 +68,7 @@ export function CinematicHero() {
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
           >
-            Tecnologia para operar em escala.
+            Tecnologia premium para operar em escala.
           </motion.h1>
 
           <motion.p
@@ -94,7 +77,7 @@ export function CinematicHero() {
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1], delay: 0.18 }}
           >
-            Sistemas, automações, APIs, dashboards e experiências digitais premium para empresas que querem crescer com arquitetura sob medida e percepção de alto valor.
+            Construímos experiências digitais, automações e sistemas sob medida para empresas que precisam de presença, performance e controle operacional.
           </motion.p>
 
           <motion.div
@@ -104,15 +87,15 @@ export function CinematicHero() {
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.26 }}
           >
             <ButtonLink to="/orcamento" className="px-6">
-              Solicitar Projeto
+              Iniciar projeto
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </ButtonLink>
             <ButtonLink to="/projetos" variant="secondary" className="px-6">
-              Ver Projetos
+              Explorar cases
             </ButtonLink>
             <ButtonLink to="/orcamento" variant="ghost" className="px-4">
               <CalendarDays className="h-4 w-4" />
-              Agendar Conversa
+              Agendar conversa
             </ButtonLink>
           </motion.div>
 
@@ -159,7 +142,7 @@ export function CinematicHero() {
         </motion.div>
       </div>
 
-      <div className="container-premium relative z-10 pb-16">
+      <div className="container-premium relative z-10 pb-28 sm:pb-32 lg:pb-36">
         <div className="grid gap-3 border-t border-white/10 pt-5 sm:grid-cols-3">
           {heroMetrics.map((item, index) => (
             <motion.div

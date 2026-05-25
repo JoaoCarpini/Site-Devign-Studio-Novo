@@ -9,27 +9,27 @@ import { ProcessTimeline } from '../components/sections/ProcessTimeline';
 
 const visionPillars = [
   {
-    title: 'Presença premium',
-    text: 'Interfaces, narrativa e acabamento visual para empresas que precisam comunicar valor antes da primeira conversa.',
+    title: 'Presença como ativo',
+    text: 'Interfaces, narrativa e acabamento para marcas que precisam sustentar valor antes da primeira conversa.',
     icon: Sparkles,
   },
   {
     title: 'Engenharia aplicada',
-    text: 'Sistemas, APIs, dados e automações pensados para rotina real, performance e evolução contínua.',
+    text: 'Sistemas, APIs, dados e automações pensados para rotina real, performance e evolução.',
     icon: Code2,
   },
   {
     title: 'Operação conectada',
-    text: 'Tecnologia integrada a processos comerciais, atendimento, gestão e indicadores para reduzir fricção operacional.',
+    text: 'Tecnologia integrada a processos comerciais, atendimento, gestão e indicadores.',
     icon: Network,
   },
 ];
 
 const principles = [
-  'Clareza antes de complexidade: tecnologia precisa melhorar decisão, não criar ruído.',
-  'Design como ativo de posicionamento: percepção premium também é infraestrutura comercial.',
-  'Arquitetura como proteção de futuro: software precisa aceitar evolução sem perder controle.',
-  'Processo com transparência: prioridade, escopo e trade-offs precisam estar visíveis.',
+  'Clareza antes de complexidade. Tecnologia precisa melhorar decisão.',
+  'Design como ativo de posicionamento. Percepção também é infraestrutura comercial.',
+  'Arquitetura como proteção de futuro. Software precisa evoluir sem perder controle.',
+  'Processo com transparência. Prioridade, escopo e trade-offs precisam estar visíveis.',
 ];
 
 const cultureSignals = [
@@ -51,11 +51,10 @@ export default function About() {
           <Reveal>
             <span className="eyebrow mb-6">Sobre a Devign</span>
             <h1 className="heading-xl max-w-5xl text-balance">
-              Uma software house premium para empresas que precisam operar e parecer maiores.
+              Uma software house premium para empresas que precisam de presença, operação e escala.
             </h1>
             <p className="body-lead mt-7 max-w-3xl">
-              A Devign Studio cria experiências digitais, sistemas, automações e integrações com a precisão de uma equipe
-              técnica e a percepção de valor de um estúdio high-end.
+              A Devign Studio combina design, engenharia e automação para construir ativos digitais com precisão técnica e percepção high-end.
             </p>
           </Reveal>
 
@@ -64,7 +63,7 @@ export default function About() {
               <div className="absolute inset-x-7 top-0 h-px bg-premium-line" />
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-violet-400">Posicionamento</p>
               <p className="mt-5 text-2xl font-semibold leading-tight text-frost">
-                Menos execução isolada. Mais estratégia, engenharia e presença digital trabalhando como sistema.
+                Menos execução isolada. Mais estratégia, engenharia e presença digital operando como sistema.
               </p>
               <div className="mt-7 grid gap-3">
                 {['Luxury tech', 'Software sob medida', 'Automação estratégica'].map((item) => (
@@ -86,7 +85,7 @@ export default function About() {
             <SectionIntro
               eyebrow="Visão"
               title="Tecnologia com forma, método e impacto operacional."
-              text="A Devign existe para tirar empresas do improviso digital. Cada projeto precisa aumentar clareza comercial, eficiência interna ou capacidade de escala."
+              text="A Devign existe para substituir improviso digital por ativos que aumentam clareza comercial, eficiência interna ou capacidade de escala."
             />
             <div className="grid gap-4">
               {visionPillars.map((item, index) => {
@@ -122,7 +121,7 @@ export default function About() {
             <SectionIntro
               eyebrow="Tecnologias"
               title="Stack moderna para interfaces, APIs, dados, automação e IA aplicada."
-              text="A escolha tecnológica segue o tipo de projeto: presença premium, sistemas operacionais, dashboards, integrações ou automações com inteligência."
+              text="A escolha tecnológica segue a função do projeto: presença premium, operação interna, dashboards, integrações ou inteligência aplicada."
             />
             <TechCloud />
           </div>
@@ -133,8 +132,8 @@ export default function About() {
         <div className="container-premium">
           <SectionIntro
             eyebrow="Processo"
-            title="Um método claro para reduzir incerteza e aumentar previsibilidade."
-            text="A Devign estrutura cada entrega por etapas, com alinhamento de prioridade, direção visual, arquitetura, desenvolvimento e suporte."
+            title="Um método claro para reduzir incerteza."
+            text="Cada entrega avança por prioridade, direção visual, arquitetura, desenvolvimento e suporte."
             align="center"
           />
           <div className="mt-12">
@@ -148,8 +147,8 @@ export default function About() {
         <div className="container-premium relative grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
           <SectionIntro
             eyebrow="Cultura"
-            title="Uma operação compacta para decisões melhores, mais rápidas e mais técnicas."
-            text="A cultura da Devign combina senso estético, visão de negócio e responsabilidade de engenharia. O objetivo é construir ativos digitais que sustentam crescimento, não peças soltas."
+            title="Uma operação compacta para decisões melhores."
+            text="A cultura da Devign combina senso estético, visão de negócio e responsabilidade de engenharia para construir ativos digitais, não peças soltas."
           />
           <div className="grid gap-4 sm:grid-cols-2">
             {cultureSignals.map((item, index) => (
@@ -160,7 +159,7 @@ export default function About() {
                   </span>
                   <h3 className="mt-6 text-xl font-semibold text-frost">{item}</h3>
                   <p className="mt-3 text-sm leading-7 text-muted">
-                    Decisões com contexto, acabamento consistente e foco no que realmente melhora a experiência do cliente final.
+                    Decisões com contexto, acabamento consistente e foco no que melhora a experiência real.
                   </p>
                 </div>
               </Reveal>
@@ -193,11 +192,10 @@ export default function About() {
               <div className="absolute inset-x-8 top-0 h-px bg-premium-line" />
               <h2 className="heading-lg max-w-4xl text-balance">Projetos sérios começam com contexto, método e direção técnica.</h2>
               <p className="body-lead mt-5 max-w-3xl">
-                Conte onde sua empresa quer chegar. A Devign organiza a melhor rota entre presença digital, software,
-                automação e integração.
+                Conte onde sua empresa quer chegar. A Devign organiza a rota entre presença digital, software, automação e integração.
               </p>
               <ButtonLink to="/orcamento" className="mt-8">
-                Iniciar onboarding
+                Iniciar diagnóstico
                 <ArrowRight className="h-4 w-4" />
               </ButtonLink>
             </div>

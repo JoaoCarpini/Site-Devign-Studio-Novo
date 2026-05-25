@@ -120,16 +120,34 @@ a {
     text-wrap: balance;
   }
 
-  .hero-cursor-glow {
-    background: radial-gradient(
-      760px circle at var(--hero-x, 62%) var(--hero-y, 34%),
-      rgba(141, 92, 255, 0.24),
-      rgba(77, 212, 198, 0.08) 24%,
-      transparent 55%
-    );
+  .cursor-glow-root {
+    --cursor-glow-x: 50vw;
+    --cursor-glow-y: 35vh;
+    --cursor-glow-opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    overflow: hidden;
+    background:
+      radial-gradient(
+        circle 210px at var(--cursor-glow-x) var(--cursor-glow-y),
+        rgba(176, 135, 255, 0.34) 0%,
+        rgba(141, 92, 255, 0.27) 28%,
+        rgba(91, 70, 190, 0.16) 52%,
+        transparent 78%
+      ),
+      radial-gradient(
+        circle 520px at var(--cursor-glow-x) var(--cursor-glow-y),
+        rgba(70, 94, 255, 0.13) 0%,
+        rgba(77, 212, 198, 0.055) 32%,
+        transparent 72%
+      );
     mix-blend-mode: screen;
-    opacity: 0.74;
-    transition: opacity 420ms ease;
+    opacity: var(--cursor-glow-opacity);
+    transition: opacity 220ms ease;
+    will-change: background, opacity;
+    contain: layout style paint;
   }
 
   .hero-fine-grid {
@@ -140,6 +158,12 @@ a {
     background-size: 72px 72px, 72px 72px, 288px 288px;
     mask-image: linear-gradient(180deg, black 0%, black 62%, transparent 100%);
     opacity: 0.6;
+  }
+}
+
+@media (max-width: 767px), (pointer: coarse) {
+  .cursor-glow-root {
+    display: none;
   }
 }
 
