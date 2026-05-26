@@ -28,17 +28,17 @@ export default function Budget() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/50 to-transparent" />
       <div className="pointer-events-none absolute left-1/2 top-24 h-[20rem] w-[20rem] -translate-x-1/2 rounded-full bg-violet-500/[0.1] blur-3xl sm:top-28 sm:h-[28rem] sm:w-[28rem] sm:bg-violet-500/[0.12]" />
 
-      <div className="container-premium relative grid gap-7 pb-14 pt-6 sm:pb-20 sm:pt-8 lg:grid-cols-[0.58fr_1.42fr] lg:items-start lg:gap-10 lg:pb-28">
+      <div className="container-premium relative grid gap-5 pb-12 pt-4 sm:gap-7 sm:pb-20 sm:pt-8 lg:grid-cols-[0.58fr_1.42fr] lg:items-start lg:gap-10 lg:pb-28">
         <Reveal className="lg:sticky lg:top-32">
-          <span className="eyebrow mb-6">Diagnóstico inicial</span>
-          <h1 className="max-w-xl text-balance text-[2.35rem] font-semibold leading-[1.02] tracking-normal text-frost sm:text-5xl lg:text-[3.45rem]">
+          <span className="eyebrow mb-4 sm:mb-6">Diagnóstico inicial</span>
+          <h1 className="max-w-xl text-balance text-[2rem] font-semibold leading-[1.02] tracking-normal text-frost sm:text-5xl lg:text-[3.45rem]">
             Contexto antes de escopo.
           </h1>
-          <p className="mt-4 max-w-xl text-sm leading-7 text-mist sm:mt-5 sm:text-base sm:leading-8">
+          <p className="mt-3 max-w-xl text-sm leading-6 text-mist sm:mt-5 sm:text-base sm:leading-8">
             Antes da proposta, a Devign organiza objetivo, investimento, prazo e prioridades. Assim a conversa começa com direção, não com suposições.
           </p>
 
-          <div className="mt-6 grid gap-3 sm:mt-8">
+          <div className="mt-5 hidden gap-3 sm:mt-8 sm:grid">
             {intakeSignals.map((item) => {
               const Icon = item.icon;
 

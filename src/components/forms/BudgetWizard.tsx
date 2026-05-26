@@ -408,7 +408,7 @@ export function BudgetWizard() {
   return (
     <form
       onSubmit={submit}
-      className="relative overflow-hidden rounded-[1.45rem] border border-white/10 bg-white/[0.052] p-4 shadow-[0_24px_80px_rgba(5,5,9,0.45)] backdrop-blur-2xl sm:rounded-[2rem] sm:p-7 sm:shadow-[0_34px_120px_rgba(5,5,9,0.58)] lg:p-8"
+      className="relative -mx-1 overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.052] p-3.5 shadow-[0_24px_80px_rgba(5,5,9,0.45)] backdrop-blur-2xl sm:mx-0 sm:rounded-[2rem] sm:p-7 sm:shadow-[0_34px_120px_rgba(5,5,9,0.58)] lg:p-8"
     >
       <div className="pointer-events-none absolute inset-x-8 -top-24 h-44 rounded-full bg-violet-500/[0.12] blur-3xl sm:inset-x-10 sm:-top-28 sm:h-56 sm:bg-violet-500/[0.18]" />
       <div className="pointer-events-none absolute -right-28 bottom-20 hidden h-60 w-60 rounded-full bg-signal/[0.08] blur-3xl sm:block" />
@@ -416,13 +416,13 @@ export function BudgetWizard() {
       {isSubmitting ? <LoadingOverlay message={phaseMessages[submitPhase]} /> : null}
 
       <div className="relative">
-        <div className="flex flex-col gap-4 border-b border-white/10 pb-5 sm:gap-5 sm:pb-6">
+        <div className="flex flex-col gap-3.5 border-b border-white/10 pb-4 sm:gap-5 sm:pb-6">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <span className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-violet-400 sm:text-xs sm:tracking-[0.22em]">
                 Diagnóstico estratégico
               </span>
-              <h2 className="mt-2 text-[1.45rem] font-semibold leading-tight text-frost sm:mt-3 sm:text-3xl">
+              <h2 className="mt-2 text-[1.28rem] font-semibold leading-tight text-frost sm:mt-3 sm:text-3xl">
                 Organize o contexto do seu projeto.
               </h2>
             </div>
@@ -447,7 +447,7 @@ export function BudgetWizard() {
           />
         </div>
 
-        <div className="py-6 sm:min-h-[34rem] sm:py-8">
+        <div className="py-5 sm:min-h-[34rem] sm:py-8">
           <AnimatePresence mode="wait">
             <motion.div
               key={step}
@@ -462,10 +462,10 @@ export function BudgetWizard() {
                   title="Que tipo de ativo digital sua empresa precisa construir?"
                   description="Escolha a frente principal para direcionar tecnologia, design e presença estratégica com mais precisão."
                 >
-                  <div className="mt-6 space-y-7 sm:mt-7 sm:space-y-10">
+                  <div className="mt-5 space-y-5 sm:mt-7 sm:space-y-10">
                     {projectTypeGroups.map((group) => (
                       <div key={group.eyebrow}>
-                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-400/90">
+                        <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-violet-400/90 sm:text-xs sm:tracking-[0.2em]">
                           {group.eyebrow}
                         </p>
                         <ProjectOptionGrid className="mt-4">
@@ -482,7 +482,7 @@ export function BudgetWizard() {
                     ))}
 
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Outros formatos</p>
+                      <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-muted sm:text-xs sm:tracking-[0.2em]">Outros formatos</p>
                       <ProjectOptionGrid className="mt-4">
                         <OptionCard
                           option={otherProjectType}
@@ -608,7 +608,7 @@ export function BudgetWizard() {
                     onChange={(event) => update('website', event.target.value)}
                   />
 
-                  <div className="mt-6 grid gap-4 md:grid-cols-2">
+                  <div className="mt-5 grid gap-3 md:grid-cols-2 sm:mt-6 sm:gap-4">
                     <Field label="Nome" value={form.name} onChange={(value) => update('name', value)} required />
                     <Field label="Empresa" value={form.company} onChange={(value) => update('company', value)} required />
                     <Field
@@ -631,7 +631,7 @@ export function BudgetWizard() {
                   </label>
                   <textarea
                     id="description"
-                    className="mt-2 min-h-40 w-full resize-y rounded-2xl border border-white/10 bg-ink/70 px-4 py-3 text-mist outline-none transition duration-300 placeholder:text-muted/70 focus:border-violet-400 focus:bg-ink/85 focus:shadow-[0_0_0_4px_rgba(141,92,255,0.12)]"
+                    className="mt-2 min-h-32 w-full resize-y rounded-2xl border border-white/10 bg-ink/70 px-4 py-3 text-mist outline-none transition duration-300 placeholder:text-muted/70 focus:border-violet-400 focus:bg-ink/85 focus:shadow-[0_0_0_4px_rgba(141,92,255,0.12)] sm:min-h-40"
                     placeholder="Contexto, objetivo, dores atuais, referências e qualquer requisito importante."
                     value={form.description}
                     onChange={(event) => update('description', event.target.value)}
@@ -660,10 +660,10 @@ export function BudgetWizard() {
           </motion.p>
         ) : null}
 
-        <div className="mt-5 flex flex-col-reverse gap-3 border-t border-white/10 pt-5 sm:mt-6 sm:flex-row sm:items-center sm:justify-between sm:pt-6">
+        <div className="mt-4 flex flex-col-reverse gap-2.5 border-t border-white/10 pt-4 sm:mt-6 sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:pt-6">
           <button
             type="button"
-            className={cn(buttonStyles('secondary'), 'disabled:pointer-events-none disabled:opacity-45')}
+            className={cn(buttonStyles('secondary'), 'w-full sm:w-auto disabled:pointer-events-none disabled:opacity-45')}
             onClick={() => setStep((current) => Math.max(current - 1, 0))}
             disabled={step === 0 || isSubmitting}
           >
@@ -671,12 +671,12 @@ export function BudgetWizard() {
             Voltar
           </button>
           {step < steps.length - 1 ? (
-            <button type="button" className={buttonStyles('primary')} onClick={next} disabled={isSubmitting}>
+            <button type="button" className={cn(buttonStyles('primary'), 'w-full sm:w-auto')} onClick={next} disabled={isSubmitting}>
               Continuar diagnóstico
               <ArrowRight className="h-4 w-4" />
             </button>
           ) : (
-            <button type="submit" className={buttonStyles('primary')} disabled={isSubmitting}>
+            <button type="submit" className={cn(buttonStyles('primary'), 'w-full sm:w-auto')} disabled={isSubmitting}>
               {isSubmitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
               Enviar para análise
             </button>
@@ -700,9 +700,9 @@ function WizardStep({
 }) {
   return (
     <section>
-      <span className="text-xs font-semibold uppercase tracking-[0.22em] text-violet-400">{eyebrow}</span>
-      <h3 className="mt-3 max-w-3xl text-[1.75rem] font-semibold leading-[1.08] text-frost sm:text-4xl sm:leading-tight">{title}</h3>
-      <p className="mt-3 max-w-2xl text-sm leading-7 text-mist sm:mt-4 sm:text-base sm:leading-8">{description}</p>
+      <span className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-violet-400 sm:text-xs sm:tracking-[0.22em]">{eyebrow}</span>
+      <h3 className="mt-2.5 max-w-3xl text-[1.45rem] font-semibold leading-[1.08] text-frost sm:mt-3 sm:text-4xl sm:leading-tight">{title}</h3>
+      <p className="mt-2.5 max-w-2xl text-[0.86rem] leading-6 text-mist sm:mt-4 sm:text-base sm:leading-8">{description}</p>
       {children}
     </section>
   );
@@ -826,21 +826,21 @@ function StepRail({
 }
 
 function OptionGrid({ children }: { children: ReactNode }) {
-  return <div className="mt-6 grid gap-3 md:grid-cols-2">{children}</div>;
+  return <div className="mt-5 grid gap-2.5 md:grid-cols-2 sm:mt-6 sm:gap-3">{children}</div>;
 }
 
 function ProjectOptionGrid({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <div className={cn('grid gap-3 sm:grid-cols-2 xl:grid-cols-3', className)}>{children}</div>
+    <div className={cn('grid gap-2.5 sm:grid-cols-2 sm:gap-3 xl:grid-cols-3', className)}>{children}</div>
   );
 }
 
 function ChipGrid({ children }: { children: ReactNode }) {
-  return <div className="mt-6 flex flex-wrap gap-2.5 sm:gap-3">{children}</div>;
+  return <div className="mt-5 flex flex-wrap gap-2 sm:mt-6 sm:gap-3">{children}</div>;
 }
 
 function FeatureGrid({ children }: { children: ReactNode }) {
-  return <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">{children}</div>;
+  return <div className="mt-5 grid gap-2.5 sm:mt-6 sm:grid-cols-2 sm:gap-3 xl:grid-cols-3">{children}</div>;
 }
 
 function OptionCard({
@@ -861,7 +861,7 @@ function OptionCard({
       whileTap={{ scale: 0.985 }}
       onClick={onClick}
       className={cn(
-        'group relative min-h-28 overflow-hidden rounded-[1.15rem] border p-4 text-left transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:rounded-[1.35rem] sm:p-5',
+        'group relative flex min-h-[4.75rem] items-start gap-3 overflow-hidden rounded-[1rem] border p-3 text-left transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:block sm:min-h-28 sm:rounded-[1.35rem] sm:p-5',
         selected
           ? 'border-violet-400/65 bg-violet-500/[0.16] shadow-[0_24px_90px_rgba(141,92,255,0.22)]'
           : 'border-white/10 bg-white/[0.045] hover:border-violet-400/30 hover:bg-white/[0.075] hover:shadow-[0_20px_70px_rgba(141,92,255,0.12)]',
@@ -876,7 +876,7 @@ function OptionCard({
       <span className="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 transition group-hover:opacity-100" />
       <span
         className={cn(
-          'mb-4 grid h-10 w-10 place-items-center rounded-2xl border transition sm:mb-5 sm:h-11 sm:w-11',
+          'grid h-9 w-9 shrink-0 place-items-center rounded-[0.95rem] border transition sm:mb-5 sm:h-11 sm:w-11 sm:rounded-2xl',
           selected
             ? 'border-violet-400/45 bg-violet-500/[0.18] text-violet-400'
             : 'border-white/10 bg-white/[0.045] text-muted group-hover:text-frost',
@@ -884,12 +884,14 @@ function OptionCard({
       >
         <Icon className="h-5 w-5" />
       </span>
-      <span className="relative block text-[0.98rem] font-semibold leading-snug text-frost sm:text-lg">{option.title}</span>
-      <span className="relative mt-2 block text-[0.82rem] leading-6 text-mist sm:text-sm">{option.description}</span>
+      <span className="relative min-w-0 flex-1">
+        <span className="block text-[0.95rem] font-semibold leading-snug text-frost sm:text-lg">{option.title}</span>
+        <span className="mt-1 hidden text-sm leading-6 text-mist sm:block">{option.description}</span>
+      </span>
       {selected ? (
-        <span className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-violet-400">
+        <span className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-violet-300 sm:static sm:mt-5 sm:gap-2 sm:text-xs sm:tracking-[0.18em] sm:text-violet-400">
           <CheckCircle2 className="h-4 w-4" />
-          Selecionado
+          <span className="hidden sm:inline">Selecionado</span>
         </span>
       ) : null}
     </motion.button>
@@ -904,7 +906,7 @@ function Chip({ selected, onClick, children }: { selected: boolean; onClick: () 
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
       className={cn(
-        'min-h-11 rounded-full border px-4 py-2.5 text-sm font-semibold transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:px-5 sm:py-3',
+        'min-h-11 rounded-full border px-3.5 py-2.5 text-[0.84rem] font-semibold transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:px-5 sm:py-3 sm:text-sm',
         selected
           ? 'border-violet-400/60 bg-violet-500/[0.16] text-frost shadow-[0_18px_60px_rgba(141,92,255,0.16)]'
           : 'border-white/10 bg-white/[0.045] text-mist hover:border-white/20 hover:bg-white/[0.075]',
@@ -923,7 +925,7 @@ function FeatureCard({ selected, onClick, children }: { selected: boolean; onCli
       whileTap={{ scale: 0.985 }}
       onClick={onClick}
       className={cn(
-        'group relative min-h-[4.75rem] overflow-hidden rounded-[1.1rem] border p-3.5 text-left transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:min-h-24 sm:rounded-[1.25rem] sm:p-4',
+        'group relative min-h-[3.6rem] overflow-hidden rounded-[1rem] border p-3 text-left transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:min-h-24 sm:rounded-[1.25rem] sm:p-4',
         selected
           ? 'border-violet-400/70 bg-[linear-gradient(135deg,rgba(141,92,255,0.24),rgba(255,255,255,0.075)_48%,rgba(77,212,198,0.08))] text-frost shadow-[0_24px_90px_rgba(141,92,255,0.24),inset_0_1px_0_rgba(255,255,255,0.14)]'
           : 'border-white/10 bg-white/[0.045] text-mist shadow-[0_14px_50px_rgba(5,5,9,0.2)] hover:border-violet-400/45 hover:bg-white/[0.08] hover:text-frost hover:shadow-[0_24px_80px_rgba(141,92,255,0.16)]',
@@ -937,7 +939,7 @@ function FeatureCard({ selected, onClick, children }: { selected: boolean; onCli
         )}
       />
       <span className="relative flex h-full items-start justify-between gap-4">
-        <span className="text-[0.84rem] font-semibold leading-5 sm:text-sm sm:leading-6">{children}</span>
+        <span className="text-[0.8rem] font-semibold leading-5 sm:text-sm sm:leading-6">{children}</span>
         <span
           className={cn(
             'grid h-6 w-6 shrink-0 place-items-center rounded-full border transition duration-500',
