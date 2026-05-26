@@ -56,7 +56,7 @@ a {
   }
 
   .container-premium {
-    @apply mx-auto w-full max-w-[88rem] px-5 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-[88rem] px-4 sm:px-6 lg:px-8;
   }
 
   .glass-panel {
@@ -64,31 +64,31 @@ a {
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-violet-400;
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-violet-400 sm:px-4 sm:text-xs sm:tracking-[0.24em];
   }
 
   .heading-xl {
-    @apply text-4xl font-semibold leading-[0.96] tracking-normal text-frost sm:text-6xl lg:text-7xl;
+    @apply text-[2.55rem] font-semibold leading-[0.98] tracking-normal text-frost sm:text-6xl lg:text-7xl;
   }
 
   .heading-lg {
-    @apply text-3xl font-semibold leading-tight tracking-normal text-frost sm:text-5xl;
+    @apply text-[2rem] font-semibold leading-[1.06] tracking-normal text-frost sm:text-5xl;
   }
 
   .heading-md {
-    @apply text-2xl font-semibold leading-tight tracking-normal text-frost sm:text-3xl;
+    @apply text-[1.65rem] font-semibold leading-tight tracking-normal text-frost sm:text-3xl;
   }
 
   .body-lead {
-    @apply text-base leading-8 text-mist sm:text-lg;
+    @apply text-[0.98rem] leading-7 text-mist sm:text-lg sm:leading-8;
   }
 
   .premium-card {
-    @apply glass-panel rounded-[1.5rem] p-6 transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:-translate-y-1.5 hover:border-violet-400/35 hover:bg-white/[0.075] hover:shadow-[0_28px_90px_rgba(141,92,255,0.18)];
+    @apply glass-panel rounded-[1.35rem] p-5 transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:-translate-y-1.5 hover:border-violet-400/35 hover:bg-white/[0.075] hover:shadow-[0_28px_90px_rgba(141,92,255,0.18)] sm:rounded-[1.5rem] sm:p-6;
   }
 
   .section-band {
-    @apply relative py-20 sm:py-28 lg:py-36;
+    @apply relative py-14 sm:py-28 lg:py-36;
   }
 
   .soft-grid {
@@ -113,7 +113,7 @@ a {
   }
 
   .light-card {
-    @apply rounded-[1.5rem] border border-ink/10 bg-white shadow-[0_20px_70px_rgba(5,5,9,0.08)] transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:-translate-y-1 hover:shadow-[0_28px_90px_rgba(5,5,9,0.12)];
+    @apply rounded-[1.35rem] border border-ink/10 bg-white shadow-[0_20px_70px_rgba(5,5,9,0.08)] transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:-translate-y-1 hover:shadow-[0_28px_90px_rgba(5,5,9,0.12)] sm:rounded-[1.5rem];
   }
 
   .text-balance {

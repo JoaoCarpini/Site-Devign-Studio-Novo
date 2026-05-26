@@ -486,48 +486,48 @@ export const projects: Project[] = [
   {
     slug: 'kronos',
     title: 'Kronos',
-    category: 'Sistema de gestão e produtividade',
+    category: 'Identidade visual premium',
     summary:
-      'Plataforma para acompanhamento de rotinas, tarefas, prazos e indicadores de produtividade com visão gerencial.',
+      'Projeto de identidade visual com direção criativa, posicionamento premium e linguagem refinada para uma marca de alta percepção.',
     context:
-      'Times em crescimento precisam organizar entregas, responsáveis, prazos e prioridades com clareza para evitar ruído operacional.',
+      'A marca precisava transmitir sofisticação, força visual e clareza de posicionamento sem cair em uma estética genérica ou excessivamente decorativa.',
     problem:
-      'As demandas ficavam espalhadas entre conversas, planilhas e ferramentas sem padronização, dificultando cobrança, priorização e leitura de capacidade.',
+      'A percepção visual ainda não sustentava o nível de autoridade desejado. Faltavam consistência, hierarquia, assinatura gráfica e uma direção premium reconhecível.',
     solution:
-      'Estruturamos um sistema com áreas de trabalho, tarefas, responsáveis, prazos, status, indicadores e arquitetura preparada para automações de follow-up.',
+      'Construímos uma identidade visual com sistema de marca, paleta, tipografia, composições, aplicações digitais e direção criativa para reforçar presença e valor percebido.',
     result:
-      'Gestão mais previsível, menos perda de contexto e maior clareza sobre carga, prioridade e andamento das entregas.',
-    stack: ['Next.js', 'TypeScript', 'APIs', 'PostgreSQL', 'Vercel', 'GitHub'],
-    features: ['Tarefas e prazos', 'Responsáveis', 'Status de entrega', 'Indicadores', 'Automações de follow-up'],
-    differentials: ['Visão gerencial por etapa', 'Estrutura escalável por equipe', 'Base preparada para permissões'],
+      'Uma marca mais sofisticada, consistente e preparada para se apresentar com autoridade em canais digitais, materiais institucionais e experiências comerciais.',
+    stack: ['Branding', 'Identidade Visual', 'Design Estratégico', 'Direção Criativa', 'Figma', 'Adobe Illustrator'],
+    features: ['Sistema visual', 'Paleta e tipografia', 'Aplicações digitais', 'UI Concepts', 'Motion Identity'],
+    differentials: ['Direção premium', 'Consistência de marca', 'Posicionamento visual refinado'],
     metrics: [
-      { label: 'Gestão', value: 'por status' },
-      { label: 'Prioridade', value: 'visível' },
-      { label: 'Times', value: 'multiárea' },
+      { label: 'Marca', value: 'premium' },
+      { label: 'Direção', value: 'criativa' },
+      { label: 'Presença', value: 'refinada' },
     ],
     accent: 'amber',
   },
   {
     slug: 'contract-ai',
     title: 'Contract AI',
-    category: 'IA aplicada a contratos',
+    category: 'Automação documental com IA',
     summary:
-      'Solução com IA para leitura, triagem, sumarização e análise assistida de contratos e documentos empresariais.',
+      'Plataforma inteligente para geração automatizada de contratos, preenchimento dinâmico e automação do fluxo documental.',
     context:
-      'Empresas que lidam com contratos precisam acelerar revisão, identificar riscos, padronizar leitura e reduzir dependência de análise manual repetitiva.',
+      'Empresas que criam contratos com frequência precisam padronizar cláusulas, reduzir preenchimento manual e acelerar a produção documental com mais controle.',
     problem:
-      'Documentos extensos consumiam tempo de análise, dificultavam comparação entre versões e atrasavam decisões jurídicas, comerciais ou administrativas.',
+      'A criação de contratos dependia de modelos soltos, edição manual e conferência repetitiva, aumentando retrabalho, inconsistência e risco operacional.',
     solution:
-      'Criamos uma experiência com upload de documentos, extração de pontos relevantes, resumos estruturados, classificação e preparação para integração com bases internas.',
+      'Desenvolvemos um fluxo para selecionar modelos, preencher dados essenciais, gerar contratos automaticamente e preparar a automação para integrações internas.',
     result:
-      'Análise inicial mais rápida, melhor organização de informações críticas e uma camada inteligente para apoiar decisão sem substituir revisão humana.',
-    stack: ['IA', 'Python', 'APIs', 'PostgreSQL', 'React', 'TypeScript'],
-    features: ['Upload de documentos', 'Resumo com IA', 'Classificação', 'Extração de cláusulas', 'Histórico de análises'],
-    differentials: ['IA com contexto controlado', 'Fluxo de revisão assistida', 'Arquitetura preparada para base documental'],
+      'Contratos gerados com mais velocidade, menos trabalho manual e maior consistência entre dados, modelos e fluxo operacional.',
+    stack: ['Node.js', 'Express', 'PostgreSQL', 'APIs', 'Automação', 'Railway'],
+    features: ['Geração de contratos', 'Modelos dinâmicos', 'Preenchimento inteligente', 'Fluxo documental', 'Deploy contínuo'],
+    differentials: ['Automação contratual', 'Experiência SaaS', 'Base preparada para integrações'],
     metrics: [
-      { label: 'Triagem', value: 'assistida' },
-      { label: 'Riscos', value: 'destacados' },
-      { label: 'Leitura', value: 'acelerada' },
+      { label: 'Contratos', value: 'gerados' },
+      { label: 'Fluxo', value: 'automatizado' },
+      { label: 'Operação', value: 'menos manual' },
     ],
     accent: 'violet',
   },

@@ -25,7 +25,7 @@ export function ProjectShowcase({ compact = false }: { compact?: boolean }) {
           </ButtonLink>
         </div>
 
-        <div className="mt-12 grid gap-8">
+        <div className="mt-8 grid gap-5 sm:mt-12 sm:gap-8">
           {(compact ? projects.slice(0, 4) : projects).map((project, index) => (
             <ProjectShowcaseCard key={project.slug} project={project} featured={index === 0} />
           ))}
@@ -77,7 +77,7 @@ function ProjectTeaserShowcase() {
       <div aria-hidden="true" className="absolute -left-44 bottom-10 h-[28rem] w-[28rem] rounded-full bg-signal/[0.055] blur-[120px]" />
 
       <div className="container-premium relative z-10">
-        <div className="grid gap-8 lg:grid-cols-[0.84fr_1.16fr] lg:items-end">
+        <div className="grid gap-6 lg:grid-cols-[0.84fr_1.16fr] lg:items-end">
           <SectionIntro
             eyebrow="Experiências digitais"
             title="Fragmentos de sistemas em movimento."
@@ -91,7 +91,7 @@ function ProjectTeaserShowcase() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-8 grid gap-4 md:grid-cols-2 xl:mt-12 xl:grid-cols-4">
           {projects.slice(0, 4).map((project, index) => {
             const copy = teaserCopy[index];
             const Icon = copy.icon;
@@ -100,7 +100,7 @@ function ProjectTeaserShowcase() {
               <Reveal key={project.slug} delay={index * 0.05}>
                 <article
                   className={cn(
-                    'group relative min-h-[25rem] overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.045] p-5 shadow-premium backdrop-blur-2xl transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:-translate-y-1 hover:border-violet-300/24 hover:bg-white/[0.062]',
+                    'group relative min-h-[20rem] overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.045] p-4 shadow-premium backdrop-blur-2xl transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:-translate-y-1 hover:border-violet-300/24 hover:bg-white/[0.062] sm:min-h-[25rem] sm:rounded-[1.75rem] sm:p-5',
                     index === 1 && 'md:translate-y-8',
                     index === 2 && 'xl:translate-y-14',
                   )}
@@ -118,14 +118,14 @@ function ProjectTeaserShowcase() {
                     </span>
                   </div>
 
-                  <div className="relative z-10 mt-8">
+                  <div className="relative z-10 mt-5 sm:mt-8">
                     <TeaserMockup index={index} projectTitle={project.title} accent={project.accent} />
                   </div>
 
-                  <div className="relative z-10 mt-7">
+                  <div className="relative z-10 mt-5 sm:mt-7">
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-300/80">{project.category}</p>
-                    <h3 className="mt-3 text-2xl font-semibold leading-tight tracking-normal text-frost">{copy.title}</h3>
-                    <p className="mt-4 text-sm leading-7 text-muted">{copy.detail}</p>
+                    <h3 className="mt-3 text-xl font-semibold leading-tight tracking-normal text-frost sm:text-2xl">{copy.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-muted sm:mt-4 sm:leading-7">{copy.detail}</p>
                   </div>
 
                   <div className="pointer-events-none absolute bottom-5 right-5 text-white/[0.045]">
@@ -137,8 +137,8 @@ function ProjectTeaserShowcase() {
           })}
         </div>
 
-        <Reveal className="mt-14">
-          <div className="flex flex-col gap-5 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
+        <Reveal className="mt-10 sm:mt-14">
+          <div className="flex flex-col gap-5 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between sm:pt-8">
             <p className="max-w-2xl text-sm leading-7 text-muted">
               Cada preview é intencionalmente incompleto. O valor está no sistema por trás: arquitetura, operação, dados e experiência.
             </p>
@@ -158,7 +158,7 @@ function TeaserMockup({ index, projectTitle, accent }: { index: number; projectT
 
   return (
     <motion.div
-      className="relative h-44 overflow-hidden rounded-[1.35rem] border border-white/10 bg-[#070711]/90 shadow-[0_24px_80px_rgba(0,0,0,0.24)]"
+      className="relative h-36 overflow-hidden rounded-[1.2rem] border border-white/10 bg-[#070711]/90 shadow-[0_24px_80px_rgba(0,0,0,0.24)] sm:h-44 sm:rounded-[1.35rem]"
       whileHover={{ scale: 1.025 }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
     >
@@ -171,7 +171,7 @@ function TeaserMockup({ index, projectTitle, accent }: { index: number; projectT
         <span className="rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-1 text-[0.65rem] text-muted">partial view</span>
       </div>
 
-      <div className="grid h-[8.7rem] grid-cols-[0.68fr_1.32fr] gap-3 p-3">
+      <div className="grid h-[7.6rem] grid-cols-[0.72fr_1.28fr] gap-2.5 p-2.5 sm:h-[8.7rem] sm:grid-cols-[0.68fr_1.32fr] sm:gap-3 sm:p-3">
         <div className="space-y-2">
           <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3">
             <span className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-violet-300/80">{projectTitle}</span>

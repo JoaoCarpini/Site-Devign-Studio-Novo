@@ -46,8 +46,8 @@ export function TeamSection({ compact = false }: TeamSectionProps) {
   return (
     <section className="section-band relative overflow-hidden border-y border-white/10 bg-ink">
       <div className="soft-grid pointer-events-none absolute inset-0 opacity-45" />
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-violet-500/[0.14] blur-3xl" />
-      <div className="pointer-events-none absolute -right-36 bottom-10 h-80 w-80 rounded-full bg-signal/[0.08] blur-3xl" />
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[22rem] w-[22rem] -translate-x-1/2 rounded-full bg-violet-500/[0.09] blur-3xl sm:h-[34rem] sm:w-[34rem] sm:bg-violet-500/[0.14]" />
+      <div className="pointer-events-none absolute -right-36 bottom-10 hidden h-80 w-80 rounded-full bg-signal/[0.08] blur-3xl sm:block" />
       <div className="pointer-events-none absolute inset-x-12 top-0 h-px bg-premium-line" />
 
       {particles.map((position, index) => (
@@ -72,7 +72,7 @@ export function TeamSection({ compact = false }: TeamSectionProps) {
           />
 
           <Reveal delay={0.08}>
-            <div className="relative rounded-[2rem] border border-white/10 bg-white/[0.045] p-5 shadow-premium backdrop-blur-2xl sm:p-6">
+            <div className="relative rounded-[1.45rem] border border-white/10 bg-white/[0.045] p-5 shadow-premium backdrop-blur-2xl sm:rounded-[2rem] sm:p-6">
               <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/50 to-transparent" />
               <div className="grid gap-3 sm:grid-cols-3">
                 {[
@@ -133,17 +133,17 @@ function TeamCard({
     <motion.article
       whileHover={{ y: -8, scale: 1.012 }}
       transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-      className="group relative h-full overflow-hidden rounded-[1.65rem] border border-white/10 bg-white/[0.052] p-6 shadow-[0_24px_90px_rgba(5,5,9,0.45)] backdrop-blur-2xl"
+      className="group relative h-full overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.052] p-5 shadow-[0_20px_70px_rgba(5,5,9,0.34)] backdrop-blur-2xl sm:rounded-[1.65rem] sm:p-6 sm:shadow-[0_24px_90px_rgba(5,5,9,0.45)]"
     >
       <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.35] to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
       <div className="absolute -right-20 -top-20 h-44 w-44 rounded-full bg-violet-500/0 blur-3xl transition duration-700 group-hover:bg-violet-500/[0.18]" />
       <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-violet-400/0 via-violet-400/40 to-violet-400/0 opacity-0 transition duration-700 group-hover:opacity-100" />
 
-      <div className="relative flex min-h-[21rem] flex-col">
+      <div className="relative flex min-h-[17rem] flex-col sm:min-h-[21rem]">
         <div className="flex items-start justify-between gap-5">
           <div className="relative">
             <div className="absolute inset-0 rounded-full bg-violet-500/25 blur-xl transition duration-500 group-hover:bg-violet-400/40" />
-            <div className="relative grid h-20 w-20 place-items-center rounded-full border border-violet-400/[0.35] bg-[radial-gradient(circle_at_35%_20%,rgba(255,255,255,0.2),rgba(141,92,255,0.16)_42%,rgba(5,5,9,0.86)_100%)] text-xl font-semibold text-frost shadow-[0_0_60px_rgba(141,92,255,0.2)]">
+            <div className="relative grid h-16 w-16 place-items-center rounded-full border border-violet-400/[0.35] bg-[radial-gradient(circle_at_35%_20%,rgba(255,255,255,0.2),rgba(141,92,255,0.16)_42%,rgba(5,5,9,0.86)_100%)] text-lg font-semibold text-frost shadow-[0_0_60px_rgba(141,92,255,0.2)] sm:h-20 sm:w-20 sm:text-xl">
               {member.initials}
             </div>
           </div>

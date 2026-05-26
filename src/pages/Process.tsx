@@ -15,9 +15,9 @@ const guarantees = [
 export default function Process() {
   return (
     <>
-      <section className="relative overflow-hidden pt-36 sm:pt-40">
+      <section className="relative overflow-hidden pt-28 sm:pt-40">
         <AuroraBackground />
-        <div className="container-premium relative pb-20 pt-8 lg:pb-28">
+        <div className="container-premium relative pb-14 pt-6 sm:pb-20 sm:pt-8 lg:pb-28">
           <Reveal className="max-w-4xl">
             <span className="eyebrow mb-6">Processo</span>
             <h1 className="heading-xl text-balance">Um método para transformar intenção em direção técnica.</h1>
@@ -40,7 +40,7 @@ export default function Process() {
             <span className="inline-flex rounded-full border border-ink/10 bg-ink/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-violet-700">
               Governança
             </span>
-            <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-normal text-ink sm:text-5xl">
+            <h2 className="mt-5 text-[2rem] font-semibold leading-tight tracking-normal text-ink sm:text-5xl">
               Clareza sobre o que será construído, por quê e em qual ordem.
             </h2>
           </Reveal>
@@ -55,7 +55,7 @@ export default function Process() {
       </section>
 
       <section className="section-band">
-        <div className="container-premium rounded-[2rem] border border-white/10 bg-white/[0.055] p-8 shadow-premium backdrop-blur-2xl sm:p-12">
+        <div className="container-premium rounded-[1.45rem] border border-white/10 bg-white/[0.055] p-5 shadow-premium backdrop-blur-2xl sm:rounded-[2rem] sm:p-12">
           <SectionIntro
             eyebrow="Próximo passo"
             title="Comece com uma leitura bem estruturada."

@@ -5,9 +5,9 @@ import { Reveal } from '../components/animations/Reveal';
 export default function Contact() {
   return (
     <>
-      <section className="relative overflow-hidden pt-36 sm:pt-40">
+      <section className="relative overflow-hidden pt-28 sm:pt-40">
         <AuroraBackground />
-        <div className="container-premium relative grid gap-12 pb-20 pt-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:pb-28">
+        <div className="container-premium relative grid gap-8 pb-14 pt-6 sm:gap-12 sm:pb-20 sm:pt-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:pb-28">
           <Reveal>
             <span className="eyebrow mb-6">Contato / Orçamento</span>
             <h1 className="heading-xl text-balance">Vamos qualificar o projeto antes da proposta.</h1>

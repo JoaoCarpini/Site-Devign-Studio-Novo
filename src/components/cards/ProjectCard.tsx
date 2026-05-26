@@ -12,7 +12,7 @@ const accentStyles: Record<Project['accent'], string> = {
 export function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.055] shadow-premium backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-white/20">
-      <div className={cn('relative h-72 overflow-hidden bg-gradient-to-br', accentStyles[project.accent])}>
+      <div className={cn('relative h-56 overflow-hidden bg-gradient-to-br sm:h-72', accentStyles[project.accent])}>
         <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.12),transparent_38%,rgba(255,255,255,0.08)_74%,transparent)] opacity-70 transition duration-500 group-hover:translate-x-4" />
         <div className="absolute inset-x-6 bottom-6 top-7 rounded-[1.25rem] border border-white/14 bg-ink/72 p-4 shadow-premium backdrop-blur-xl">
           <div className="flex items-center gap-2 border-b border-white/10 pb-3">
@@ -20,7 +20,7 @@ export function ProjectCard({ project }: { project: Project }) {
             <span className="h-2.5 w-2.5 rounded-full bg-[#ffd166]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#4dd4c6]" />
           </div>
-          <div className="mt-5 grid grid-cols-[0.8fr_1.2fr] gap-4">
+          <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-[0.8fr_1.2fr] sm:gap-4">
             <div className="space-y-3">
               <span className="block h-3 rounded-full bg-white/30" />
               <span className="block h-3 w-2/3 rounded-full bg-white/12" />
@@ -38,10 +38,10 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
       </div>
 
-      <div className="p-6 sm:p-7">
+      <div className="p-5 sm:p-7">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-violet-400">{project.category}</p>
-        <h3 className="mt-3 text-2xl font-semibold tracking-normal text-frost">{project.title}</h3>
-        <p className="mt-4 text-sm leading-7 text-muted">{project.context}</p>
+        <h3 className="mt-3 text-xl font-semibold tracking-normal text-frost sm:text-2xl">{project.title}</h3>
+        <p className="mt-3 text-sm leading-6 text-muted sm:mt-4 sm:leading-7">{project.context}</p>
 
         <div className="mt-6 grid gap-4 text-sm text-mist md:grid-cols-3">
           <div>

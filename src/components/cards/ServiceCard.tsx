@@ -23,9 +23,9 @@ export function ServiceCard({ service }: { service: Service }) {
         </span>
         <ArrowUpRight className="h-5 w-5 text-muted transition group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-frost" />
       </div>
-      <p className="mt-6 text-sm font-semibold uppercase tracking-[0.22em] text-violet-400">{service.kicker}</p>
-      <h3 className="mt-3 text-2xl font-semibold tracking-normal text-frost">{service.title}</h3>
-      <p className="mt-4 text-sm leading-7 text-muted">{service.summary}</p>
+      <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-violet-400 sm:mt-6 sm:text-sm sm:tracking-[0.22em]">{service.kicker}</p>
+      <h3 className="mt-3 text-xl font-semibold tracking-normal text-frost sm:text-2xl">{service.title}</h3>
+      <p className="mt-3 text-sm leading-6 text-muted sm:mt-4 sm:leading-7">{service.summary}</p>
     </Link>
   );
 }

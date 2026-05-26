@@ -35,16 +35,16 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5">
+    <header className="fixed inset-x-0 top-0 z-50 px-2.5 pt-2.5 sm:px-5 sm:pt-3">
       <nav
         className={cn(
-          'mx-auto flex h-[4.25rem] max-w-7xl items-center justify-between rounded-[24px] border px-3 transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:h-[4.5rem] sm:px-4',
+          'mx-auto flex h-[3.75rem] max-w-7xl items-center justify-between rounded-[20px] border px-2.5 transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:h-[4.5rem] sm:rounded-[24px] sm:px-4',
           isScrolled
             ? 'border-white/10 bg-[#08080f]/[0.82] shadow-[0_18px_70px_rgba(0,0,0,0.32)] backdrop-blur-2xl'
             : 'border-white/[0.08] bg-[#090911]/[0.58] shadow-[0_14px_60px_rgba(0,0,0,0.18)] backdrop-blur-xl',
         )}
       >
-        <DevignLogo variant="navbar" className="rounded-2xl px-1.5 py-1 transition duration-300 hover:bg-white/[0.035]" />
+        <DevignLogo variant="navbar" className="rounded-2xl px-1 py-1 transition duration-300 hover:bg-white/[0.035] sm:px-1.5" />
 
         <div className="hidden items-center gap-1 rounded-2xl border border-white/[0.08] bg-white/[0.028] p-1 lg:flex">
           {navItems.map((item) => {
@@ -84,7 +84,7 @@ export function Header() {
 
         <button
           type="button"
-          className="grid h-11 w-11 place-items-center rounded-2xl border border-white/10 bg-white/[0.055] text-frost transition duration-300 hover:bg-white/[0.09] lg:hidden"
+          className="grid h-11 w-11 place-items-center rounded-[1.1rem] border border-white/10 bg-white/[0.055] text-frost transition duration-300 hover:bg-white/[0.09] lg:hidden"
           onClick={() => setIsOpen((value) => !value)}
           aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={isOpen}
@@ -95,11 +95,11 @@ export function Header() {
 
       <div
         className={cn(
-          'mx-auto mt-3 max-w-7xl overflow-hidden rounded-[24px] border border-white/10 bg-[#08080f]/[0.94] shadow-[0_22px_80px_rgba(0,0,0,0.34)] backdrop-blur-2xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden',
+          'mx-auto mt-2.5 max-w-7xl overflow-hidden rounded-[22px] border border-white/10 bg-[#08080f]/[0.94] shadow-[0_22px_80px_rgba(0,0,0,0.34)] backdrop-blur-2xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden',
           isOpen ? 'max-h-[34rem] opacity-100' : 'max-h-0 border-transparent opacity-0',
         )}
       >
-        <div className="grid gap-1 p-3">
+        <div className="grid gap-1 p-2.5">
           {navItems.map((item) => {
             const active = isActive(pathname, item.to);
 
@@ -108,7 +108,7 @@ export function Header() {
                 key={item.label}
                 to={item.to}
                 className={cn(
-                  'flex items-center justify-between rounded-2xl px-4 py-3 text-base font-medium text-mist transition duration-300 hover:bg-white/[0.055] hover:text-frost',
+                  'flex min-h-12 items-center justify-between rounded-2xl px-4 py-3 text-[0.95rem] font-medium text-mist transition duration-300 hover:bg-white/[0.055] hover:text-frost',
                   active && 'bg-white/[0.075] text-frost',
                 )}
               >

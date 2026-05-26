@@ -153,9 +153,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pb-24">
+      <section className="pb-16 sm:pb-24">
         <div className="container-premium">
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(141,92,255,0.26),rgba(255,255,255,0.06)_42%,rgba(77,212,198,0.1))] p-8 shadow-premium sm:p-12 lg:p-14">
+          <div className="relative overflow-hidden rounded-[1.45rem] border border-white/10 bg-[linear-gradient(135deg,rgba(141,92,255,0.26),rgba(255,255,255,0.06)_42%,rgba(77,212,198,0.1))] p-5 shadow-premium sm:rounded-[2rem] sm:p-12 lg:p-14">
             <div className="absolute inset-x-8 top-0 h-px bg-premium-line" />
             <Reveal className="max-w-4xl">
               <span className="eyebrow mb-5">Orçamento</span>

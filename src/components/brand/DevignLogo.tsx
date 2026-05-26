@@ -26,7 +26,7 @@ export function DevignLogo({
       <span
         className={cn(
           'inline-flex items-center',
-          variant === 'navbar' ? 'gap-2 sm:gap-2.5' : 'gap-3',
+          variant === 'navbar' ? 'gap-1.5 sm:gap-2.5' : 'gap-3',
         )}
       >
         <img
@@ -35,7 +35,7 @@ export function DevignLogo({
           aria-hidden="true"
           className={cn(
             'shrink-0 object-contain transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-95',
-            variant === 'navbar' ? 'h-8 w-8' : 'h-10 w-10',
+            variant === 'navbar' ? 'h-[1.85rem] w-[1.85rem] sm:h-8 sm:w-8' : 'h-10 w-10',
           )}
           loading="eager"
           decoding="async"
@@ -45,7 +45,7 @@ export function DevignLogo({
             className={cn(
               'font-bold text-frost transition-colors duration-300',
               variant === 'navbar'
-                ? 'text-[1.0625rem] tracking-[0.01em] sm:text-[1.125rem]'
+                ? 'text-[0.98rem] tracking-[0.01em] sm:text-[1.125rem]'
                 : 'text-lg tracking-[0.015em]',
             )}
             style={{
@@ -59,7 +59,7 @@ export function DevignLogo({
             className={cn(
               'font-normal text-white/60 transition-colors duration-300 group-hover:text-white/72',
               variant === 'navbar'
-                ? 'text-[0.71rem] tracking-[0.034em] sm:text-[0.75rem]'
+                ? 'text-[0.66rem] tracking-[0.03em] sm:text-[0.75rem] sm:tracking-[0.034em]'
                 : 'text-sm tracking-[0.035em]',
             )}
             style={{

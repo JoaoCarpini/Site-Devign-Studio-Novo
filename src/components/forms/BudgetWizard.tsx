@@ -365,7 +365,7 @@ export function BudgetWizard() {
         initial={{ opacity: 0, y: 18, filter: 'blur(10px)' }}
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-        className="relative overflow-hidden rounded-[2rem] border border-violet-400/[0.28] bg-white/[0.06] p-7 shadow-[0_34px_120px_rgba(5,5,9,0.55)] backdrop-blur-2xl sm:p-10"
+        className="relative overflow-hidden rounded-[1.45rem] border border-violet-400/[0.28] bg-white/[0.06] p-5 shadow-[0_24px_80px_rgba(5,5,9,0.45)] backdrop-blur-2xl sm:rounded-[2rem] sm:p-10 sm:shadow-[0_34px_120px_rgba(5,5,9,0.55)]"
       >
         <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-violet-500/[0.22] blur-3xl" />
         <div className="pointer-events-none absolute -bottom-32 left-10 h-56 w-56 rounded-full bg-signal/[0.1] blur-3xl" />
@@ -408,25 +408,25 @@ export function BudgetWizard() {
   return (
     <form
       onSubmit={submit}
-      className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.052] p-5 shadow-[0_34px_120px_rgba(5,5,9,0.58)] backdrop-blur-2xl sm:p-7 lg:p-8"
+      className="relative overflow-hidden rounded-[1.45rem] border border-white/10 bg-white/[0.052] p-4 shadow-[0_24px_80px_rgba(5,5,9,0.45)] backdrop-blur-2xl sm:rounded-[2rem] sm:p-7 sm:shadow-[0_34px_120px_rgba(5,5,9,0.58)] lg:p-8"
     >
-      <div className="pointer-events-none absolute inset-x-10 -top-28 h-56 rounded-full bg-violet-500/[0.18] blur-3xl" />
-      <div className="pointer-events-none absolute -right-28 bottom-20 h-60 w-60 rounded-full bg-signal/[0.08] blur-3xl" />
+      <div className="pointer-events-none absolute inset-x-8 -top-24 h-44 rounded-full bg-violet-500/[0.12] blur-3xl sm:inset-x-10 sm:-top-28 sm:h-56 sm:bg-violet-500/[0.18]" />
+      <div className="pointer-events-none absolute -right-28 bottom-20 hidden h-60 w-60 rounded-full bg-signal/[0.08] blur-3xl sm:block" />
 
       {isSubmitting ? <LoadingOverlay message={phaseMessages[submitPhase]} /> : null}
 
       <div className="relative">
-        <div className="flex flex-col gap-5 border-b border-white/10 pb-6">
+        <div className="flex flex-col gap-4 border-b border-white/10 pb-5 sm:gap-5 sm:pb-6">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-[0.22em] text-violet-400">
+              <span className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-violet-400 sm:text-xs sm:tracking-[0.22em]">
                 Diagnóstico estratégico
               </span>
-              <h2 className="mt-3 text-2xl font-semibold leading-tight text-frost sm:text-3xl">
+              <h2 className="mt-2 text-[1.45rem] font-semibold leading-tight text-frost sm:mt-3 sm:text-3xl">
                 Organize o contexto do seu projeto.
               </h2>
             </div>
-            <span className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm font-semibold text-mist">
+            <span className="w-fit rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-xs font-semibold text-mist sm:px-4 sm:py-2 sm:text-sm">
               0{step + 1} / 0{steps.length}
             </span>
           </div>
@@ -447,7 +447,7 @@ export function BudgetWizard() {
           />
         </div>
 
-        <div className="min-h-[34rem] py-8">
+        <div className="py-6 sm:min-h-[34rem] sm:py-8">
           <AnimatePresence mode="wait">
             <motion.div
               key={step}
@@ -462,7 +462,7 @@ export function BudgetWizard() {
                   title="Que tipo de ativo digital sua empresa precisa construir?"
                   description="Escolha a frente principal para direcionar tecnologia, design e presença estratégica com mais precisão."
                 >
-                  <div className="mt-7 space-y-10">
+                  <div className="mt-6 space-y-7 sm:mt-7 sm:space-y-10">
                     {projectTypeGroups.map((group) => (
                       <div key={group.eyebrow}>
                         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-400/90">
@@ -608,7 +608,7 @@ export function BudgetWizard() {
                     onChange={(event) => update('website', event.target.value)}
                   />
 
-                  <div className="mt-7 grid gap-5 md:grid-cols-2">
+                  <div className="mt-6 grid gap-4 md:grid-cols-2">
                     <Field label="Nome" value={form.name} onChange={(value) => update('name', value)} required />
                     <Field label="Empresa" value={form.company} onChange={(value) => update('company', value)} required />
                     <Field
@@ -638,7 +638,7 @@ export function BudgetWizard() {
                     required
                   />
 
-                  <div className="mt-5 grid gap-3 rounded-[1.4rem] border border-white/10 bg-ink/45 p-4 sm:grid-cols-3">
+                  <div className="mt-5 grid gap-2 rounded-[1.25rem] border border-white/10 bg-ink/45 p-3 sm:grid-cols-3 sm:gap-3 sm:rounded-[1.4rem] sm:p-4">
                     <TrustBadge icon={ShieldCheck} text="Validação segura" />
                     <TrustBadge icon={LockKeyhole} text="Anti-spam ativo" />
                     <TrustBadge icon={DatabaseZap} text="Pronto para CRM/API" />
@@ -660,7 +660,7 @@ export function BudgetWizard() {
           </motion.p>
         ) : null}
 
-        <div className="mt-6 flex flex-col-reverse gap-3 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-5 flex flex-col-reverse gap-3 border-t border-white/10 pt-5 sm:mt-6 sm:flex-row sm:items-center sm:justify-between sm:pt-6">
           <button
             type="button"
             className={cn(buttonStyles('secondary'), 'disabled:pointer-events-none disabled:opacity-45')}
@@ -701,8 +701,8 @@ function WizardStep({
   return (
     <section>
       <span className="text-xs font-semibold uppercase tracking-[0.22em] text-violet-400">{eyebrow}</span>
-      <h3 className="mt-3 max-w-3xl text-3xl font-semibold leading-tight text-frost sm:text-4xl">{title}</h3>
-      <p className="mt-4 max-w-2xl text-base leading-8 text-mist">{description}</p>
+      <h3 className="mt-3 max-w-3xl text-[1.75rem] font-semibold leading-[1.08] text-frost sm:text-4xl sm:leading-tight">{title}</h3>
+      <p className="mt-3 max-w-2xl text-sm leading-7 text-mist sm:mt-4 sm:text-base sm:leading-8">{description}</p>
       {children}
     </section>
   );
@@ -720,18 +720,18 @@ function StepRail({
   onStepSelect: (index: number) => void;
 }) {
   return (
-    <div className="relative px-2 sm:px-3 lg:px-1">
+    <div className="relative px-0 sm:px-3 lg:px-1">
       {/* Mobile only: scroll hint — translucent, never opaque black */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-white/[0.07] via-white/[0.02] to-transparent backdrop-blur-[1px] lg:hidden"
+        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-5 bg-gradient-to-r from-white/[0.07] via-white/[0.02] to-transparent backdrop-blur-[1px] lg:hidden"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-white/[0.07] via-white/[0.02] to-transparent backdrop-blur-[1px] lg:hidden"
+        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-5 bg-gradient-to-l from-white/[0.07] via-white/[0.02] to-transparent backdrop-blur-[1px] lg:hidden"
       />
 
-      <div className="flex gap-2.5 overflow-x-auto scroll-px-3 pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:gap-3 sm:scroll-px-4 sm:px-1 [&::-webkit-scrollbar]:hidden lg:overflow-visible lg:px-0.5">
+      <div className="flex gap-2 overflow-x-auto scroll-px-1 pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:gap-3 sm:scroll-px-4 sm:px-1 [&::-webkit-scrollbar]:hidden lg:overflow-visible lg:px-0.5">
         {stepItems.map((item, index) => {
           const isActive = index === currentStep;
           const isComplete = index < currentStep;
@@ -760,7 +760,7 @@ function StepRail({
               whileTap={canNavigate ? { scale: 0.985 } : undefined}
               transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
               className={cn(
-                'group relative min-w-[6.85rem] shrink-0 overflow-hidden rounded-2xl border px-3.5 py-2.5 text-left backdrop-blur-xl transition-[border-color,background-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:min-w-[7.5rem] sm:px-4 sm:py-3 lg:min-w-0 lg:flex-1',
+                'group relative min-w-[5.7rem] shrink-0 overflow-hidden rounded-[1rem] border px-2.5 py-2 text-left backdrop-blur-xl transition-[border-color,background-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:min-w-[7.5rem] sm:rounded-2xl sm:px-4 sm:py-3 lg:min-w-0 lg:flex-1',
                 'disabled:cursor-not-allowed disabled:opacity-45',
                 isActive
                   ? 'border-violet-300/35 bg-gradient-to-br from-violet-400/[0.12] via-white/[0.07] to-white/[0.03] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.14),0_10px_40px_-12px_rgba(141,92,255,0.45)]'
@@ -788,7 +788,7 @@ function StepRail({
               <span className="relative flex items-center gap-2.5">
                 <span
                   className={cn(
-                    'grid h-7 w-7 shrink-0 place-items-center rounded-full border text-[0.65rem] font-semibold transition-[border-color,background-color,box-shadow,color] duration-500 sm:h-8 sm:w-8 sm:text-xs',
+                    'grid h-6 w-6 shrink-0 place-items-center rounded-full border text-[0.6rem] font-semibold transition-[border-color,background-color,box-shadow,color] duration-500 sm:h-8 sm:w-8 sm:text-xs',
                     isActive
                       ? 'border-violet-300/45 bg-gradient-to-br from-violet-400/25 to-white/10 text-frost shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_18px_rgba(169,139,255,0.28)]'
                       : isComplete
@@ -801,7 +801,7 @@ function StepRail({
                 <span className="min-w-0 flex-1">
                   <span
                     className={cn(
-                      'block truncate text-[0.8125rem] font-semibold leading-tight transition-colors duration-500 sm:text-sm',
+                      'block truncate text-xs font-semibold leading-tight transition-colors duration-500 sm:text-sm',
                       isActive ? 'text-frost' : 'text-frost/88 group-hover:text-frost',
                     )}
                   >
@@ -809,7 +809,7 @@ function StepRail({
                   </span>
                   <span
                     className={cn(
-                      'mt-0.5 block truncate text-[0.6875rem] leading-4 transition-colors duration-500 sm:text-xs',
+                      'mt-0.5 block truncate text-[0.62rem] leading-4 transition-colors duration-500 sm:text-xs',
                       isActive ? 'text-violet-200/75' : 'text-muted group-hover:text-mist',
                     )}
                   >
@@ -826,7 +826,7 @@ function StepRail({
 }
 
 function OptionGrid({ children }: { children: ReactNode }) {
-  return <div className="mt-7 grid gap-3 md:grid-cols-2">{children}</div>;
+  return <div className="mt-6 grid gap-3 md:grid-cols-2">{children}</div>;
 }
 
 function ProjectOptionGrid({ children, className }: { children: ReactNode; className?: string }) {
@@ -836,11 +836,11 @@ function ProjectOptionGrid({ children, className }: { children: ReactNode; class
 }
 
 function ChipGrid({ children }: { children: ReactNode }) {
-  return <div className="mt-7 flex flex-wrap gap-3">{children}</div>;
+  return <div className="mt-6 flex flex-wrap gap-2.5 sm:gap-3">{children}</div>;
 }
 
 function FeatureGrid({ children }: { children: ReactNode }) {
-  return <div className="mt-7 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">{children}</div>;
+  return <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">{children}</div>;
 }
 
 function OptionCard({
@@ -861,7 +861,7 @@ function OptionCard({
       whileTap={{ scale: 0.985 }}
       onClick={onClick}
       className={cn(
-        'group relative overflow-hidden rounded-[1.35rem] border p-5 text-left transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]',
+        'group relative min-h-28 overflow-hidden rounded-[1.15rem] border p-4 text-left transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:rounded-[1.35rem] sm:p-5',
         selected
           ? 'border-violet-400/65 bg-violet-500/[0.16] shadow-[0_24px_90px_rgba(141,92,255,0.22)]'
           : 'border-white/10 bg-white/[0.045] hover:border-violet-400/30 hover:bg-white/[0.075] hover:shadow-[0_20px_70px_rgba(141,92,255,0.12)]',
@@ -876,7 +876,7 @@ function OptionCard({
       <span className="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 transition group-hover:opacity-100" />
       <span
         className={cn(
-          'mb-5 grid h-11 w-11 place-items-center rounded-2xl border transition',
+          'mb-4 grid h-10 w-10 place-items-center rounded-2xl border transition sm:mb-5 sm:h-11 sm:w-11',
           selected
             ? 'border-violet-400/45 bg-violet-500/[0.18] text-violet-400'
             : 'border-white/10 bg-white/[0.045] text-muted group-hover:text-frost',
@@ -884,8 +884,8 @@ function OptionCard({
       >
         <Icon className="h-5 w-5" />
       </span>
-      <span className="relative block text-base font-semibold leading-snug text-frost sm:text-lg">{option.title}</span>
-      <span className="relative mt-2 block text-sm leading-6 text-mist">{option.description}</span>
+      <span className="relative block text-[0.98rem] font-semibold leading-snug text-frost sm:text-lg">{option.title}</span>
+      <span className="relative mt-2 block text-[0.82rem] leading-6 text-mist sm:text-sm">{option.description}</span>
       {selected ? (
         <span className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-violet-400">
           <CheckCircle2 className="h-4 w-4" />
@@ -904,7 +904,7 @@ function Chip({ selected, onClick, children }: { selected: boolean; onClick: () 
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
       className={cn(
-        'rounded-full border px-5 py-3 text-sm font-semibold transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]',
+        'min-h-11 rounded-full border px-4 py-2.5 text-sm font-semibold transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:px-5 sm:py-3',
         selected
           ? 'border-violet-400/60 bg-violet-500/[0.16] text-frost shadow-[0_18px_60px_rgba(141,92,255,0.16)]'
           : 'border-white/10 bg-white/[0.045] text-mist hover:border-white/20 hover:bg-white/[0.075]',
@@ -923,7 +923,7 @@ function FeatureCard({ selected, onClick, children }: { selected: boolean; onCli
       whileTap={{ scale: 0.985 }}
       onClick={onClick}
       className={cn(
-        'group relative min-h-24 overflow-hidden rounded-[1.25rem] border p-4 text-left transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]',
+        'group relative min-h-[4.75rem] overflow-hidden rounded-[1.1rem] border p-3.5 text-left transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:min-h-24 sm:rounded-[1.25rem] sm:p-4',
         selected
           ? 'border-violet-400/70 bg-[linear-gradient(135deg,rgba(141,92,255,0.24),rgba(255,255,255,0.075)_48%,rgba(77,212,198,0.08))] text-frost shadow-[0_24px_90px_rgba(141,92,255,0.24),inset_0_1px_0_rgba(255,255,255,0.14)]'
           : 'border-white/10 bg-white/[0.045] text-mist shadow-[0_14px_50px_rgba(5,5,9,0.2)] hover:border-violet-400/45 hover:bg-white/[0.08] hover:text-frost hover:shadow-[0_24px_80px_rgba(141,92,255,0.16)]',
@@ -937,7 +937,7 @@ function FeatureCard({ selected, onClick, children }: { selected: boolean; onCli
         )}
       />
       <span className="relative flex h-full items-start justify-between gap-4">
-        <span className="text-sm font-semibold leading-6">{children}</span>
+        <span className="text-[0.84rem] font-semibold leading-5 sm:text-sm sm:leading-6">{children}</span>
         <span
           className={cn(
             'grid h-6 w-6 shrink-0 place-items-center rounded-full border transition duration-500',
@@ -981,7 +981,7 @@ function Field({
       <input
         id={id}
         type={type}
-        className="mt-2 w-full rounded-2xl border border-white/10 bg-ink/70 px-4 py-3 text-mist outline-none transition duration-300 placeholder:text-muted/70 focus:border-violet-400 focus:bg-ink/85 focus:shadow-[0_0_0_4px_rgba(141,92,255,0.12)]"
+        className="mt-2 min-h-12 w-full rounded-2xl border border-white/10 bg-ink/70 px-4 py-3 text-mist outline-none transition duration-300 placeholder:text-muted/70 focus:border-violet-400 focus:bg-ink/85 focus:shadow-[0_0_0_4px_rgba(141,92,255,0.12)]"
         value={value}
         onChange={(event) => onChange(event.target.value)}
         required={required}
@@ -992,7 +992,7 @@ function Field({
 
 function TrustBadge({ icon: Icon, text }: { icon: LucideIcon; text: string }) {
   return (
-    <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.045] px-4 py-3 text-sm font-semibold text-mist">
+    <div className="flex min-h-11 items-center gap-2.5 rounded-2xl border border-white/10 bg-white/[0.045] px-3 py-2.5 text-xs font-semibold text-mist sm:gap-3 sm:px-4 sm:py-3 sm:text-sm">
       <Icon className="h-4 w-4 text-violet-400" />
       {text}
     </div>
@@ -1007,7 +1007,7 @@ function LoadingOverlay({ message }: { message: string }) {
       exit={{ opacity: 0 }}
       className="absolute inset-0 z-20 grid place-items-center bg-ink/72 p-6 backdrop-blur-xl"
     >
-      <div className="relative overflow-hidden rounded-[2rem] border border-violet-400/25 bg-white/[0.07] p-8 text-center shadow-[0_34px_120px_rgba(141,92,255,0.18)]">
+      <div className="relative overflow-hidden rounded-[1.45rem] border border-violet-400/25 bg-white/[0.07] p-5 text-center shadow-[0_24px_80px_rgba(141,92,255,0.14)] sm:rounded-[2rem] sm:p-8 sm:shadow-[0_34px_120px_rgba(141,92,255,0.18)]">
         <div className="absolute inset-x-8 top-0 h-px bg-premium-line" />
         <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl border border-violet-400/30 bg-violet-500/[0.14] text-violet-400">
           <Loader2 className="h-6 w-6 animate-spin" />

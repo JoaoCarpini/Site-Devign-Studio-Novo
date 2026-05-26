@@ -10,9 +10,9 @@ import { FaqAccordion } from '../sections/FaqAccordion';
 export function ServiceDetailPage({ service }: { service: Service }) {
   return (
     <>
-      <section className="relative overflow-hidden pt-36 sm:pt-40">
+      <section className="relative overflow-hidden pt-28 sm:pt-40">
         <AuroraBackground />
-        <div className="container-premium relative pb-20 pt-8 lg:pb-28">
+        <div className="container-premium relative pb-14 pt-6 sm:pb-20 sm:pt-8 lg:pb-28">
           <Reveal className="max-w-4xl">
             <Link to="/servicos" className="eyebrow mb-6">
               Serviços / {service.menuTitle}
@@ -33,7 +33,7 @@ export function ServiceDetailPage({ service }: { service: Service }) {
           <div className="mt-14 grid gap-4 sm:grid-cols-3">
             {service.metrics.map((metric, index) => (
               <Reveal key={metric.label} delay={index * 0.06} className="rounded-2xl border border-white/10 bg-white/[0.055] p-5 backdrop-blur-xl">
-                <strong className="block text-3xl font-semibold tracking-normal text-frost">{metric.value}</strong>
+                <strong className="block text-2xl font-semibold tracking-normal text-frost sm:text-3xl">{metric.value}</strong>
                 <span className="mt-1 block text-sm text-muted">{metric.label}</span>
               </Reveal>
             ))}
@@ -66,7 +66,7 @@ export function ServiceDetailPage({ service }: { service: Service }) {
               <span className="inline-flex rounded-full border border-ink/10 bg-ink/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-violet-700">
                 Direção
               </span>
-              <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-normal text-ink sm:text-5xl">
+              <h2 className="mt-5 text-[2rem] font-semibold leading-tight tracking-normal text-ink sm:text-5xl">
                 Técnica, estética e estratégia no mesmo projeto.
               </h2>
               <p className="mt-5 text-base leading-8 text-[#4a4658]">
@@ -136,9 +136,9 @@ export function ServiceDetailPage({ service }: { service: Service }) {
         </div>
       </section>
 
-      <section className="pb-24">
+      <section className="pb-16 sm:pb-24">
         <div className="container-premium">
-          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(141,92,255,0.22),rgba(255,255,255,0.06)_42%,rgba(77,212,198,0.1))] p-8 shadow-premium sm:p-12">
+          <div className="overflow-hidden rounded-[1.45rem] border border-white/10 bg-[linear-gradient(135deg,rgba(141,92,255,0.22),rgba(255,255,255,0.06)_42%,rgba(77,212,198,0.1))] p-5 shadow-premium sm:rounded-[2rem] sm:p-12">
             <Reveal className="max-w-3xl">
               <span className="eyebrow mb-5">Próximo passo</span>
               <h2 className="heading-lg">Vamos transformar contexto em direção técnica.</h2>

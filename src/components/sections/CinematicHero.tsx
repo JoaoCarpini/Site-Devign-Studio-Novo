@@ -26,19 +26,19 @@ const heroMetrics = [
 export function CinematicHero() {
   return (
     <section
-      className="relative isolate min-h-[min(900px,100vh)] overflow-hidden pt-32 sm:pt-36"
+      className="relative isolate overflow-hidden pt-24 sm:min-h-[min(900px,100vh)] sm:pt-36"
     >
       <AuroraBackground />
       <HeroBrandBackdrop />
-      <div aria-hidden="true" className="hero-fine-grid absolute inset-0 z-0" />
-      <div aria-hidden="true" className="absolute left-1/2 top-24 z-0 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-violet-500/18 blur-[120px]" />
-      <div aria-hidden="true" className="absolute right-[-12rem] top-36 z-0 h-[28rem] w-[28rem] rounded-full bg-signal/10 blur-[110px]" />
+      <div aria-hidden="true" className="hero-fine-grid absolute inset-0 z-0 opacity-35 sm:opacity-60" />
+      <div aria-hidden="true" className="absolute left-1/2 top-24 z-0 h-[22rem] w-[22rem] -translate-x-1/2 rounded-full bg-violet-500/14 blur-[100px] sm:h-[34rem] sm:w-[34rem] sm:bg-violet-500/18 sm:blur-[120px]" />
+      <div aria-hidden="true" className="absolute right-[-12rem] top-36 z-0 hidden h-[28rem] w-[28rem] rounded-full bg-signal/10 blur-[110px] sm:block" />
 
       {particles.map((particle) => (
         <motion.span
           key={`${particle.left}-${particle.top}`}
           aria-hidden="true"
-          className="absolute z-0 rounded-full bg-violet-300/70 shadow-[0_0_24px_rgba(169,139,255,0.6)]"
+          className="absolute z-0 hidden rounded-full bg-violet-300/70 shadow-[0_0_24px_rgba(169,139,255,0.6)] sm:block"
           style={{
             left: particle.left,
             top: particle.top,
@@ -50,20 +50,20 @@ export function CinematicHero() {
         />
       ))}
 
-      <div className="container-premium relative z-10 grid gap-14 pb-14 pt-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:pb-20">
+      <div className="container-premium relative z-10 grid gap-8 pb-10 pt-5 sm:gap-14 sm:pb-14 sm:pt-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:pb-20">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 18, filter: 'blur(10px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-7 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.065] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-violet-300 shadow-[0_0_50px_rgba(141,92,255,0.16)] backdrop-blur-2xl"
+            className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/[0.065] px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-violet-300 shadow-[0_0_50px_rgba(141,92,255,0.16)] backdrop-blur-2xl sm:mb-7 sm:gap-3 sm:px-4 sm:text-xs sm:tracking-[0.24em]"
           >
             <Sparkles className="h-4 w-4" />
             Devign Studio / Software house premium
           </motion.div>
 
           <motion.h1
-            className="max-w-6xl text-balance text-[clamp(3.5rem,7vw,7.7rem)] font-semibold leading-[0.88] tracking-normal text-frost"
+            className="max-w-6xl text-balance text-[clamp(2.85rem,15vw,4.35rem)] font-semibold leading-[0.92] tracking-normal text-frost sm:text-[clamp(3.5rem,7vw,7.7rem)] sm:leading-[0.88]"
             initial={{ opacity: 0, y: 32, filter: 'blur(14px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
@@ -72,7 +72,7 @@ export function CinematicHero() {
           </motion.h1>
 
           <motion.p
-            className="mt-8 max-w-2xl text-lg leading-9 text-mist sm:text-xl"
+            className="mt-6 max-w-2xl text-base leading-7 text-mist sm:mt-8 sm:text-xl sm:leading-9"
             initial={{ opacity: 0, y: 24, filter: 'blur(10px)' }}
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1], delay: 0.18 }}
@@ -81,32 +81,32 @@ export function CinematicHero() {
           </motion.p>
 
           <motion.div
-            className="mt-9 flex flex-col gap-3 sm:flex-row"
+            className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.26 }}
           >
-            <ButtonLink to="/orcamento" className="px-6">
+            <ButtonLink to="/orcamento" className="w-full px-6 sm:w-auto">
               Iniciar projeto
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </ButtonLink>
-            <ButtonLink to="/projetos" variant="secondary" className="px-6">
+            <ButtonLink to="/projetos" variant="secondary" className="w-full px-6 sm:w-auto">
               Explorar cases
             </ButtonLink>
-            <ButtonLink to="/orcamento" variant="ghost" className="px-4">
+            <ButtonLink to="/orcamento" variant="ghost" className="hidden px-4 sm:inline-flex">
               <CalendarDays className="h-4 w-4" />
               Mapear escopo
             </ButtonLink>
           </motion.div>
 
           <motion.div
-            className="mt-9 flex flex-wrap gap-2"
+            className="mt-6 flex flex-wrap gap-2 sm:mt-9"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.65, delay: 0.34 }}
           >
             {capabilityPills.map((item) => (
-              <span key={item} className="rounded-full border border-white/10 bg-white/[0.055] px-4 py-2 text-sm font-medium text-mist backdrop-blur-xl">
+              <span key={item} className="rounded-full border border-white/10 bg-white/[0.055] px-3 py-1.5 text-xs font-medium text-mist backdrop-blur-xl sm:px-4 sm:py-2 sm:text-sm">
                 {item}
               </span>
             ))}
@@ -114,12 +114,12 @@ export function CinematicHero() {
         </div>
 
         <motion.div
-          className="relative"
+          className="relative mx-auto w-full max-w-[27rem] sm:max-w-none"
           initial={{ opacity: 0, x: 44, filter: 'blur(14px)' }}
           animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
           transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1], delay: 0.16 }}
         >
-          <div aria-hidden="true" className="absolute -inset-6 rounded-[3rem] bg-violet-500/16 blur-3xl" />
+          <div aria-hidden="true" className="absolute -inset-4 rounded-[2rem] bg-violet-500/12 blur-3xl sm:-inset-6 sm:rounded-[3rem] sm:bg-violet-500/16" />
           <HeroMockup className="relative z-10" />
 
           <motion.div
@@ -142,19 +142,19 @@ export function CinematicHero() {
         </motion.div>
       </div>
 
-      <div className="container-premium relative z-10 pb-28 sm:pb-32 lg:pb-36">
+      <div className="container-premium relative z-10 pb-16 sm:pb-32 lg:pb-36">
         <div className="grid gap-3 border-t border-white/10 pt-5 sm:grid-cols-3">
           {heroMetrics.map((item, index) => (
             <motion.div
               key={item.label}
-              className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.045] p-5 backdrop-blur-xl"
+                className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.045] p-4 backdrop-blur-xl sm:gap-4 sm:p-5"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.38 + index * 0.07 }}
             >
               <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-signal" />
               <div>
-                <strong className="block text-xl font-semibold tracking-normal text-frost">{item.value}</strong>
+                <strong className="block text-lg font-semibold tracking-normal text-frost sm:text-xl">{item.value}</strong>
                 <span className="mt-1 block text-sm text-muted">{item.label}</span>
               </div>
             </motion.div>

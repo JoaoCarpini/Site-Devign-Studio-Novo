@@ -42,12 +42,12 @@ const cultureSignals = [
 export default function About() {
   return (
     <>
-      <section className="relative overflow-hidden pt-36 sm:pt-40">
+      <section className="relative overflow-hidden pt-28 sm:pt-40">
         <AuroraBackground />
         <div className="hero-fine-grid pointer-events-none absolute inset-0 opacity-45" />
-        <div className="pointer-events-none absolute left-1/2 top-20 h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-violet-500/[0.12] blur-3xl" />
+        <div className="pointer-events-none absolute left-1/2 top-20 h-[22rem] w-[22rem] -translate-x-1/2 rounded-full bg-violet-500/[0.09] blur-3xl sm:h-[32rem] sm:w-[32rem] sm:bg-violet-500/[0.12]" />
 
-        <div className="container-premium relative grid gap-12 pb-20 pt-8 lg:grid-cols-[1fr_0.74fr] lg:items-end lg:pb-28">
+        <div className="container-premium relative grid gap-8 pb-14 pt-6 sm:gap-12 sm:pb-20 sm:pt-8 lg:grid-cols-[1fr_0.74fr] lg:items-end lg:pb-28">
           <Reveal>
             <span className="eyebrow mb-6">Sobre a Devign</span>
             <h1 className="heading-xl max-w-5xl text-balance">
@@ -59,7 +59,7 @@ export default function About() {
           </Reveal>
 
           <Reveal delay={0.12}>
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.055] p-7 shadow-premium backdrop-blur-2xl">
+            <div className="relative overflow-hidden rounded-[1.45rem] border border-white/10 bg-white/[0.055] p-5 shadow-premium backdrop-blur-2xl sm:rounded-[2rem] sm:p-7">
               <div className="absolute inset-x-7 top-0 h-px bg-premium-line" />
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-violet-400">Posicionamento</p>
               <p className="mt-5 text-2xl font-semibold leading-tight text-frost">
@@ -188,7 +188,7 @@ export default function About() {
           </div>
 
           <Reveal className="mt-16">
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(141,92,255,0.24),rgba(255,255,255,0.06)_42%,rgba(77,212,198,0.09))] p-8 shadow-premium sm:p-12">
+            <div className="relative overflow-hidden rounded-[1.45rem] border border-white/10 bg-[linear-gradient(135deg,rgba(141,92,255,0.24),rgba(255,255,255,0.06)_42%,rgba(77,212,198,0.09))] p-5 shadow-premium sm:rounded-[2rem] sm:p-12">
               <div className="absolute inset-x-8 top-0 h-px bg-premium-line" />
               <h2 className="heading-lg max-w-4xl text-balance">Projetos sérios começam com contexto, método e direção técnica.</h2>
               <p className="body-lead mt-5 max-w-3xl">

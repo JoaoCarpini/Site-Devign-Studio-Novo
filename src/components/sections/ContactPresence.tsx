@@ -24,10 +24,10 @@ const contactItems = [
 
 export function ContactPresence() {
   return (
-    <section className="relative overflow-hidden border-t border-white/10 bg-[#06060b] py-20 sm:py-24">
+    <section className="relative overflow-hidden border-t border-white/10 bg-[#06060b] py-14 sm:py-24">
       <div aria-hidden="true" className="absolute inset-x-10 top-0 h-px bg-premium-line opacity-70" />
-      <div aria-hidden="true" className="absolute left-1/2 top-8 h-72 w-72 -translate-x-1/2 rounded-full bg-violet-500/[0.09] blur-[110px]" />
-      <div aria-hidden="true" className="absolute -right-28 bottom-0 h-72 w-72 rounded-full bg-signal/[0.045] blur-[120px]" />
+      <div aria-hidden="true" className="absolute left-1/2 top-8 h-56 w-56 -translate-x-1/2 rounded-full bg-violet-500/[0.07] blur-[100px] sm:h-72 sm:w-72 sm:bg-violet-500/[0.09]" />
+      <div aria-hidden="true" className="absolute -right-28 bottom-0 hidden h-72 w-72 rounded-full bg-signal/[0.045] blur-[120px] sm:block" />
 
       <div className="container-premium relative">
         <Reveal className="mx-auto max-w-3xl text-center">
@@ -38,7 +38,7 @@ export function ContactPresence() {
           </p>
         </Reveal>
 
-        <div className="mt-10 grid gap-4 lg:grid-cols-3">
+        <div className="mt-8 grid gap-3 sm:mt-10 sm:gap-4 lg:grid-cols-3">
           {contactItems.map((item, index) => {
             const Icon = item.icon;
             const content = (
@@ -61,7 +61,7 @@ export function ContactPresence() {
             );
 
             const className = cn(
-              'group relative block h-full overflow-hidden rounded-[1.55rem] border border-white/10 bg-white/[0.052] p-6 text-left shadow-[0_24px_90px_rgba(5,5,9,0.34)] backdrop-blur-2xl transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:-translate-y-1 hover:border-violet-300/30 hover:bg-white/[0.075] hover:shadow-[0_30px_100px_rgba(141,92,255,0.16)]',
+              'group relative block h-full overflow-hidden rounded-[1.3rem] border border-white/10 bg-white/[0.052] p-5 text-left shadow-[0_20px_70px_rgba(5,5,9,0.28)] backdrop-blur-2xl transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:-translate-y-1 hover:border-violet-300/30 hover:bg-white/[0.075] hover:shadow-[0_30px_100px_rgba(141,92,255,0.16)] sm:rounded-[1.55rem] sm:p-6',
               !item.href && 'cursor-default',
             );
 

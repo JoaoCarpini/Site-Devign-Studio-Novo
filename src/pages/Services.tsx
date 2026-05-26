@@ -39,9 +39,9 @@ const deliveryStandards = [
 export default function Services() {
   return (
     <>
-      <section className="relative overflow-hidden pt-36 sm:pt-40">
+      <section className="relative overflow-hidden pt-28 sm:pt-40">
         <AuroraBackground />
-        <div className="container-premium relative pb-20 pt-8 lg:pb-28">
+        <div className="container-premium relative pb-14 pt-6 sm:pb-20 sm:pt-8 lg:pb-28">
           <Reveal className="max-w-4xl">
             <span className="eyebrow mb-6">Serviços</span>
             <h1 className="heading-xl text-balance">Infraestrutura digital para operação, dados e escala.</h1>
@@ -103,7 +103,7 @@ export default function Services() {
             <span className="inline-flex rounded-full border border-ink/10 bg-ink/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-violet-700">
               Direção estratégica
             </span>
-            <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-normal text-ink sm:text-5xl">
+            <h2 className="mt-5 text-[2rem] font-semibold leading-tight tracking-normal text-ink sm:text-5xl">
               O projeto certo nasce de uma leitura precisa da operação.
             </h2>
             <p className="mt-5 text-base leading-8 text-[#4a4658]">
