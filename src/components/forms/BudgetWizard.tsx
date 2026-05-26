@@ -460,6 +460,7 @@ export function BudgetWizard() {
             steps={steps}
             currentStep={step}
             disabled={isSubmitting}
+            reduceMotion={isMobileMotion}
             onStepSelect={setStep}
           />
         </div>
@@ -491,6 +492,7 @@ export function BudgetWizard() {
                               key={option.title}
                               option={option}
                               selected={form.projectType === option.title}
+                              reduceMotion={isMobileMotion}
                               onClick={() => update('projectType', option.title)}
                             />
                           ))}
@@ -504,6 +506,7 @@ export function BudgetWizard() {
                         <OptionCard
                           option={otherProjectType}
                           selected={form.projectType === otherProjectType.title}
+                          reduceMotion={isMobileMotion}
                           onClick={() => update('projectType', otherProjectType.title)}
                         />
                       </ProjectOptionGrid>
@@ -524,6 +527,7 @@ export function BudgetWizard() {
                         key={option.title}
                         option={option}
                         selected={form.objective === option.title}
+                        reduceMotion={isMobileMotion}
                         onClick={() => update('objective', option.title)}
                       />
                     ))}
@@ -543,6 +547,7 @@ export function BudgetWizard() {
                         key={option.title}
                         option={option}
                         selected={form.budget === option.title}
+                        reduceMotion={isMobileMotion}
                         onClick={() => update('budget', option.title)}
                       />
                     ))}
@@ -562,6 +567,7 @@ export function BudgetWizard() {
                         key={option.title}
                         option={option}
                         selected={form.timeline === option.title}
+                        reduceMotion={isMobileMotion}
                         onClick={() => update('timeline', option.title)}
                       />
                     ))}
@@ -580,6 +586,7 @@ export function BudgetWizard() {
                       <FeatureCard
                         key={feature}
                         selected={form.features.includes(feature)}
+                        reduceMotion={isMobileMotion}
                         onClick={() => toggleListValue('features', feature)}
                       >
                         {feature}
@@ -600,6 +607,7 @@ export function BudgetWizard() {
                       <Chip
                         key={integration}
                         selected={form.integrations.includes(integration)}
+                        reduceMotion={isMobileMotion}
                         onClick={() => toggleListValue('integrations', integration)}
                       >
                         {integration}
@@ -729,11 +737,13 @@ function StepRail({
   steps: stepItems,
   currentStep,
   disabled,
+  reduceMotion,
   onStepSelect,
 }: {
   steps: Array<{ label: string; detail: string }>;
   currentStep: number;
   disabled: boolean;
+  reduceMotion: boolean;
   onStepSelect: (index: number) => void;
 }) {
   const currentItem = stepItems[currentStep];
@@ -803,14 +813,14 @@ function StepRail({
                 scale: isActive ? 1 : 1,
               }}
               whileHover={
-                canNavigate
+                canNavigate && !reduceMotion
                   ? {
                       y: isActive ? -2 : -1,
                       transition: { duration: 0.28, ease: [0.16, 1, 0.3, 1] },
                     }
                   : undefined
               }
-              whileTap={canNavigate ? { scale: 0.985 } : undefined}
+              whileTap={canNavigate && !reduceMotion ? { scale: 0.985 } : undefined}
               transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
               className={cn(
                 'group relative min-w-[7.5rem] shrink-0 overflow-hidden rounded-2xl border px-4 py-3 text-left backdrop-blur-xl transition-[border-color,background-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] lg:min-w-0 lg:flex-1',
@@ -899,20 +909,21 @@ function FeatureGrid({ children }: { children: ReactNode }) {
 function OptionCard({
   option,
   selected,
+  reduceMotion,
   onClick,
 }: {
   option: SelectOption;
   selected: boolean;
+  reduceMotion: boolean;
   onClick: () => void;
 }) {
   const Icon = option.icon;
-  const isMobileMotion = useMobileMotion();
 
   return (
     <motion.button
       type="button"
-      whileHover={isMobileMotion ? undefined : { y: -2, scale: 1.01 }}
-      whileTap={isMobileMotion ? undefined : { scale: 0.985 }}
+      whileHover={reduceMotion ? undefined : { y: -2, scale: 1.01 }}
+      whileTap={reduceMotion ? undefined : { scale: 0.985 }}
       onClick={onClick}
       className={cn(
         'group relative flex min-h-20 w-full min-w-0 items-start gap-2.5 overflow-hidden rounded-[0.9rem] border p-2.5 text-left transition duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] sm:block sm:min-h-[6.5rem] sm:rounded-[1.1rem] sm:p-4',
@@ -952,14 +963,22 @@ function OptionCard({
   );
 }
 
-function Chip({ selected, onClick, children }: { selected: boolean; onClick: () => void; children: ReactNode }) {
-  const isMobileMotion = useMobileMotion();
-
+function Chip({
+  selected,
+  reduceMotion,
+  onClick,
+  children,
+}: {
+  selected: boolean;
+  reduceMotion: boolean;
+  onClick: () => void;
+  children: ReactNode;
+}) {
   return (
     <motion.button
       type="button"
-      whileHover={isMobileMotion ? undefined : { y: -1.5 }}
-      whileTap={isMobileMotion ? undefined : { scale: 0.98 }}
+      whileHover={reduceMotion ? undefined : { y: -1.5 }}
+      whileTap={reduceMotion ? undefined : { scale: 0.98 }}
       onClick={onClick}
       className={cn(
         'min-h-10 max-w-full rounded-full border px-3 py-2 text-[0.8rem] font-semibold leading-tight transition duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] sm:px-4 sm:py-2.5 sm:text-[0.9rem]',
@@ -973,14 +992,22 @@ function Chip({ selected, onClick, children }: { selected: boolean; onClick: () 
   );
 }
 
-function FeatureCard({ selected, onClick, children }: { selected: boolean; onClick: () => void; children: ReactNode }) {
-  const isMobileMotion = useMobileMotion();
-
+function FeatureCard({
+  selected,
+  reduceMotion,
+  onClick,
+  children,
+}: {
+  selected: boolean;
+  reduceMotion: boolean;
+  onClick: () => void;
+  children: ReactNode;
+}) {
   return (
     <motion.button
       type="button"
-      whileHover={isMobileMotion ? undefined : { y: -3, scale: 1.01 }}
-      whileTap={isMobileMotion ? undefined : { scale: 0.985 }}
+      whileHover={reduceMotion ? undefined : { y: -3, scale: 1.01 }}
+      whileTap={reduceMotion ? undefined : { scale: 0.985 }}
       onClick={onClick}
       className={cn(
         'group relative min-h-[3.2rem] w-full min-w-0 overflow-hidden rounded-[0.95rem] border p-2.5 text-left transition duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] sm:min-h-[5.5rem] sm:rounded-[1.15rem] sm:p-4',

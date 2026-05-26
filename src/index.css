@@ -255,14 +255,6 @@ a {
     transform: none !important;
   }
 
-  .glass-panel,
-  .premium-card,
-  .mockup-window {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 18px 54px rgba(5, 5, 9, 0.32);
-  }
-
   .premium-card,
   .light-card {
     will-change: auto;
