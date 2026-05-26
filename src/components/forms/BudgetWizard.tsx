@@ -1,4 +1,4 @@
-import { FormEvent, useMemo, useRef, useState, type ReactNode } from 'react';
+import { FormEvent, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { LucideIcon } from 'lucide-react';
 import {
@@ -262,7 +262,24 @@ function isEmailFormatValid(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+function useMobileMotion() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia('(max-width: 768px)');
+    const update = () => setIsMobile(query.matches);
+
+    update();
+    query.addEventListener('change', update);
+
+    return () => query.removeEventListener('change', update);
+  }, []);
+
+  return isMobile;
+}
+
 export function BudgetWizard() {
+  const isMobileMotion = useMobileMotion();
   const startedAtRef = useRef(Date.now());
   const [step, setStep] = useState(0);
   const [form, setForm] = useState<FormState>(initialState);
@@ -362,9 +379,9 @@ export function BudgetWizard() {
   if (submitted) {
     return (
       <motion.div
-        initial={{ opacity: 0, y: 18, filter: 'blur(10px)' }}
-        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-        transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+        initial={isMobileMotion ? { opacity: 0, y: 10 } : { opacity: 0, y: 18, filter: 'blur(10px)' }}
+        animate={isMobileMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, filter: 'blur(0px)' }}
+        transition={{ duration: isMobileMotion ? 0.32 : 0.55, ease: [0.16, 1, 0.3, 1] }}
         className="relative overflow-hidden rounded-[1.45rem] border border-violet-400/[0.28] bg-white/[0.06] p-5 shadow-[0_24px_80px_rgba(5,5,9,0.45)] backdrop-blur-2xl sm:rounded-[2rem] sm:p-10 sm:shadow-[0_34px_120px_rgba(5,5,9,0.55)]"
       >
         <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-violet-500/[0.22] blur-3xl" />
@@ -435,7 +452,7 @@ export function BudgetWizard() {
             <motion.div
               className="h-full rounded-full bg-gradient-to-r from-violet-600 via-violet-400 to-signal shadow-[0_0_32px_rgba(141,92,255,0.5)]"
               animate={{ width: `${progress}%` }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: isMobileMotion ? 0.28 : 0.5, ease: [0.16, 1, 0.3, 1] }}
             />
           </div>
 
@@ -451,10 +468,10 @@ export function BudgetWizard() {
           <AnimatePresence mode="wait">
             <motion.div
               key={step}
-              initial={{ opacity: 0, y: 18, scale: 0.985, filter: 'blur(10px)' }}
-              animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, y: -16, scale: 0.985, filter: 'blur(10px)' }}
-              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              initial={isMobileMotion ? { opacity: 0, y: 10 } : { opacity: 0, y: 18, scale: 0.985, filter: 'blur(10px)' }}
+              animate={isMobileMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+              exit={isMobileMotion ? { opacity: 0, y: -8 } : { opacity: 0, y: -16, scale: 0.985, filter: 'blur(10px)' }}
+              transition={{ duration: isMobileMotion ? 0.28 : 0.45, ease: [0.16, 1, 0.3, 1] }}
             >
               {step === 0 ? (
                 <WizardStep
@@ -719,19 +736,55 @@ function StepRail({
   disabled: boolean;
   onStepSelect: (index: number) => void;
 }) {
+  const currentItem = stepItems[currentStep];
+
   return (
     <div className="relative px-0 sm:px-3 lg:px-1">
+      <div className="sm:hidden">
+        <div className="grid grid-cols-7 gap-1.5">
+          {stepItems.map((item, index) => {
+            const isActive = index === currentStep;
+            const isComplete = index < currentStep;
+            const canNavigate = index <= currentStep && !disabled;
+
+            return (
+              <button
+                key={item.label}
+                type="button"
+                title={`${item.label} - ${item.detail}`}
+                onClick={() => canNavigate && onStepSelect(index)}
+                disabled={!canNavigate}
+                className={cn(
+                  'grid min-h-9 place-items-center rounded-xl border text-[0.62rem] font-semibold transition duration-300',
+                  'disabled:cursor-not-allowed disabled:opacity-45',
+                  isActive
+                    ? 'border-violet-300/40 bg-violet-400/[0.14] text-frost shadow-[0_0_22px_rgba(141,92,255,0.18)]'
+                    : isComplete
+                      ? 'border-signal/22 bg-signal/[0.075] text-signal'
+                      : 'border-white/[0.09] bg-white/[0.035] text-muted',
+                )}
+              >
+                {isComplete ? <CheckCircle2 className="h-3.5 w-3.5" /> : `0${index + 1}`}
+              </button>
+            );
+          })}
+        </div>
+        <div className="mt-2.5 flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-white/[0.035] px-3 py-2">
+          <span className="text-xs font-semibold text-frost">{currentItem.label}</span>
+          <span className="text-[0.68rem] font-medium text-muted">{currentItem.detail}</span>
+        </div>
+      </div>
       {/* Mobile only: scroll hint — translucent, never opaque black */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-5 bg-gradient-to-r from-white/[0.07] via-white/[0.02] to-transparent backdrop-blur-[1px] lg:hidden"
+        className="pointer-events-none absolute inset-y-0 left-0 z-10 hidden w-5 bg-gradient-to-r from-white/[0.07] via-white/[0.02] to-transparent backdrop-blur-[1px] sm:block lg:hidden"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-5 bg-gradient-to-l from-white/[0.07] via-white/[0.02] to-transparent backdrop-blur-[1px] lg:hidden"
+        className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-5 bg-gradient-to-l from-white/[0.07] via-white/[0.02] to-transparent backdrop-blur-[1px] sm:block lg:hidden"
       />
 
-      <div className="flex gap-2 overflow-x-auto scroll-px-1 pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:gap-3 sm:scroll-px-4 sm:px-1 [&::-webkit-scrollbar]:hidden lg:overflow-visible lg:px-0.5">
+      <div className="hidden gap-3 overflow-x-auto scroll-px-4 pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:flex sm:px-1 [&::-webkit-scrollbar]:hidden lg:overflow-visible lg:px-0.5">
         {stepItems.map((item, index) => {
           const isActive = index === currentStep;
           const isComplete = index < currentStep;
@@ -760,7 +813,7 @@ function StepRail({
               whileTap={canNavigate ? { scale: 0.985 } : undefined}
               transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
               className={cn(
-                'group relative min-w-[5.7rem] shrink-0 overflow-hidden rounded-[1rem] border px-2.5 py-2 text-left backdrop-blur-xl transition-[border-color,background-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:min-w-[7.5rem] sm:rounded-2xl sm:px-4 sm:py-3 lg:min-w-0 lg:flex-1',
+                'group relative min-w-[7.5rem] shrink-0 overflow-hidden rounded-2xl border px-4 py-3 text-left backdrop-blur-xl transition-[border-color,background-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] lg:min-w-0 lg:flex-1',
                 'disabled:cursor-not-allowed disabled:opacity-45',
                 isActive
                   ? 'border-violet-300/35 bg-gradient-to-br from-violet-400/[0.12] via-white/[0.07] to-white/[0.03] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.14),0_10px_40px_-12px_rgba(141,92,255,0.45)]'
@@ -788,7 +841,7 @@ function StepRail({
               <span className="relative flex items-center gap-2.5">
                 <span
                   className={cn(
-                    'grid h-6 w-6 shrink-0 place-items-center rounded-full border text-[0.6rem] font-semibold transition-[border-color,background-color,box-shadow,color] duration-500 sm:h-8 sm:w-8 sm:text-xs',
+                    'grid h-8 w-8 shrink-0 place-items-center rounded-full border text-xs font-semibold transition-[border-color,background-color,box-shadow,color] duration-500',
                     isActive
                       ? 'border-violet-300/45 bg-gradient-to-br from-violet-400/25 to-white/10 text-frost shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_18px_rgba(169,139,255,0.28)]'
                       : isComplete
@@ -796,12 +849,12 @@ function StepRail({
                         : 'border-white/10 bg-white/[0.04] text-muted group-hover:border-white/18 group-hover:text-frost/90',
                   )}
                 >
-                  {isComplete ? <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> : `0${index + 1}`}
+                  {isComplete ? <CheckCircle2 className="h-4 w-4" /> : `0${index + 1}`}
                 </span>
                 <span className="min-w-0 flex-1">
                   <span
                     className={cn(
-                      'block truncate text-xs font-semibold leading-tight transition-colors duration-500 sm:text-sm',
+                      'block truncate text-sm font-semibold leading-tight transition-colors duration-500',
                       isActive ? 'text-frost' : 'text-frost/88 group-hover:text-frost',
                     )}
                   >
@@ -809,7 +862,7 @@ function StepRail({
                   </span>
                   <span
                     className={cn(
-                      'mt-0.5 block truncate text-[0.62rem] leading-4 transition-colors duration-500 sm:text-xs',
+                      'mt-0.5 block truncate text-xs leading-4 transition-colors duration-500',
                       isActive ? 'text-violet-200/75' : 'text-muted group-hover:text-mist',
                     )}
                   >
