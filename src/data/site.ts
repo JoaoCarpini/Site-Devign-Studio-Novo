@@ -510,24 +510,24 @@ export const projects: Project[] = [
   {
     slug: 'contract-ai',
     title: 'Contract AI',
-    category: 'Automação documental com IA',
+    category: 'Design editorial e materiais impressos',
     summary:
-      'Plataforma inteligente para geração automatizada de contratos, preenchimento dinâmico e automação do fluxo documental.',
+      'Criação e diagramação de materiais impressos, como planners e livros, com organização visual refinada e preparação técnica de arquivos.',
     context:
-      'Empresas que criam contratos com frequência precisam padronizar cláusulas, reduzir preenchimento manual e acelerar a produção documental com mais controle.',
+      'Materiais impressos precisam unir clareza visual, ritmo de leitura, hierarquia editorial e acabamento técnico para chegar à produção com consistência.',
     problem:
-      'A criação de contratos dependia de modelos soltos, edição manual e conferência repetitiva, aumentando retrabalho, inconsistência e risco operacional.',
+      'Sem uma diagramação estruturada, planners e livros perdem legibilidade, coerência visual e segurança técnica para impressão ou distribuição profissional.',
     solution:
-      'Desenvolvemos um fluxo para selecionar modelos, preencher dados essenciais, gerar contratos automaticamente e preparar a automação para integrações internas.',
+      'Criamos composições editoriais com grids, hierarquia tipográfica, páginas-mestre, organização de conteúdo e fechamento técnico dos arquivos.',
     result:
-      'Contratos gerados com mais velocidade, menos trabalho manual e maior consistência entre dados, modelos e fluxo operacional.',
-    stack: ['Node.js', 'Express', 'PostgreSQL', 'APIs', 'Automação', 'Railway'],
-    features: ['Geração de contratos', 'Modelos dinâmicos', 'Preenchimento inteligente', 'Fluxo documental', 'Deploy contínuo'],
-    differentials: ['Automação contratual', 'Experiência SaaS', 'Base preparada para integrações'],
+      'Materiais com leitura mais organizada, estética premium e arquivos preparados para produção gráfica com mais previsibilidade.',
+    stack: ['Design Editorial', 'Diagramação', 'Adobe InDesign', 'Illustrator', 'Photoshop', 'Pré-impressão'],
+    features: ['Planners', 'Livros', 'Grids editoriais', 'Páginas-mestre', 'Arquivo para impressão'],
+    differentials: ['Organização visual', 'Acabamento técnico', 'Preparação gráfica profissional'],
     metrics: [
-      { label: 'Contratos', value: 'gerados' },
-      { label: 'Fluxo', value: 'automatizado' },
-      { label: 'Operação', value: 'menos manual' },
+      { label: 'Layout', value: 'editorial' },
+      { label: 'Arquivos', value: 'print-ready' },
+      { label: 'Leitura', value: 'organizada' },
     ],
     accent: 'violet',
   },
