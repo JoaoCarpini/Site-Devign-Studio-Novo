@@ -16,7 +16,7 @@ export default function Budget() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/40 to-transparent" />
       <div className="pointer-events-none absolute left-1/2 top-20 h-64 w-64 -translate-x-1/2 rounded-full bg-violet-500/[0.08] blur-3xl sm:h-96 sm:w-96" />
 
-      <div className="container-premium relative mx-auto grid max-w-6xl gap-5 pb-12 pt-4 sm:gap-8 sm:pb-20 lg:grid-cols-[0.82fr_1.18fr] lg:items-start lg:gap-10 lg:pb-28">
+      <div className="container-premium relative mx-auto grid max-w-7xl gap-5 pb-12 pt-4 sm:gap-8 sm:pb-20 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-10 lg:pb-28">
         <Reveal className="min-w-0 lg:sticky lg:top-28">
           <span className="eyebrow mb-4">Diagnóstico inicial</span>
           <h1 className="max-w-3xl text-balance text-[clamp(2.2rem,11vw,3.2rem)] font-semibold leading-[0.98] tracking-normal text-frost lg:text-[4rem]">
