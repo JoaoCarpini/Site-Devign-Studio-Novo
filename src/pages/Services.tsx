@@ -8,30 +8,30 @@ import { services } from '../data/site';
 
 const pillars = [
   'Arquitetura antes da execução visual.',
-  'Sistemas e integrações para reduzir fricção operacional.',
+  'Sistemas e integrações para reduzir ruído operacional.',
   'APIs, automações e IA conectadas ao fluxo real da empresa.',
-  'Dashboards para transformar dados em decisão.',
+  'Dashboards para transformar dados em leitura executiva.',
 ];
 
 const deliveryStandards = [
   {
     title: 'Contratos digitais',
-    text: 'Rotas, payloads, validações e autenticação desenhados para integração confiável.',
+    text: 'Rotas, payloads, validações e autenticação desenhados para integração segura.',
     icon: Network,
   },
   {
     title: 'Dados com direção',
-    text: 'Modelagem e persistência para reduzir divergência e acelerar leitura executiva.',
+    text: 'Modelagem e persistência para reduzir divergência e acelerar decisão.',
     icon: Database,
   },
   {
     title: 'Fluxos automatizados',
-    text: 'Jobs, webhooks, alertas e gatilhos para padronizar execução sem ruído.',
+    text: 'Jobs, webhooks e gatilhos para padronizar execução sem ruído.',
     icon: Workflow,
   },
   {
     title: 'Base versionada',
-    text: 'Deploy, documentação e ciclos de evolução para manter o produto sustentável.',
+    text: 'Deploy, documentação e ciclos de evolução para manter a base sustentável.',
     icon: GitBranch,
   },
 ];
@@ -49,7 +49,7 @@ export default function Services() {
               Da interface à lógica operacional, a Devign estrutura sistemas, APIs, automações e IA aplicada com foco em performance, controle e evolução.
             </p>
             <ButtonLink to="/orcamento" className="mt-9">
-              Discutir escopo
+              Mapear escopo
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
           </Reveal>
@@ -71,7 +71,7 @@ export default function Services() {
           <SectionIntro
             eyebrow="Padrão técnico"
             title="Cada serviço é uma camada de arquitetura."
-            text="Dados, permissões, integrações, manutenção e evolução entram no escopo desde o início."
+            text="Dados, permissões, integrações e evolução entram no escopo desde o início."
           />
           <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {deliveryStandards.map((standard, index) => {

@@ -63,10 +63,10 @@ export function TeamSection({ compact = false }: TeamSectionProps) {
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <SectionIntro
             eyebrow="Equipe"
-            title={compact ? 'Estratégia, design premium e engenharia no mesmo núcleo.' : 'Uma equipe enxuta para projetos digitais de alto valor.'}
+            title={compact ? 'Estratégia, design e engenharia no mesmo núcleo.' : 'Uma equipe enxuta para projetos digitais de alto valor.'}
             text={
               compact
-                ? 'A Devign combina visão de marca, relacionamento consultivo e arquitetura de software para entregar experiências digitais high-end.'
+                ? 'A Devign combina visão de marca, relacionamento consultivo e arquitetura de software para entregar experiências digitais de alto valor.'
                 : 'A estrutura da Devign une clareza comercial, acabamento visual e execução técnica. Posicionamento, experiência, software e evolução trabalham como sistema.'
             }
           />
@@ -76,9 +76,9 @@ export function TeamSection({ compact = false }: TeamSectionProps) {
               <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/50 to-transparent" />
               <div className="grid gap-3 sm:grid-cols-3">
                 {[
-                  { label: 'Brand layer', icon: Layers3 },
-                  { label: 'Delivery layer', icon: BadgeCheck },
-                  { label: 'Engineering layer', icon: CircuitBoard },
+                  { label: 'Marca', icon: Layers3 },
+                  { label: 'Entrega', icon: BadgeCheck },
+                  { label: 'Engenharia', icon: CircuitBoard },
                 ].map((item) => {
                   const Icon = item.icon;
 

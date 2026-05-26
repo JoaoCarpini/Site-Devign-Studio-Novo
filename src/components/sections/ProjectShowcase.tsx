@@ -16,8 +16,8 @@ export function ProjectShowcase({ compact = false }: { compact?: boolean }) {
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionIntro
             eyebrow="Showcase"
-            title="Cases que parecem produto porque foram pensados como produto."
-            text="Projetos com contexto de negócio, arquitetura técnica, stack moderna, funcionalidades reais e visual de software premium."
+            title="Cases com profundidade de produto."
+            text="Projetos com contexto de negócio, arquitetura técnica, funcionalidades reais e visual de software premium."
           />
           <ButtonLink to="/projetos" className="w-fit shadow-glow">
             Explorar portfólio
@@ -39,25 +39,25 @@ const teaserCopy = [
   {
     label: 'Operação inteligente',
     title: 'Automação operacional inteligente.',
-    detail: 'Fluxos conectados para reduzir trabalho manual e revelar gargalos reais.',
+    detail: 'Fluxos conectados para reduzir ruído e revelar gargalos reais.',
     icon: Workflow,
   },
   {
     label: 'Produto escalável',
-    title: 'Experiência digital construída para escala.',
-    detail: 'Interfaces parciais, dados e jornadas desenhadas para uso recorrente.',
+    title: 'Experiência digital preparada para escala.',
+    detail: 'Interfaces, dados e jornadas desenhadas para uso recorrente.',
     icon: Layers3,
   },
   {
     label: 'IA aplicada',
     title: 'IA aplicada ao fluxo operacional.',
-    detail: 'Triagem, leitura e suporte à decisão sem expor toda a arquitetura.',
+    detail: 'Triagem, leitura e suporte à decisão com contexto controlado.',
     icon: BrainCircuit,
   },
   {
     label: 'Infraestrutura',
     title: 'Infraestrutura estratégica para crescimento.',
-    detail: 'APIs, permissões e bases preparadas para módulos futuros.',
+    detail: 'APIs, permissões e bases preparadas para evolução modular.',
     icon: Gauge,
   },
 ];
@@ -80,12 +80,12 @@ function ProjectTeaserShowcase() {
         <div className="grid gap-8 lg:grid-cols-[0.84fr_1.16fr] lg:items-end">
           <SectionIntro
             eyebrow="Experiências digitais"
-            title="Fragmentos de sistemas que movem operações reais."
-            text="A Home mostra apenas sinais: partes de interfaces, indicadores e fluxos. Os detalhes completos vivem no portfólio."
+            title="Fragmentos de sistemas em movimento."
+            text="A Home mostra apenas sinais: interfaces parciais, indicadores e fluxos. Os detalhes completos vivem no portfólio."
           />
           <Reveal className="lg:justify-self-end">
             <ButtonLink to="/projetos" className="w-fit">
-              Explorar Cases
+              Explorar cases
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
           </Reveal>
@@ -143,7 +143,7 @@ function ProjectTeaserShowcase() {
               Cada preview é intencionalmente incompleto. O valor está no sistema por trás: arquitetura, operação, dados e experiência.
             </p>
             <ButtonLink to="/projetos" variant="secondary" className="w-fit">
-              Ver Soluções em Operação
+              Ver soluções em operação
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
           </div>

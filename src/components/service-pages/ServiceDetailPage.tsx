@@ -45,8 +45,8 @@ export function ServiceDetailPage({ service }: { service: Service }) {
         <div className="container-premium grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <SectionIntro
             eyebrow="Valor"
-            title="A entrega precisa melhorar percepção, operação ou escala."
-            text="Cada decisão de interface, arquitetura e tecnologia existe para sustentar valor real."
+            title="Cada entrega precisa sustentar percepção, operação ou escala."
+            text="Interface, arquitetura e tecnologia são tratadas como decisões de valor, não como acabamento."
           />
           <div className="grid gap-3">
             {service.benefits.map((benefit, index) => (
@@ -67,7 +67,7 @@ export function ServiceDetailPage({ service }: { service: Service }) {
                 Direção
               </span>
               <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-normal text-ink sm:text-5xl">
-                Técnica, estética e direção estratégica no mesmo projeto.
+                Técnica, estética e estratégia no mesmo projeto.
               </h2>
               <p className="mt-5 text-base leading-8 text-[#4a4658]">
                 O objetivo não é produzir telas isoladas. É construir um ativo digital sólido, útil e defensável.
@@ -90,7 +90,7 @@ export function ServiceDetailPage({ service }: { service: Service }) {
           <SectionIntro
             eyebrow="Stack"
             title="Tecnologia escolhida pela função do projeto."
-            text="A stack é definida para performance, manutenção e integração com o ecossistema da empresa."
+            text="A stack é definida por performance, manutenção e integração com o ecossistema da empresa."
             align="center"
           />
           <Reveal className="mx-auto mt-10 flex max-w-4xl flex-wrap justify-center gap-3">
@@ -141,7 +141,7 @@ export function ServiceDetailPage({ service }: { service: Service }) {
           <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(141,92,255,0.22),rgba(255,255,255,0.06)_42%,rgba(77,212,198,0.1))] p-8 shadow-premium sm:p-12">
             <Reveal className="max-w-3xl">
               <span className="eyebrow mb-5">Próximo passo</span>
-              <h2 className="heading-lg">Vamos transformar esse escopo em direção técnica.</h2>
+              <h2 className="heading-lg">Vamos transformar contexto em direção técnica.</h2>
               <p className="body-lead mt-5">
                 Envie um briefing inicial e receba uma leitura objetiva sobre caminho, prioridade e investimento provável.
               </p>

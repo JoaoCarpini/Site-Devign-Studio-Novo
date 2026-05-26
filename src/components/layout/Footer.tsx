@@ -19,7 +19,7 @@ export function Footer() {
             <DevignLogo variant="footer" />
             <p className="mt-1 text-sm text-muted">Software house premium</p>
             <p className="mt-6 max-w-md text-sm leading-7 text-muted">
-              Tecnologia sob medida para empresas que precisam vender melhor, operar com mais clareza e sustentar uma presença digital de alto nível.
+              Tecnologia sob medida para empresas que precisam sustentar presença, operação e crescimento com mais precisão.
             </p>
           </div>
 

@@ -5,6 +5,7 @@ import { PageTransition } from './components/animations/PageTransition';
 import { CursorGlowLayer } from './components/animations/CursorGlowLayer';
 import { Footer } from './components/layout/Footer';
 import { Header } from './components/layout/Header';
+import { ContactPresence } from './components/sections/ContactPresence';
 import Home from './pages/Home';
 import Services from './pages/Services';
 import Projects from './pages/Projects';
@@ -49,6 +50,7 @@ export default function App() {
           </Routes>
         </PageTransition>
       </AnimatePresence>
+      <ContactPresence />
       <Footer />
     </div>
   );

@@ -5,37 +5,37 @@ import { SectionIntro } from '../ui/SectionIntro';
 const capabilities = [
   {
     title: 'Escalabilidade',
-    text: 'Arquitetura modular, separação de responsabilidades e base preparada para novas rotas, módulos e integrações.',
+    text: 'Arquitetura modular, responsabilidades claras e base pronta para novos módulos e integrações.',
     icon: Gauge,
     specs: ['modularidade', 'performance', 'evolução'],
   },
   {
     title: 'Integrações',
-    text: 'APIs, webhooks e sincronização entre CRM, ERPs, formulários, dashboards e sistemas internos.',
+    text: 'APIs, webhooks e sincronização entre CRM, ERPs, dashboards e sistemas internos.',
     icon: Cable,
     specs: ['REST', 'webhooks', 'dados'],
   },
   {
     title: 'Automação',
-    text: 'Fluxos para reduzir operação manual, padronizar tarefas e criar pontos de controle com logs e alertas.',
+    text: 'Fluxos para reduzir trabalho manual, padronizar tarefas e criar pontos de controle.',
     icon: Workflow,
     specs: ['jobs', 'alertas', 'orquestração'],
   },
   {
     title: 'IA aplicada',
-    text: 'Assistentes, triagem, classificação, sumarização e análise conectadas ao contexto operacional.',
+    text: 'Assistentes, triagem, classificação e análise conectadas ao contexto operacional.',
     icon: BrainCircuit,
     specs: ['contexto', 'modelos', 'governança'],
   },
   {
     title: 'Segurança',
-    text: 'Autenticação, permissões, validação de dados e decisões alinhadas ao nível de risco do projeto.',
+    text: 'Autenticação, permissões e validação alinhadas ao nível de risco do projeto.',
     icon: LockKeyhole,
     specs: ['auth', 'perfis', 'validação'],
   },
   {
     title: 'Entrega técnica',
-    text: 'Versionamento, revisão, deploy e documentação para reduzir dependência e facilitar manutenção.',
+    text: 'Versionamento, revisão, deploy e documentação para manter a base legível.',
     icon: GitPullRequestArrow,
     specs: ['GitHub', 'deploy', 'docs'],
   },
@@ -47,9 +47,9 @@ export function EngineeringCapabilities() {
       <div className="container-premium">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionIntro
-            eyebrow="Engenharia de software"
-            title="Capacidades técnicas para produtos, operações e plataformas internas."
-            text="A entrega combina arquitetura, dados, integração, automação e IA para criar sistemas com utilidade real dentro da operação."
+            eyebrow="Engenharia"
+            title="Capacidades técnicas para produtos e operações exigentes."
+            text="Arquitetura, dados, integração, automação e IA combinados para criar sistemas úteis dentro da operação."
           />
           <Reveal className="hidden rounded-2xl border border-white/10 bg-white/[0.055] px-5 py-4 backdrop-blur-xl lg:block">
             <div className="flex items-center gap-3 text-sm font-semibold text-frost">

@@ -15,12 +15,12 @@ const particles = [
   { left: '93%', top: '34%', delay: 1.4, size: 2 },
 ];
 
-const capabilityPills = ['Sistemas sob medida', 'APIs estratégicas', 'Automações', 'IA aplicada', 'Dashboards'];
+const capabilityPills = ['Software sob medida', 'APIs estratégicas', 'Automações', 'IA aplicada', 'Presença premium'];
 
 const heroMetrics = [
   { value: '360°', label: 'Estratégia, design e engenharia' },
-  { value: 'Premium', label: 'Percepção digital de alto valor' },
-  { value: 'Escala', label: 'Arquitetura para operação real' },
+  { value: 'Premium', label: 'Presença digital de alto valor' },
+  { value: 'Escala', label: 'Arquitetura para operações reais' },
 ];
 
 export function CinematicHero() {
@@ -59,7 +59,7 @@ export function CinematicHero() {
             className="mb-7 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.065] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-violet-300 shadow-[0_0_50px_rgba(141,92,255,0.16)] backdrop-blur-2xl"
           >
             <Sparkles className="h-4 w-4" />
-            Devign Studio / Luxury software house
+            Devign Studio / Software house premium
           </motion.div>
 
           <motion.h1
@@ -68,7 +68,7 @@ export function CinematicHero() {
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
           >
-            Tecnologia premium para operar em escala.
+            Infraestrutura digital para marcas que operam em alto nível.
           </motion.h1>
 
           <motion.p
@@ -77,7 +77,7 @@ export function CinematicHero() {
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1], delay: 0.18 }}
           >
-            Construímos experiências digitais, automações e sistemas sob medida para empresas que precisam de presença, performance e controle operacional.
+            Construímos experiências digitais, automações e sistemas sob medida para empresas que precisam transformar presença, dados e operação em vantagem real.
           </motion.p>
 
           <motion.div
@@ -95,7 +95,7 @@ export function CinematicHero() {
             </ButtonLink>
             <ButtonLink to="/orcamento" variant="ghost" className="px-4">
               <CalendarDays className="h-4 w-4" />
-              Agendar conversa
+              Mapear escopo
             </ButtonLink>
           </motion.div>
 

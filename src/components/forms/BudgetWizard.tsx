@@ -36,7 +36,6 @@ import { buildWhatsAppUrl, openWhatsApp } from '../../services/whatsapp';
 import type { BriefingPayload } from '../../types/briefing';
 import { buttonStyles } from '../ui/Button';
 import { cn } from '../../utils/cn';
-import { DevignLogo } from '../brand/DevignLogo';
 
 type FormState = Omit<BriefingPayload, 'startedAt'>;
 type SubmitPhase = 'idle' | 'validating' | 'sending' | 'whatsapp';
@@ -254,9 +253,9 @@ const integrationOptions = [
 
 const phaseMessages: Record<SubmitPhase, string> = {
   idle: '',
-  validating: 'Validando email e proteção anti-spam...',
-  sending: 'Enviando briefing estruturado para a Devign...',
-  whatsapp: 'Preparando atendimento via WhatsApp...',
+  validating: 'Validando entrada com segurança...',
+  sending: 'Organizando briefing para análise...',
+  whatsapp: 'Preparando continuidade no WhatsApp...',
 };
 
 function isEmailFormatValid(email: string) {
@@ -380,10 +379,10 @@ export function BudgetWizard() {
             Onboarding concluído
           </span>
           <h2 className="mt-5 text-3xl font-semibold leading-tight text-frost sm:text-4xl">
-            Briefing enviado com sucesso.
+            Briefing recebido com contexto.
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-8 text-mist">
-            Nossa equipe recebeu as informações do seu projeto. Agora você será direcionado para continuar o atendimento via WhatsApp.
+            A Devign recebeu as informações essenciais do projeto. A conversa agora continua no WhatsApp com mais precisão.
           </p>
 
           <div className="mt-8 grid gap-3 rounded-[1.5rem] border border-white/10 bg-ink/45 p-4 sm:grid-cols-3">
@@ -420,19 +419,11 @@ export function BudgetWizard() {
         <div className="flex flex-col gap-5 border-b border-white/10 pb-6">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <motion.div
-                initial={{ opacity: 0, y: 10, filter: 'blur(8px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-                className="mb-5 inline-flex"
-              >
-                <DevignLogo to="" variant="navbar" />
-              </motion.div>
               <span className="text-xs font-semibold uppercase tracking-[0.22em] text-violet-400">
-                Onboarding estratégico
+                Diagnóstico estratégico
               </span>
               <h2 className="mt-3 text-2xl font-semibold leading-tight text-frost sm:text-3xl">
-                Qualifique seu projeto com segurança real.
+                Organize o contexto do seu projeto.
               </h2>
             </div>
             <span className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm font-semibold text-mist">
@@ -468,8 +459,8 @@ export function BudgetWizard() {
               {step === 0 ? (
                 <WizardStep
                   eyebrow="Etapa 01 · Projeto"
-                  title="Qual experiência digital sua empresa precisa construir?"
-                  description="Estamos entendendo qual experiência digital sua empresa precisa construir — tecnologia, design e presença estratégica em um único fluxo de discovery."
+                  title="Que tipo de ativo digital sua empresa precisa construir?"
+                  description="Escolha a frente principal para direcionar tecnologia, design e presença estratégica com mais precisão."
                 >
                   <div className="mt-7 space-y-10">
                     {projectTypeGroups.map((group) => (
@@ -507,8 +498,8 @@ export function BudgetWizard() {
               {step === 1 ? (
                 <WizardStep
                   eyebrow="Etapa 02"
-                  title="Qual objetivo de negócio deve orientar a entrega?"
-                  description="A prioridade evita escopo solto e ajuda a desenhar tecnologia com impacto comercial ou operacional claro."
+                  title="Qual prioridade deve orientar a entrega?"
+                  description="A prioridade define foco, reduz ruído de escopo e orienta decisões de impacto comercial ou operacional."
                 >
                   <OptionGrid>
                     {objectives.map((option) => (
@@ -526,8 +517,8 @@ export function BudgetWizard() {
               {step === 2 ? (
                 <WizardStep
                   eyebrow="Etapa 03"
-                  title="Qual faixa de orçamento faz sentido para este momento?"
-                  description="A referência de investimento calibra escopo, senioridade técnica, ritmo e profundidade da solução."
+                  title="Qual faixa de investimento faz sentido agora?"
+                  description="A referência calibra profundidade, ritmo e nível de arquitetura da solução."
                 >
                   <OptionGrid>
                     {budgetRanges.map((option) => (
@@ -545,8 +536,8 @@ export function BudgetWizard() {
               {step === 3 ? (
                 <WizardStep
                   eyebrow="Etapa 04"
-                  title="Qual prazo esperado para iniciar ou entregar?"
-                  description="O timing ajuda a entender urgência, complexidade e necessidade de dividir a entrega em fases."
+                  title="Qual janela de tempo precisa ser considerada?"
+                  description="O timing ajuda a calibrar urgência, complexidade e necessidade de fases."
                 >
                   <OptionGrid>
                     {timelineOptions.map((option) => (
@@ -564,8 +555,8 @@ export function BudgetWizard() {
               {step === 4 ? (
                 <WizardStep
                   eyebrow="Etapa 05"
-                  title="Selecione os recursos desejados para a primeira versão."
-                  description="Escolha os recursos mais importantes para visualizar melhor o projeto. A proposta pode reorganizar prioridades por fase, complexidade e impacto."
+                  title="Quais recursos pertencem à primeira versão?"
+                  description="Escolha os pontos mais relevantes. A análise pode reorganizar prioridades por fase, complexidade e impacto."
                 >
                   <FeatureGrid>
                     {featureOptions.map((feature) => (
@@ -584,8 +575,8 @@ export function BudgetWizard() {
               {step === 5 ? (
                 <WizardStep
                   eyebrow="Etapa 06"
-                  title="Quais integrações podem fazer parte do projeto?"
-                  description="Integrações impactam arquitetura, segurança, automação e esforço técnico. Se ainda não souber, marque a opção correspondente."
+                  title="Quais conexões podem entrar no projeto?"
+                  description="Integrações impactam arquitetura, segurança e esforço técnico. Se ainda não souber, marque a opção correspondente."
                 >
                   <ChipGrid>
                     {integrationOptions.map((integration) => (
@@ -604,8 +595,8 @@ export function BudgetWizard() {
               {step === 6 ? (
                 <WizardStep
                   eyebrow="Etapa 07"
-                  title="Dados para validação, contato e pré-diagnóstico."
-                  description="Seu email será validado via API server-side antes do envio. Se aprovado, o briefing vai para a Devign e o WhatsApp abre automaticamente."
+                  title="Dados para contato e pré-diagnóstico."
+                  description="As informações serão validadas com segurança antes do envio. Depois, a conversa segue com o resumo do briefing."
                 >
                   <input
                     aria-hidden="true"
@@ -648,7 +639,7 @@ export function BudgetWizard() {
                   />
 
                   <div className="mt-5 grid gap-3 rounded-[1.4rem] border border-white/10 bg-ink/45 p-4 sm:grid-cols-3">
-                    <TrustBadge icon={ShieldCheck} text="Validação server-side" />
+                    <TrustBadge icon={ShieldCheck} text="Validação segura" />
                     <TrustBadge icon={LockKeyhole} text="Anti-spam ativo" />
                     <TrustBadge icon={DatabaseZap} text="Pronto para CRM/API" />
                   </div>
@@ -681,13 +672,13 @@ export function BudgetWizard() {
           </button>
           {step < steps.length - 1 ? (
             <button type="button" className={buttonStyles('primary')} onClick={next} disabled={isSubmitting}>
-              Continuar onboarding
+              Continuar diagnóstico
               <ArrowRight className="h-4 w-4" />
             </button>
           ) : (
             <button type="submit" className={buttonStyles('primary')} disabled={isSubmitting}>
               {isSubmitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
-              Enviar briefing
+              Enviar para análise
             </button>
           )}
         </div>

@@ -163,7 +163,7 @@ export const services: Service[] = [
     hero:
       'APIs desenhadas para empresas que precisam integrar, escalar e manter controle.',
     strategic:
-      'Uma API define como a operação respira. A Devign cria contratos claros, seguros e documentados para que sistemas conversem sem improviso.',
+      'Uma API define como a operação circula. A Devign cria contratos claros, seguros e documentados para que sistemas conversem sem improviso.',
     benefits: [
       'Conexão entre sistemas internos, plataformas e produtos digitais.',
       'Dados padronizados para reduzir inconsistência.',
@@ -214,7 +214,7 @@ export const services: Service[] = [
     menuTitle: 'Automação',
     kicker: 'Fluxos sem fricção',
     summary:
-      'Fluxos inteligentes eliminando fricção operacional e trabalho repetitivo.',
+      'Fluxos inteligentes para reduzir ruído operacional e trabalho repetitivo.',
     hero:
       'Automações para operações que precisam de velocidade, controle e consistência.',
     strategic:
@@ -273,7 +273,7 @@ export const services: Service[] = [
     hero:
       'IA incorporada à operação com contexto, controle e utilidade mensurável.',
     strategic:
-      'IA só importa quando melhora um fluxo real. A Devign cria camadas inteligentes para triagem, análise, atendimento, sumarização e automação com contexto de negócio.',
+      'IA só importa quando melhora um fluxo real. A Devign cria camadas inteligentes para triagem, análise, atendimento e automação com contexto de negócio.',
     benefits: [
       'Assistentes internos para acelerar pesquisa, triagem, atendimento e análise.',
       'Automação de leitura, classificação e geração de respostas com contexto.',
@@ -302,7 +302,7 @@ export const services: Service[] = [
       {
         question: 'Vocês criam chatbots?',
         answer:
-          'Sim, mas priorizamos assistentes com contexto e utilidade operacional, não apenas respostas genéricas.',
+          'Sim, mas priorizamos assistentes com contexto, governança e utilidade operacional.',
       },
       {
         question: 'Dá para começar pequeno?',

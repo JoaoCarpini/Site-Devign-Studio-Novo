@@ -5,25 +5,25 @@ import { SectionIntro } from '../ui/SectionIntro';
 const architectureLayers = [
   {
     title: 'Interface de Produto',
-    text: 'Aplicações web, portais, dashboards e áreas administrativas com UX objetiva para uso recorrente.',
+    text: 'Aplicações, portais e dashboards com hierarquia clara para uso recorrente.',
     icon: Layers3,
     items: ['React', 'TypeScript', 'Design System'],
   },
   {
     title: 'Camada de APIs',
-    text: 'Contratos, autenticação, validação, versionamento e rotas preparadas para integração e escala.',
+    text: 'Contratos, autenticação e rotas preparadas para integração, segurança e escala.',
     icon: ServerCog,
     items: ['REST', 'Webhooks', 'Documentação'],
   },
   {
     title: 'Dados e Operação',
-    text: 'Modelagem relacional, trilhas de auditoria, relatórios e bases prontas para análise executiva.',
+    text: 'Modelagem, auditoria e relatórios prontos para leitura executiva.',
     icon: Database,
     items: ['PostgreSQL', 'Logs', 'Dashboards'],
   },
   {
     title: 'Automação e IA',
-    text: 'Fluxos automáticos, classificação, assistentes internos e inteligência aplicada a rotinas reais.',
+    text: 'Fluxos automáticos, classificação e inteligência aplicada a rotinas reais.',
     icon: Workflow,
     items: ['Python', 'IA', 'Orquestração'],
   },
@@ -42,9 +42,9 @@ export function ArchitectureBlueprint() {
       <div className="container-premium">
         <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <SectionIntro
-            eyebrow="Arquitetura moderna"
-            title="Software pensado como infraestrutura de crescimento, não como peça isolada."
-            text="A Devign organiza produto, back-end, dados, integrações, automações e IA em uma arquitetura coesa, com decisões técnicas explícitas e preparada para evolução."
+            eyebrow="Arquitetura"
+            title="Software como infraestrutura de crescimento."
+            text="Produto, back-end, dados, integrações, automações e IA organizados em uma base coesa, explícita e preparada para evoluir."
           />
 
           <Reveal className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0b0b12]/88 p-4 shadow-premium backdrop-blur-2xl sm:p-6">

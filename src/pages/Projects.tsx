@@ -9,9 +9,9 @@ import { projects } from '../data/site';
 
 const portfolioSignals = [
   'Produtos com contexto estratégico e problema operacional claro.',
-  'Mockups e fluxos pensados para aparência de SaaS premium.',
-  'Stacks modernas com React, TypeScript, Python, APIs, PostgreSQL, IA, GitHub e Vercel.',
-  'Cases estruturados com solução, diferenciais, funcionalidades e resultado esperado.',
+  'Interfaces e fluxos com aparência de SaaS premium.',
+  'Stacks com React, TypeScript, Python, APIs, PostgreSQL, IA, GitHub e Vercel.',
+  'Cases estruturados com solução, diferenciais e resultado esperado.',
 ];
 
 export default function Projects() {
@@ -21,13 +21,13 @@ export default function Projects() {
         <AuroraBackground />
         <div className="container-premium relative grid gap-12 pb-20 pt-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end lg:pb-28">
           <Reveal>
-            <span className="eyebrow mb-6">Portfólio completo</span>
-            <h1 className="heading-xl text-balance">Showcase de produtos digitais com padrão de software house high-end.</h1>
+            <span className="eyebrow mb-6">Portfólio</span>
+            <h1 className="heading-xl text-balance">Produtos digitais com padrão de software house high-end.</h1>
             <p className="body-lead mt-7 max-w-3xl">
-              Beelivery, Devign Stock, Kronos e Contract AI são apresentados como cases de produto: problema, solução, stack, funcionalidades, diferenciais e resultado esperado.
+              Beelivery, Devign Stock, Kronos e Contract AI são apresentados como cases de produto: problema, solução, stack, diferenciais e resultado esperado.
             </p>
             <ButtonLink to="/orcamento" className="mt-9">
-              Criar projeto semelhante
+              Iniciar projeto semelhante
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
           </Reveal>
@@ -36,7 +36,7 @@ export default function Projects() {
             <div className="flex items-center justify-between gap-4">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.22em] text-violet-400">Autoridade técnica</p>
-                <h2 className="mt-3 text-2xl font-semibold tracking-normal text-frost">Cases com cara de produto real.</h2>
+                <h2 className="mt-3 text-2xl font-semibold tracking-normal text-frost">Cases com profundidade de produto.</h2>
               </div>
               <BriefcaseBusiness className="h-10 w-10 text-violet-300" />
             </div>
@@ -66,8 +66,7 @@ export default function Projects() {
                   Portfólio institucional com assinatura visual da Devign.
                 </h2>
                 <p className="mt-4 max-w-xl text-base leading-8 text-mist">
-                  Apresentações, materiais comerciais e showcases seguem a identidade vertical da marca — premium, tecnológica e
-                  preparada para conversas high-ticket.
+                  Apresentações, materiais comerciais e showcases seguem a identidade da marca: premium, tecnológica e preparada para conversas de maior valor.
                 </p>
               </div>
               <div className="mt-8 rounded-[1.75rem] border border-white/10 bg-ink/55 p-6 shadow-[0_24px_80px_rgba(5,5,9,0.35)] backdrop-blur-xl lg:mt-0 lg:min-w-[15rem]">
@@ -79,7 +78,7 @@ export default function Projects() {
           <SectionIntro
             eyebrow="Cases detalhados"
             title="Cada projeto comunica tecnologia, negócio e execução."
-            text="A estrutura de portfólio foi desenhada para transmitir profundidade técnica, maturidade visual e capacidade de construir softwares empresariais."
+            text="A estrutura de portfólio transmite profundidade técnica, maturidade visual e capacidade de construir software empresarial."
           />
 
           <div className="mt-12 grid gap-10">
@@ -97,7 +96,7 @@ export default function Projects() {
             <Cpu className="absolute right-36 top-10 hidden h-14 w-14 text-white/10 lg:block" />
             <SectionIntro
               eyebrow="Próximo case"
-              title="Seu software pode ser o próximo produto com padrão premium da Devign."
+              title="Seu software pode ser o próximo produto com padrão Devign."
               text="Envie um briefing e transforme operação, dados, automações ou IA aplicada em um produto digital com arquitetura séria."
             />
             <ButtonLink to="/orcamento" className="mt-8">

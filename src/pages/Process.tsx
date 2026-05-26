@@ -7,9 +7,9 @@ import { SectionIntro } from '../components/ui/SectionIntro';
 
 const guarantees = [
   'Escopo com entregáveis, prioridades e limites claros.',
-  'Validações por etapa para reduzir surpresa no final.',
+  'Validações por etapa para reduzir incerteza.',
   'Decisões técnicas traduzidas com objetividade.',
-  'Base preparada para manutenção, suporte e evolução.',
+  'Base preparada para suporte e evolução.',
 ];
 
 export default function Process() {

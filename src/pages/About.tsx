@@ -15,7 +15,7 @@ const visionPillars = [
   },
   {
     title: 'Engenharia aplicada',
-    text: 'Sistemas, APIs, dados e automações pensados para rotina real, performance e evolução.',
+    text: 'Sistemas, APIs, dados e automações pensados para rotina real e evolução.',
     icon: Code2,
   },
   {
@@ -34,7 +34,7 @@ const principles = [
 
 const cultureSignals = [
   'Pensamento de produto',
-  'Entrega orientada a negócio',
+  'Entrega orientada a valor',
   'Comunicação direta',
   'Qualidade visual e técnica',
 ];
@@ -51,10 +51,10 @@ export default function About() {
           <Reveal>
             <span className="eyebrow mb-6">Sobre a Devign</span>
             <h1 className="heading-xl max-w-5xl text-balance">
-              Uma software house premium para empresas que precisam de presença, operação e escala.
+              Uma software house premium para empresas que precisam sustentar presença, operação e escala.
             </h1>
             <p className="body-lead mt-7 max-w-3xl">
-              A Devign Studio combina design, engenharia e automação para construir ativos digitais com precisão técnica e percepção high-end.
+              A Devign Studio combina design, engenharia e automação para construir ativos digitais com precisão técnica e percepção premium.
             </p>
           </Reveal>
 
@@ -120,7 +120,7 @@ export default function About() {
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <SectionIntro
               eyebrow="Tecnologias"
-              title="Stack moderna para interfaces, APIs, dados, automação e IA aplicada."
+              title="Stack para interfaces, APIs, dados, automação e IA aplicada."
               text="A escolha tecnológica segue a função do projeto: presença premium, operação interna, dashboards, integrações ou inteligência aplicada."
             />
             <TechCloud />

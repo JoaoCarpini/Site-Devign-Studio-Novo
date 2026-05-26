@@ -15,18 +15,18 @@ import { services } from '../data/site';
 
 const companySignals = [
   {
-    title: 'Arquitetura antes da interface',
-    text: 'Módulos, dados, permissões e integrações definidos antes do acabamento visual.',
+    title: 'Arquitetura antes da superfície',
+    text: 'Dados, permissões e integrações definidos antes do acabamento visual.',
     icon: ShieldCheck,
   },
   {
     title: 'Produto em operação',
-    text: 'Interfaces desenhadas para rotina real, decisão rápida e uso recorrente.',
+    text: 'Interfaces desenhadas para rotina real, leitura rápida e uso recorrente.',
     icon: ServerCog,
   },
   {
     title: 'Ecossistema conectado',
-    text: 'APIs, automações e dados integrados para eliminar fricção operacional.',
+    text: 'APIs, automações e dados integrados para reduzir ruído operacional.',
     icon: Network,
   },
 ];
@@ -35,22 +35,22 @@ const institutionalRoutes = [
   {
     label: 'Serviços',
     to: '/servicos',
-    text: 'Conheça as camadas de tecnologia que estruturam presença, operação e escala.',
+    text: 'Camadas de tecnologia para presença, operação e escala.',
   },
   {
     label: 'Projetos',
     to: '/projetos',
-    text: 'Explore fragmentos de produtos digitais, sistemas e soluções em operação.',
+    text: 'Fragmentos de produtos digitais, sistemas e soluções em operação.',
   },
   {
     label: 'Processo',
     to: '/processo',
-    text: 'Entenda como estratégia, design e engenharia avançam com controle.',
+    text: 'Estratégia, design e engenharia avançando com controle.',
   },
   {
     label: 'Sobre',
     to: '/sobre',
-    text: 'Conheça a visão, os princípios e o padrão de exigência da Devign.',
+    text: 'Visão, princípios e padrão de exigência da Devign.',
   },
 ];
 
@@ -64,8 +64,8 @@ export default function Home() {
           <div className="grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-start">
             <SectionIntro
               eyebrow="Institucional"
-              title="Uma estrutura digital para empresas que precisam parecer maiores."
-              text="A Home apresenta a visão executiva. As páginas internas aprofundam tecnologia, processo e direção estratégica para projetos de maior valor."
+              title="Uma presença digital para empresas que precisam sustentar valor."
+              text="Cada seção foi pensada para apresentar visão, tecnologia e método sem excesso. A marca comunica maturidade antes da primeira conversa."
               tone="light"
             />
             <div className="grid gap-4 sm:grid-cols-2">
@@ -95,7 +95,7 @@ export default function Home() {
         <div className="container-premium">
           <SectionIntro
             eyebrow="Frentes de entrega"
-            title="Software, automação e presença digital com a mesma direção estratégica."
+            title="Software, automação e presença digital sob a mesma direção."
             text="A Devign combina interface, dados e engenharia para construir ativos digitais com valor comercial e sustentação operacional."
           />
           <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -123,7 +123,7 @@ export default function Home() {
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <SectionIntro
               eyebrow="Tecnologia"
-              title="Stack moderna, escolhida por função."
+              title="Stack definida por função, não por tendência."
               text="React, TypeScript, APIs, Python, PostgreSQL, IA e automação entram quando sustentam performance, integração e evolução."
             />
             <TechCloud />
@@ -159,7 +159,7 @@ export default function Home() {
             <div className="absolute inset-x-8 top-0 h-px bg-premium-line" />
             <Reveal className="max-w-4xl">
               <span className="eyebrow mb-5">Orçamento</span>
-              <h2 className="heading-lg text-balance">Comece por uma leitura estratégica, não por uma estimativa rasa.</h2>
+              <h2 className="heading-lg text-balance">Comece com contexto, não com uma estimativa rasa.</h2>
               <p className="body-lead mt-5 max-w-3xl">
                 A Devign qualifica contexto, prioridade, escopo e investimento antes de sugerir o caminho técnico.
               </p>
