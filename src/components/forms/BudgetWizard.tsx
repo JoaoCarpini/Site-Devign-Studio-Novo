@@ -425,21 +425,21 @@ export function BudgetWizard() {
   return (
     <form
       onSubmit={submit}
-      className="relative -mx-1 overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.052] p-3.5 shadow-[0_24px_80px_rgba(5,5,9,0.45)] backdrop-blur-2xl sm:mx-0 sm:rounded-[2rem] sm:p-7 sm:shadow-[0_34px_120px_rgba(5,5,9,0.58)] lg:p-8"
+      className="relative mx-0 w-full min-w-0 max-w-full overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/[0.052] p-3 shadow-[0_20px_64px_rgba(5,5,9,0.38)] backdrop-blur-xl sm:rounded-[2rem] sm:p-7 sm:shadow-[0_34px_120px_rgba(5,5,9,0.58)] sm:backdrop-blur-2xl lg:p-8"
     >
       <div className="pointer-events-none absolute inset-x-8 -top-24 h-44 rounded-full bg-violet-500/[0.12] blur-3xl sm:inset-x-10 sm:-top-28 sm:h-56 sm:bg-violet-500/[0.18]" />
       <div className="pointer-events-none absolute -right-28 bottom-20 hidden h-60 w-60 rounded-full bg-signal/[0.08] blur-3xl sm:block" />
 
       {isSubmitting ? <LoadingOverlay message={phaseMessages[submitPhase]} /> : null}
 
-      <div className="relative">
-        <div className="flex flex-col gap-3.5 border-b border-white/10 pb-4 sm:gap-5 sm:pb-6">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div>
+      <div className="relative min-w-0">
+        <div className="flex min-w-0 flex-col gap-3.5 border-b border-white/10 pb-4 sm:gap-5 sm:pb-6">
+          <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div className="min-w-0">
               <span className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-violet-400 sm:text-xs sm:tracking-[0.22em]">
                 Diagnóstico estratégico
               </span>
-              <h2 className="mt-2 text-[1.28rem] font-semibold leading-tight text-frost sm:mt-3 sm:text-3xl">
+              <h2 className="mt-2 max-w-full text-[1.22rem] font-semibold leading-tight text-frost sm:mt-3 sm:text-3xl">
                 Organize o contexto do seu projeto.
               </h2>
             </div>
@@ -464,7 +464,7 @@ export function BudgetWizard() {
           />
         </div>
 
-        <div className="py-5 sm:min-h-[34rem] sm:py-8">
+        <div className="min-w-0 py-5 sm:min-h-[34rem] sm:py-8">
           <AnimatePresence mode="wait">
             <motion.div
               key={step}
@@ -625,7 +625,7 @@ export function BudgetWizard() {
                     onChange={(event) => update('website', event.target.value)}
                   />
 
-                  <div className="mt-5 grid gap-3 md:grid-cols-2 sm:mt-6 sm:gap-4">
+                  <div className="mt-5 grid min-w-0 gap-3 sm:mt-6 sm:gap-4 md:grid-cols-2">
                     <Field label="Nome" value={form.name} onChange={(value) => update('name', value)} required />
                     <Field label="Empresa" value={form.company} onChange={(value) => update('company', value)} required />
                     <Field
@@ -648,14 +648,14 @@ export function BudgetWizard() {
                   </label>
                   <textarea
                     id="description"
-                    className="mt-2 min-h-32 w-full resize-y rounded-2xl border border-white/10 bg-ink/70 px-4 py-3 text-mist outline-none transition duration-300 placeholder:text-muted/70 focus:border-violet-400 focus:bg-ink/85 focus:shadow-[0_0_0_4px_rgba(141,92,255,0.12)] sm:min-h-40"
+                    className="mt-2 min-h-32 w-full min-w-0 resize-y rounded-2xl border border-white/10 bg-ink/70 px-4 py-3 text-mist outline-none transition duration-300 placeholder:text-muted/70 focus:border-violet-400 focus:bg-ink/85 focus:shadow-[0_0_0_4px_rgba(141,92,255,0.12)] sm:min-h-40"
                     placeholder="Contexto, objetivo, dores atuais, referências e qualquer requisito importante."
                     value={form.description}
                     onChange={(event) => update('description', event.target.value)}
                     required
                   />
 
-                  <div className="mt-5 grid gap-2 rounded-[1.25rem] border border-white/10 bg-ink/45 p-3 sm:grid-cols-3 sm:gap-3 sm:rounded-[1.4rem] sm:p-4">
+                  <div className="mt-5 grid min-w-0 gap-2 rounded-[1.25rem] border border-white/10 bg-ink/45 p-3 sm:grid-cols-3 sm:gap-3 sm:rounded-[1.4rem] sm:p-4">
                     <TrustBadge icon={ShieldCheck} text="Validação segura" />
                     <TrustBadge icon={LockKeyhole} text="Anti-spam ativo" />
                     <TrustBadge icon={DatabaseZap} text="Pronto para CRM/API" />
@@ -716,10 +716,10 @@ function WizardStep({
   children: ReactNode;
 }) {
   return (
-    <section>
+    <section className="min-w-0 max-w-full">
       <span className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-violet-400 sm:text-xs sm:tracking-[0.22em]">{eyebrow}</span>
-      <h3 className="mt-2.5 max-w-3xl text-[1.45rem] font-semibold leading-[1.08] text-frost sm:mt-3 sm:text-4xl sm:leading-tight">{title}</h3>
-      <p className="mt-2.5 max-w-2xl text-[0.86rem] leading-6 text-mist sm:mt-4 sm:text-base sm:leading-8">{description}</p>
+      <h3 className="mt-2.5 max-w-full text-[clamp(1.28rem,6.8vw,1.65rem)] font-semibold leading-[1.08] text-frost sm:mt-3 sm:max-w-3xl sm:text-4xl sm:leading-tight">{title}</h3>
+      <p className="mt-2.5 max-w-full text-[0.84rem] leading-6 text-mist sm:mt-4 sm:max-w-2xl sm:text-base sm:leading-8">{description}</p>
       {children}
     </section>
   );
@@ -739,8 +739,8 @@ function StepRail({
   const currentItem = stepItems[currentStep];
 
   return (
-    <div className="relative px-0 sm:px-3 lg:px-1">
-      <div className="sm:hidden">
+    <div className="relative min-w-0 max-w-full px-0 sm:px-3 lg:px-1">
+      <div className="min-w-0 sm:hidden">
         <div className="grid grid-cols-7 gap-1.5">
           {stepItems.map((item, index) => {
             const isActive = index === currentStep;
@@ -784,7 +784,7 @@ function StepRail({
         className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-5 bg-gradient-to-l from-white/[0.07] via-white/[0.02] to-transparent backdrop-blur-[1px] sm:block lg:hidden"
       />
 
-      <div className="hidden gap-3 overflow-x-auto scroll-px-4 pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:flex sm:px-1 [&::-webkit-scrollbar]:hidden lg:overflow-visible lg:px-0.5">
+      <div className="hidden min-w-0 gap-3 overflow-x-auto scroll-px-4 pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:flex sm:px-1 [&::-webkit-scrollbar]:hidden lg:overflow-visible lg:px-0.5">
         {stepItems.map((item, index) => {
           const isActive = index === currentStep;
           const isComplete = index < currentStep;
@@ -879,21 +879,21 @@ function StepRail({
 }
 
 function OptionGrid({ children }: { children: ReactNode }) {
-  return <div className="mt-5 grid gap-2.5 md:grid-cols-2 sm:mt-6 sm:gap-3">{children}</div>;
+  return <div className="mt-5 grid min-w-0 gap-2.5 sm:mt-6 sm:gap-3 md:grid-cols-2">{children}</div>;
 }
 
 function ProjectOptionGrid({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <div className={cn('grid gap-2.5 sm:grid-cols-2 sm:gap-3 xl:grid-cols-3', className)}>{children}</div>
+    <div className={cn('grid min-w-0 gap-2.5 sm:grid-cols-2 sm:gap-3 xl:grid-cols-3', className)}>{children}</div>
   );
 }
 
 function ChipGrid({ children }: { children: ReactNode }) {
-  return <div className="mt-5 flex flex-wrap gap-2 sm:mt-6 sm:gap-3">{children}</div>;
+  return <div className="mt-5 flex min-w-0 flex-wrap gap-2 sm:mt-6 sm:gap-3">{children}</div>;
 }
 
 function FeatureGrid({ children }: { children: ReactNode }) {
-  return <div className="mt-5 grid gap-2.5 sm:mt-6 sm:grid-cols-2 sm:gap-3 xl:grid-cols-3">{children}</div>;
+  return <div className="mt-5 grid min-w-0 gap-2.5 sm:mt-6 sm:grid-cols-2 sm:gap-3 xl:grid-cols-3">{children}</div>;
 }
 
 function OptionCard({
@@ -914,7 +914,7 @@ function OptionCard({
       whileTap={{ scale: 0.985 }}
       onClick={onClick}
       className={cn(
-        'group relative flex min-h-[4.75rem] items-start gap-3 overflow-hidden rounded-[1rem] border p-3 text-left transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:block sm:min-h-28 sm:rounded-[1.35rem] sm:p-5',
+        'group relative flex min-h-[4.75rem] w-full min-w-0 items-start gap-3 overflow-hidden rounded-[1rem] border p-3 text-left transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:block sm:min-h-28 sm:rounded-[1.35rem] sm:p-5',
         selected
           ? 'border-violet-400/65 bg-violet-500/[0.16] shadow-[0_24px_90px_rgba(141,92,255,0.22)]'
           : 'border-white/10 bg-white/[0.045] hover:border-violet-400/30 hover:bg-white/[0.075] hover:shadow-[0_20px_70px_rgba(141,92,255,0.12)]',
@@ -938,7 +938,7 @@ function OptionCard({
         <Icon className="h-5 w-5" />
       </span>
       <span className="relative min-w-0 flex-1">
-        <span className="block text-[0.95rem] font-semibold leading-snug text-frost sm:text-lg">{option.title}</span>
+        <span className="block min-w-0 text-[0.95rem] font-semibold leading-snug text-frost sm:text-lg">{option.title}</span>
         <span className="mt-1 hidden text-sm leading-6 text-mist sm:block">{option.description}</span>
       </span>
       {selected ? (
@@ -959,7 +959,7 @@ function Chip({ selected, onClick, children }: { selected: boolean; onClick: () 
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
       className={cn(
-        'min-h-11 rounded-full border px-3.5 py-2.5 text-[0.84rem] font-semibold transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:px-5 sm:py-3 sm:text-sm',
+        'min-h-11 max-w-full rounded-full border px-3.5 py-2.5 text-[0.84rem] font-semibold leading-tight transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:px-5 sm:py-3 sm:text-sm',
         selected
           ? 'border-violet-400/60 bg-violet-500/[0.16] text-frost shadow-[0_18px_60px_rgba(141,92,255,0.16)]'
           : 'border-white/10 bg-white/[0.045] text-mist hover:border-white/20 hover:bg-white/[0.075]',
@@ -978,7 +978,7 @@ function FeatureCard({ selected, onClick, children }: { selected: boolean; onCli
       whileTap={{ scale: 0.985 }}
       onClick={onClick}
       className={cn(
-        'group relative min-h-[3.6rem] overflow-hidden rounded-[1rem] border p-3 text-left transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:min-h-24 sm:rounded-[1.25rem] sm:p-4',
+        'group relative min-h-[3.6rem] w-full min-w-0 overflow-hidden rounded-[1rem] border p-3 text-left transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:min-h-24 sm:rounded-[1.25rem] sm:p-4',
         selected
           ? 'border-violet-400/70 bg-[linear-gradient(135deg,rgba(141,92,255,0.24),rgba(255,255,255,0.075)_48%,rgba(77,212,198,0.08))] text-frost shadow-[0_24px_90px_rgba(141,92,255,0.24),inset_0_1px_0_rgba(255,255,255,0.14)]'
           : 'border-white/10 bg-white/[0.045] text-mist shadow-[0_14px_50px_rgba(5,5,9,0.2)] hover:border-violet-400/45 hover:bg-white/[0.08] hover:text-frost hover:shadow-[0_24px_80px_rgba(141,92,255,0.16)]',
@@ -992,7 +992,7 @@ function FeatureCard({ selected, onClick, children }: { selected: boolean; onCli
         )}
       />
       <span className="relative flex h-full items-start justify-between gap-4">
-        <span className="text-[0.8rem] font-semibold leading-5 sm:text-sm sm:leading-6">{children}</span>
+        <span className="min-w-0 text-[0.8rem] font-semibold leading-5 sm:text-sm sm:leading-6">{children}</span>
         <span
           className={cn(
             'grid h-6 w-6 shrink-0 place-items-center rounded-full border transition duration-500',
@@ -1028,7 +1028,7 @@ function Field({
     .replace(/\s+|\/+/g, '-');
 
   return (
-    <div>
+    <div className="min-w-0">
       <label className="text-sm font-semibold text-frost" htmlFor={id}>
         {label}
         {required ? <span className="text-violet-400"> *</span> : null}
@@ -1036,7 +1036,7 @@ function Field({
       <input
         id={id}
         type={type}
-        className="mt-2 min-h-12 w-full rounded-2xl border border-white/10 bg-ink/70 px-4 py-3 text-mist outline-none transition duration-300 placeholder:text-muted/70 focus:border-violet-400 focus:bg-ink/85 focus:shadow-[0_0_0_4px_rgba(141,92,255,0.12)]"
+        className="mt-2 min-h-12 w-full min-w-0 rounded-2xl border border-white/10 bg-ink/70 px-4 py-3 text-mist outline-none transition duration-300 placeholder:text-muted/70 focus:border-violet-400 focus:bg-ink/85 focus:shadow-[0_0_0_4px_rgba(141,92,255,0.12)]"
         value={value}
         onChange={(event) => onChange(event.target.value)}
         required={required}
@@ -1047,7 +1047,7 @@ function Field({
 
 function TrustBadge({ icon: Icon, text }: { icon: LucideIcon; text: string }) {
   return (
-    <div className="flex min-h-11 items-center gap-2.5 rounded-2xl border border-white/10 bg-white/[0.045] px-3 py-2.5 text-xs font-semibold text-mist sm:gap-3 sm:px-4 sm:py-3 sm:text-sm">
+    <div className="flex min-h-11 min-w-0 items-center gap-2.5 rounded-2xl border border-white/10 bg-white/[0.045] px-3 py-2.5 text-xs font-semibold text-mist sm:gap-3 sm:px-4 sm:py-3 sm:text-sm">
       <Icon className="h-4 w-4 text-violet-400" />
       {text}
     </div>
