@@ -24,17 +24,19 @@ const heroMetrics = [
 ];
 
 export function CinematicHero() {
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
   return (
     <section
-      className="relative isolate overflow-hidden pt-24 sm:min-h-[min(900px,100vh)] sm:pt-36"
+      className="relative isolate overflow-hidden pt-20 sm:min-h-[min(900px,100vh)] sm:pt-32"
     >
       <AuroraBackground />
       <HeroBrandBackdrop />
-      <div aria-hidden="true" className="hero-fine-grid absolute inset-0 z-0 opacity-35 sm:opacity-60" />
-      <div aria-hidden="true" className="absolute left-1/2 top-24 z-0 h-[22rem] w-[22rem] -translate-x-1/2 rounded-full bg-violet-500/14 blur-[100px] sm:h-[34rem] sm:w-[34rem] sm:bg-violet-500/18 sm:blur-[120px]" />
-      <div aria-hidden="true" className="absolute right-[-12rem] top-36 z-0 hidden h-[28rem] w-[28rem] rounded-full bg-signal/10 blur-[110px] sm:block" />
+      <div aria-hidden="true" className="hero-fine-grid absolute inset-0 z-0 opacity-20 sm:opacity-60" />
+      <div aria-hidden="true" className="absolute left-1/2 top-16 z-0 h-[18rem] w-[18rem] -translate-x-1/2 rounded-full bg-violet-500/10 blur-[80px] sm:top-24 sm:h-[32rem] sm:w-[32rem] sm:bg-violet-500/16 sm:blur-[120px]" />
+      <div aria-hidden="true" className="absolute right-[-12rem] top-32 z-0 hidden h-[26rem] w-[26rem] rounded-full bg-signal/8 blur-[100px] sm:block" />
 
-      {particles.map((particle) => (
+      {!isMobile && particles.map((particle) => (
         <motion.span
           key={`${particle.left}-${particle.top}`}
           aria-hidden="true"
@@ -45,8 +47,8 @@ export function CinematicHero() {
             width: particle.size,
             height: particle.size,
           }}
-          animate={{ y: [-5, 7, -5], opacity: [0.24, 0.64, 0.24], scale: [1, 1.22, 1] }}
-          transition={{ duration: 7.4, repeat: Infinity, delay: particle.delay, ease: 'easeInOut' }}
+          animate={{ y: [-5, 7, -5], opacity: [0.2, 0.6, 0.2], scale: [1, 1.2, 1] }}
+          transition={{ duration: 8, repeat: Infinity, delay: particle.delay, ease: 'easeInOut' }}
         />
       ))}
 
