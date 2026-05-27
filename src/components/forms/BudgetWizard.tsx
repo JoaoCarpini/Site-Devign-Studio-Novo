@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { FormEvent, useMemo, useRef, useState, type ReactNode } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { LucideIcon } from 'lucide-react';
 import {
@@ -35,6 +35,7 @@ import { buildWhatsAppUrl, openWhatsApp } from '../../services/whatsapp';
 import type { BriefingPayload } from '../../types/briefing';
 import { cn } from '../../utils/cn';
 import { buttonStyles } from '../ui/Button';
+import { useIsMobile } from '../../hooks/useMediaQuery';
 
 type FormState = Omit<BriefingPayload, 'startedAt'>;
 type SubmitPhase = 'idle' | 'validating' | 'sending' | 'whatsapp';
@@ -287,25 +288,9 @@ function isEmailFormatValid(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-function useMobileMotion() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const query = window.matchMedia('(max-width: 768px)');
-    const update = () => setIsMobile(query.matches);
-
-    update();
-    query.addEventListener('change', update);
-
-    return () => query.removeEventListener('change', update);
-  }, []);
-
-  return isMobile;
-}
-
 export function BudgetWizard() {
   const startedAtRef = useRef(Date.now());
-  const reduceMotion = useMobileMotion();
+  const reduceMotion = useIsMobile();
   const [step, setStep] = useState(0);
   const [form, setForm] = useState<FormState>(initialState);
   const [error, setError] = useState('');
@@ -411,7 +396,7 @@ export function BudgetWizard() {
         initial={reduceMotion ? { opacity: 0, y: 10 } : { opacity: 0, y: 16, filter: 'blur(8px)' }}
         animate={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, filter: 'blur(0px)' }}
         transition={{ duration: reduceMotion ? 0.28 : 0.48, ease: [0.16, 1, 0.3, 1] }}
-        className="relative overflow-hidden rounded-[1.4rem] border border-violet-300/25 bg-[#0b0b13]/88 p-5 shadow-[0_22px_80px_rgba(5,5,9,0.42)] backdrop-blur-xl sm:rounded-[2rem] sm:p-8"
+        className="relative overflow-hidden rounded-[1.6rem] border border-violet-300/25 bg-[#0b0b13]/88 p-6 shadow-[0_18px_60px_rgba(5,5,9,0.32)] sm:rounded-[2rem] sm:p-8 sm:shadow-[0_22px_80px_rgba(5,5,9,0.42)] sm:backdrop-blur-xl"
       >
         <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-violet-500/[0.16] blur-3xl" />
         <div className="relative">
@@ -449,14 +434,14 @@ export function BudgetWizard() {
   return (
     <form
       onSubmit={submit}
-      className="relative w-full min-w-0 overflow-hidden rounded-[1.45rem] border border-white/10 bg-[#090911]/88 p-3 shadow-[0_24px_90px_rgba(0,0,0,0.36)] backdrop-blur-xl sm:rounded-[2rem] sm:p-5 lg:p-6"
+      className="relative w-full min-w-0 overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#090911]/90 p-4 shadow-[0_18px_58px_rgba(0,0,0,0.3)] sm:rounded-[2rem] sm:p-6 sm:shadow-[0_24px_90px_rgba(0,0,0,0.36)] sm:backdrop-blur-xl lg:p-8"
     >
-      <div className="pointer-events-none absolute inset-x-8 -top-28 h-48 rounded-full bg-violet-500/[0.1] blur-3xl sm:bg-violet-500/[0.14]" />
+      <div className="pointer-events-none absolute inset-x-10 -top-24 h-40 rounded-full bg-violet-500/[0.07] blur-2xl sm:-top-28 sm:h-48 sm:bg-violet-500/[0.14] sm:blur-3xl" />
 
       {isSubmitting ? <LoadingOverlay message={phaseMessages[submitPhase]} /> : null}
 
       <div className="relative min-w-0">
-        <header className="rounded-[1.2rem] border border-white/10 bg-white/[0.045] p-3.5 sm:rounded-[1.55rem] sm:p-5">
+        <header className="rounded-[1.3rem] border border-white/10 bg-white/[0.045] p-4 sm:rounded-[1.55rem] sm:p-5">
           <div className="flex items-center justify-between gap-3">
             <div className="min-w-0">
               <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-violet-300">{currentStep.eyebrow}</p>
@@ -690,10 +675,10 @@ function StepDots({
 function StepIntro({ title, description }: { title: string; description: string }) {
   return (
     <section className="min-w-0">
-      <h2 className="text-balance text-[clamp(1.45rem,7.2vw,2.15rem)] font-semibold leading-[1.05] text-frost sm:text-4xl">
+      <h2 className="text-balance text-[clamp(1.65rem,7.6vw,2.35rem)] font-semibold leading-[1.05] text-frost sm:text-4xl">
         {title}
       </h2>
-      <p className="mt-3 max-w-2xl text-sm leading-6 text-mist sm:text-base sm:leading-7">{description}</p>
+      <p className="mt-3 max-w-2xl text-[0.95rem] leading-7 text-mist sm:text-base sm:leading-7">{description}</p>
     </section>
   );
 }
@@ -738,7 +723,7 @@ function OptionCard({
       whileTap={reduceMotion ? undefined : { scale: 0.985 }}
       onClick={onClick}
       className={cn(
-        'group relative flex min-h-[5.5rem] w-full min-w-0 items-start gap-3 overflow-hidden rounded-2xl border p-3 text-left transition duration-300 sm:min-h-[8.5rem] sm:block sm:p-4',
+        'group relative flex min-h-[6.25rem] w-full min-w-0 items-start gap-3.5 overflow-hidden rounded-2xl border p-4 text-left transition duration-300 sm:min-h-[8.5rem] sm:block sm:p-4',
         selected
           ? 'border-violet-300/55 bg-violet-500/[0.14] shadow-[0_18px_60px_rgba(141,92,255,0.16)]'
           : 'border-white/10 bg-white/[0.045] hover:border-violet-300/25 hover:bg-white/[0.065]',
@@ -756,8 +741,8 @@ function OptionCard({
         <Icon className="h-4.5 w-4.5" />
       </span>
       <span className="relative min-w-0 flex-1">
-        <span className="block text-[0.95rem] font-semibold leading-snug text-frost sm:text-base">{option.title}</span>
-        <span className="mt-1 hidden text-sm leading-6 text-mist sm:block">{option.description}</span>
+        <span className="block text-base font-semibold leading-snug text-frost">{option.title}</span>
+        <span className="mt-1 block text-[0.8rem] leading-5 text-mist sm:text-sm sm:leading-6">{option.description}</span>
       </span>
       {selected ? <CheckCircle2 className="absolute bottom-3 right-3 h-4 w-4 text-violet-300" /> : null}
     </motion.button>
@@ -900,7 +885,7 @@ function LoadingOverlay({ message }: { message: string }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="absolute inset-0 z-20 grid place-items-center bg-ink/72 p-4 backdrop-blur-md"
+      className="absolute inset-0 z-20 grid place-items-center bg-ink/82 p-4 sm:bg-ink/72 sm:backdrop-blur-md"
     >
       <div className="relative overflow-hidden rounded-2xl border border-violet-300/20 bg-white/[0.07] p-5 text-center shadow-[0_20px_70px_rgba(141,92,255,0.14)]">
         <div className="mx-auto grid h-12 w-12 place-items-center rounded-2xl border border-violet-300/25 bg-violet-500/[0.12] text-violet-300">

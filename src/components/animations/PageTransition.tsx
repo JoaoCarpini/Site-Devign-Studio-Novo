@@ -1,18 +1,9 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '../../hooks/useMediaQuery';
 
 export function PageTransition({ children }: { children: ReactNode }) {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const query = window.matchMedia('(max-width: 768px)');
-    const update = () => setIsMobile(query.matches);
-
-    update();
-    query.addEventListener('change', update);
-
-    return () => query.removeEventListener('change', update);
-  }, []);
+  const isMobile = useIsMobile();
 
   return (
     <motion.main

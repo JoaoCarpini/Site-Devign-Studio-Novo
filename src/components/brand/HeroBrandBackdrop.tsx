@@ -1,7 +1,12 @@
 import { motion } from 'framer-motion';
 import { brandAssets } from '../../config/brand';
+import { useIsMobile } from '../../hooks/useMediaQuery';
 
 export function HeroBrandBackdrop() {
+  const isMobile = useIsMobile();
+
+  if (isMobile) return null;
+
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
       <motion.div
