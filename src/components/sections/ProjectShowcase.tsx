@@ -100,7 +100,7 @@ function ProjectTeaserShowcase() {
               <Reveal key={project.slug} delay={index * 0.05}>
                 <article
                   className={cn(
-                    'group relative min-h-[20rem] overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.045] p-4 shadow-premium backdrop-blur-2xl transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:-translate-y-1 hover:border-violet-300/24 hover:bg-white/[0.062] sm:min-h-[25rem] sm:rounded-[1.75rem] sm:p-5',
+                    'group relative min-h-[20rem] overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.045] p-4 shadow-premium sm:backdrop-blur-2xl transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] sm:will-change-transform hover:-translate-y-1 hover:border-violet-300/24 hover:bg-white/[0.062] sm:min-h-[25rem] sm:rounded-[1.75rem] sm:p-5',
                     index === 1 && 'md:translate-y-8',
                     index === 2 && 'xl:translate-y-14',
                   )}

@@ -65,7 +65,7 @@ export function EngineeringCapabilities() {
 
             return (
               <Reveal key={capability.title} delay={index * 0.04}>
-                <article className="group h-full rounded-[1.5rem] border border-white/10 bg-white/[0.052] p-6 shadow-premium backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-violet-400/35 hover:bg-white/[0.075]">
+                <article className="group h-full rounded-[1.5rem] border border-white/10 bg-white/[0.052] p-6 shadow-premium sm:backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-violet-400/35 hover:bg-white/[0.075]">
                   <div className="flex items-start justify-between gap-4">
                     <span className="grid h-12 w-12 place-items-center rounded-2xl border border-violet-400/25 bg-violet-500/12 text-violet-300">
                       <Icon className="h-5 w-5" />

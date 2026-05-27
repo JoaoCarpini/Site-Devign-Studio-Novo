@@ -17,7 +17,7 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
         const isOpen = openIndex === index;
 
         return (
-          <div key={item.question} className="rounded-[1.25rem] border border-white/10 bg-white/[0.055] backdrop-blur-xl">
+          <div key={item.question} className="rounded-[1.25rem] border border-white/10 bg-white/[0.055] sm:backdrop-blur-xl">
             <button
               type="button"
               className="flex w-full items-center justify-between gap-5 px-5 py-5 text-left"

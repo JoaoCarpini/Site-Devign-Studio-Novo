@@ -34,7 +34,7 @@ export function ProjectShowcaseCard({ project, featured = false }: { project: Pr
       <article
         id={project.slug}
         className={cn(
-          'group relative overflow-hidden rounded-[1.45rem] border border-white/10 bg-white/[0.052] shadow-premium backdrop-blur-2xl transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:-translate-y-1 hover:border-violet-400/35 hover:shadow-[0_32px_110px_rgba(141,92,255,0.16)] sm:rounded-[2rem]',
+          'group relative overflow-hidden rounded-[1.45rem] border border-white/10 bg-white/[0.052] shadow-premium sm:backdrop-blur-2xl transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] sm:will-change-transform hover:-translate-y-1 hover:border-violet-400/35 hover:shadow-[0_32px_110px_rgba(141,92,255,0.16)] sm:rounded-[2rem]',
           featured ? 'lg:grid lg:grid-cols-[1.12fr_0.88fr]' : 'h-full',
         )}
       >
