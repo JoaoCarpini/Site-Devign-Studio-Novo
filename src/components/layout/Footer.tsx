@@ -50,7 +50,7 @@ export function Footer() {
         <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright © {new Date().getFullYear()} Devign Studio. Todos os direitos reservados.</p>
           <div className="flex gap-4">
-            <a href="https://www.instagram.com/devignstudio2026/" className="transition hover:text-frost">
+            <a href="https://www.instagram.com/devignstudio2026/" target="_blank" rel="noopener noreferrer" className="transition hover:text-frost">
               Instagram
             </a>
           </div>
