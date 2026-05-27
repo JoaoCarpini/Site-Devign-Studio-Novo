@@ -253,6 +253,10 @@ a {
     backdrop-filter: none !important;
   }
 
+  .blur-xl,
+  .blur-2xl,
+  .blur-3xl,
+  [class*='blur-['],
   [class*='blur-3xl'],
   [class*='blur-2xl'],
   [class*='blur-[80px]'],
@@ -261,7 +265,7 @@ a {
   [class*='blur-[140px]'],
   [class*='blur-[180px]'] {
     filter: none !important;
-    opacity: 0.16 !important;
+    opacity: 0 !important;
   }
 
   [class*='mix-blend'] {
