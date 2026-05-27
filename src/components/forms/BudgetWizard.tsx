@@ -35,7 +35,7 @@ import { buildWhatsAppUrl, openWhatsApp } from '../../services/whatsapp';
 import type { BriefingPayload } from '../../types/briefing';
 import { cn } from '../../utils/cn';
 import { buttonStyles } from '../ui/Button';
-import { useIsMobile } from '../../hooks/useMediaQuery';
+import { useReduceMotion } from '../../hooks/useMediaQuery';
 
 type FormState = Omit<BriefingPayload, 'startedAt'>;
 type SubmitPhase = 'idle' | 'validating' | 'sending' | 'whatsapp';
@@ -290,7 +290,7 @@ function isEmailFormatValid(email: string) {
 
 export function BudgetWizard() {
   const startedAtRef = useRef(Date.now());
-  const reduceMotion = useIsMobile();
+  const reduceMotion = useReduceMotion();
   const [step, setStep] = useState(0);
   const [form, setForm] = useState<FormState>(initialState);
   const [error, setError] = useState('');
