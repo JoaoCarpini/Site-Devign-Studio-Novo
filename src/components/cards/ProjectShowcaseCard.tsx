@@ -151,7 +151,7 @@ function ProjectMockup({ project, featured }: { project: Project; featured: bool
   return (
     <div className={cn('relative z-10 overflow-hidden p-4 sm:p-8', featured ? 'lg:p-10' : 'pb-0')}>
       <motion.div
-        className="relative min-h-[14rem] overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#080811]/92 shadow-premium sm:min-h-[24rem] sm:rounded-[1.75rem]"
+        className="relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#080811]/92 shadow-premium sm:min-h-[24rem] sm:rounded-[1.75rem]"
         whileHover={{ scale: 1.015 }}
         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       >
@@ -187,15 +187,11 @@ function ProjectMockup({ project, featured }: { project: Project; featured: bool
 
           <div className="rounded-[1.15rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.06),rgba(141,92,255,0.16),rgba(77,212,198,0.06))] p-3 sm:rounded-[1.35rem] sm:p-4">
             <div className="grid h-28 grid-cols-6 items-end gap-1.5 sm:h-60 sm:gap-2">
-              {[46, 68, 54, 78, 64, 92].map((height, index) => (
-                <motion.span
+              {[46, 68, 54, 78, 64, 92].map((height) => (
+                <span
                   key={`${project.slug}-${height}`}
                   className="rounded-t-xl bg-[linear-gradient(180deg,#f7f5ff,rgba(169,139,255,0.56))]"
                   style={{ height: `${height}%` }}
-                  initial={{ scaleY: 0.45, opacity: 0.45 }}
-                  whileInView={{ scaleY: 1, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
                 />
               ))}
             </div>
