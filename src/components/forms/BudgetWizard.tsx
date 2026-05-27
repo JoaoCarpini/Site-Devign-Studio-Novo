@@ -357,73 +357,71 @@ export function BudgetWizard() {
   const goBack = () => setStep((current) => Math.max(current - 1, 0));
 
   const submit = async (event: FormEvent<HTMLFormElement>) => {
-  event.preventDefault();
-  event.stopPropagation();
+    event.preventDefault();
 
-  if (isSubmitting) return;
+    console.log('SUBMIT DISPAROU');
 
-  const validation = validateStep();
+    if (isSubmitting) return;
 
-  if (validation) {
-    setError(validation);
-    return;
-  }
+    const validation = validateStep();
 
-  setError('');
-  setSubmitPhase('validating');
+    if (validation) {
+      setError(validation);
+      return;
+    }
 
-  try {
-    console.log('==========================');
-    console.log('SUBMIT START');
+    setError('');
+    setSubmitPhase('validating');
 
-    const recaptchaToken = await executeRecaptcha('briefing_submit');
+    try {
+      console.log('ANTES DO RECAPTCHA');
 
-    console.log('RECAPTCHA OK');
+      const recaptchaToken = await executeRecaptcha('briefing_submit');
 
-    setSubmitPhase('sending');
+      setSubmitPhase('sending');
 
-    const response = await submitBriefing(
-      briefingPayload,
-      recaptchaToken,
-    );
+      console.log('ANTES DO FETCH');
 
-    console.log('API RESPONSE:', response);
+      const response = await submitBriefing(
+        briefingPayload,
+        recaptchaToken,
+      );
 
-    const whatsappUrl =
-      response.whatsappUrl ||
-      buildWhatsAppUrl(briefingPayload);
+      console.log('APÓS FETCH');
+      console.log('API RESPONSE:', response);
 
-    setSubmittedWhatsappUrl(whatsappUrl);
+      const whatsappUrl =
+        response.whatsappUrl ||
+        buildWhatsAppUrl(briefingPayload);
 
-    setSubmitPhase('whatsapp');
+      setSubmittedWhatsappUrl(whatsappUrl);
 
-    setSubmitted(true);
+      setSubmitPhase('whatsapp');
 
-    console.log('WHATSAPP URL:', whatsappUrl);
+      setSubmitted(true);
 
-    setTimeout(() => {
-      try {
-        openWhatsApp(whatsappUrl);
-      } catch (error) {
-        console.error('WHATSAPP ERROR:', error);
-      }
-    }, 900);
-  } catch (requestError) {
-    console.error('==========================');
-    console.error('SUBMIT ERROR:', requestError);
+      console.log('WHATSAPP URL:', whatsappUrl);
 
-    const message =
-      requestError instanceof BriefingApiError
-        ? requestError.message
-        : 'Não foi possível concluir o envio agora. Verifique sua conexão e tente novamente.';
+      setTimeout(() => {
+        try {
+          openWhatsApp(whatsappUrl);
+        } catch (error) {
+          console.error('WHATSAPP ERROR:', error);
+        }
+      }, 900);
+    } catch (requestError) {
+      console.error('SUBMIT ERROR:', requestError);
 
-    setError(message);
-  } finally {
-    console.log('SUBMIT END');
+      const message =
+        requestError instanceof BriefingApiError
+          ? requestError.message
+          : 'Não foi possível concluir o envio agora. Verifique sua conexão e tente novamente.';
 
-    setSubmitPhase('idle');
-  }
-};
+      setError(message);
+    } finally {
+      setSubmitPhase('idle');
+    }
+  };
 
   if (submitted) {
     return (
