@@ -34,7 +34,7 @@ export function ProjectShowcaseCard({ project, featured = false }: { project: Pr
       <article
         id={project.slug}
         className={cn(
-          'group relative overflow-hidden rounded-[1.45rem] border border-white/10 bg-white/[0.052] shadow-premium sm:backdrop-blur-2xl transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] sm:will-change-transform hover:-translate-y-1 hover:border-violet-400/35 hover:shadow-[0_32px_110px_rgba(141,92,255,0.16)] sm:rounded-[2rem]',
+          'group relative overflow-hidden rounded-[1.45rem] border border-white/10 bg-white/[0.052] shadow-premium transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] sm:backdrop-blur-2xl sm:will-change-transform hover:-translate-y-1 hover:border-violet-400/35 hover:shadow-[0_32px_110px_rgba(141,92,255,0.16)] sm:rounded-[2rem]',
           featured ? 'lg:grid lg:grid-cols-[1.12fr_0.88fr]' : 'h-full',
         )}
       >
@@ -44,8 +44,9 @@ export function ProjectShowcaseCard({ project, featured = false }: { project: Pr
 
         <ProjectMockup project={project} featured={featured} />
 
-        <div className="relative z-10 p-5 sm:p-8 lg:p-10">
-          <div className="flex flex-wrap items-center gap-3">
+        <div className="relative z-10 p-4 sm:p-8 lg:p-10">
+          {/* Chips */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             <span className={cn('rounded-full border px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em]', accent.chip)}>
               {project.category}
             </span>
@@ -54,29 +55,33 @@ export function ProjectShowcaseCard({ project, featured = false }: { project: Pr
             </span>
           </div>
 
-          <h3 className="mt-5 text-2xl font-semibold tracking-normal text-frost sm:mt-6 sm:text-5xl">{project.title}</h3>
-          <p className="mt-4 max-w-2xl text-sm leading-7 text-mist sm:mt-5 sm:text-base sm:leading-8">{project.summary}</p>
+          {/* Title */}
+          <h3 className="mt-4 text-xl font-semibold tracking-normal text-frost sm:mt-6 sm:text-5xl">{project.title}</h3>
+          <p className="mt-3 text-sm leading-7 text-mist sm:mt-5 sm:text-base sm:leading-8">{project.summary}</p>
 
-          <div className="mt-6 grid gap-3 md:grid-cols-3 sm:mt-8 sm:gap-4">
+          {/* Metrics — 1 col mobile, 3 col md+ */}
+          <div className="mt-5 grid grid-cols-1 gap-2 sm:mt-8 sm:grid-cols-3 sm:gap-4">
             {project.metrics.map((metric) => (
-              <div key={metric.label} className="rounded-2xl border border-white/10 bg-ink/35 p-4 backdrop-blur-xl">
-                <strong className="block text-xl font-semibold tracking-normal text-frost">{metric.value}</strong>
+              <div key={metric.label} className="rounded-2xl border border-white/10 bg-ink/35 p-3 sm:p-4 sm:backdrop-blur-xl">
+                <strong className="block text-lg font-semibold tracking-normal text-frost sm:text-xl">{metric.value}</strong>
                 <span className="mt-1 block text-xs uppercase tracking-[0.18em] text-muted">{metric.label}</span>
               </div>
             ))}
           </div>
 
-          <div className="mt-6 grid gap-3 xl:grid-cols-2 sm:mt-8 sm:gap-5">
+          {/* Problem / Solution — 1 col mobile, 2 col xl */}
+          <div className="mt-5 grid gap-3 sm:mt-8 sm:gap-5 xl:grid-cols-2">
             <CaseBlock title="Problema" text={project.problem} />
             <CaseBlock title="Solução" text={project.solution} />
           </div>
 
-          <div className="mt-6 grid gap-5 xl:grid-cols-[0.95fr_1.05fr] sm:mt-8 sm:gap-6">
+          {/* Features + Differentials — stack no mobile */}
+          <div className="mt-5 grid gap-5 sm:mt-8 sm:gap-6 xl:grid-cols-[0.95fr_1.05fr]">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-frost">Funcionalidades</p>
-              <div className="mt-4 grid gap-2">
+              <div className="mt-3 grid gap-2 sm:mt-4">
                 {project.features.map((feature) => (
-                  <div key={feature} className="flex min-h-11 items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.045] px-3.5 py-2.5 text-sm text-mist sm:px-4 sm:py-3">
+                  <div key={feature} className="flex min-h-10 items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.045] px-3.5 py-2 text-sm text-mist sm:min-h-11 sm:px-4 sm:py-3">
                     <CheckCircle2 className="h-4 w-4 shrink-0 text-signal" />
                     {feature}
                   </div>
@@ -86,30 +91,32 @@ export function ProjectShowcaseCard({ project, featured = false }: { project: Pr
 
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-frost">Diferenciais</p>
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-3 flex flex-wrap gap-2 sm:mt-4">
                 {project.differentials.map((item) => (
                   <span key={item} className="rounded-full border border-white/10 bg-white/[0.055] px-3.5 py-2 text-sm text-mist sm:px-4">
                     {item}
                   </span>
                 ))}
               </div>
-              <p className="mt-5 rounded-2xl border border-white/10 bg-white/[0.045] p-4 text-sm leading-7 text-muted">
+              <p className="mt-4 rounded-2xl border border-white/10 bg-white/[0.045] p-3 text-sm leading-7 text-muted sm:mt-5 sm:p-4">
                 <span className="font-semibold text-frost">Resultado esperado: </span>
                 {project.result}
               </p>
             </div>
           </div>
 
-          <div className="mt-6 flex flex-wrap gap-2 sm:mt-8">
+          {/* Stack tags */}
+          <div className="mt-5 flex flex-wrap gap-2 sm:mt-8">
             {project.stack.map((item) => (
-              <span key={item} className="rounded-full border border-white/10 bg-ink/45 px-3 py-1.5 text-xs font-semibold text-mist backdrop-blur-xl">
+              <span key={item} className="rounded-full border border-white/10 bg-ink/45 px-3 py-1.5 text-xs font-semibold text-mist sm:backdrop-blur-xl">
                 {item}
               </span>
             ))}
           </div>
 
-          <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row">
-            <ButtonLink to="/orcamento">
+          {/* CTAs */}
+          <div className="mt-6 flex flex-col gap-3 sm:mt-9 sm:flex-row">
+            <ButtonLink to="/orcamento" className="w-full sm:w-auto">
               Conversar sobre projeto semelhante
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
@@ -118,6 +125,7 @@ export function ProjectShowcaseCard({ project, featured = false }: { project: Pr
               target="_blank"
               rel="noreferrer"
               variant="secondary"
+              className="w-full sm:w-auto"
             >
               Ver case no portfólio
             </ButtonLink>
@@ -130,7 +138,7 @@ export function ProjectShowcaseCard({ project, featured = false }: { project: Pr
 
 function CaseBlock({ title, text }: { title: string; text: string }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.045] p-4 backdrop-blur-xl sm:p-5">
+    <div className="rounded-2xl border border-white/10 bg-white/[0.045] p-3 sm:p-5 sm:backdrop-blur-xl">
       <p className="text-sm font-semibold uppercase tracking-[0.18em] text-violet-300">{title}</p>
       <p className="mt-3 text-sm leading-7 text-muted">{text}</p>
     </div>
@@ -143,31 +151,33 @@ function ProjectMockup({ project, featured }: { project: Project; featured: bool
   return (
     <div className={cn('relative z-10 overflow-hidden p-4 sm:p-8', featured ? 'lg:p-10' : 'pb-0')}>
       <motion.div
-        className="relative min-h-[18rem] overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#080811]/92 shadow-premium sm:min-h-[24rem] sm:rounded-[1.75rem]"
+        className="relative min-h-[14rem] overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#080811]/92 shadow-premium sm:min-h-[24rem] sm:rounded-[1.75rem]"
         whileHover={{ scale: 1.015 }}
         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="flex items-center justify-between border-b border-white/10 px-3.5 py-3 sm:px-5 sm:py-4">
+        {/* Window bar */}
+        <div className="flex items-center justify-between border-b border-white/10 px-3.5 py-2.5 sm:px-5 sm:py-4">
           <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#ff6b6b]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#ffd166]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#4dd4c6]" />
+            <span className="h-2 w-2 rounded-full bg-[#ff6b6b] sm:h-2.5 sm:w-2.5" />
+            <span className="h-2 w-2 rounded-full bg-[#ffd166] sm:h-2.5 sm:w-2.5" />
+            <span className="h-2 w-2 rounded-full bg-[#4dd4c6] sm:h-2.5 sm:w-2.5" />
           </div>
           <span className="rounded-full border border-white/10 bg-white/[0.055] px-2.5 py-1 text-[0.65rem] text-muted sm:px-3 sm:text-xs">Preview</span>
         </div>
 
-        <div className="grid gap-3 p-3 lg:grid-cols-[0.76fr_1.24fr] lg:p-5">
+        {/* Mockup content — stack no mobile, side-by-side em lg */}
+        <div className="grid gap-3 p-3 sm:p-4 lg:grid-cols-[0.76fr_1.24fr] lg:p-5">
           <div className="space-y-3">
-            <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3.5 sm:p-4">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 sm:p-4">
               <span className={cn('text-xs font-semibold uppercase tracking-[0.2em]', accent.text)}>{project.title}</span>
-              <strong className="mt-3 block text-2xl font-semibold tracking-normal text-frost sm:mt-4 sm:text-3xl">{project.metrics[0]?.value}</strong>
+              <strong className="mt-2 block text-xl font-semibold tracking-normal text-frost sm:mt-4 sm:text-3xl">{project.metrics[0]?.value}</strong>
               <span className="mt-1 block text-xs text-muted">{project.metrics[0]?.label}</span>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3.5 sm:p-4">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 sm:p-4">
               <div className="space-y-2">
                 {project.features.slice(0, 4).map((feature, index) => (
                   <span key={feature} className="flex items-center gap-2 text-xs text-muted">
-                    <span className={cn('h-1.5 w-1.5 rounded-full', index % 2 === 0 ? 'bg-violet-300' : 'bg-signal')} />
+                    <span className={cn('h-1.5 w-1.5 shrink-0 rounded-full', index % 2 === 0 ? 'bg-violet-300' : 'bg-signal')} />
                     {feature}
                   </span>
                 ))}
@@ -176,7 +186,7 @@ function ProjectMockup({ project, featured }: { project: Project; featured: bool
           </div>
 
           <div className="rounded-[1.15rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.06),rgba(141,92,255,0.16),rgba(77,212,198,0.06))] p-3 sm:rounded-[1.35rem] sm:p-4">
-            <div className="grid h-36 grid-cols-6 items-end gap-1.5 sm:h-60 sm:gap-2">
+            <div className="grid h-28 grid-cols-6 items-end gap-1.5 sm:h-60 sm:gap-2">
               {[46, 68, 54, 78, 64, 92].map((height, index) => (
                 <motion.span
                   key={`${project.slug}-${height}`}
@@ -189,9 +199,9 @@ function ProjectMockup({ project, featured }: { project: Project; featured: bool
                 />
               ))}
             </div>
-            <div className="mt-4 grid grid-cols-3 gap-2">
+            <div className="mt-3 grid grid-cols-3 gap-2 sm:mt-4">
               {project.stack.slice(0, 3).map((item) => (
-                <span key={item} className="rounded-xl border border-white/10 bg-ink/45 px-2 py-2.5 text-center text-[0.68rem] font-semibold text-mist sm:px-3 sm:py-3 sm:text-xs">
+                <span key={item} className="rounded-xl border border-white/10 bg-ink/45 px-2 py-2 text-center text-[0.62rem] font-semibold text-mist sm:px-3 sm:py-3 sm:text-xs">
                   {item}
                 </span>
               ))}
@@ -199,10 +209,11 @@ function ProjectMockup({ project, featured }: { project: Project; featured: bool
           </div>
         </div>
 
+        {/* Floating badges — desktop only */}
         <motion.div
           className="absolute right-5 top-20 hidden rounded-2xl border border-white/10 bg-ink/82 p-4 shadow-premium backdrop-blur-2xl sm:block"
-        animate={{ y: [-5, 5, -5] }}
-        transition={{ duration: 7.4, repeat: Infinity, ease: 'easeInOut' }}
+          animate={{ y: [-5, 5, -5] }}
+          transition={{ duration: 7.4, repeat: Infinity, ease: 'easeInOut' }}
         >
           <Maximize2 className="h-4 w-4 text-violet-300" />
           <p className="mt-3 text-xs font-semibold uppercase tracking-[0.18em] text-muted">Preview</p>
@@ -211,8 +222,8 @@ function ProjectMockup({ project, featured }: { project: Project; featured: bool
 
         <motion.div
           className="absolute bottom-5 left-5 hidden rounded-2xl border border-white/10 bg-frost p-4 text-ink shadow-[0_24px_70px_rgba(5,5,9,0.32)] sm:block"
-        animate={{ y: [5, -5, 5] }}
-        transition={{ duration: 8.2, repeat: Infinity, ease: 'easeInOut' }}
+          animate={{ y: [5, -5, 5] }}
+          transition={{ duration: 8.2, repeat: Infinity, ease: 'easeInOut' }}
         >
           <div className="flex items-center gap-2">
             <Cpu className="h-4 w-4 text-violet-700" />
