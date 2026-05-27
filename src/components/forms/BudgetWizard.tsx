@@ -520,7 +520,7 @@ export function BudgetWizard() {
               ) : null}
 
               {step === 2 ? (
-                <OptionGrid>
+                <OptionGrid cols2OnMobile>
                   {budgetRanges.map((option) => (
                     <OptionCard
                       key={option.title}
@@ -534,7 +534,7 @@ export function BudgetWizard() {
               ) : null}
 
               {step === 3 ? (
-                <OptionGrid>
+                <OptionGrid cols2OnMobile>
                   {timelineOptions.map((option) => (
                     <OptionCard
                       key={option.title}
@@ -642,7 +642,7 @@ function StepDots({
   setStep: (step: number) => void;
 }) {
   return (
-    <div className="mt-3 grid grid-cols-7 gap-1.5">
+    <div className="mt-3 grid grid-cols-7 gap-1 sm:gap-1.5">
       {steps.map((item, index) => {
         const isActive = currentStep === index;
         const isComplete = index < currentStep;
@@ -656,7 +656,7 @@ function StepDots({
             disabled={!canNavigate}
             onClick={() => canNavigate && setStep(index)}
             className={cn(
-              'h-8 rounded-xl border text-[0.62rem] font-semibold transition duration-300 disabled:cursor-not-allowed disabled:opacity-45',
+              'h-7 rounded-xl border text-[0.56rem] font-semibold transition duration-300 disabled:cursor-not-allowed disabled:opacity-45 sm:h-8 sm:text-[0.62rem]',
               isActive
                 ? 'border-violet-300/40 bg-violet-400/[0.16] text-frost'
                 : isComplete
@@ -664,7 +664,7 @@ function StepDots({
                   : 'border-white/[0.08] bg-white/[0.035] text-muted',
             )}
           >
-            {isComplete ? <CheckCircle2 className="mx-auto h-3.5 w-3.5" /> : index + 1}
+            {isComplete ? <CheckCircle2 className="mx-auto h-3 w-3 sm:h-3.5 sm:w-3.5" /> : index + 1}
           </button>
         );
       })}
@@ -675,7 +675,7 @@ function StepDots({
 function StepIntro({ title, description }: { title: string; description: string }) {
   return (
     <section className="min-w-0">
-      <h2 className="text-balance text-[clamp(1.65rem,7.6vw,2.35rem)] font-semibold leading-[1.05] text-frost sm:text-4xl">
+      <h2 className="text-balance text-[clamp(1.15rem,5vw,1.45rem)] font-semibold leading-[1.08] text-frost sm:text-4xl sm:leading-[1.05]">
         {title}
       </h2>
       <p className="mt-3 max-w-2xl text-[0.95rem] leading-7 text-mist sm:text-base sm:leading-7">{description}</p>
@@ -691,16 +691,16 @@ function GroupLabel({ children, muted = false }: { children: ReactNode; muted?: 
   );
 }
 
-function OptionGrid({ children, compact = false }: { children: ReactNode; compact?: boolean }) {
+function OptionGrid({ children, compact = false, cols2OnMobile = false }: { children: ReactNode; compact?: boolean; cols2OnMobile?: boolean }) {
   return (
-    <div className={cn('grid min-w-0 gap-2.5 sm:grid-cols-2', compact ? 'lg:grid-cols-2' : 'lg:grid-cols-2 xl:grid-cols-3')}>
+    <div className={cn('grid min-w-0 gap-2.5 sm:grid-cols-2', cols2OnMobile && 'grid-cols-2', compact ? 'lg:grid-cols-2' : 'lg:grid-cols-2 xl:grid-cols-3')}>
       {children}
     </div>
   );
 }
 
 function FeatureGrid({ children, compact = false }: { children: ReactNode; compact?: boolean }) {
-  return <div className={cn('mt-5 grid min-w-0 gap-2', compact ? 'grid-cols-2 sm:grid-cols-3' : 'sm:grid-cols-2 xl:grid-cols-3')}>{children}</div>;
+  return <div className={cn('mt-5 grid min-w-0 gap-2', compact ? 'grid-cols-1 min-[360px]:grid-cols-2 sm:grid-cols-3' : 'sm:grid-cols-2 xl:grid-cols-3')}>{children}</div>;
 }
 
 function OptionCard({

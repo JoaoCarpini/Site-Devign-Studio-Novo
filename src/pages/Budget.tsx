@@ -17,9 +17,9 @@ export default function Budget() {
       <div className="pointer-events-none absolute left-1/2 top-20 hidden h-96 w-96 -translate-x-1/2 rounded-full bg-violet-500/[0.08] blur-3xl sm:block" />
 
       <div className="container-premium relative mx-auto grid max-w-7xl gap-6 pb-12 pt-4 sm:gap-9 sm:pb-20 lg:grid-cols-[0.68fr_1.32fr] lg:items-start lg:gap-12 lg:pb-28">
-        <Reveal className="min-w-0 lg:sticky lg:top-28">
+        <Reveal className="order-last min-w-0 lg:sticky lg:top-28 lg:order-first">
           <span className="eyebrow mb-4">Diagnóstico inicial</span>
-          <h1 className="max-w-3xl text-balance text-[clamp(2.2rem,11vw,3.2rem)] font-semibold leading-[0.98] tracking-normal text-frost lg:text-[4rem]">
+          <h1 className="max-w-3xl text-balance text-[clamp(1.5rem,6vw,3.2rem)] font-semibold leading-[0.98] tracking-normal text-frost lg:text-[4rem]">
             Contexto claro antes da proposta.
           </h1>
           <p className="mt-4 max-w-2xl text-sm leading-6 text-mist sm:text-base sm:leading-8">
@@ -27,7 +27,7 @@ export default function Budget() {
             não com suposições.
           </p>
 
-          <div className="mt-5 grid gap-2.5 sm:grid-cols-3 lg:mt-8 lg:grid-cols-1">
+          <div className="mt-5 hidden gap-2.5 sm:grid-cols-3 lg:mt-8 lg:grid lg:grid-cols-1">
             {signals.map((item) => {
               const Icon = item.icon;
 
@@ -46,7 +46,7 @@ export default function Budget() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.05} className="min-w-0">
+        <Reveal delay={0.05} className="order-first min-w-0 lg:order-last">
           <BudgetWizard />
         </Reveal>
       </div>
