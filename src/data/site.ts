@@ -508,29 +508,55 @@ export const projects: Project[] = [
     accent: 'amber',
   },
   {
-    slug: 'contract-ai',
-    title: 'Contract AI',
-    category: 'Design editorial e materiais impressos',
-    summary:
-      'Criação e diagramação de materiais impressos, como planners e livros, com organização visual refinada e preparação técnica de arquivos.',
-    context:
-      'Materiais impressos precisam unir clareza visual, ritmo de leitura, hierarquia editorial e acabamento técnico para chegar à produção com consistência.',
-    problem:
-      'Sem uma diagramação estruturada, planners e livros perdem legibilidade, coerência visual e segurança técnica para impressão ou distribuição profissional.',
-    solution:
-      'Criamos composições editoriais com grids, hierarquia tipográfica, páginas-mestre, organização de conteúdo e fechamento técnico dos arquivos.',
-    result:
-      'Materiais com leitura mais organizada, estética premium e arquivos preparados para produção gráfica com mais previsibilidade.',
-    stack: ['Design Editorial', 'Diagramação', 'Adobe InDesign', 'Illustrator', 'Photoshop', 'Pré-impressão'],
-    features: ['Planners', 'Livros', 'Grids editoriais', 'Páginas-mestre', 'Arquivo para impressão'],
-    differentials: ['Organização visual', 'Acabamento técnico', 'Preparação gráfica profissional'],
-    metrics: [
-      { label: 'Layout', value: 'editorial' },
-      { label: 'Arquivos', value: 'print-ready' },
-      { label: 'Leitura', value: 'organizada' },
-    ],
-    accent: 'violet',
-  },
+  slug: 'contract-ai',
+  title: 'Contract AI',
+  category: 'Automação documental com IA',
+  summary:
+    'Plataforma inteligente para geração automatizada de contratos com preenchimento dinâmico, organização documental e redução de trabalho manual.',
+
+  context:
+    'Empresas e profissionais perdiam tempo criando contratos manualmente, revisando campos repetitivos e organizando documentos de forma descentralizada.',
+
+  problem:
+    'A operação documental era lenta, repetitiva e sujeita a erros de preenchimento, além de dificultar rastreabilidade e padronização.',
+
+  solution:
+    'Desenvolvemos uma plataforma com geração automatizada de contratos, preenchimento inteligente, organização de documentos e estrutura preparada para integrações futuras.',
+
+  result:
+    'Processo documental mais rápido, padronizado e escalável, reduzindo retrabalho e aumentando previsibilidade operacional.',
+
+  stack: [
+    'React',
+    'TypeScript',
+    'IA',
+    'Automação',
+    'APIs',
+    'PostgreSQL',
+  ],
+
+  features: [
+    'Geração automática de contratos',
+    'Preenchimento dinâmico',
+    'Organização documental',
+    'Fluxo automatizado',
+    'Escalabilidade operacional',
+  ],
+
+  differentials: [
+    'Redução de trabalho manual',
+    'Padronização documental',
+    'Arquitetura escalável',
+  ],
+
+  metrics: [
+    { label: 'Processo', value: 'automatizado' },
+    { label: 'Documentos', value: 'padronizados' },
+    { label: 'Operação', value: 'mais rápida' },
+  ],
+
+  accent: 'violet',
+},
 ];
 
 export const processSteps = [

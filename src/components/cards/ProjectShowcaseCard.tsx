@@ -1,236 +1,157 @@
-import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2, Cpu, Layers3, Maximize2, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import type { Project } from '../../data/site';
 import { cn } from '../../utils/cn';
 import { Reveal } from '../animations/Reveal';
 import { ButtonLink } from '../ui/Button';
 
-const accentStyles: Record<Project['accent'], { gradient: string; text: string; chip: string; glow: string }> = {
+const accentStyles: Record<
+  Project['accent'],
+  {
+    border: string;
+    chip: string;
+    glow: string;
+  }
+> = {
   violet: {
-    gradient: 'from-violet-500/34 via-violet-400/12 to-transparent',
-    text: 'text-violet-300',
-    chip: 'border-violet-400/25 bg-violet-500/12 text-violet-200',
-    glow: 'bg-violet-500/18',
+    border: 'border-violet-500/20',
+    chip: 'bg-violet-500/10 text-violet-200 border-violet-500/20',
+    glow: 'bg-violet-500/10',
   },
   signal: {
-    gradient: 'from-signal/28 via-signal/10 to-transparent',
-    text: 'text-signal',
-    chip: 'border-signal/25 bg-signal/10 text-signal',
-    glow: 'bg-signal/14',
+    border: 'border-emerald-500/20',
+    chip: 'bg-emerald-500/10 text-emerald-200 border-emerald-500/20',
+    glow: 'bg-emerald-500/10',
   },
   amber: {
-    gradient: 'from-amber/30 via-amber/10 to-transparent',
-    text: 'text-amber',
-    chip: 'border-amber/25 bg-amber/10 text-amber',
-    glow: 'bg-amber/14',
+    border: 'border-amber-500/20',
+    chip: 'bg-amber-500/10 text-amber-200 border-amber-500/20',
+    glow: 'bg-amber-500/10',
   },
 };
 
-export function ProjectShowcaseCard({ project, featured = false }: { project: Project; featured?: boolean }) {
+export function ProjectShowcaseCard({
+  project,
+}: {
+  project: Project;
+  featured?: boolean;
+}) {
   const accent = accentStyles[project.accent];
 
   return (
     <Reveal>
       <article
-        id={project.slug}
         className={cn(
-          'group relative overflow-hidden rounded-[1.45rem] border border-white/10 bg-white/[0.052] shadow-premium transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] sm:backdrop-blur-2xl sm:will-change-transform hover:-translate-y-1 hover:border-violet-400/35 hover:shadow-[0_32px_110px_rgba(141,92,255,0.16)] sm:rounded-[2rem]',
-          featured ? 'lg:grid lg:grid-cols-[1.12fr_0.88fr]' : '',
+          'relative overflow-hidden rounded-3xl border bg-[#0B0B12] p-5 sm:p-8',
+          accent.border,
         )}
       >
-        <div className={cn('absolute inset-0 bg-gradient-to-br opacity-80', accent.gradient)} />
-        <div className={cn('absolute -right-24 top-16 h-56 w-56 rounded-full blur-[90px] sm:h-72 sm:w-72 sm:blur-[110px]', accent.glow)} />
-        <div className="absolute inset-x-8 top-0 h-px bg-premium-line opacity-80" />
+        <div
+          className={cn(
+            'absolute right-0 top-0 h-40 w-40 rounded-full blur-3xl',
+            accent.glow,
+          )}
+        />
 
-        <ProjectMockup project={project} featured={featured} />
-
-        <div className="relative z-10 p-4 sm:p-8 lg:p-10">
-          {/* Chips */}
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-            <span className={cn('rounded-full border px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em]', accent.chip)}>
+        <div className="relative z-10">
+          <div className="flex flex-wrap gap-2">
+            <span
+              className={cn(
+                'rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em]',
+                accent.chip,
+              )}
+            >
               {project.category}
             </span>
-            <span className="rounded-full border border-white/10 bg-white/[0.055] px-3 py-1.5 text-xs font-medium text-muted">
-              Case #{project.slug}
+
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-300">
+              {project.slug}
             </span>
           </div>
 
-          {/* Title */}
-          <h3 className="mt-4 text-xl font-semibold tracking-normal text-frost sm:mt-6 sm:text-5xl">{project.title}</h3>
-          <p className="mt-3 text-sm leading-7 text-mist sm:mt-5 sm:text-base sm:leading-8">{project.summary}</p>
+          <h3 className="mt-5 text-3xl font-semibold text-white">
+            {project.title}
+          </h3>
 
-          {/* Metrics — 1 col mobile, 3 col md+ */}
-          <div className="mt-5 grid grid-cols-1 gap-2 sm:mt-8 sm:grid-cols-3 sm:gap-4">
+          <p className="mt-4 text-sm leading-7 text-zinc-300">
+            {project.summary}
+          </p>
+
+          <div className="mt-6 grid gap-3 sm:grid-cols-3">
             {project.metrics.map((metric) => (
-              <div key={metric.label} className="rounded-2xl border border-white/10 bg-ink/35 p-3 sm:p-4 sm:backdrop-blur-xl">
-                <strong className="block text-lg font-semibold tracking-normal text-frost sm:text-xl">{metric.value}</strong>
-                <span className="mt-1 block text-xs uppercase tracking-[0.18em] text-muted">{metric.label}</span>
+              <div
+                key={metric.label}
+                className="rounded-2xl border border-white/10 bg-white/5 p-4"
+              >
+                <strong className="block text-xl text-white">
+                  {metric.value}
+                </strong>
+
+                <span className="mt-1 block text-xs uppercase tracking-[0.18em] text-zinc-400">
+                  {metric.label}
+                </span>
               </div>
             ))}
           </div>
 
-          {/* Problem / Solution — 1 col mobile, 2 col xl */}
-          <div className="mt-5 grid gap-3 sm:mt-8 sm:gap-5 xl:grid-cols-2">
-            <CaseBlock title="Problema" text={project.problem} />
-            <CaseBlock title="Solução" text={project.solution} />
-          </div>
+          <div className="mt-6 grid gap-4 lg:grid-cols-2">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-300">
+                Problema
+              </p>
 
-          {/* Features + Differentials — stack no mobile */}
-          <div className="mt-5 grid gap-5 sm:mt-8 sm:gap-6 xl:grid-cols-[0.95fr_1.05fr]">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-frost">Funcionalidades</p>
-              <div className="mt-3 grid gap-2 sm:mt-4">
-                {project.features.map((feature) => (
-                  <div key={feature} className="flex min-h-10 items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.045] px-3.5 py-2 text-sm text-mist sm:min-h-11 sm:px-4 sm:py-3">
-                    <CheckCircle2 className="h-4 w-4 shrink-0 text-signal" />
-                    {feature}
-                  </div>
-                ))}
-              </div>
+              <p className="mt-3 text-sm leading-7 text-zinc-300">
+                {project.problem}
+              </p>
             </div>
 
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-frost">Diferenciais</p>
-              <div className="mt-3 flex flex-wrap gap-2 sm:mt-4">
-                {project.differentials.map((item) => (
-                  <span key={item} className="rounded-full border border-white/10 bg-white/[0.055] px-3.5 py-2 text-sm text-mist sm:px-4">
-                    {item}
-                  </span>
-                ))}
-              </div>
-              <p className="mt-4 rounded-2xl border border-white/10 bg-white/[0.045] p-3 text-sm leading-7 text-muted sm:mt-5 sm:p-4">
-                <span className="font-semibold text-frost">Resultado esperado: </span>
-                {project.result}
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-300">
+                Solução
+              </p>
+
+              <p className="mt-3 text-sm leading-7 text-zinc-300">
+                {project.solution}
               </p>
             </div>
           </div>
 
-          {/* Stack tags */}
-          <div className="mt-5 flex flex-wrap gap-2 sm:mt-8">
+          <div className="mt-6">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white">
+              Funcionalidades
+            </p>
+
+            <div className="mt-4 grid gap-2">
+              {project.features.map((feature) => (
+                <div
+                  key={feature}
+                  className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-zinc-300"
+                >
+                  <CheckCircle2 className="h-4 w-4 text-violet-300" />
+                  {feature}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-2">
             {project.stack.map((item) => (
-              <span key={item} className="rounded-full border border-white/10 bg-ink/45 px-3 py-1.5 text-xs font-semibold text-mist sm:backdrop-blur-xl">
+              <span
+                key={item}
+                className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-zinc-300"
+              >
                 {item}
               </span>
             ))}
           </div>
 
-          {/* CTAs */}
-          <div className="mt-6 flex flex-col gap-3 sm:mt-9 sm:flex-row">
-            <ButtonLink to="/orcamento" className="w-full sm:w-auto">
-              Conversar sobre projeto semelhante
+          <div className="mt-8">
+            <ButtonLink to="/orcamento">
+              Conversar sobre projeto
               <ArrowRight className="h-4 w-4" />
-            </ButtonLink>
-            <ButtonLink
-              href="https://gabriellefernandesnutricionista.my.canva.site/portf-lio-devign-site"
-              target="_blank"
-              rel="noreferrer"
-              variant="secondary"
-              className="w-full sm:w-auto"
-            >
-              Ver case no portfólio
             </ButtonLink>
           </div>
         </div>
       </article>
     </Reveal>
-  );
-}
-
-function CaseBlock({ title, text }: { title: string; text: string }) {
-  return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.045] p-3 sm:p-5 sm:backdrop-blur-xl">
-      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-violet-300">{title}</p>
-      <p className="mt-3 text-sm leading-7 text-muted">{text}</p>
-    </div>
-  );
-}
-
-function ProjectMockup({ project, featured }: { project: Project; featured: boolean }) {
-  const accent = accentStyles[project.accent];
-
-  return (
-    <div className={cn('relative z-10 overflow-hidden p-4 sm:p-8', featured ? 'lg:p-10' : 'pb-0')}>
-      <motion.div
-        className="relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#080811]/92 shadow-premium sm:min-h-[24rem] sm:rounded-[1.75rem]"
-        whileHover={{ scale: 1.015 }}
-        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      >
-        {/* Window bar */}
-        <div className="flex items-center justify-between border-b border-white/10 px-3.5 py-2.5 sm:px-5 sm:py-4">
-          <div className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-[#ff6b6b] sm:h-2.5 sm:w-2.5" />
-            <span className="h-2 w-2 rounded-full bg-[#ffd166] sm:h-2.5 sm:w-2.5" />
-            <span className="h-2 w-2 rounded-full bg-[#4dd4c6] sm:h-2.5 sm:w-2.5" />
-          </div>
-          <span className="rounded-full border border-white/10 bg-white/[0.055] px-2.5 py-1 text-[0.65rem] text-muted sm:px-3 sm:text-xs">Preview</span>
-        </div>
-
-        {/* Mockup content — stack no mobile, side-by-side em lg */}
-        <div className="grid gap-3 p-3 sm:p-4 lg:grid-cols-[0.76fr_1.24fr] lg:p-5">
-          <div className="space-y-3">
-            <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 sm:p-4">
-              <span className={cn('text-xs font-semibold uppercase tracking-[0.2em]', accent.text)}>{project.title}</span>
-              <strong className="mt-2 block text-xl font-semibold tracking-normal text-frost sm:mt-4 sm:text-3xl">{project.metrics[0]?.value}</strong>
-              <span className="mt-1 block text-xs text-muted">{project.metrics[0]?.label}</span>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 sm:p-4">
-              <div className="space-y-2">
-                {project.features.slice(0, 4).map((feature, index) => (
-                  <span key={feature} className="flex items-center gap-2 text-xs text-muted">
-                    <span className={cn('h-1.5 w-1.5 shrink-0 rounded-full', index % 2 === 0 ? 'bg-violet-300' : 'bg-signal')} />
-                    {feature}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="rounded-[1.15rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.06),rgba(141,92,255,0.16),rgba(77,212,198,0.06))] p-3 sm:rounded-[1.35rem] sm:p-4">
-            <div className="grid h-28 grid-cols-6 items-end gap-1.5 sm:h-60 sm:gap-2">
-              {[46, 68, 54, 78, 64, 92].map((height) => (
-                <span
-                  key={`${project.slug}-${height}`}
-                  className="rounded-t-xl bg-[linear-gradient(180deg,#f7f5ff,rgba(169,139,255,0.56))]"
-                  style={{ height: `${height}%` }}
-                />
-              ))}
-            </div>
-            <div className="mt-3 grid grid-cols-3 gap-2 sm:mt-4">
-              {project.stack.slice(0, 3).map((item) => (
-                <span key={item} className="rounded-xl border border-white/10 bg-ink/45 px-2 py-2 text-center text-[0.62rem] font-semibold text-mist sm:px-3 sm:py-3 sm:text-xs">
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Floating badges — desktop only */}
-        <motion.div
-          className="absolute right-5 top-20 hidden rounded-2xl border border-white/10 bg-ink/82 p-4 shadow-premium backdrop-blur-2xl sm:block"
-          animate={{ y: [-5, 5, -5] }}
-          transition={{ duration: 7.4, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <Maximize2 className="h-4 w-4 text-violet-300" />
-          <p className="mt-3 text-xs font-semibold uppercase tracking-[0.18em] text-muted">Preview</p>
-          <p className="mt-1 text-sm font-semibold text-frost">Produto escalável</p>
-        </motion.div>
-
-        <motion.div
-          className="absolute bottom-5 left-5 hidden rounded-2xl border border-white/10 bg-frost p-4 text-ink shadow-[0_24px_70px_rgba(5,5,9,0.32)] sm:block"
-          animate={{ y: [5, -5, 5] }}
-          transition={{ duration: 8.2, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <div className="flex items-center gap-2">
-            <Cpu className="h-4 w-4 text-violet-700" />
-            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-700">Stack</span>
-          </div>
-          <p className="mt-1 text-sm font-semibold">{project.stack.slice(0, 3).join(' · ')}</p>
-        </motion.div>
-
-        <Sparkles aria-hidden="true" className="absolute bottom-8 right-10 h-16 w-16 text-white/[0.035]" />
-        <Layers3 aria-hidden="true" className="absolute left-10 top-28 h-14 w-14 text-white/[0.04]" />
-      </motion.div>
-    </div>
   );
 }
