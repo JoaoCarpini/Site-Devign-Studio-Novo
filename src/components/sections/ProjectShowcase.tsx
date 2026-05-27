@@ -100,7 +100,7 @@ function ProjectTeaserShowcase() {
               <Reveal key={project.slug} delay={index * 0.05}>
                 <article
                   className={cn(
-                    'group relative min-h-[20rem] overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.045] p-4 shadow-premium sm:backdrop-blur-2xl transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] sm:will-change-transform hover:-translate-y-1 hover:border-violet-300/24 hover:bg-white/[0.062] sm:min-h-[25rem] sm:rounded-[1.75rem] sm:p-5',
+                    'group relative overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.045] p-4 shadow-premium sm:backdrop-blur-2xl transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] sm:will-change-transform hover:-translate-y-1 hover:border-violet-300/24 hover:bg-white/[0.062] sm:min-h-[25rem] sm:rounded-[1.75rem] sm:p-5',
                     index === 1 && 'md:translate-y-8',
                     index === 2 && 'xl:translate-y-14',
                   )}
@@ -188,15 +188,11 @@ function TeaserMockup({ index, projectTitle, accent }: { index: number; projectT
         <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.055),rgba(141,92,255,0.12),rgba(77,212,198,0.035))] p-3">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(255,255,255,0.1),transparent_56%)] opacity-60" />
           <div className="relative flex h-full items-end gap-2">
-            {bars.map((height, barIndex) => (
-              <motion.span
-                key={`${height}-${barIndex}`}
+            {bars.map((height) => (
+              <span
+                key={height}
                 className="flex-1 rounded-t-lg bg-[linear-gradient(180deg,#f7f5ff,rgba(169,139,255,0.42))]"
                 style={{ height: `${height}%` }}
-                initial={{ scaleY: 0.62, opacity: 0.55 }}
-                whileInView={{ scaleY: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: barIndex * 0.05, ease: [0.22, 1, 0.36, 1] }}
               />
             ))}
           </div>

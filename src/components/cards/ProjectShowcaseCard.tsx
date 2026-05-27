@@ -35,7 +35,7 @@ export function ProjectShowcaseCard({ project, featured = false }: { project: Pr
         id={project.slug}
         className={cn(
           'group relative overflow-hidden rounded-[1.45rem] border border-white/10 bg-white/[0.052] shadow-premium transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] sm:backdrop-blur-2xl sm:will-change-transform hover:-translate-y-1 hover:border-violet-400/35 hover:shadow-[0_32px_110px_rgba(141,92,255,0.16)] sm:rounded-[2rem]',
-          featured ? 'lg:grid lg:grid-cols-[1.12fr_0.88fr]' : 'h-full',
+          featured ? 'lg:grid lg:grid-cols-[1.12fr_0.88fr]' : '',
         )}
       >
         <div className={cn('absolute inset-0 bg-gradient-to-br opacity-80', accent.gradient)} />
