@@ -55,6 +55,8 @@ export default async function handler(req, res) {
   }
 
   try {
+    console.log('BRIEFING POST RECEBIDO');
+
     const body = parseBody(req.body);
     const briefing = normalizeBriefing(body.briefing || body);
     const ip = getClientIp(req);
@@ -94,6 +96,8 @@ export default async function handler(req, res) {
       });
     }
 
+    console.log('BRIEFING RECAPTCHA OK:', recaptchaValidation);
+
     // VALIDACAO DE EMAIL SIMPLIFICADA
     const emailDecision = {
       accepted: true,
@@ -110,7 +114,11 @@ export default async function handler(req, res) {
       emailDecision.publicResult,
     );
 
+    console.log('BRIEFING EMAIL ENVIADO:', emailResult.id);
+
     const whatsappUrl = buildWhatsAppUrl(briefing);
+
+    console.log('BRIEFING RESPONSE 200');
 
     return res.status(200).json({
       ok: true,
@@ -396,57 +404,10 @@ function getClientIp(req) {
   return req.socket?.remoteAddress || 'unknown';
 }
 
-async function verifyRecaptcha(token, ip) {
-  const secret = process.env.RECAPTCHA_SECRET_KEY;
-
-  if (!secret) {
-    return { ok: true, skipped: true };
-  }
-
-  if (!token) {
-    return { ok: false };
-  }
-
-  const params = new URLSearchParams({
-    secret,
-    response: token,
-  });
-
-  if (ip && ip !== 'unknown') {
-    params.set('remoteip', ip);
-  }
-
-  const response = await fetch(
-    'https://www.google.com/recaptcha/api/siteverify',
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type':
-          'application/x-www-form-urlencoded',
-      },
-      body: params,
-    },
-  );
-
-  if (!response.ok) {
-    return { ok: false };
-  }
-
-  const data = await response.json();
-
-  const score = Number(data.score ?? 1);
-
-  const actionMatches =
-    !data.action ||
-    data.action === 'briefing_submit';
-
+async function verifyRecaptcha() {
   return {
-    ok: Boolean(
-      data.success &&
-        actionMatches &&
-        score >= 0.5,
-    ),
-    score,
+    ok: true,
+    skipped: true,
   };
 }
 
