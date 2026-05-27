@@ -376,7 +376,7 @@ export function BudgetWizard() {
     try {
       console.log('ANTES DO RECAPTCHA');
 
-      const recaptchaToken = await executeRecaptcha('briefing_submit');
+      const recaptchaToken = undefined;
 
       setSubmitPhase('sending');
 
