@@ -10,7 +10,7 @@ const contactItems = [
     icon: Mail,
   },
   {
-    label: 'Telefone',
+    label: 'Whatsapp',
     value: '+55 (19) 99226-6955',
     href: 'https://wa.me/5519992266955',
     icon: Phone,
@@ -86,7 +86,7 @@ export function ContactPresence() {
                     {item.label}
                   </span>
 
-                  <strong className="mt-3 block text-[0.95rem] font-semibold leading-snug tracking-normal text-frost sm:text-xl">
+                  <strong className="mt-3 block overflow-hidden text-ellipsis whitespace-nowrap text-[0.88rem] font-semibold leading-snug tracking-normal text-frost sm:text-[0.95rem] xl:text-[1rem]">
                     {item.value}
                   </strong>
                 </div>
