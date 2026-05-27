@@ -77,13 +77,13 @@ function ProjectTeaserShowcase() {
       <div aria-hidden="true" className="absolute -left-44 bottom-10 h-[28rem] w-[28rem] rounded-full bg-signal/[0.055] blur-[120px]" />
 
       <div className="container-premium relative z-10">
-        <div className="grid gap-6 lg:grid-cols-[0.84fr_1.16fr] lg:items-end">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionIntro
             eyebrow="Experiências digitais"
             title="Fragmentos de sistemas em movimento."
             text="A Home mostra apenas sinais: interfaces parciais, indicadores e fluxos. Os detalhes completos vivem no portfólio."
           />
-          <Reveal className="lg:justify-self-end">
+          <Reveal>
             <ButtonLink to="/projetos" className="w-fit">
               Explorar cases
               <ArrowRight className="h-4 w-4" />
