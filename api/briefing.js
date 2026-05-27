@@ -267,7 +267,15 @@ function validateBriefingPayload(briefing) {
     };
   }
 
-  if (!allowedBudgets.has(briefing.budget)) {
+  const budget = briefing.budget.toLowerCase().replace(/[^\d]/g, '');
+
+  const validBudget =
+    budget.includes('500') ||
+    budget.includes('1500') ||
+    budget.includes('5000') ||
+    budget.includes('15000');
+
+  if (!validBudget) {
     return {
       ok: false,
       message: 'Faixa de orçamento inválida.',

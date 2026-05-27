@@ -208,17 +208,17 @@ const objectives: SelectOption[] = [
 
 const budgetRanges: SelectOption[] = [
   {
-    title: 'R$500 - R$1.500',
+    title: 'R$500 — R$1.500',
     description: 'Ajustes pontuais, páginas simples ou validação inicial de escopo.',
     icon: BadgeCheck,
   },
   {
-    title: 'R$1.500 - R$5.000',
+    title: 'R$1.500 — R$5.000',
     description: 'Landing pages premium, websites objetivos e automações menores.',
     icon: BadgeCheck,
   },
   {
-    title: 'R$5.000 - R$15.000',
+    title: 'R$5.000 — R$15.000',
     description: 'Sistemas, integrações, dashboards e experiências digitais mais completas.',
     icon: BadgeCheck,
   },
