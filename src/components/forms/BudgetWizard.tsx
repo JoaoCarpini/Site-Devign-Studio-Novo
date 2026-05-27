@@ -357,38 +357,73 @@ export function BudgetWizard() {
   const goBack = () => setStep((current) => Math.max(current - 1, 0));
 
   const submit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  event.preventDefault();
+  event.stopPropagation();
 
-    const validation = validateStep();
-    if (validation) {
-      setError(validation);
-      return;
-    }
+  if (isSubmitting) return;
 
-    setError('');
-    setSubmitPhase('validating');
+  const validation = validateStep();
 
-    try {
-      const recaptchaToken = await executeRecaptcha('briefing_submit');
-      setSubmitPhase('sending');
-      const response = await submitBriefing(briefingPayload, recaptchaToken);
-      const whatsappUrl = response.whatsappUrl || buildWhatsAppUrl(briefingPayload);
+  if (validation) {
+    setError(validation);
+    return;
+  }
 
-      setSubmittedWhatsappUrl(whatsappUrl);
-      setSubmitPhase('whatsapp');
-      setSubmitted(true);
-      setTimeout(() => openWhatsApp(whatsappUrl), 900);
-    } catch (requestError) {
-      const message =
-        requestError instanceof BriefingApiError
-          ? requestError.message
-          : 'Não foi possível concluir o envio agora. Verifique sua conexão e tente novamente.';
+  setError('');
+  setSubmitPhase('validating');
 
-      setError(message);
-    } finally {
-      setSubmitPhase('idle');
-    }
-  };
+  try {
+    console.log('==========================');
+    console.log('SUBMIT START');
+
+    const recaptchaToken = await executeRecaptcha('briefing_submit');
+
+    console.log('RECAPTCHA OK');
+
+    setSubmitPhase('sending');
+
+    const response = await submitBriefing(
+      briefingPayload,
+      recaptchaToken,
+    );
+
+    console.log('API RESPONSE:', response);
+
+    const whatsappUrl =
+      response.whatsappUrl ||
+      buildWhatsAppUrl(briefingPayload);
+
+    setSubmittedWhatsappUrl(whatsappUrl);
+
+    setSubmitPhase('whatsapp');
+
+    setSubmitted(true);
+
+    console.log('WHATSAPP URL:', whatsappUrl);
+
+    setTimeout(() => {
+      try {
+        openWhatsApp(whatsappUrl);
+      } catch (error) {
+        console.error('WHATSAPP ERROR:', error);
+      }
+    }, 900);
+  } catch (requestError) {
+    console.error('==========================');
+    console.error('SUBMIT ERROR:', requestError);
+
+    const message =
+      requestError instanceof BriefingApiError
+        ? requestError.message
+        : 'Não foi possível concluir o envio agora. Verifique sua conexão e tente novamente.';
+
+    setError(message);
+  } finally {
+    console.log('SUBMIT END');
+
+    setSubmitPhase('idle');
+  }
+};
 
   if (submitted) {
     return (
