@@ -260,8 +260,12 @@ a {
   [class*='blur-[120px]'],
   [class*='blur-[140px]'],
   [class*='blur-[180px]'] {
-    filter: blur(28px) !important;
-    opacity: 0.42 !important;
+    filter: none !important;
+    opacity: 0.16 !important;
+  }
+
+  [class*='mix-blend'] {
+    mix-blend-mode: normal !important;
   }
 
   [class*='shadow-premium'],

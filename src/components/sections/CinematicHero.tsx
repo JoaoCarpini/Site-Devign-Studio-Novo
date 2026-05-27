@@ -34,7 +34,7 @@ export function CinematicHero() {
       <AuroraBackground />
       <HeroBrandBackdrop />
       <div aria-hidden="true" className="hero-fine-grid absolute inset-0 z-0 opacity-20 sm:opacity-60" />
-      <div aria-hidden="true" className="absolute left-1/2 top-16 z-0 h-[18rem] w-[18rem] -translate-x-1/2 rounded-full bg-violet-500/10 blur-[80px] sm:top-24 sm:h-[32rem] sm:w-[32rem] sm:bg-violet-500/16 sm:blur-[120px]" />
+      <div aria-hidden="true" className="absolute left-1/2 top-24 z-0 hidden h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-violet-500/16 blur-[120px] sm:block" />
       <div aria-hidden="true" className="absolute right-[-12rem] top-32 z-0 hidden h-[26rem] w-[26rem] rounded-full bg-signal/8 blur-[100px] sm:block" />
 
       {!isMobile && particles.map((particle) => (
@@ -122,7 +122,7 @@ export function CinematicHero() {
           animate={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, x: 0, filter: 'blur(0px)' }}
           transition={{ duration: isMobile ? 0.34 : 0.95, ease: [0.22, 1, 0.36, 1], delay: isMobile ? 0.04 : 0.16 }}
         >
-          <div aria-hidden="true" className="absolute -inset-4 rounded-[2rem] bg-violet-500/12 blur-3xl sm:-inset-6 sm:rounded-[3rem] sm:bg-violet-500/16" />
+          <div aria-hidden="true" className="absolute -inset-6 hidden rounded-[3rem] bg-violet-500/16 blur-3xl sm:block" />
           <HeroMockup className="relative z-10" />
 
           <motion.div

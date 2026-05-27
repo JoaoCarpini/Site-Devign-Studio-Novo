@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { DevignLogo } from './DevignLogo';
+import { useIsMobile } from '../../hooks/useMediaQuery';
 
 const LOADER_MIN_MS = 1400;
 const LOADER_STORAGE_KEY = 'devign-loader-seen';
@@ -10,6 +11,7 @@ type PremiumLoaderProps = {
 };
 
 export function PremiumLoader({ onComplete }: PremiumLoaderProps) {
+  const isMobile = useIsMobile();
   const [messageIndex, setMessageIndex] = useState(0);
   const messages = ['Inicializando ambiente Devign...', 'Preparando experiência premium...'];
 
@@ -42,28 +44,28 @@ export function PremiumLoader({ onComplete }: PremiumLoaderProps) {
     <motion.div
       className="fixed inset-0 z-[100] grid place-items-center bg-[#040407]"
       initial={{ opacity: 1 }}
-      exit={{ opacity: 0, filter: 'blur(8px)' }}
-      transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+      exit={isMobile ? { opacity: 0 } : { opacity: 0, filter: 'blur(8px)' }}
+      transition={{ duration: isMobile ? 0.24 : 0.65, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(141,92,255,0.2),transparent_52%)]" />
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[22rem] w-[22rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-500/15 blur-[100px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 hidden h-[22rem] w-[22rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-500/15 blur-[100px] sm:block" />
 
       <div className="relative flex flex-col items-center px-6 text-center">
         <motion.div
           className="relative grid h-24 w-56 place-items-center sm:w-64"
-          initial={{ opacity: 0, scale: 0.88, filter: 'blur(12px)' }}
-          animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          initial={isMobile ? { opacity: 0, scale: 0.94 } : { opacity: 0, scale: 0.88, filter: 'blur(12px)' }}
+          animate={isMobile ? { opacity: 1, scale: 1 } : { opacity: 1, scale: 1, filter: 'blur(0px)' }}
+          transition={{ duration: isMobile ? 0.3 : 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.span
-            className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 14, repeat: Infinity, ease: 'linear' }}
+            className="absolute inset-x-0 top-1/2 hidden h-px -translate-y-1/2 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent sm:block"
+            animate={isMobile ? undefined : { rotate: 360 }}
+            transition={isMobile ? undefined : { duration: 14, repeat: Infinity, ease: 'linear' }}
           />
           <motion.span
-            className="absolute inset-x-8 top-1/2 h-px -translate-y-1/2 rounded-full bg-gradient-to-r from-transparent via-violet-300/30 to-transparent"
-            animate={{ opacity: [0.45, 0.9, 0.45] }}
-            transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute inset-x-8 top-1/2 hidden h-px -translate-y-1/2 rounded-full bg-gradient-to-r from-transparent via-violet-300/30 to-transparent sm:block"
+            animate={isMobile ? undefined : { opacity: [0.45, 0.9, 0.45] }}
+            transition={isMobile ? undefined : { duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
           />
           <DevignLogo to="" variant="footer" className="relative" />
         </motion.div>

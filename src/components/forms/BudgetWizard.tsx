@@ -398,7 +398,7 @@ export function BudgetWizard() {
         transition={{ duration: reduceMotion ? 0.28 : 0.48, ease: [0.16, 1, 0.3, 1] }}
         className="relative overflow-hidden rounded-[1.6rem] border border-violet-300/25 bg-[#0b0b13]/88 p-6 shadow-[0_18px_60px_rgba(5,5,9,0.32)] sm:rounded-[2rem] sm:p-8 sm:shadow-[0_22px_80px_rgba(5,5,9,0.42)] sm:backdrop-blur-xl"
       >
-        <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-violet-500/[0.16] blur-3xl" />
+        <div className="pointer-events-none absolute -right-16 -top-16 hidden h-48 w-48 rounded-full bg-violet-500/[0.16] blur-3xl sm:block" />
         <div className="relative">
           <div className="grid h-14 w-14 place-items-center rounded-2xl border border-violet-300/30 bg-violet-500/[0.12] text-violet-300">
             <CheckCircle2 className="h-7 w-7" />
@@ -436,7 +436,7 @@ export function BudgetWizard() {
       onSubmit={submit}
       className="relative w-full min-w-0 overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#090911]/90 p-4 shadow-[0_18px_58px_rgba(0,0,0,0.3)] sm:rounded-[2rem] sm:p-6 sm:shadow-[0_24px_90px_rgba(0,0,0,0.36)] sm:backdrop-blur-xl lg:p-8"
     >
-      <div className="pointer-events-none absolute inset-x-10 -top-24 h-40 rounded-full bg-violet-500/[0.07] blur-2xl sm:-top-28 sm:h-48 sm:bg-violet-500/[0.14] sm:blur-3xl" />
+      <div className="pointer-events-none absolute inset-x-10 -top-28 hidden h-48 rounded-full bg-violet-500/[0.14] blur-3xl sm:block" />
 
       {isSubmitting ? <LoadingOverlay message={phaseMessages[submitPhase]} /> : null}
 
@@ -729,7 +729,7 @@ function OptionCard({
           : 'border-white/10 bg-white/[0.045] hover:border-violet-300/25 hover:bg-white/[0.065]',
       )}
     >
-      <span className={cn('pointer-events-none absolute -right-12 -top-12 h-28 w-28 rounded-full blur-3xl transition', selected ? 'bg-violet-500/18' : 'bg-transparent')} />
+      <span className={cn('pointer-events-none absolute -right-12 -top-12 hidden h-28 w-28 rounded-full blur-3xl transition sm:block', selected ? 'bg-violet-500/18' : 'bg-transparent')} />
       <span
         className={cn(
           'grid h-10 w-10 shrink-0 place-items-center rounded-2xl border transition sm:mb-4',

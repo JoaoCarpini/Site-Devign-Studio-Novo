@@ -1,4 +1,17 @@
+import { useIsMobile } from '../../hooks/useMediaQuery';
+
 export function AuroraBackground() {
+  const isMobile = useIsMobile();
+
+  if (isMobile) {
+    return (
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(141,92,255,0.055),transparent_28rem)]" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-ink to-transparent" />
+      </div>
+    );
+  }
+
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
       <div className="soft-grid absolute inset-0 opacity-70" />

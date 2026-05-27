@@ -14,7 +14,7 @@ export default function Budget() {
     <section className="relative max-w-full overflow-x-hidden pt-24 sm:pt-32 lg:pt-36">
       <AuroraBackground />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/40 to-transparent" />
-      <div className="pointer-events-none absolute left-1/2 top-20 h-64 w-64 -translate-x-1/2 rounded-full bg-violet-500/[0.08] blur-3xl sm:h-96 sm:w-96" />
+      <div className="pointer-events-none absolute left-1/2 top-20 hidden h-96 w-96 -translate-x-1/2 rounded-full bg-violet-500/[0.08] blur-3xl sm:block" />
 
       <div className="container-premium relative mx-auto grid max-w-7xl gap-6 pb-12 pt-4 sm:gap-9 sm:pb-20 lg:grid-cols-[0.68fr_1.32fr] lg:items-start lg:gap-12 lg:pb-28">
         <Reveal className="min-w-0 lg:sticky lg:top-28">
