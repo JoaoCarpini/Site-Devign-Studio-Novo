@@ -498,9 +498,7 @@ function buildWhatsAppUrl(briefing) {
 }
 
 function buildWhatsAppMessage(briefing) {
-  return `Olá Devign Studio.
-
-Acabei de enviar um briefing pelo site.
+  return `Olá! Acabei de preencher o briefing no site da Devign Studio e gostaria de continuar o atendimento sobre o projeto.
 
 Nome:
 ${briefing.name}
