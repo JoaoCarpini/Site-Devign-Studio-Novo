@@ -30,7 +30,6 @@ import {
   Workflow,
 } from 'lucide-react';
 import { BriefingApiError, submitBriefing } from '../../services/briefingApi';
-import { executeRecaptcha } from '../../services/recaptcha';
 import { buildWhatsAppUrl, openWhatsApp } from '../../services/whatsapp';
 import type { BriefingPayload } from '../../types/briefing';
 import { cn } from '../../utils/cn';
@@ -374,17 +373,12 @@ export function BudgetWizard() {
     setSubmitPhase('validating');
 
     try {
-      console.log('ANTES DO RECAPTCHA');
-
-      const recaptchaToken = undefined;
-
       setSubmitPhase('sending');
 
       console.log('ANTES DO FETCH');
 
       const response = await submitBriefing(
         briefingPayload,
-        recaptchaToken,
       );
 
       console.log('APÓS FETCH');

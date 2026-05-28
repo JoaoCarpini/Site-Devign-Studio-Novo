@@ -1,6 +1,5 @@
-const DEVIGN_CONTACT_EMAIL = process.env.DEVIGN_CONTACT_EMAIL || 'contato.devignstudio@outlook.com';
 const DEVIGN_WHATSAPP_NUMBER = '5519992266955';
-const RESEND_ENDPOINT = 'https://api.resend.com/emails';
+const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 
 const RATE_LIMIT_WINDOW = 60 * 60 * 1000;
 const RATE_LIMIT_MAX = 5;
@@ -82,22 +81,6 @@ export default async function handler(req, res) {
       });
     }
 
-    const recaptchaValidation = await verifyRecaptcha(
-      body.recaptchaToken,
-      ip,
-    );
-
-    if (!recaptchaValidation.ok) {
-      return res.status(403).json({
-        ok: false,
-        code: 'RECAPTCHA_REJECTED',
-        message:
-          'A verificação anti-spam não foi concluída. Tente novamente.',
-      });
-    }
-
-    console.log('BRIEFING RECAPTCHA OK:', recaptchaValidation);
-
     // VALIDACAO DE EMAIL SIMPLIFICADA
     const emailDecision = {
       accepted: true,
@@ -135,7 +118,7 @@ export default async function handler(req, res) {
         : 'Erro desconhecido.';
 
     const isSetupError =
-      message.includes('RESEND');
+      message.includes('WEB3FORMS');
 
     return res.status(isSetupError ? 500 : 502).json({
       ok: false,
@@ -404,56 +387,49 @@ function getClientIp(req) {
   return req.socket?.remoteAddress || 'unknown';
 }
 
-async function verifyRecaptcha() {
-  return {
-    ok: true,
-    skipped: true,
-  };
-}
-
 async function sendBriefingEmail(
   briefing,
   emailValidation,
 ) {
-  const apiKey = process.env.RESEND_API_KEY;
+  const accessKey =
+    process.env.WEB3FORMS_ACCESS_KEY ||
+    process.env.VITE_WEB3FORMS_ACCESS_KEY;
 
-  if (!apiKey) {
-    throw new Error('RESEND_API_KEY is required.');
+  if (!accessKey) {
+    throw new Error('WEB3FORMS_ACCESS_KEY is required.');
   }
 
-  const from =
-    process.env.RESEND_FROM_EMAIL ||
-    'Devign Studio <onboarding@resend.dev>';
-
   const subject = `Novo briefing | ${briefing.projectType} | ${briefing.company}`;
+  const body = new URLSearchParams({
+    access_key: accessKey,
+    subject,
+    from_name: 'Devign Studio',
+    name: briefing.name,
+    email: briefing.email,
+    phone: briefing.phone,
+    company: briefing.company,
+    project_type: briefing.projectType,
+    objective: briefing.objective,
+    budget: briefing.budget,
+    timeline: briefing.timeline,
+    features: briefing.features.join(', '),
+    integrations: briefing.integrations.join(', '),
+    description: briefing.description,
+    message: buildEmailText(
+      briefing,
+      emailValidation,
+    ),
+    botcheck: briefing.website || '',
+  });
 
-  const response = await fetch(RESEND_ENDPOINT, {
+  const response = await fetch(WEB3FORMS_ENDPOINT, {
     method: 'POST',
 
     headers: {
-      Authorization: `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded',
     },
 
-    body: JSON.stringify({
-      from,
-
-      to: [DEVIGN_CONTACT_EMAIL],
-
-      // reply_to: briefing.email,
-
-      subject,
-
-      html: buildEmailHtml(
-        briefing,
-        emailValidation,
-      ),
-
-      text: buildEmailText(
-        briefing,
-        emailValidation,
-      ),
-    }),
+    body,
   });
 
   const data = await response
@@ -462,7 +438,7 @@ async function sendBriefingEmail(
 
   if (!response.ok) {
     throw new Error(
-      `Resend API error: ${response.status}`,
+      `Web3Forms API error: ${response.status}`,
     );
   }
 
