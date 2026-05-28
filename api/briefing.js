@@ -440,7 +440,7 @@ async function sendBriefingEmail(
 
       to: [DEVIGN_CONTACT_EMAIL],
 
-      reply_to: briefing.email,
+      // reply_to: briefing.email,
 
       subject,
 
