@@ -139,12 +139,12 @@ export function CinematicHero() {
           </motion.div>
 
           <motion.div
-            className="absolute -right-2 bottom-16 z-20 hidden rounded-2xl border border-white/10 bg-frost px-4 py-3 text-ink shadow-[0_24px_70px_rgba(5,5,9,0.32)] sm:block"
+            className="absolute -right-2 bottom-16 z-20 hidden rounded-2xl border border-white/10 bg-ink/78 px-4 py-3 shadow-premium backdrop-blur-2xl sm:block"
             animate={{ y: [6, -6, 6] }}
             transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-700">Entrega</span>
-            <p className="mt-1 text-sm font-semibold">Arquitetura sob medida</p>
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-300">Entrega</span>
+            <p className="mt-1 text-sm font-semibold text-frost">Arquitetura sob medida</p>
           </motion.div>
         </motion.div>
       </div>
