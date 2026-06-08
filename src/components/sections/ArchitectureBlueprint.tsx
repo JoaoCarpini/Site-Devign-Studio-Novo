@@ -1,5 +1,4 @@
 import { Database, GitBranch, KeyRound, Layers3, Network, ServerCog, ShieldCheck, Workflow } from 'lucide-react';
-import { Reveal } from '../animations/Reveal';
 import { SectionIntro } from '../ui/SectionIntro';
 
 const architectureLayers = [
@@ -47,8 +46,8 @@ export function ArchitectureBlueprint() {
             text="Produto, back-end, dados, integrações, automações e IA organizados em uma base coesa, explícita e preparada para evoluir."
           />
 
-          <Reveal className="architecture-blueprint-panel relative isolate overflow-hidden rounded-[1.35rem] border border-white/10 bg-[#0b0b12]/88 p-3 shadow-premium sm:rounded-[2rem] sm:p-6 lg:backdrop-blur-2xl">
-            <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(141,92,255,0.12),transparent_42%,rgba(77,212,198,0.08))]" />
+          <div className="relative rounded-[1.35rem] border border-white/10 bg-[#0b0b12] p-3 sm:rounded-[2rem] sm:p-6">
+            <div className="absolute inset-0 hidden bg-[linear-gradient(135deg,rgba(141,92,255,0.12),transparent_42%,rgba(77,212,198,0.08))] sm:block" />
             <div className="relative grid gap-4">
               {architectureLayers.map((layer, index) => {
                 const Icon = layer.icon;
@@ -89,7 +88,7 @@ export function ArchitectureBlueprint() {
                 );
               })}
             </div>
-          </Reveal>
+          </div>
         </div>
       </div>
     </section>
