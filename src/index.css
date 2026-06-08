@@ -90,16 +90,11 @@ a {
     .page-shell,
     .premium-card,
     .light-card,
-    .cursor-glow-root,
     .hero-fine-grid,
     .soft-grid {
       transition: none !important;
       animation: none !important;
       will-change: auto !important;
-    }
-
-    .cursor-glow-root {
-      display: none;
     }
 
     .glass-panel {
@@ -189,39 +184,6 @@ a {
     text-wrap: balance;
   }
 
-  .cursor-glow-root {
-    --cursor-glow-x: 50vw;
-    --cursor-glow-y: 35vh;
-    --cursor-glow-opacity: 0;
-
-    pointer-events: none;
-    position: fixed;
-    inset: 0;
-    z-index: 2;
-    overflow: hidden;
-
-    background:
-      radial-gradient(
-        circle 160px at var(--cursor-glow-x) var(--cursor-glow-y),
-        rgba(176, 135, 255, 0.26) 0%,
-        rgba(141, 92, 255, 0.18) 28%,
-        rgba(91, 70, 190, 0.08) 52%,
-        transparent 78%
-      ),
-      radial-gradient(
-        circle 380px at var(--cursor-glow-x) var(--cursor-glow-y),
-        rgba(70, 94, 255, 0.08) 0%,
-        rgba(77, 212, 198, 0.03) 32%,
-        transparent 72%
-      );
-
-    mix-blend-mode: screen;
-    opacity: var(--cursor-glow-opacity);
-    transition: opacity 160ms ease;
-    will-change: opacity;
-    contain: layout style paint;
-  }
-
   .hero-fine-grid {
     background-image:
       linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
@@ -238,12 +200,6 @@ a {
     );
 
     opacity: 0.52;
-  }
-}
-
-@media (max-width: 767px), (pointer: coarse) {
-  .cursor-glow-root {
-    display: none;
   }
 }
 
@@ -465,7 +421,6 @@ html[data-android-compat='true'] .light-card {
 
 html[data-android-compat='true'] .hero-fine-grid,
 html[data-android-compat='true'] .soft-grid,
-html[data-android-compat='true'] .cursor-glow-root,
 html[data-android-compat='true'] .orbit-glow,
 html[data-android-compat='true'] .animated-gradient {
   display: none !important;

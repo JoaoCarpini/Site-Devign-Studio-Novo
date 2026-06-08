@@ -683,7 +683,7 @@ function StepDots({
             disabled={!canNavigate}
             onClick={() => canNavigate && setStep(index)}
             className={cn(
-              'h-7 rounded-xl border text-[0.56rem] font-semibold transition duration-300 disabled:cursor-not-allowed disabled:opacity-45 sm:h-8 sm:text-[0.62rem]',
+              'h-7 rounded-xl border text-[0.56rem] font-semibold transition duration-300 disabled:opacity-45 sm:h-8 sm:text-[0.62rem]',
               isActive
                 ? 'border-violet-300/40 bg-violet-400/[0.16] text-frost'
                 : isComplete

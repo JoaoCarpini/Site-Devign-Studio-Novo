@@ -59,7 +59,7 @@ export function ServiceDetailPage({ service }: { service: Service }) {
         </div>
       </section>
 
-      <section className="section-band bg-frost text-ink" data-cursor-glow="off">
+      <section className="section-band bg-frost text-ink">
         <div className="container-premium">
           <div className="grid gap-8 lg:grid-cols-[1fr_1.15fr] lg:items-center">
             <Reveal>

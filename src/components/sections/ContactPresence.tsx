@@ -95,7 +95,6 @@ export function ContactPresence() {
 
             const className = cn(
               'group relative block h-full overflow-hidden rounded-[1.3rem] border border-white/10 bg-white/[0.052] p-5 text-left shadow-[0_20px_70px_rgba(5,5,9,0.28)] sm:backdrop-blur-2xl transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:will-change-transform hover:-translate-y-1 hover:border-violet-300/30 hover:bg-white/[0.075] hover:shadow-[0_30px_100px_rgba(141,92,255,0.16)] sm:rounded-[1.55rem] sm:p-6',
-              !item.href && 'cursor-default',
             );
 
             return (

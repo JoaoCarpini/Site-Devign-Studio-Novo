@@ -27,7 +27,7 @@ const deliverySteps = [
 
 export function DevelopmentSystem() {
   return (
-    <section className="section-band bg-frost text-ink" data-cursor-glow="off">
+    <section className="section-band bg-frost text-ink">
       <div className="container-premium">
         <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <Reveal>

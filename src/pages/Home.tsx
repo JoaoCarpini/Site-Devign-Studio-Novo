@@ -61,7 +61,7 @@ export default function Home() {
       <CinematicHero />
       <ServicesMarquee />
 
-      <section className="section-band light-section" data-cursor-glow="off">
+      <section className="section-band light-section">
         <div className="container-premium">
           <div className="grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-start">
             <SectionIntro

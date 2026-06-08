@@ -195,7 +195,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="section-band bg-frost text-ink" data-cursor-glow="off">
+      <section className="section-band bg-frost text-ink">
         <div className="container-premium grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <Reveal>
             <span className="inline-flex rounded-full border border-ink/10 bg-ink/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-violet-700">
