@@ -4,7 +4,7 @@ import { HeroBrandBackdrop } from '../brand/HeroBrandBackdrop';
 import { AuroraBackground } from '../backgrounds/AuroraBackground';
 import { ButtonLink } from '../ui/Button';
 import { HeroMockup } from './HeroMockup';
-import { useIsMobile } from '../../hooks/useMediaQuery';
+import { useIsMobile, useReduceMotion } from '../../hooks/useMediaQuery';
 
 const particles = [
   { left: '9%', top: '26%', delay: 0, size: 3 },
@@ -26,6 +26,8 @@ const heroMetrics = [
 
 export function CinematicHero() {
   const isMobile = useIsMobile();
+  const reduceMotion = useReduceMotion();
+  const renderStaticMetrics = isMobile || reduceMotion;
 
   return (
     <section
@@ -146,22 +148,40 @@ export function CinematicHero() {
       </div>
 
       <div className="container-premium relative z-10 pb-16 sm:pb-32 lg:pb-36">
-        <div className="grid gap-3 border-t border-white/10 pt-5 sm:grid-cols-3">
-          {heroMetrics.map((item, index) => (
-            <motion.div
-              key={item.label}
-                className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.045] p-4 sm:gap-4 sm:p-5 sm:backdrop-blur-xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.38 + index * 0.07 }}
-            >
-              <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-signal" />
-              <div>
-                <strong className="block text-lg font-semibold tracking-normal text-frost sm:text-xl">{item.value}</strong>
-                <span className="mt-1 block text-sm text-muted">{item.label}</span>
-              </div>
-            </motion.div>
-          ))}
+        <div className="grid gap-2.5 border-t border-white/10 pt-5 sm:gap-3 sm:grid-cols-3">
+          {heroMetrics.map((item, index) => {
+            const content = (
+              <>
+                <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-signal" />
+                <div className="min-w-0">
+                  <strong className="block break-words text-lg font-semibold tracking-normal text-frost sm:text-xl">{item.value}</strong>
+                  <span className="mt-1 block break-words text-sm leading-6 text-muted sm:leading-normal">{item.label}</span>
+                </div>
+              </>
+            );
+
+            const className = 'flex min-w-0 items-start gap-3 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] p-4 sm:gap-4 sm:p-5 sm:backdrop-blur-xl';
+
+            if (renderStaticMetrics) {
+              return (
+                <div key={item.label} className={className}>
+                  {content}
+                </div>
+              );
+            }
+
+            return (
+              <motion.div
+                key={item.label}
+                className={className}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.38 + index * 0.07 }}
+              >
+                {content}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 
