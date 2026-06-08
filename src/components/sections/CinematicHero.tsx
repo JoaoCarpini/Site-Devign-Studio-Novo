@@ -148,19 +148,19 @@ export function CinematicHero() {
       </div>
 
       <div className="container-premium relative z-10 pb-16 sm:pb-32 lg:pb-36">
-        <div className="grid gap-2.5 border-t border-white/10 pt-5 sm:gap-3 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-2.5 border-t border-white/10 pt-5 md:grid-cols-3 md:gap-3">
           {heroMetrics.map((item, index) => {
             const content = (
               <>
                 <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-signal" />
                 <div className="min-w-0">
-                  <strong className="block break-words text-lg font-semibold tracking-normal text-frost sm:text-xl">{item.value}</strong>
-                  <span className="mt-1 block break-words text-sm leading-6 text-muted sm:leading-normal">{item.label}</span>
+                  <strong className="block break-words text-lg font-semibold tracking-normal text-frost md:text-xl">{item.value}</strong>
+                  <span className="mt-1 block break-words text-sm leading-6 text-muted md:leading-normal">{item.label}</span>
                 </div>
               </>
             );
 
-            const className = 'flex min-w-0 items-start gap-3 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] p-4 sm:gap-4 sm:p-5 sm:backdrop-blur-xl';
+            const className = 'flex min-w-0 transform-none items-start gap-3 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] p-4 md:gap-4 md:p-5 md:backdrop-blur-xl';
 
             if (renderStaticMetrics) {
               return (
