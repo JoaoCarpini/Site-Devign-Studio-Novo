@@ -30,30 +30,29 @@ export function CinematicHero() {
   const renderStaticMetrics = isMobile || reduceMotion;
 
   return (
-    <section
-      className="relative isolate overflow-hidden pt-20 sm:min-h-[min(900px,100vh)] sm:pt-32"
-    >
+    <section className="relative isolate overflow-hidden pt-20 sm:min-h-[min(900px,100vh)] sm:pt-32">
       <AuroraBackground />
       <HeroBrandBackdrop />
       <div aria-hidden="true" className="hero-fine-grid absolute inset-0 z-0 opacity-20 sm:opacity-60" />
       <div aria-hidden="true" className="absolute left-1/2 top-24 z-0 hidden h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-violet-500/16 blur-[120px] sm:block" />
       <div aria-hidden="true" className="absolute right-[-12rem] top-32 z-0 hidden h-[26rem] w-[26rem] rounded-full bg-signal/8 blur-[100px] sm:block" />
 
-      {!isMobile && particles.map((particle) => (
-        <motion.span
-          key={`${particle.left}-${particle.top}`}
-          aria-hidden="true"
-          className="absolute z-0 hidden rounded-full bg-violet-300/70 shadow-[0_0_24px_rgba(169,139,255,0.6)] sm:block"
-          style={{
-            left: particle.left,
-            top: particle.top,
-            width: particle.size,
-            height: particle.size,
-          }}
-          animate={{ y: [-5, 7, -5], opacity: [0.2, 0.6, 0.2], scale: [1, 1.2, 1] }}
-          transition={{ duration: 8, repeat: Infinity, delay: particle.delay, ease: 'easeInOut' }}
-        />
-      ))}
+      {!isMobile &&
+        particles.map((particle) => (
+          <motion.span
+            key={`${particle.left}-${particle.top}`}
+            aria-hidden="true"
+            className="absolute z-0 hidden rounded-full bg-violet-300/70 shadow-[0_0_24px_rgba(169,139,255,0.6)] sm:block"
+            style={{
+              left: particle.left,
+              top: particle.top,
+              width: particle.size,
+              height: particle.size,
+            }}
+            animate={{ y: [-5, 7, -5], opacity: [0.2, 0.6, 0.2], scale: [1, 1.2, 1] }}
+            transition={{ duration: 8, repeat: Infinity, delay: particle.delay, ease: 'easeInOut' }}
+          />
+        ))}
 
       <div className="container-premium relative z-10 grid gap-8 pb-10 pt-5 sm:gap-14 sm:pb-14 sm:pt-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:pb-20">
         <div>
@@ -175,12 +174,13 @@ export function CinematicHero() {
                 key={item.label}
                 className={className}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.38 + index * 0.07 }}
-              >
-                {content}
-              </motion.div>
-            );
+            > 
+              {content}
+            </motion.div>
+          );
           })}
         </div>
       </div>
