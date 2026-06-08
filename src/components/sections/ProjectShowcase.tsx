@@ -6,6 +6,7 @@ import { Reveal } from '../animations/Reveal';
 import { ButtonLink } from '../ui/Button';
 import { SectionIntro } from '../ui/SectionIntro';
 import { ProjectShowcaseCard } from '../cards/ProjectShowcaseCard';
+import { useReduceMotion } from '../../hooks/useMediaQuery';
 
 export function ProjectShowcase({ compact = false }: { compact?: boolean }) {
   if (compact) return <ProjectTeaserShowcase />;
@@ -70,11 +71,13 @@ const previewBars = [
 ];
 
 function ProjectTeaserShowcase() {
+  const reduceMotion = useReduceMotion();
+
   return (
     <section className="section-band relative overflow-hidden">
       <div aria-hidden="true" className="absolute inset-x-0 top-8 h-px bg-premium-line opacity-70" />
-      <div aria-hidden="true" className="absolute -right-48 top-32 h-[34rem] w-[34rem] rounded-full bg-violet-500/[0.1] blur-[130px]" />
-      <div aria-hidden="true" className="absolute -left-44 bottom-10 h-[28rem] w-[28rem] rounded-full bg-signal/[0.055] blur-[120px]" />
+      <div aria-hidden="true" className="absolute -right-48 top-32 hidden h-[34rem] w-[34rem] rounded-full bg-violet-500/[0.1] blur-[130px] sm:block" />
+      <div aria-hidden="true" className="absolute -left-44 bottom-10 hidden h-[28rem] w-[28rem] rounded-full bg-signal/[0.055] blur-[120px] sm:block" />
 
       <div className="container-premium relative z-10">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -100,11 +103,11 @@ function ProjectTeaserShowcase() {
               <Reveal key={project.slug} delay={index * 0.05} className="h-full">
                 <article
                   className={cn(
-                    'group relative flex h-full min-h-[25rem] flex-col overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.045] p-4 shadow-premium transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] sm:rounded-[1.75rem] sm:p-5 sm:backdrop-blur-2xl sm:will-change-transform hover:-translate-y-1 hover:border-violet-300/24 hover:bg-white/[0.062]',
+                    'group relative flex h-full min-h-[22rem] flex-col overflow-hidden rounded-[1.2rem] border border-white/10 bg-white/[0.045] p-4 shadow-premium transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] sm:min-h-[25rem] sm:rounded-[1.75rem] sm:p-5 sm:backdrop-blur-2xl sm:will-change-transform hover:-translate-y-1 hover:border-violet-300/24 hover:bg-white/[0.062]',
                   )}
                 >
                   <div className={cn('absolute inset-0 opacity-70', accentWash(project.accent))} />
-                  <div className="absolute -right-20 top-24 h-56 w-56 rounded-full bg-violet-400/[0.13] blur-[92px] transition duration-700 group-hover:bg-violet-300/[0.18]" />
+                  <div className="absolute -right-20 top-24 hidden h-56 w-56 rounded-full bg-violet-400/[0.13] blur-[92px] transition duration-700 group-hover:bg-violet-300/[0.18] sm:block" />
                   <div className="absolute inset-x-5 top-0 h-px bg-premium-line opacity-60" />
 
                   <div className="relative z-10 flex min-h-9 items-center justify-between gap-3">
@@ -117,7 +120,7 @@ function ProjectTeaserShowcase() {
                   </div>
 
                   <div className="relative z-10 mt-5 sm:mt-8">
-                    <TeaserMockup index={index} projectTitle={project.title} accent={project.accent} />
+                    <TeaserMockup index={index} projectTitle={project.title} accent={project.accent} reduceMotion={reduceMotion} />
                   </div>
 
                   <div className="relative z-10 mt-5 flex flex-1 flex-col sm:mt-7">
@@ -151,14 +154,14 @@ function ProjectTeaserShowcase() {
   );
 }
 
-function TeaserMockup({ index, projectTitle, accent }: { index: number; projectTitle: string; accent: string }) {
+function TeaserMockup({ index, projectTitle, accent, reduceMotion }: { index: number; projectTitle: string; accent: string; reduceMotion: boolean }) {
   const bars = previewBars[index] ?? previewBars[0];
 
   return (
     <motion.div
       className="relative h-36 overflow-hidden rounded-[1.2rem] border border-white/10 bg-[#070711]/90 shadow-[0_24px_80px_rgba(0,0,0,0.24)] sm:h-44 sm:rounded-[1.35rem]"
-      whileHover={{ scale: 1.025 }}
-      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={reduceMotion ? undefined : { scale: 1.025 }}
+      transition={reduceMotion ? undefined : { duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
         <div className="flex items-center gap-1.5">

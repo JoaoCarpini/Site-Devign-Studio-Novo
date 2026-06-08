@@ -40,8 +40,8 @@ export function Header() {
         className={cn(
           'mx-auto flex h-11 max-w-7xl items-center justify-between rounded-[16px] border px-2 transition duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] sm:h-14 sm:rounded-[20px] sm:px-3.5',
           isScrolled
-            ? 'border-white/10 bg-[#08080f]/[0.78] shadow-[0_12px_50px_rgba(0,0,0,0.25)] backdrop-blur-lg'
-            : 'border-white/[0.08] bg-[#090911]/[0.54] shadow-[0_10px_45px_rgba(0,0,0,0.14)] backdrop-blur-md',
+            ? 'border-white/10 bg-[#08080f]/[0.92] shadow-[0_12px_34px_rgba(0,0,0,0.25)] lg:bg-[#08080f]/[0.78] lg:shadow-[0_12px_50px_rgba(0,0,0,0.25)] lg:backdrop-blur-lg'
+            : 'border-white/[0.08] bg-[#090911]/[0.88] shadow-[0_10px_30px_rgba(0,0,0,0.14)] lg:bg-[#090911]/[0.54] lg:shadow-[0_10px_45px_rgba(0,0,0,0.14)] lg:backdrop-blur-md',
         )}
       >
         <DevignLogo variant="navbar" className="rounded-xl px-0.5 py-0.5 transition duration-300 hover:bg-white/[0.03] sm:rounded-2xl sm:px-1 sm:py-1" />
@@ -95,7 +95,7 @@ export function Header() {
 
       <div
         className={cn(
-          'mx-auto mt-2 max-w-7xl overflow-hidden rounded-[18px] border border-white/10 bg-[#08080f]/[0.91] shadow-[0_16px_64px_rgba(0,0,0,0.28)] backdrop-blur-lg transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden',
+          'mx-auto mt-2 max-w-7xl overflow-hidden rounded-[18px] border border-white/10 bg-[#08080f]/[0.96] shadow-[0_16px_44px_rgba(0,0,0,0.28)] transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden',
           isOpen ? 'max-h-[30rem] opacity-100' : 'max-h-0 border-transparent opacity-0',
         )}
       >

@@ -5,6 +5,7 @@ import { Reveal } from '../animations/Reveal';
 import { buttonStyles } from '../ui/Button';
 import { SectionIntro } from '../ui/SectionIntro';
 import { cn } from '../../utils/cn';
+import { useReduceMotion } from '../../hooks/useMediaQuery';
 
 type TeamSectionProps = {
   compact?: boolean;
@@ -43,14 +44,16 @@ const particles = [
 ];
 
 export function TeamSection({ compact = false }: TeamSectionProps) {
+  const reduceMotion = useReduceMotion();
+
   return (
     <section className="section-band relative overflow-hidden border-y border-white/10 bg-ink">
       <div className="soft-grid pointer-events-none absolute inset-0 opacity-45" />
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[22rem] w-[22rem] -translate-x-1/2 rounded-full bg-violet-500/[0.09] blur-3xl sm:h-[34rem] sm:w-[34rem] sm:bg-violet-500/[0.14]" />
+      <div className="pointer-events-none absolute left-1/2 top-0 hidden h-[22rem] w-[22rem] -translate-x-1/2 rounded-full bg-violet-500/[0.09] blur-3xl sm:block sm:h-[34rem] sm:w-[34rem] sm:bg-violet-500/[0.14]" />
       <div className="pointer-events-none absolute -right-36 bottom-10 hidden h-80 w-80 rounded-full bg-signal/[0.08] blur-3xl sm:block" />
       <div className="pointer-events-none absolute inset-x-12 top-0 h-px bg-premium-line" />
 
-      {particles.map((position, index) => (
+      {!reduceMotion && particles.map((position, index) => (
         <motion.span
           key={position}
           className={cn('pointer-events-none absolute h-1.5 w-1.5 rounded-full bg-violet-400/[0.45] shadow-[0_0_28px_rgba(169,139,255,0.7)]', position)}
@@ -103,7 +106,7 @@ export function TeamSection({ compact = false }: TeamSectionProps) {
           <div className="grid gap-4 lg:grid-cols-3">
             {teamMembers.map((member, index) => (
               <Reveal key={member.name} delay={index * 0.07}>
-                <TeamCard member={member} index={index} />
+                <TeamCard member={member} index={index} reduceMotion={reduceMotion} />
               </Reveal>
             ))}
           </div>
@@ -125,14 +128,16 @@ export function TeamSection({ compact = false }: TeamSectionProps) {
 function TeamCard({
   member,
   index,
+  reduceMotion,
 }: {
   member: (typeof teamMembers)[number];
   index: number;
+  reduceMotion: boolean;
 }) {
   return (
     <motion.article
-      whileHover={{ y: -8, scale: 1.012 }}
-      transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+      whileHover={reduceMotion ? undefined : { y: -8, scale: 1.012 }}
+      transition={reduceMotion ? undefined : { duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
       className="group relative h-full overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.052] p-5 shadow-[0_20px_70px_rgba(5,5,9,0.34)] sm:backdrop-blur-2xl sm:rounded-[1.65rem] sm:p-6 sm:shadow-[0_24px_90px_rgba(5,5,9,0.45)]"
     >
       <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.35] to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
@@ -142,7 +147,7 @@ function TeamCard({
       <div className="relative flex min-h-[17rem] flex-col sm:min-h-[21rem]">
         <div className="flex items-start justify-between gap-5">
           <div className="relative">
-            <div className="absolute inset-0 rounded-full bg-violet-500/25 blur-xl transition duration-500 group-hover:bg-violet-400/40" />
+            <div className="absolute inset-0 hidden rounded-full bg-violet-500/25 blur-xl transition duration-500 group-hover:bg-violet-400/40 sm:block" />
             <div className="relative grid h-16 w-16 place-items-center rounded-full border border-violet-400/[0.35] bg-[radial-gradient(circle_at_35%_20%,rgba(255,255,255,0.2),rgba(141,92,255,0.16)_42%,rgba(5,5,9,0.86)_100%)] text-lg font-semibold text-frost shadow-[0_0_60px_rgba(141,92,255,0.2)] sm:h-20 sm:w-20 sm:text-xl">
               {member.initials}
             </div>

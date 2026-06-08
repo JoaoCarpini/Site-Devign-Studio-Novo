@@ -275,6 +275,8 @@ a {
   .section-band {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
+    overflow: clip;
+    contain: paint;
   }
 
   .container-premium {
@@ -354,6 +356,23 @@ a {
 
   [class*='mix-blend'] {
     mix-blend-mode: normal !important;
+  }
+
+  [class*='blur-'],
+  [class*='blur['] {
+    filter: none !important;
+  }
+
+  .marquee-wrap {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .marquee-wrap [class*='overflow-x-auto'] {
+    scrollbar-width: none;
+  }
+
+  .marquee-wrap [class*='overflow-x-auto']::-webkit-scrollbar {
+    display: none;
   }
 
   [class*='shadow-premium'],

@@ -1,13 +1,36 @@
 import { motion } from 'framer-motion';
 import { cn } from '../../utils/cn';
+import { useReduceMotion } from '../../hooks/useMediaQuery';
 
 export function HeroMockup({ className }: { className?: string }) {
+  const reduceMotion = useReduceMotion();
+
+  const barElements = [42, 58, 51, 72, 64, 88].map((height, index) => {
+    const className = 'rounded-t-xl bg-[linear-gradient(180deg,#f7f5ff,rgba(169,139,255,0.58))]';
+    const style = { height: `${height}%` };
+
+    if (reduceMotion) {
+      return <span key={height} className={className} style={style} />;
+    }
+
+    return (
+      <motion.span
+        key={height}
+        className={className}
+        style={style}
+        initial={{ scaleY: 0.3, opacity: 0.4 }}
+        animate={{ scaleY: 1, opacity: 1 }}
+        transition={{ duration: 0.7, delay: 0.4 + index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+      />
+    );
+  });
+
   return (
     <motion.div
       className={cn('mockup-window relative mx-auto max-w-[45rem] rounded-[1.35rem] sm:rounded-[1.75rem]', className)}
-      initial={{ opacity: 0, y: 40, rotateX: 7 }}
-      animate={{ opacity: 1, y: 0, rotateX: 0 }}
-      transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+      initial={reduceMotion ? false : { opacity: 0, y: 40, rotateX: 7 }}
+      animate={reduceMotion ? undefined : { opacity: 1, y: 0, rotateX: 0 }}
+      transition={reduceMotion ? undefined : { duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
     >
       <div className="flex items-center justify-between border-b border-white/10 px-3.5 py-3 sm:px-5 sm:py-4">
         <div className="flex items-center gap-2">
@@ -51,16 +74,7 @@ export function HeroMockup({ className }: { className?: string }) {
 
         <div className="rounded-[1.2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(141,92,255,0.24),rgba(77,212,198,0.08)_45%,rgba(255,255,255,0.04))] p-3 sm:rounded-[1.4rem] sm:p-4">
           <div className="grid h-40 grid-cols-6 items-end gap-1.5 sm:h-64 sm:gap-2">
-            {[42, 58, 51, 72, 64, 88].map((height, index) => (
-              <motion.span
-                key={height}
-                className="rounded-t-xl bg-[linear-gradient(180deg,#f7f5ff,rgba(169,139,255,0.58))]"
-                style={{ height: `${height}%` }}
-                initial={{ scaleY: 0.3, opacity: 0.4 }}
-                animate={{ scaleY: 1, opacity: 1 }}
-                transition={{ duration: 0.7, delay: 0.4 + index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-              />
-            ))}
+            {barElements}
           </div>
           <div className="mt-3 grid grid-cols-3 gap-2 sm:mt-4">
             {['APIs', 'IA', 'Scale'].map((item) => (
