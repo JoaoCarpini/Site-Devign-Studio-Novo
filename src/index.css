@@ -169,6 +169,10 @@ a {
     background: rgba(11, 11, 20, 0.92);
   }
 
+  .architecture-blueprint-panel {
+    contain: paint;
+  }
+
   .light-section {
     @apply bg-frost text-ink;
     background-image:
@@ -363,7 +367,8 @@ a {
 
   .premium-card,
   .glass-panel,
-  .mockup-window {
+  .mockup-window,
+  .architecture-blueprint-panel {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
 
