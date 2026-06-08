@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 // Layout: apenas largura de tela — determina se o layout deve ser mobile
-export const MOBILE_LAYOUT_QUERY = '(max-width: 768px)';
+export const MOBILE_LAYOUT_QUERY = '(max-width: 768px), (pointer: coarse)';
 
 // Performance: touch OU tela pequena — determina se animações pesadas devem ser reduzidas
 export const REDUCE_MOTION_QUERY = '(max-width: 768px), (pointer: coarse)';
