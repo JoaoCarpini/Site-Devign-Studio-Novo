@@ -279,6 +279,10 @@ a {
     contain: paint;
   }
 
+  .architecture-blueprint-panel {
+    contain: none;
+  }
+
   .container-premium {
     @apply px-3.5;
   }
