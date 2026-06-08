@@ -156,13 +156,8 @@ function ProjectTeaserShowcase() {
 
 function TeaserMockup({ index, projectTitle, accent, reduceMotion }: { index: number; projectTitle: string; accent: string; reduceMotion: boolean }) {
   const bars = previewBars[index] ?? previewBars[0];
-
-  return (
-    <motion.div
-      className="relative h-36 overflow-hidden rounded-[1.2rem] border border-white/10 bg-[#070711]/90 shadow-[0_24px_80px_rgba(0,0,0,0.24)] sm:h-44 sm:rounded-[1.35rem]"
-      whileHover={reduceMotion ? undefined : { scale: 1.025 }}
-      transition={reduceMotion ? undefined : { duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-    >
+  const content = (
+    <>
       <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
         <div className="flex items-center gap-1.5">
           <span className="h-2 w-2 rounded-full bg-white/20" />
@@ -202,6 +197,24 @@ function TeaserMockup({ index, projectTitle, accent, reduceMotion }: { index: nu
 
       <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#070711] via-[#070711]/72 to-transparent" />
       <Activity className="absolute bottom-4 right-4 h-5 w-5 text-white/20" />
+    </>
+  );
+
+  if (reduceMotion) {
+    return (
+      <div className="relative h-36 overflow-hidden rounded-[1.2rem] border border-white/10 bg-[#070711]/90 shadow-[0_24px_80px_rgba(0,0,0,0.24)] sm:h-44 sm:rounded-[1.35rem]">
+        {content}
+      </div>
+    );
+  }
+
+  return (
+    <motion.div
+      className="relative h-36 overflow-hidden rounded-[1.2rem] border border-white/10 bg-[#070711]/90 shadow-[0_24px_80px_rgba(0,0,0,0.24)] sm:h-44 sm:rounded-[1.35rem]"
+      whileHover={{ scale: 1.025 }}
+      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {content}
     </motion.div>
   );
 }

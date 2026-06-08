@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { ScrollManager } from './components/animations/ScrollManager';
@@ -20,9 +21,15 @@ import Automation from './pages/services/Automation';
 import AI from './pages/services/AI';
 import LandingPages from './pages/services/LandingPages';
 import Integrations from './pages/services/Integrations';
+import { useAndroidCompatibility } from './hooks/useMediaQuery';
 
 export default function App() {
   const location = useLocation();
+  const androidCompatibility = useAndroidCompatibility();
+
+  useEffect(() => {
+    document.documentElement.dataset.androidCompat = androidCompatibility ? 'true' : 'false';
+  }, [androidCompatibility]);
 
   return (
     <div className="page-shell">

@@ -44,3 +44,16 @@ export function useReduceMotion() {
 export function usePrefersReducedMotion() {
   return useMediaQuery(PREFERS_REDUCED_MOTION_QUERY);
 }
+
+export function useAndroidCompatibility() {
+  const [isAndroid, setIsAndroid] = useState(() => {
+    if (typeof navigator === 'undefined') return false;
+    return /Android/i.test(navigator.userAgent);
+  });
+
+  useEffect(() => {
+    setIsAndroid(/Android/i.test(navigator.userAgent));
+  }, []);
+
+  return isAndroid;
+}
