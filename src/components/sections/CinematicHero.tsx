@@ -27,7 +27,10 @@ const heroMetrics = [
 export function CinematicHero() {
   const isMobile = useIsMobile();
   const reduceMotion = useReduceMotion();
-  const renderStaticMetrics = isMobile || reduceMotion;
+
+  if (isMobile) {
+    return <MobileCinematicHero />;
+  }
 
   return (
     <section className="relative isolate overflow-hidden pt-20 sm:min-h-[min(900px,100vh)] sm:pt-32">
@@ -147,45 +150,169 @@ export function CinematicHero() {
       </div>
 
       <div className="container-premium relative z-10 pb-16 sm:pb-32 lg:pb-36">
-        <div className="grid grid-cols-1 gap-2.5 border-t border-white/10 pt-5 md:grid-cols-3 md:gap-3">
-          {heroMetrics.map((item, index) => {
-            const content = (
-              <>
-                <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-signal" />
-                <div className="min-w-0">
-                  <strong className="block break-words text-lg font-semibold tracking-normal text-frost md:text-xl">{item.value}</strong>
-                  <span className="mt-1 block break-words text-sm leading-6 text-muted md:leading-normal">{item.label}</span>
-                </div>
-              </>
-            );
-
-            const className = 'flex min-w-0 transform-none items-start gap-3 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] p-4 md:gap-4 md:p-5 md:backdrop-blur-xl';
-
-            if (renderStaticMetrics) {
-              return (
-                <div key={item.label} className={className}>
-                  {content}
-                </div>
-              );
-            }
-
-            return (
-              <motion.div
-                key={item.label}
-                className={className}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.38 + index * 0.07 }}
-            > 
-              {content}
-            </motion.div>
-          );
-          })}
-        </div>
+        <HeroMetricsGrid animated={!reduceMotion} />
       </div>
 
       <Layers3 aria-hidden="true" className="absolute bottom-16 left-8 z-0 hidden h-24 w-24 text-white/[0.035] lg:block" />
     </section>
+  );
+}
+
+function MobileCinematicHero() {
+  return (
+    <section className="relative overflow-hidden pt-20">
+      <AuroraBackground />
+      <div aria-hidden="true" className="hero-fine-grid absolute inset-0 z-0 opacity-20" />
+
+      <div className="container-premium relative z-10 grid gap-8 pb-10 pt-5">
+        <div>
+          <div className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/[0.065] px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-violet-300 shadow-[0_0_50px_rgba(141,92,255,0.16)]">
+            <Sparkles className="h-4 w-4" />
+            Devign Studio / Software house premium
+          </div>
+
+          <h1 className="max-w-6xl text-balance text-[clamp(2.85rem,15vw,4.35rem)] font-semibold leading-[0.92] tracking-normal text-frost">
+            Infraestrutura digital para marcas que operam em alto nível.
+          </h1>
+
+          <p className="mt-6 max-w-2xl text-base leading-7 text-mist">
+            Construímos experiências digitais, automações e sistemas sob medida para empresas que precisam transformar presença, dados e operação em vantagem real.
+          </p>
+
+          <div className="mt-7 flex flex-col gap-3">
+            <ButtonLink to="/orcamento" className="w-full px-6">
+              Iniciar projeto
+              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+            </ButtonLink>
+            <ButtonLink to="/projetos" variant="secondary" className="w-full px-6">
+              Explorar cases
+            </ButtonLink>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-2">
+            {capabilityPills.map((item) => (
+              <span key={item} className="rounded-full border border-white/10 bg-white/[0.055] px-3 py-1.5 text-xs font-medium text-mist">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="relative mx-auto w-full max-w-[27rem]">
+          <StaticHeroMockup />
+        </div>
+      </div>
+
+      <div className="container-premium relative z-10 pb-16">
+        <HeroMetricsGrid />
+      </div>
+    </section>
+  );
+}
+
+function HeroMetricsGrid({ animated = false }: { animated?: boolean }) {
+  return (
+    <div className="grid grid-cols-1 gap-2.5 border-t border-white/10 pt-5 md:grid-cols-3 md:gap-3">
+      {heroMetrics.map((item, index) => {
+        const content = (
+          <>
+            <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-signal" />
+            <div className="min-w-0">
+              <strong className="block break-words text-lg font-semibold tracking-normal text-frost md:text-xl">{item.value}</strong>
+              <span className="mt-1 block break-words text-sm leading-6 text-muted md:leading-normal">{item.label}</span>
+            </div>
+          </>
+        );
+
+        const className = 'flex min-w-0 transform-none items-start gap-3 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] p-4 md:gap-4 md:p-5 md:backdrop-blur-xl';
+
+        if (!animated) {
+          return (
+            <div key={item.label} className={className}>
+              {content}
+            </div>
+          );
+        }
+
+        return (
+          <motion.div
+            key={item.label}
+            className={className}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.38 + index * 0.07 }}
+          >
+            {content}
+          </motion.div>
+        );
+      })}
+    </div>
+  );
+}
+
+function StaticHeroMockup() {
+  return (
+    <div className="mockup-window relative mx-auto max-w-[45rem] rounded-[1.35rem]">
+      <div className="flex items-center justify-between border-b border-white/10 px-3.5 py-3">
+        <div className="flex items-center gap-2">
+          <span className="h-2.5 w-2.5 rounded-full bg-[#ff6b6b]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-[#ffd166]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-[#4dd4c6]" />
+        </div>
+        <span className="rounded-full border border-white/10 bg-white/[0.06] px-2.5 py-1 text-[0.65rem] text-muted">Command Center</span>
+      </div>
+
+      <div className="grid gap-3 p-3">
+        <div className="grid grid-cols-2 gap-3">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3">
+            <span className="block h-2.5 w-20 rounded-full bg-violet-400/70" />
+            <strong className="mt-4 block text-3xl font-semibold tracking-normal text-frost">98</strong>
+            <span className="mt-1 block text-[0.68rem] leading-4 text-muted">Precisão técnica</span>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3">
+            <div className="space-y-2">
+              <span className="block h-2.5 rounded-full bg-white/25" />
+              <span className="block h-2.5 w-4/5 rounded-full bg-white/12" />
+              <span className="block h-2.5 w-3/5 rounded-full bg-white/12" />
+            </div>
+          </div>
+
+          <div className="col-span-2 rounded-2xl border border-white/10 bg-[linear-gradient(135deg,rgba(141,92,255,0.18),rgba(255,255,255,0.04))] p-3">
+            <div className="flex items-center justify-between text-xs text-muted">
+              <span>Pipeline</span>
+              <span className="text-signal">Live</span>
+            </div>
+            <div className="mt-4 space-y-2">
+              {[76, 58, 84].map((width) => (
+                <span key={width} className="block h-2 rounded-full bg-white/10">
+                  <span className="block h-full rounded-full bg-violet-400/70" style={{ width: `${width}%` }} />
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-[1.2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(141,92,255,0.24),rgba(77,212,198,0.08)_45%,rgba(255,255,255,0.04))] p-3">
+          <div className="grid h-40 grid-cols-6 items-end gap-1.5">
+            {[42, 58, 51, 72, 64, 88].map((height) => (
+              <span
+                key={height}
+                className="rounded-t-xl bg-[linear-gradient(180deg,#f7f5ff,rgba(169,139,255,0.58))]"
+                style={{ height: `${height}%` }}
+              />
+            ))}
+          </div>
+          <div className="mt-3 grid grid-cols-3 gap-2">
+            {['APIs', 'IA', 'Scale'].map((item) => (
+              <span key={item} className="rounded-xl border border-white/10 bg-white/[0.08] px-2 py-2.5 text-center text-[0.68rem] font-semibold text-mist">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
