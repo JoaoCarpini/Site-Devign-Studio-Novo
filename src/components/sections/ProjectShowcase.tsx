@@ -91,25 +91,23 @@ function ProjectTeaserShowcase() {
           </Reveal>
         </div>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2 xl:mt-12 xl:grid-cols-4">
+        <div className="mt-8 grid auto-rows-fr gap-4 md:grid-cols-2 xl:mt-12 xl:grid-cols-4">
           {projects.slice(0, 4).map((project, index) => {
             const copy = teaserCopy[index];
             const Icon = copy.icon;
 
             return (
-              <Reveal key={project.slug} delay={index * 0.05}>
+              <Reveal key={project.slug} delay={index * 0.05} className="h-full">
                 <article
                   className={cn(
-                    'group relative overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.045] p-4 shadow-premium sm:backdrop-blur-2xl transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] sm:will-change-transform hover:-translate-y-1 hover:border-violet-300/24 hover:bg-white/[0.062] sm:min-h-[25rem] sm:rounded-[1.75rem] sm:p-5',
-                    index === 1 && 'md:translate-y-8',
-                    index === 2 && 'xl:translate-y-14',
+                    'group relative flex h-full min-h-[25rem] flex-col overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.045] p-4 shadow-premium transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] sm:rounded-[1.75rem] sm:p-5 sm:backdrop-blur-2xl sm:will-change-transform hover:-translate-y-1 hover:border-violet-300/24 hover:bg-white/[0.062]',
                   )}
                 >
                   <div className={cn('absolute inset-0 opacity-70', accentWash(project.accent))} />
                   <div className="absolute -right-20 top-24 h-56 w-56 rounded-full bg-violet-400/[0.13] blur-[92px] transition duration-700 group-hover:bg-violet-300/[0.18]" />
                   <div className="absolute inset-x-5 top-0 h-px bg-premium-line opacity-60" />
 
-                  <div className="relative z-10 flex items-center justify-between">
+                  <div className="relative z-10 flex min-h-9 items-center justify-between gap-3">
                     <span className="rounded-full border border-white/10 bg-white/[0.055] px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-muted">
                       {copy.label}
                     </span>
@@ -122,7 +120,7 @@ function ProjectTeaserShowcase() {
                     <TeaserMockup index={index} projectTitle={project.title} accent={project.accent} />
                   </div>
 
-                  <div className="relative z-10 mt-5 sm:mt-7">
+                  <div className="relative z-10 mt-5 flex flex-1 flex-col sm:mt-7">
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-300/80">{project.category}</p>
                     <h3 className="mt-3 text-xl font-semibold leading-tight tracking-normal text-frost sm:text-2xl">{copy.title}</h3>
                     <p className="mt-3 text-sm leading-6 text-muted sm:mt-4 sm:leading-7">{copy.detail}</p>

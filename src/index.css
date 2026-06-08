@@ -60,7 +60,7 @@ a {
   }
 
   .glass-panel {
-    @apply border border-white/10 bg-white/[0.052] shadow-premium backdrop-blur-2xl;
+    @apply border border-white/10 bg-white/[0.052] shadow-premium backdrop-blur-xl;
   }
 
   .eyebrow {
@@ -84,11 +84,76 @@ a {
   }
 
   .premium-card {
-    @apply glass-panel rounded-[1.35rem] p-5 transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:-translate-y-1.5 hover:border-violet-400/35 hover:bg-white/[0.075] hover:shadow-[0_28px_90px_rgba(141,92,255,0.18)] sm:rounded-[1.5rem] sm:p-6;
+    @apply glass-panel rounded-[1.35rem] p-5 transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:-translate-y-1 hover:border-violet-400/35 hover:bg-white/[0.065] hover:shadow-[0_20px_60px_rgba(141,92,255,0.14)] sm:rounded-[1.5rem] sm:p-6;
   }
+  @media (prefers-reduced-motion: reduce) {
+    .page-shell,
+    .premium-card,
+    .light-card,
+    .cursor-glow-root,
+    .hero-fine-grid,
+    .soft-grid {
+      transition: none !important;
+      animation: none !important;
+      will-change: auto !important;
+    }
 
+    .cursor-glow-root {
+      display: none;
+    }
+
+    .glass-panel {
+      backdrop-blur: none;
+    }
+
+    .soft-grid {
+      opacity: 0.18 !important;
+    }
+  }
   .section-band {
     @apply relative py-14 sm:py-28 lg:py-36;
+  }
+
+  .marquee-wrap {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .marquee-wrap:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  .marquee-track {
+    --marquee-gap: 1.5rem;
+
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--marquee-gap);
+    width: max-content;
+    animation-name: marquee-scroll;
+    animation-duration: 44s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform;
+  }
+
+  .marquee-group {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--marquee-gap);
+  }
+
+  .marquee-item {
+    flex: 0 0 auto;
+  }
+
+  @keyframes marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50% - (var(--marquee-gap) / 2)));
+    }
   }
 
   .soft-grid {
@@ -113,7 +178,7 @@ a {
   }
 
   .light-card {
-    @apply rounded-[1.35rem] border border-ink/10 bg-white shadow-[0_20px_70px_rgba(5,5,9,0.08)] transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:-translate-y-1 hover:shadow-[0_28px_90px_rgba(5,5,9,0.12)] sm:rounded-[1.5rem];
+    @apply rounded-[1.35rem] border border-ink/10 bg-white shadow-[0_16px_50px_rgba(5,5,9,0.06)] transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform hover:-translate-y-1 hover:shadow-[0_24px_75px_rgba(5,5,9,0.1)] sm:rounded-[1.5rem];
   }
 
   .text-balance {
@@ -149,7 +214,7 @@ a {
     mix-blend-mode: screen;
     opacity: var(--cursor-glow-opacity);
     transition: opacity 160ms ease;
-    will-change: background, opacity;
+    will-change: opacity;
     contain: layout style paint;
   }
 
@@ -168,7 +233,7 @@ a {
       transparent 100%
     );
 
-    opacity: 0.6;
+    opacity: 0.52;
   }
 }
 
@@ -369,5 +434,12 @@ a {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .marquee-track {
+    animation-name: marquee-scroll !important;
+    animation-duration: 44s !important;
+    animation-timing-function: linear !important;
+    animation-iteration-count: infinite !important;
   }
 }

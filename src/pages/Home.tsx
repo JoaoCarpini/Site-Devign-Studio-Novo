@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ServiceCard } from '../components/cards/ServiceCard';
 import { ArchitectureBlueprint } from '../components/sections/ArchitectureBlueprint';
 import { CinematicHero } from '../components/sections/CinematicHero';
+import { ServicesMarquee } from '../components/sections/ServicesMarquee';
 import { DevelopmentSystem } from '../components/sections/DevelopmentSystem';
 import { EngineeringCapabilities } from '../components/sections/EngineeringCapabilities';
 import { ProjectShowcase } from '../components/sections/ProjectShowcase';
@@ -58,6 +59,7 @@ export default function Home() {
   return (
     <>
       <CinematicHero />
+      <ServicesMarquee />
 
       <section className="section-band light-section" data-cursor-glow="off">
         <div className="container-premium">
@@ -98,9 +100,9 @@ export default function Home() {
             title="Software, automação e presença digital sob a mesma direção."
             text="A Devign combina interface, dados e engenharia para construir ativos digitais com valor comercial e sustentação operacional."
           />
-          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-10 grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-4">
             {services.slice(0, 4).map((service, index) => (
-              <Reveal key={service.key} delay={index * 0.04}>
+              <Reveal key={service.key} delay={index * 0.04} className="h-full">
                 <ServiceCard service={service} />
               </Reveal>
             ))}

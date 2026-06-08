@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useIsMobile } from '../../hooks/useMediaQuery';
+import { useIsMobile, usePrefersReducedMotion } from '../../hooks/useMediaQuery';
 
 const DISABLED_SELECTOR = '.light-section, .light-card, .bg-frost, .text-ink, [data-cursor-glow="off"]';
 const GLOW_MAX_OPACITY = 0.72;
@@ -14,13 +14,14 @@ function supportsCursorGlow(isMobile: boolean) {
 
 export function CursorGlowLayer() {
   const isMobile = useIsMobile();
+  const reduceMotion = usePrefersReducedMotion();
   const rootRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<number>();
   const targetRef = useRef({ x: 0, y: 0, opacity: 0 });
   const currentRef = useRef({ x: 0, y: 0, opacity: 0 });
 
   useEffect(() => {
-    if (!supportsCursorGlow(isMobile)) return;
+    if (!supportsCursorGlow(isMobile) || reduceMotion) return;
 
     const root = rootRef.current;
     if (!root) return;
@@ -70,7 +71,7 @@ export function CursorGlowLayer() {
       window.removeEventListener('mouseleave', handleCursorLeave);
       if (frameRef.current) window.cancelAnimationFrame(frameRef.current);
     };
-  }, [isMobile]);
+  }, [isMobile, reduceMotion]);
 
   return (
     <div ref={rootRef} aria-hidden="true" className="cursor-glow-root" />

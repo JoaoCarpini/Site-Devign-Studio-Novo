@@ -6,6 +6,9 @@ export const MOBILE_LAYOUT_QUERY = '(max-width: 768px)';
 // Performance: touch OU tela pequena — determina se animações pesadas devem ser reduzidas
 export const REDUCE_MOTION_QUERY = '(max-width: 768px), (pointer: coarse)';
 
+// Preferência do usuário para reduzir movimento
+export const PREFERS_REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
+
 export function useMediaQuery(query: string) {
   const [matches, setMatches] = useState(() => {
     if (typeof window === 'undefined') return false;
@@ -35,4 +38,9 @@ export function useIsMobile() {
 // Ativa em telas pequenas OU qualquer dispositivo touch (pointer: coarse)
 export function useReduceMotion() {
   return useMediaQuery(REDUCE_MOTION_QUERY);
+}
+
+// Usa a preferência do usuário para reduzir movimento, independente do dispositivo
+export function usePrefersReducedMotion() {
+  return useMediaQuery(PREFERS_REDUCED_MOTION_QUERY);
 }
