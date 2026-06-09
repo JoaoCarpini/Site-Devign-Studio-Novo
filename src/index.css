@@ -469,6 +469,15 @@ html[data-android-compat='true'] .marquee-track {
   }
 }
 
+.mobile-home,
+.mobile-home * {
+  min-width: 0;
+}
+
+.mobile-home :where(h1, h2, h3, p, span, strong, a, button) {
+  overflow-wrap: anywhere;
+}
+
 @layer utilities {
   .animated-gradient {
     background-size: 200% 200%;

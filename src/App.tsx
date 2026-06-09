@@ -20,11 +20,14 @@ import Automation from './pages/services/Automation';
 import AI from './pages/services/AI';
 import LandingPages from './pages/services/LandingPages';
 import Integrations from './pages/services/Integrations';
-import { useAndroidCompatibility } from './hooks/useMediaQuery';
+import { useAndroidCompatibility, useMediaQuery } from './hooks/useMediaQuery';
+
+const MOBILE_HOME_QUERY = '(max-width: 1024px)';
 
 export default function App() {
   const location = useLocation();
   const androidCompatibility = useAndroidCompatibility();
+  const isMobileHome = useMediaQuery(MOBILE_HOME_QUERY) && location.pathname === '/';
 
   useEffect(() => {
     document.documentElement.dataset.androidCompat = androidCompatibility ? 'true' : 'false';
@@ -55,7 +58,7 @@ export default function App() {
           </Routes>
         </PageTransition>
       </AnimatePresence>
-      <ContactPresence />
+      {isMobileHome ? null : <ContactPresence />}
       <Footer />
     </div>
   );
