@@ -24,6 +24,8 @@ const heroMetrics = [
   { value: 'Escala', label: 'Arquitetura para operações reais' },
 ];
 
+const ENABLE_HERO_METRICS = true;
+
 export function CinematicHero() {
   const isMobile = useIsMobile();
   const reduceMotion = useReduceMotion();
@@ -149,9 +151,11 @@ export function CinematicHero() {
         </motion.div>
       </div>
 
-      <div className="container-premium relative z-10 pb-16 sm:pb-32 lg:pb-36">
-        <HeroMetricsGrid animated={!reduceMotion} />
-      </div>
+      {ENABLE_HERO_METRICS ? (
+        <div className="container-premium relative z-10 pb-16 sm:pb-32 lg:pb-36">
+          <HeroMetricsGrid animated={!reduceMotion} />
+        </div>
+      ) : null}
 
       <Layers3 aria-hidden="true" className="absolute bottom-16 left-8 z-0 hidden h-24 w-24 text-white/[0.035] lg:block" />
     </section>
@@ -203,9 +207,11 @@ function MobileCinematicHero() {
         </div>
       </div>
 
-      <div className="container-premium relative z-10 pb-16">
-        <HeroMetricsGrid />
-      </div>
+      {ENABLE_HERO_METRICS ? (
+        <div className="container-premium relative z-10 pb-16">
+          <HeroMetricsGrid />
+        </div>
+      ) : null}
     </section>
   );
 }

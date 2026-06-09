@@ -55,13 +55,27 @@ const institutionalRoutes = [
   },
 ];
 
+const ENABLE_CINEMATIC_HERO = true;
+const ENABLE_SERVICES_MARQUEE = true;
+const ENABLE_INSTITUTIONAL_ROUTES = true;
+const ENABLE_ARCHITECTURE_BLUEPRINT = true;
+const ENABLE_ENGINEERING_CAPABILITIES = true;
+const ENABLE_SERVICE_CARDS = true;
+const ENABLE_DEVELOPMENT_SYSTEM = true;
+const ENABLE_PROJECT_SHOWCASE = true;
+const ENABLE_TECH_CLOUD = true;
+const ENABLE_TEAM_SECTION = true;
+const ENABLE_COMPANY_SIGNALS = true;
+const ENABLE_BUDGET_CTA = true;
+
 export default function Home() {
   return (
     <>
-      <CinematicHero />
-      <ServicesMarquee />
+      {ENABLE_CINEMATIC_HERO ? <CinematicHero /> : null}
+      {ENABLE_SERVICES_MARQUEE ? <ServicesMarquee /> : null}
 
-      <section className="section-band light-section">
+      {ENABLE_INSTITUTIONAL_ROUTES ? (
+        <section className="section-band light-section">
         <div className="container-premium">
           <div className="grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-start">
             <SectionIntro
@@ -88,12 +102,14 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+        </section>
+      ) : null}
 
-      <ArchitectureBlueprint />
-      <EngineeringCapabilities />
+      {ENABLE_ARCHITECTURE_BLUEPRINT ? <ArchitectureBlueprint /> : null}
+      {ENABLE_ENGINEERING_CAPABILITIES ? <EngineeringCapabilities /> : null}
 
-      <section className="section-band">
+      {ENABLE_SERVICE_CARDS ? (
+        <section className="section-band">
         <div className="container-premium">
           <SectionIntro
             eyebrow="Frentes de entrega"
@@ -114,13 +130,15 @@ export default function Home() {
             </ButtonLink>
           </div>
         </div>
-      </section>
+        </section>
+      ) : null}
 
-      <DevelopmentSystem />
+      {ENABLE_DEVELOPMENT_SYSTEM ? <DevelopmentSystem /> : null}
 
-      <ProjectShowcase compact />
+      {ENABLE_PROJECT_SHOWCASE ? <ProjectShowcase compact /> : null}
 
-      <section className="section-band border-y border-white/10 bg-white/[0.025]">
+      {ENABLE_TECH_CLOUD ? (
+        <section className="section-band border-y border-white/10 bg-white/[0.025]">
         <div className="container-premium">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <SectionIntro
@@ -131,11 +149,13 @@ export default function Home() {
             <TechCloud />
           </div>
         </div>
-      </section>
+        </section>
+      ) : null}
 
-      <TeamSection compact />
+      {ENABLE_TEAM_SECTION ? <TeamSection compact /> : null}
 
-      <section className="section-band">
+      {ENABLE_COMPANY_SIGNALS ? (
+        <section className="section-band">
         <div className="container-premium">
           <div className="grid gap-4 lg:grid-cols-3">
             {companySignals.map((item, index) => {
@@ -153,9 +173,11 @@ export default function Home() {
             })}
           </div>
         </div>
-      </section>
+        </section>
+      ) : null}
 
-      <section className="pb-16 sm:pb-24">
+      {ENABLE_BUDGET_CTA ? (
+        <section className="pb-16 sm:pb-24">
         <div className="container-premium">
           <div className="relative overflow-hidden rounded-[1.45rem] border border-white/10 bg-[linear-gradient(135deg,rgba(141,92,255,0.26),rgba(255,255,255,0.06)_42%,rgba(77,212,198,0.1))] p-5 shadow-premium sm:rounded-[2rem] sm:p-12 lg:p-14">
             <div className="absolute inset-x-8 top-0 h-px bg-premium-line" />
@@ -173,7 +195,8 @@ export default function Home() {
             <Building2 className="absolute bottom-8 right-8 hidden h-24 w-24 text-white/10 lg:block" />
           </div>
         </div>
-      </section>
+        </section>
+      ) : null}
     </>
   );
 }
