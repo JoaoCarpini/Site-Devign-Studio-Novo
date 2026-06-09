@@ -19,7 +19,7 @@ export function SectionIntro({ eyebrow, title, text, align = 'left', tone = 'dar
       {eyebrow ? (
         <span
           className={cn(
-            'mb-5 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em]',
+            'mb-5 inline-flex max-w-full items-center gap-2 rounded-full border px-2.5 py-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.14em] sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.24em]',
             isLight ? 'border-ink/10 bg-ink/[0.04] text-violet-700' : 'border-white/10 bg-white/[0.06] text-violet-400',
           )}
         >

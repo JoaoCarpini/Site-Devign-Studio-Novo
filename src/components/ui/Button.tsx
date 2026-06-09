@@ -17,7 +17,7 @@ type ButtonLinkProps = {
 
 export function buttonStyles(variant: ButtonVariant = 'primary') {
   const base =
-    'group relative inline-flex min-h-11 items-center justify-center gap-2 overflow-hidden rounded-lg px-4 py-2.5 text-xs font-semibold transition duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-1 focus-visible:ring-offset-ink hover:translate-y-0 active:scale-[0.97] sm:min-h-12 sm:rounded-full sm:px-5 sm:py-3 sm:text-sm sm:hover:-translate-y-0.5 sm:active:scale-[0.98]';
+    'group relative inline-flex max-w-full min-h-11 min-w-0 items-center justify-center gap-2 overflow-hidden rounded-lg px-4 py-2.5 text-center text-xs font-semibold leading-snug transition duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-1 focus-visible:ring-offset-ink hover:translate-y-0 active:scale-[0.97] sm:min-h-12 sm:rounded-full sm:px-5 sm:py-3 sm:text-sm sm:hover:-translate-y-0.5 sm:active:scale-[0.98]';
 
   const variants: Record<ButtonVariant, string> = {
     primary:

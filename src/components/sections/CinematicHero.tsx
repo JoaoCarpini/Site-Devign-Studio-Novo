@@ -160,18 +160,18 @@ export function CinematicHero() {
 
 function MobileCinematicHero() {
   return (
-    <section className="relative overflow-hidden pt-20">
+    <section className="relative overflow-hidden pt-[calc(5rem+env(safe-area-inset-top))]">
       <AuroraBackground />
       <div aria-hidden="true" className="hero-fine-grid absolute inset-0 z-0 opacity-20" />
 
       <div className="container-premium relative z-10 grid gap-8 pb-10 pt-5">
         <div>
-          <div className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/[0.065] px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-violet-300 shadow-[0_0_50px_rgba(141,92,255,0.16)]">
+          <div className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/[0.065] px-3 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-violet-300 shadow-[0_0_50px_rgba(141,92,255,0.16)] min-[390px]:text-[0.68rem] min-[390px]:tracking-[0.16em]">
             <Sparkles className="h-4 w-4" />
             Devign Studio / Software house premium
           </div>
 
-          <h1 className="max-w-6xl text-balance text-[clamp(2.85rem,15vw,4.35rem)] font-semibold leading-[0.92] tracking-normal text-frost">
+          <h1 className="max-w-6xl text-balance text-[clamp(2.35rem,12vw,4.35rem)] font-semibold leading-[0.96] tracking-normal text-frost min-[390px]:text-[clamp(2.85rem,15vw,4.35rem)] min-[390px]:leading-[0.92]">
             Infraestrutura digital para marcas que operam em alto nível.
           </h1>
 
@@ -198,7 +198,7 @@ function MobileCinematicHero() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[27rem]">
+        <div className="relative mx-auto w-full max-w-[27rem] min-w-0">
           <StaticHeroMockup />
         </div>
       </div>
@@ -253,7 +253,7 @@ function HeroMetricsGrid({ animated = false }: { animated?: boolean }) {
 
 function StaticHeroMockup() {
   return (
-    <div className="mockup-window relative mx-auto max-w-[45rem] rounded-[1.35rem]">
+    <div className="mockup-window relative mx-auto w-full max-w-[45rem] rounded-[1.35rem]">
       <div className="flex items-center justify-between border-b border-white/10 px-3.5 py-3">
         <div className="flex items-center gap-2">
           <span className="h-2.5 w-2.5 rounded-full bg-[#ff6b6b]" />

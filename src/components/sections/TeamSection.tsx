@@ -75,7 +75,7 @@ export function TeamSection({ compact = false }: TeamSectionProps) {
           />
 
           <Reveal delay={0.08}>
-            <div className="relative rounded-[1.45rem] border border-white/10 bg-white/[0.045] p-5 shadow-premium sm:backdrop-blur-2xl sm:rounded-[2rem] sm:p-6">
+            <div className="relative min-w-0 rounded-[1.45rem] border border-white/10 bg-white/[0.045] p-4 shadow-premium sm:rounded-[2rem] sm:p-6 sm:backdrop-blur-2xl">
               <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/50 to-transparent" />
               <div className="grid gap-3 sm:grid-cols-3">
                 {[
@@ -86,14 +86,14 @@ export function TeamSection({ compact = false }: TeamSectionProps) {
                   const Icon = item.icon;
 
                   return (
-                    <div key={item.label} className="rounded-[1.25rem] border border-white/10 bg-ink/50 p-4">
+                    <div key={item.label} className="min-w-0 rounded-[1.25rem] border border-white/10 bg-ink/50 p-4">
                       <Icon className="h-5 w-5 text-violet-400" />
-                      <span className="mt-4 block text-xs font-semibold uppercase tracking-[0.18em] text-muted">{item.label}</span>
+                      <span className="mt-4 block break-words text-xs font-semibold uppercase tracking-[0.14em] text-muted sm:tracking-[0.18em]">{item.label}</span>
                     </div>
                   );
                 })}
               </div>
-              <div className="mt-5 flex items-center justify-between gap-4 rounded-[1.25rem] border border-violet-400/20 bg-violet-500/10 px-4 py-3">
+              <div className="mt-5 flex min-w-0 items-center justify-between gap-4 rounded-[1.25rem] border border-violet-400/20 bg-violet-500/10 px-4 py-3">
                 <span className="text-sm font-semibold text-frost">Estrutura compacta, decisão rápida e execução especializada.</span>
                 <span className="hidden h-px flex-1 bg-premium-line sm:block" />
               </div>
@@ -138,7 +138,7 @@ function TeamCard({
     <motion.article
       whileHover={reduceMotion ? undefined : { y: -8, scale: 1.012 }}
       transition={reduceMotion ? undefined : { duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-      className="group relative h-full overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.052] p-5 shadow-[0_20px_70px_rgba(5,5,9,0.34)] sm:backdrop-blur-2xl sm:rounded-[1.65rem] sm:p-6 sm:shadow-[0_24px_90px_rgba(5,5,9,0.45)]"
+      className="group relative h-full min-w-0 overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.052] p-5 shadow-[0_20px_70px_rgba(5,5,9,0.34)] sm:rounded-[1.65rem] sm:p-6 sm:shadow-[0_24px_90px_rgba(5,5,9,0.45)] sm:backdrop-blur-2xl"
     >
       <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.35] to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
       <div className="absolute -right-20 -top-20 h-44 w-44 rounded-full bg-violet-500/0 blur-3xl transition duration-700 group-hover:bg-violet-500/[0.18]" />
@@ -152,20 +152,20 @@ function TeamCard({
               {member.initials}
             </div>
           </div>
-          <span className="rounded-full border border-white/10 bg-ink/60 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+          <span className="shrink-0 rounded-full border border-white/10 bg-ink/60 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-muted">
             0{index + 1}
           </span>
         </div>
 
         <div className="mt-8">
-          <h3 className="text-2xl font-semibold leading-tight text-frost">{member.name}</h3>
+          <h3 className="break-words text-2xl font-semibold leading-tight text-frost">{member.name}</h3>
           <p className="mt-2 text-sm font-semibold text-violet-400">{member.role}</p>
         </div>
 
         <p className="mt-5 flex-1 text-sm leading-7 text-mist">{member.description}</p>
 
-        <div className="mt-8 flex items-center justify-between gap-4 border-t border-white/10 pt-5">
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">{member.signal}</span>
+        <div className="mt-8 flex min-w-0 items-center justify-between gap-4 border-t border-white/10 pt-5">
+          <span className="break-words text-xs font-semibold uppercase tracking-[0.12em] text-muted sm:tracking-[0.18em]">{member.signal}</span>
           <span className="h-2 w-2 rounded-full bg-signal shadow-[0_0_24px_rgba(77,212,198,0.7)]" />
         </div>
       </div>

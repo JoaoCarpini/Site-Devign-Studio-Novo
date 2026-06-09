@@ -50,7 +50,7 @@ export function ArchitectureBlueprint() {
           />
 
           {isMobile ? (
-            <div className="rounded-[1.35rem] border border-white/10 bg-[#0b0b12] p-3">
+            <div className="min-w-0 overflow-hidden rounded-[1.35rem] border border-white/10 bg-[#0b0b12] p-3">
               <div className="grid gap-3">
                 {architectureLayers.map((layer, index) => {
                   const Icon = layer.icon;
@@ -61,9 +61,9 @@ export function ArchitectureBlueprint() {
                         <Icon className="h-5 w-5" />
                       </span>
                       <div>
-                        <div className="flex flex-wrap items-center gap-2">
+                        <div className="flex min-w-0 flex-wrap items-center gap-2">
                           <span className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-muted">Layer 0{index + 1}</span>
-                          <h3 className="text-lg font-semibold tracking-normal text-frost">{layer.title}</h3>
+                          <h3 className="break-words text-lg font-semibold tracking-normal text-frost">{layer.title}</h3>
                         </div>
                         <p className="mt-2 text-sm leading-6 text-muted">{layer.text}</p>
                       </div>

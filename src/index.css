@@ -20,9 +20,11 @@
 html {
   scroll-behavior: smooth;
   background: #050509;
+  overflow-x: hidden;
 }
 
 body {
+  width: 100%;
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
@@ -45,6 +47,13 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
 ::selection {
   background: rgba(141, 92, 255, 0.45);
   color: #ffffff;
@@ -56,7 +65,7 @@ a {
   }
 
   .container-premium {
-    @apply mx-auto w-full max-w-[88rem] px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-[88rem] min-w-0 px-4 sm:px-6 lg:px-8;
   }
 
   .glass-panel {
@@ -244,6 +253,9 @@ a {
 
   .container-premium {
     @apply px-3.5;
+    max-width: 100vw;
+    padding-left: max(0.875rem, env(safe-area-inset-left));
+    padding-right: max(0.875rem, env(safe-area-inset-right));
   }
 
   .glass-panel {
@@ -256,14 +268,17 @@ a {
 
   .heading-xl {
     @apply text-3xl leading-snug;
+    overflow-wrap: anywhere;
   }
 
   .heading-lg {
     @apply text-xl;
+    overflow-wrap: anywhere;
   }
 
   .heading-md {
     @apply text-lg;
+    overflow-wrap: anywhere;
   }
 
   .eyebrow {
@@ -272,6 +287,21 @@ a {
 
   .body-lead {
     @apply text-sm leading-6;
+    overflow-wrap: anywhere;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span,
+  strong,
+  a,
+  button {
+    min-width: 0;
   }
 
   .soft-grid {
@@ -379,6 +409,7 @@ a {
   .premium-card,
   .light-card {
     will-change: auto;
+    max-width: 100%;
   }
 
   .premium-card:hover,
@@ -395,9 +426,6 @@ a {
 html[data-android-compat='true'] *,
 html[data-android-compat='true'] *::before,
 html[data-android-compat='true'] *::after {
-  animation: none !important;
-  transition: none !important;
-  transform: none !important;
   transform-style: flat !important;
   perspective: none !important;
   filter: none !important;
@@ -405,7 +433,6 @@ html[data-android-compat='true'] *::after {
   -webkit-backdrop-filter: none !important;
   mix-blend-mode: normal !important;
   will-change: auto !important;
-  contain: none !important;
   mask-image: none !important;
   -webkit-mask-image: none !important;
 }
@@ -416,7 +443,7 @@ html[data-android-compat='true'] .mockup-window,
 html[data-android-compat='true'] .premium-card,
 html[data-android-compat='true'] .light-card {
   isolation: auto !important;
-  overflow: visible !important;
+  contain: none !important;
 }
 
 html[data-android-compat='true'] .hero-fine-grid,
@@ -429,6 +456,17 @@ html[data-android-compat='true'] .animated-gradient {
 html[data-android-compat='true'] .marquee-track {
   animation: none !important;
   transform: none !important;
+}
+
+@media (max-width: 380px) {
+  .container-premium {
+    padding-left: max(0.75rem, env(safe-area-inset-left));
+    padding-right: max(0.75rem, env(safe-area-inset-right));
+  }
+
+  .eyebrow {
+    letter-spacing: 0.12em;
+  }
 }
 
 @layer utilities {

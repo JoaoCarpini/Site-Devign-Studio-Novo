@@ -78,7 +78,7 @@ export default function Home() {
                     className="light-card group block h-full p-6"
                   >
                     <div className="flex items-center justify-between gap-4">
-                      <span className="text-sm font-semibold uppercase tracking-[0.22em] text-violet-700">{item.label}</span>
+                      <span className="break-words text-sm font-semibold uppercase tracking-[0.16em] text-violet-700 sm:tracking-[0.22em]">{item.label}</span>
                       <MoveRight className="h-4 w-4 text-[#7a728b] transition duration-500 group-hover:translate-x-1 group-hover:text-violet-700" />
                     </div>
                     <p className="mt-5 text-sm leading-7 text-[#5a5468]">{item.text}</p>
@@ -108,7 +108,7 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-8">
-            <ButtonLink to="/servicos" variant="secondary">
+            <ButtonLink to="/servicos" variant="secondary" className="w-full sm:w-fit">
               Explorar serviços
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
@@ -165,7 +165,7 @@ export default function Home() {
               <p className="body-lead mt-5 max-w-3xl">
                 A Devign qualifica contexto, prioridade, escopo e investimento antes de sugerir o caminho técnico.
               </p>
-              <ButtonLink to="/orcamento" className="mt-8">
+              <ButtonLink to="/orcamento" className="mt-8 w-full sm:w-fit">
                 Iniciar diagnóstico
                 <ArrowRight className="h-4 w-4" />
               </ButtonLink>

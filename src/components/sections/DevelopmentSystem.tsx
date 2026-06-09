@@ -31,7 +31,7 @@ export function DevelopmentSystem() {
       <div className="container-premium">
         <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <Reveal>
-            <span className="inline-flex rounded-full border border-ink/10 bg-ink/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-violet-700">
+            <span className="inline-flex max-w-full rounded-full border border-ink/10 bg-ink/[0.04] px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-violet-700 sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.24em]">
               Desenvolvimento
             </span>
             <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-normal text-ink sm:text-5xl">
@@ -41,7 +41,7 @@ export function DevelopmentSystem() {
               Primeiro entendemos regras e arquitetura. Depois construímos interfaces, integrações e automações com validação progressiva.
             </p>
 
-            <div className="mt-8 rounded-[1.5rem] border border-ink/10 bg-white p-5 shadow-[0_16px_40px_rgba(5,5,9,0.08)]">
+            <div className="mt-8 rounded-[1.25rem] border border-ink/10 bg-white p-4 shadow-[0_16px_40px_rgba(5,5,9,0.08)] sm:rounded-[1.5rem] sm:p-5">
               {['Escopo técnico documentado', 'Critérios de aceite por módulo', 'Base preparada para evolução'].map((item) => (
                 <div key={item} className="flex gap-3 py-2 text-sm font-medium text-[#343040]">
                   <CheckCircle2 className="h-5 w-5 shrink-0 text-violet-700" />
@@ -57,7 +57,7 @@ export function DevelopmentSystem() {
 
               return (
                 <Reveal key={step.title} delay={index * 0.05}>
-                  <article className="h-full rounded-[1.35rem] border border-ink/10 bg-white p-6 shadow-[0_18px_48px_rgba(5,5,9,0.08)]">
+                  <article className="h-full min-w-0 rounded-[1.2rem] border border-ink/10 bg-white p-4 shadow-[0_18px_48px_rgba(5,5,9,0.08)] sm:rounded-[1.35rem] sm:p-6">
                     <div className="flex items-center justify-between">
                       <span className="grid h-11 w-11 place-items-center rounded-2xl bg-violet-700 text-white">
                         <Icon className="h-5 w-5" />

@@ -65,14 +65,14 @@ export function EngineeringCapabilities() {
 
             return (
               <Reveal key={capability.title} delay={index * 0.04}>
-                <article className="group h-full rounded-[1.5rem] border border-white/10 bg-white/[0.052] p-6 shadow-premium sm:backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-violet-400/35 hover:bg-white/[0.075]">
+                <article className="group h-full min-w-0 rounded-[1.25rem] border border-white/10 bg-white/[0.052] p-4 shadow-premium transition duration-300 hover:-translate-y-1 hover:border-violet-400/35 hover:bg-white/[0.075] sm:rounded-[1.5rem] sm:p-6 sm:backdrop-blur-2xl">
                   <div className="flex items-start justify-between gap-4">
                     <span className="grid h-12 w-12 place-items-center rounded-2xl border border-violet-400/25 bg-violet-500/12 text-violet-300">
                       <Icon className="h-5 w-5" />
                     </span>
                     <Bot className="h-5 w-5 text-white/20 transition group-hover:text-violet-300" />
                   </div>
-                  <h3 className="mt-6 text-2xl font-semibold tracking-normal text-frost">{capability.title}</h3>
+                  <h3 className="mt-6 break-words text-xl font-semibold tracking-normal text-frost sm:text-2xl">{capability.title}</h3>
                   <p className="mt-4 text-sm leading-7 text-muted">{capability.text}</p>
                   <div className="mt-6 flex flex-wrap gap-2">
                     {capability.specs.map((spec) => (

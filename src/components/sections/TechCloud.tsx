@@ -22,16 +22,16 @@ export function TechCloud() {
         return (
           <div
             key={technology.name}
-            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.055] p-5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-violet-400/35 hover:bg-white/[0.085]"
+            className="group relative min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.055] p-4 transition duration-300 hover:-translate-y-1 hover:border-violet-400/35 hover:bg-white/[0.085] sm:p-5 sm:backdrop-blur-xl"
           >
             <span className="absolute inset-x-0 top-0 h-px bg-premium-line opacity-0 transition group-hover:opacity-100" />
             <div className="flex items-start justify-between gap-3">
               <span className="grid h-10 w-10 place-items-center rounded-xl border border-violet-400/20 bg-violet-500/10 text-violet-300">
                 <Icon className="h-4 w-4" />
               </span>
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">0{index + 1}</span>
+              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-muted sm:tracking-[0.2em]">0{index + 1}</span>
             </div>
-            <strong className="mt-5 block text-lg font-semibold tracking-normal text-frost">{technology.name}</strong>
+            <strong className="mt-5 block break-words text-base font-semibold tracking-normal text-frost sm:text-lg">{technology.name}</strong>
             <span className="mt-1 block text-sm text-muted">{technology.layer}</span>
           </div>
         );

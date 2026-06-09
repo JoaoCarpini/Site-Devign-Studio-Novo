@@ -87,7 +87,7 @@ function ProjectTeaserShowcase() {
             text="A Home mostra apenas sinais: interfaces parciais, indicadores e fluxos. Os detalhes completos vivem no portfólio."
           />
           <Reveal>
-            <ButtonLink to="/projetos" className="w-fit">
+            <ButtonLink to="/projetos" className="w-full sm:w-fit">
               Explorar cases
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
@@ -103,15 +103,15 @@ function ProjectTeaserShowcase() {
               <Reveal key={project.slug} delay={index * 0.05} className="h-full">
                 <article
                   className={cn(
-                    'group relative flex h-full min-h-[22rem] flex-col overflow-hidden rounded-[1.2rem] border border-white/10 bg-white/[0.045] p-4 shadow-premium transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] sm:min-h-[25rem] sm:rounded-[1.75rem] sm:p-5 sm:backdrop-blur-2xl sm:will-change-transform hover:-translate-y-1 hover:border-violet-300/24 hover:bg-white/[0.062]',
+                    'group relative flex h-full min-h-[22rem] min-w-0 flex-col overflow-hidden rounded-[1.2rem] border border-white/10 bg-white/[0.045] p-4 shadow-premium transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-violet-300/24 hover:bg-white/[0.062] sm:min-h-[25rem] sm:rounded-[1.75rem] sm:p-5 sm:backdrop-blur-2xl sm:will-change-transform',
                   )}
                 >
                   <div className={cn('absolute inset-0 opacity-70', accentWash(project.accent))} />
                   <div className="absolute -right-20 top-24 hidden h-56 w-56 rounded-full bg-violet-400/[0.13] blur-[92px] transition duration-700 group-hover:bg-violet-300/[0.18] sm:block" />
                   <div className="absolute inset-x-5 top-0 h-px bg-premium-line opacity-60" />
 
-                  <div className="relative z-10 flex min-h-9 items-center justify-between gap-3">
-                    <span className="rounded-full border border-white/10 bg-white/[0.055] px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-muted">
+                  <div className="relative z-10 flex min-h-9 min-w-0 items-center justify-between gap-3">
+                    <span className="min-w-0 break-words rounded-full border border-white/10 bg-white/[0.055] px-3 py-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-muted min-[390px]:text-[0.68rem] min-[390px]:tracking-[0.18em]">
                       {copy.label}
                     </span>
                     <span className="grid h-9 w-9 place-items-center rounded-2xl border border-white/10 bg-white/[0.055] text-violet-300">
@@ -124,7 +124,7 @@ function ProjectTeaserShowcase() {
                   </div>
 
                   <div className="relative z-10 mt-5 flex flex-1 flex-col sm:mt-7">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-300/80">{project.category}</p>
+                    <p className="break-words text-xs font-semibold uppercase tracking-[0.14em] text-violet-300/80 sm:tracking-[0.2em]">{project.category}</p>
                     <h3 className="mt-3 text-xl font-semibold leading-tight tracking-normal text-frost sm:text-2xl">{copy.title}</h3>
                     <p className="mt-3 text-sm leading-6 text-muted sm:mt-4 sm:leading-7">{copy.detail}</p>
                   </div>
@@ -143,7 +143,7 @@ function ProjectTeaserShowcase() {
             <p className="max-w-2xl text-sm leading-7 text-muted">
               Cada preview é intencionalmente incompleto. O valor está no sistema por trás: arquitetura, operação, dados e experiência.
             </p>
-            <ButtonLink to="/projetos" variant="secondary" className="w-fit">
+            <ButtonLink to="/projetos" variant="secondary" className="w-full sm:w-fit">
               Ver soluções em operação
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
@@ -167,10 +167,10 @@ function TeaserMockup({ index, projectTitle, accent, reduceMotion }: { index: nu
         <span className="rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-1 text-[0.65rem] text-muted">partial view</span>
       </div>
 
-      <div className="grid h-[7.6rem] grid-cols-[0.72fr_1.28fr] gap-2.5 p-2.5 sm:h-[8.7rem] sm:grid-cols-[0.68fr_1.32fr] sm:gap-3 sm:p-3">
+      <div className="grid h-auto gap-2.5 p-2.5 min-[390px]:h-[7.6rem] min-[390px]:grid-cols-[0.72fr_1.28fr] sm:h-[8.7rem] sm:grid-cols-[0.68fr_1.32fr] sm:gap-3 sm:p-3">
         <div className="space-y-2">
           <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3">
-            <span className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-violet-300/80">{projectTitle}</span>
+            <span className="break-words text-[0.6rem] font-semibold uppercase tracking-[0.12em] text-violet-300/80 min-[390px]:tracking-[0.18em]">{projectTitle}</span>
             <div className="mt-3 h-2 rounded-full bg-white/16" />
             <div className="mt-2 h-2 w-2/3 rounded-full bg-white/10" />
           </div>
@@ -181,7 +181,7 @@ function TeaserMockup({ index, projectTitle, accent, reduceMotion }: { index: nu
           </div>
         </div>
 
-        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.055),rgba(141,92,255,0.12),rgba(77,212,198,0.035))] p-3">
+        <div className="relative min-h-28 overflow-hidden rounded-2xl border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.055),rgba(141,92,255,0.12),rgba(77,212,198,0.035))] p-3 min-[390px]:min-h-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(255,255,255,0.1),transparent_56%)] opacity-60" />
           <div className="relative flex h-full items-end gap-2">
             {bars.map((height) => (
@@ -202,7 +202,7 @@ function TeaserMockup({ index, projectTitle, accent, reduceMotion }: { index: nu
 
   if (reduceMotion) {
     return (
-      <div className="relative h-36 overflow-hidden rounded-[1.2rem] border border-white/10 bg-[#070711]/90 shadow-[0_24px_80px_rgba(0,0,0,0.24)] sm:h-44 sm:rounded-[1.35rem]">
+      <div className="relative h-auto min-h-36 overflow-hidden rounded-[1.2rem] border border-white/10 bg-[#070711]/90 shadow-[0_24px_80px_rgba(0,0,0,0.24)] min-[390px]:h-36 sm:h-44 sm:rounded-[1.35rem]">
         {content}
       </div>
     );
@@ -210,7 +210,7 @@ function TeaserMockup({ index, projectTitle, accent, reduceMotion }: { index: nu
 
   return (
     <motion.div
-      className="relative h-36 overflow-hidden rounded-[1.2rem] border border-white/10 bg-[#070711]/90 shadow-[0_24px_80px_rgba(0,0,0,0.24)] sm:h-44 sm:rounded-[1.35rem]"
+      className="relative h-auto min-h-36 overflow-hidden rounded-[1.2rem] border border-white/10 bg-[#070711]/90 shadow-[0_24px_80px_rgba(0,0,0,0.24)] min-[390px]:h-36 sm:h-44 sm:rounded-[1.35rem]"
       whileHover={{ scale: 1.025 }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
     >
