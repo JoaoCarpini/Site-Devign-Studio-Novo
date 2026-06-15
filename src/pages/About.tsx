@@ -5,7 +5,9 @@ import { ButtonLink } from '../components/ui/Button';
 import { SectionIntro } from '../components/ui/SectionIntro';
 import { TeamSection } from '../components/sections/TeamSection';
 import { TechCloud } from '../components/sections/TechCloud';
+import { StaticTechGrid } from '../components/sections/StaticTechGrid';
 import { ProcessTimeline } from '../components/sections/ProcessTimeline';
+import { useIsMobile } from '../hooks/useMediaQuery';
 
 const visionPillars = [
   {
@@ -40,6 +42,8 @@ const cultureSignals = [
 ];
 
 export default function About() {
+  const isMobile = useIsMobile();
+
   return (
     <>
       <section className="relative overflow-hidden pt-28 sm:pt-40">
@@ -123,7 +127,7 @@ export default function About() {
               title="Stack para interfaces, APIs, dados, automação e IA aplicada."
               text="A escolha tecnológica segue a função do projeto: presença premium, operação interna, dashboards, integrações ou inteligência aplicada."
             />
-            <TechCloud />
+            {isMobile ? <StaticTechGrid /> : <TechCloud />}
           </div>
         </div>
       </section>
