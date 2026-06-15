@@ -20,22 +20,57 @@ import Automation from './pages/services/Automation';
 import AI from './pages/services/AI';
 import LandingPages from './pages/services/LandingPages';
 import Integrations from './pages/services/Integrations';
-import { useAndroidCompatibility, useExtremeMobileCompatibility, useMediaQuery } from './hooks/useMediaQuery';
+import { useAndroidCompatibility, useExtremeMobileCompatibility } from './hooks/useMediaQuery';
 
-const MOBILE_HOME_QUERY = '(max-width: 1024px)';
+// Detecta Android sincronamente antes de qualquer render
+const IS_ANDROID = typeof navigator !== 'undefined' && /Android/i.test(navigator.userAgent);
+const IS_MOBILE = typeof window !== 'undefined' && window.matchMedia('(max-width: 1024px)').matches;
+
+const routes = (location: ReturnType<typeof useLocation>) => (
+  <Routes location={location}>
+    <Route path="/" element={<Home />} />
+    <Route path="/servicos" element={<Services />} />
+    <Route path="/projetos" element={<Projects />} />
+    <Route path="/sobre" element={<About />} />
+    <Route path="/processo" element={<Process />} />
+    <Route path="/orcamento" element={<Budget />} />
+    <Route path="/contato" element={<Navigate to="/orcamento" replace />} />
+    <Route path="/servicos/desenvolvimento-web" element={<WebDevelopment />} />
+    <Route path="/servicos/sistemas-web" element={<WebSystems />} />
+    <Route path="/servicos/apis" element={<APIs />} />
+    <Route path="/servicos/automacao" element={<Automation />} />
+    <Route path="/servicos/ia" element={<AI />} />
+    <Route path="/servicos/landing-pages" element={<LandingPages />} />
+    <Route path="/servicos/integracoes" element={<Integrations />} />
+    <Route path="*" element={<NotFound />} />
+  </Routes>
+);
 
 export default function App() {
   const location = useLocation();
   const androidCompatibility = useAndroidCompatibility();
   const extremeMobileCompatibility = useExtremeMobileCompatibility();
-  // ContactPresence só aparece fora da home mobile
-  const isMobileHome = location.pathname === '/' && window.matchMedia(MOBILE_HOME_QUERY).matches;
 
   useEffect(() => {
-    // Aplicar imediatamente, sem esperar re-render
     const isAndroid = /Android/i.test(navigator.userAgent);
     document.documentElement.dataset.androidCompat = isAndroid ? 'true' : 'false';
   }, [androidCompatibility]);
+
+  // Branch totalmente separado para Android mobile:
+  // sem page-shell, sem PageTransition, sem AnimatePresence, sem composite layers
+  if (IS_ANDROID && IS_MOBILE) {
+    return (
+      <>
+        <ScrollManager />
+        <Header />
+        <main>{routes(location)}</main>
+        {location.pathname !== '/' ? <ContactPresence /> : null}
+        <Footer />
+      </>
+    );
+  }
+
+  const isMobileHome = location.pathname === '/' && IS_MOBILE;
 
   return (
     <div className="page-shell">
@@ -43,44 +78,12 @@ export default function App() {
       <Header />
       {extremeMobileCompatibility ? (
         <PageTransition key={location.pathname}>
-          <Routes location={location}>
-            <Route path="/" element={<Home />} />
-            <Route path="/servicos" element={<Services />} />
-            <Route path="/projetos" element={<Projects />} />
-            <Route path="/sobre" element={<About />} />
-            <Route path="/processo" element={<Process />} />
-            <Route path="/orcamento" element={<Budget />} />
-            <Route path="/contato" element={<Navigate to="/orcamento" replace />} />
-            <Route path="/servicos/desenvolvimento-web" element={<WebDevelopment />} />
-            <Route path="/servicos/sistemas-web" element={<WebSystems />} />
-            <Route path="/servicos/apis" element={<APIs />} />
-            <Route path="/servicos/automacao" element={<Automation />} />
-            <Route path="/servicos/ia" element={<AI />} />
-            <Route path="/servicos/landing-pages" element={<LandingPages />} />
-            <Route path="/servicos/integracoes" element={<Integrations />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          {routes(location)}
         </PageTransition>
       ) : (
         <AnimatePresence mode="wait">
           <PageTransition key={location.pathname}>
-            <Routes location={location}>
-              <Route path="/" element={<Home />} />
-              <Route path="/servicos" element={<Services />} />
-              <Route path="/projetos" element={<Projects />} />
-              <Route path="/sobre" element={<About />} />
-              <Route path="/processo" element={<Process />} />
-              <Route path="/orcamento" element={<Budget />} />
-              <Route path="/contato" element={<Navigate to="/orcamento" replace />} />
-              <Route path="/servicos/desenvolvimento-web" element={<WebDevelopment />} />
-              <Route path="/servicos/sistemas-web" element={<WebSystems />} />
-              <Route path="/servicos/apis" element={<APIs />} />
-              <Route path="/servicos/automacao" element={<Automation />} />
-              <Route path="/servicos/ia" element={<AI />} />
-              <Route path="/servicos/landing-pages" element={<LandingPages />} />
-              <Route path="/servicos/integracoes" element={<Integrations />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            {routes(location)}
           </PageTransition>
         </AnimatePresence>
       )}
