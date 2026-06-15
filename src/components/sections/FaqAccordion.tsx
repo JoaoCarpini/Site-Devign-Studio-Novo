@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '../../utils/cn';
-import { useExtremeMobileCompatibility } from '../../hooks/useMediaQuery';
+import { useAndroidCompatibility, useExtremeMobileCompatibility } from '../../hooks/useMediaQuery';
 
 type FaqItem = {
   question: string;
@@ -12,6 +12,7 @@ type FaqItem = {
 export function FaqAccordion({ items }: { items: FaqItem[] }) {
   const [openIndex, setOpenIndex] = useState(0);
   const extremeMobileCompatibility = useExtremeMobileCompatibility();
+  const androidCompatibility = useAndroidCompatibility();
 
   return (
     <div className="grid gap-3">
@@ -29,7 +30,7 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
               <span className="font-semibold text-frost">{item.question}</span>
               <ChevronDown className={cn('h-5 w-5 shrink-0 text-violet-400 transition duration-300', isOpen && 'rotate-180')} />
             </button>
-            {extremeMobileCompatibility ? (
+            {extremeMobileCompatibility || androidCompatibility ? (
               isOpen ? (
                 <div className="overflow-hidden">
                   <p className="px-5 pb-5 text-sm leading-7 text-muted">{item.answer}</p>

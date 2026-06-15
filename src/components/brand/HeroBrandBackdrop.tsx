@@ -1,11 +1,27 @@
 import { motion } from 'framer-motion';
 import { brandAssets } from '../../config/brand';
-import { useIsMobile } from '../../hooks/useMediaQuery';
+import { useAndroidCompatibility, useIsMobile } from '../../hooks/useMediaQuery';
 
 export function HeroBrandBackdrop() {
   const isMobile = useIsMobile();
+  const androidCompatibility = useAndroidCompatibility();
 
   if (isMobile) return null;
+
+  if (androidCompatibility) {
+    return (
+      <div aria-hidden className="pointer-events-none absolute inset-0 z-0 overflow-hidden android-safe android-no-motion">
+        <div className="absolute left-0 right-0 top-[42%] mx-auto h-[min(92vw,56rem)] w-[min(92vw,56rem)]">
+          <img
+            src={brandAssets.symbol}
+            alt=""
+            className="h-full w-full object-contain opacity-[0.05] blur-[2px] saturate-[1.1] mix-blend-screen android-safe"
+          />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(141,92,255,0.14),transparent_58%)] opacity-60 blur-3xl android-safe" />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 z-0 overflow-hidden">

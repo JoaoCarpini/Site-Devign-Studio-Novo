@@ -438,67 +438,47 @@ canvas {
   }
 }
 
-@media (max-width: 1023px) {
-  [class*='translate'],
-  [class*='rotate'],
-  [class*='scale'],
-  [class*='transform'],
-  [class*='transform-gpu'],
-  [class*='will-change'],
-  [class*='blur'],
-  [class*='filter'],
-  [class*='backdrop'],
-  [class*='mix-blend'],
-  [class*='mask'] {
-    transform: none !important;
-    translate: none !important;
-    rotate: none !important;
-    scale: none !important;
-    transform-style: flat !important;
-    perspective: none !important;
-    filter: none !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    mix-blend-mode: normal !important;
-    will-change: auto !important;
-    mask: none !important;
-    mask-image: none !important;
-    -webkit-mask: none !important;
-    -webkit-mask-image: none !important;
-  }
-}
-
-html[data-android-compat='true'] *,
-html[data-android-compat='true'] *::before,
-html[data-android-compat='true'] *::after {
-  transform-style: flat !important;
-  perspective: none !important;
+html[data-android-compat='true'] .android-safe,
+html[data-android-compat='true'] .android-safe * {
   filter: none !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   mix-blend-mode: normal !important;
-  will-change: auto !important;
+  mask: none !important;
   mask-image: none !important;
+  -webkit-mask: none !important;
   -webkit-mask-image: none !important;
+  will-change: auto !important;
 }
 
-html[data-android-compat='true'] .page-shell,
-html[data-android-compat='true'] .section-band,
-html[data-android-compat='true'] .mockup-window,
-html[data-android-compat='true'] .premium-card,
-html[data-android-compat='true'] .light-card {
-  isolation: auto !important;
-  contain: none !important;
+html[data-android-compat='true'] .android-no-gpu,
+html[data-android-compat='true'] .android-no-gpu * {
+  transform: none !important;
+  translate: none !important;
+  rotate: none !important;
+  scale: none !important;
+  transform-style: flat !important;
+  perspective: none !important;
+  will-change: auto !important;
 }
 
-html[data-android-compat='true'] .hero-fine-grid,
-html[data-android-compat='true'] .soft-grid,
-html[data-android-compat='true'] .orbit-glow,
-html[data-android-compat='true'] .animated-gradient {
-  display: none !important;
+html[data-android-compat='true'] .android-static,
+html[data-android-compat='true'] .android-static * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  will-change: auto !important;
 }
 
-html[data-android-compat='true'] .marquee-track {
+html[data-android-compat='true'] .android-no-motion,
+html[data-android-compat='true'] .android-no-motion *,
+html[data-android-compat='true'] .android-no-motion *::before,
+html[data-android-compat='true'] .android-no-motion *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+html[data-android-compat='true'] .marquee-track.android-static {
   animation: none !important;
   transform: none !important;
 }

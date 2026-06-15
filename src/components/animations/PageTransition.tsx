@@ -1,12 +1,13 @@
 import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { useExtremeMobileCompatibility, usePrefersReducedMotion } from '../../hooks/useMediaQuery';
+import { useAndroidCompatibility, useExtremeMobileCompatibility, usePrefersReducedMotion } from '../../hooks/useMediaQuery';
 
 export function PageTransition({ children }: { children: ReactNode }) {
   const extremeMobileCompatibility = useExtremeMobileCompatibility();
   const reduceMotion = usePrefersReducedMotion();
+  const androidCompatibility = useAndroidCompatibility();
 
-  if (extremeMobileCompatibility || reduceMotion) {
+  if (extremeMobileCompatibility || reduceMotion || androidCompatibility) {
     return <main>{children}</main>;
   }
 

@@ -1,3 +1,6 @@
+import { cn } from '../../utils/cn';
+import { useAndroidCompatibility, useIsMobile } from '../../hooks/useMediaQuery';
+
 const serviceHighlights = [
   {
     title: 'LANDING PAGES',
@@ -43,6 +46,7 @@ const serviceHighlights = [
 
 export function ServicesMarquee() {
   const isMobile = useIsMobile();
+  const androidCompatibility = useAndroidCompatibility();
   const visibleHighlights = isMobile ? serviceHighlights : [...serviceHighlights, ...serviceHighlights];
 
   return (
@@ -57,7 +61,7 @@ export function ServicesMarquee() {
 
         <div className="mt-8 overflow-hidden rounded-[1.35rem] border border-white/10 bg-[#080a14]/80 px-3 py-4 shadow-[0_0_44px_rgba(5,5,9,0.18)] sm:mt-12 sm:rounded-[2rem] sm:px-5 sm:py-6 sm:shadow-[0_0_80px_rgba(5,5,9,0.18)]">
           <div className="marquee-wrap relative overflow-hidden">
-            <div className={isMobile ? 'flex max-w-full snap-x gap-3 overflow-x-auto py-1' : 'marquee-track'}>
+            <div className={isMobile ? 'flex max-w-full snap-x gap-3 overflow-x-auto py-1' : cn('marquee-track', androidCompatibility && 'android-static')}>
               <div className={isMobile ? 'contents' : 'marquee-group flex gap-6 py-2'}>
                 {visibleHighlights.map((item, index) => (
                   <article
@@ -76,4 +80,3 @@ export function ServicesMarquee() {
     </section>
   );
 }
-import { useIsMobile } from '../../hooks/useMediaQuery';

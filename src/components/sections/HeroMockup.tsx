@@ -1,15 +1,17 @@
 import { motion } from 'framer-motion';
 import { cn } from '../../utils/cn';
-import { useReduceMotion } from '../../hooks/useMediaQuery';
+import { useAndroidCompatibility, useReduceMotion } from '../../hooks/useMediaQuery';
 
 export function HeroMockup({ className }: { className?: string }) {
   const reduceMotion = useReduceMotion();
+  const androidCompatibility = useAndroidCompatibility();
+  const safeMotion = reduceMotion || androidCompatibility;
 
   const barElements = [42, 58, 51, 72, 64, 88].map((height, index) => {
     const barClassName = 'rounded-t-xl bg-[linear-gradient(180deg,#f7f5ff,rgba(169,139,255,0.58))]';
     const style = { height: `${height}%` };
 
-    if (reduceMotion) {
+    if (safeMotion) {
       return <span key={height} className={barClassName} style={style} />;
     }
 
@@ -83,9 +85,13 @@ export function HeroMockup({ className }: { className?: string }) {
     </>
   );
 
-  const mockupClassName = cn('mockup-window relative mx-auto max-w-[45rem] rounded-[1.35rem] sm:rounded-[1.75rem]', className);
+  const mockupClassName = cn(
+    'mockup-window relative mx-auto w-full max-w-[45rem] rounded-[1.35rem] sm:rounded-[1.75rem]',
+    className,
+    androidCompatibility && 'android-safe android-no-gpu',
+  );
 
-  if (reduceMotion) {
+  if (safeMotion) {
     return <div className={mockupClassName}>{content}</div>;
   }
 

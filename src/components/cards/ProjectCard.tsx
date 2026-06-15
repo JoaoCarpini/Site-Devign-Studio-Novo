@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import type { Project } from '../../data/site';
 import { ButtonLink } from '../ui/Button';
 import { cn } from '../../utils/cn';
+import { useAndroidCompatibility } from '../../hooks/useMediaQuery';
 
 const accentStyles: Record<Project['accent'], string> = {
   violet: 'from-violet-500/28 via-violet-400/10 to-transparent text-violet-400',
@@ -10,8 +11,13 @@ const accentStyles: Record<Project['accent'], string> = {
 };
 
 export function ProjectCard({ project }: { project: Project }) {
+  const androidCompatibility = useAndroidCompatibility();
+
   return (
-    <article className="group overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/[0.045] shadow-[0_12px_40px_rgba(5,5,9,0.25)] backdrop-blur-lg transition duration-300 hover:-translate-y-0.5 hover:border-white/18 sm:rounded-[1.75rem] sm:shadow-premium sm:hover:-translate-y-1 sm:hover:border-white/20 sm:backdrop-blur-2xl">
+    <article className={cn(
+      'group overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/[0.045] shadow-[0_12px_40px_rgba(5,5,9,0.25)] backdrop-blur-lg transition duration-300 hover:-translate-y-0.5 hover:border-white/18 sm:rounded-[1.75rem] sm:shadow-premium sm:hover:-translate-y-1 sm:hover:border-white/20 sm:backdrop-blur-2xl',
+      androidCompatibility && 'android-safe android-no-motion',
+    )}>
       <div className={cn('relative h-40 overflow-hidden bg-gradient-to-br sm:h-72', accentStyles[project.accent])}>
         <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.08),transparent_38%,rgba(255,255,255,0.05)_74%,transparent)] opacity-50 transition duration-500 group-hover:translate-x-3" />
         <div className="absolute inset-x-4 bottom-4 top-6 rounded-[1rem] border border-white/12 bg-ink/70 p-3 shadow-[0_10px_32px_rgba(5,5,9,0.32)] backdrop-blur-lg sm:inset-x-6 sm:bottom-6 sm:top-7 sm:rounded-[1.25rem] sm:p-4 sm:shadow-premium sm:backdrop-blur-xl">

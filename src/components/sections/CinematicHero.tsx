@@ -4,7 +4,7 @@ import { HeroBrandBackdrop } from '../brand/HeroBrandBackdrop';
 import { AuroraBackground } from '../backgrounds/AuroraBackground';
 import { ButtonLink } from '../ui/Button';
 import { HeroMockup } from './HeroMockup';
-import { useIsMobile, useReduceMotion } from '../../hooks/useMediaQuery';
+import { useAndroidCompatibility, useIsMobile, useReduceMotion } from '../../hooks/useMediaQuery';
 
 const particles = [
   { left: '9%', top: '26%', delay: 0, size: 3 },
@@ -29,6 +29,8 @@ const ENABLE_HERO_METRICS = true;
 export function CinematicHero() {
   const isMobile = useIsMobile();
   const reduceMotion = useReduceMotion();
+  const androidCompatibility = useAndroidCompatibility();
+  const animatedMetrics = !reduceMotion && !androidCompatibility;
 
   if (isMobile) {
     return <MobileCinematicHero />;
@@ -42,7 +44,7 @@ export function CinematicHero() {
       <div aria-hidden="true" className="absolute left-1/2 top-24 z-0 hidden h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-violet-500/16 blur-[120px] sm:block" />
       <div aria-hidden="true" className="absolute right-[-12rem] top-32 z-0 hidden h-[26rem] w-[26rem] rounded-full bg-signal/8 blur-[100px] sm:block" />
 
-      {!isMobile &&
+      {!isMobile && !androidCompatibility &&
         particles.map((particle) => (
           <motion.span
             key={`${particle.left}-${particle.top}`}
@@ -61,33 +63,52 @@ export function CinematicHero() {
 
       <div className="container-premium relative z-10 grid gap-8 pb-10 pt-5 sm:gap-14 sm:pb-14 sm:pt-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:pb-20">
         <div>
-          <motion.div
-            initial={isMobile ? { opacity: 0, y: 8 } : { opacity: 0, y: 18, filter: 'blur(10px)' }}
-            animate={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: isMobile ? 0.3 : 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/[0.065] px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-violet-300 shadow-[0_0_50px_rgba(141,92,255,0.16)] sm:mb-7 sm:gap-3 sm:px-4 sm:text-xs sm:tracking-[0.24em] sm:backdrop-blur-2xl"
-          >
-            <Sparkles className="h-4 w-4" />
-            Devign Studio / Software house premium
-          </motion.div>
+          {androidCompatibility ? (
+            <div className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/[0.065] px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-violet-300 shadow-[0_0_50px_rgba(141,92,255,0.16)] sm:mb-7 sm:gap-3 sm:px-4 sm:text-xs sm:tracking-[0.24em] sm:backdrop-blur-2xl">
+              <Sparkles className="h-4 w-4" />
+              Devign Studio / Software house premium
+            </div>
+          ) : (
+            <motion.div
+              initial={isMobile ? { opacity: 0, y: 8 } : { opacity: 0, y: 18, filter: 'blur(10px)' }}
+              animate={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: isMobile ? 0.3 : 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/[0.065] px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-violet-300 shadow-[0_0_50px_rgba(141,92,255,0.16)] sm:mb-7 sm:gap-3 sm:px-4 sm:text-xs sm:tracking-[0.24em] sm:backdrop-blur-2xl"
+            >
+              <Sparkles className="h-4 w-4" />
+              Devign Studio / Software house premium
+            </motion.div>
+          )}
 
-          <motion.h1
-            className="max-w-6xl text-balance text-[clamp(2.85rem,15vw,4.35rem)] font-semibold leading-[0.92] tracking-normal text-frost sm:text-[clamp(3.5rem,7vw,7.7rem)] sm:leading-[0.88]"
-            initial={isMobile ? { opacity: 0, y: 10 } : { opacity: 0, y: 32, filter: 'blur(14px)' }}
-            animate={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: isMobile ? 0.34 : 0.9, ease: [0.22, 1, 0.36, 1], delay: isMobile ? 0.02 : 0.08 }}
-          >
-            Infraestrutura digital para marcas que operam em alto nível.
-          </motion.h1>
+          {androidCompatibility ? (
+            <h1 className="max-w-6xl text-balance text-[clamp(2.85rem,15vw,4.35rem)] font-semibold leading-[0.92] tracking-normal text-frost sm:text-[clamp(3.5rem,7vw,7.7rem)] sm:leading-[0.88]">
+              Infraestrutura digital para marcas que operam em alto nível.
+            </h1>
+          ) : (
+            <motion.h1
+              className="max-w-6xl text-balance text-[clamp(2.85rem,15vw,4.35rem)] font-semibold leading-[0.92] tracking-normal text-frost sm:text-[clamp(3.5rem,7vw,7.7rem)] sm:leading-[0.88]"
+              initial={isMobile ? { opacity: 0, y: 10 } : { opacity: 0, y: 32, filter: 'blur(14px)' }}
+              animate={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: isMobile ? 0.34 : 0.9, ease: [0.22, 1, 0.36, 1], delay: isMobile ? 0.02 : 0.08 }}
+            >
+              Infraestrutura digital para marcas que operam em alto nível.
+            </motion.h1>
+          )}
 
-          <motion.p
-            className="mt-6 max-w-2xl text-base leading-7 text-mist sm:mt-8 sm:text-xl sm:leading-9"
-            initial={isMobile ? { opacity: 0, y: 8 } : { opacity: 0, y: 24, filter: 'blur(10px)' }}
-            animate={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: isMobile ? 0.32 : 0.75, ease: [0.22, 1, 0.36, 1], delay: isMobile ? 0.04 : 0.18 }}
-          >
-            Construímos experiências digitais, automações e sistemas sob medida para empresas que precisam transformar presença, dados e operação em vantagem real.
-          </motion.p>
+          {androidCompatibility ? (
+            <p className="mt-6 max-w-2xl text-base leading-7 text-mist sm:mt-8 sm:text-xl sm:leading-9">
+              Construímos experiências digitais, automações e sistemas sob medida para empresas que precisam transformar presença, dados e operação em vantagem real.
+            </p>
+          ) : (
+            <motion.p
+              className="mt-6 max-w-2xl text-base leading-7 text-mist sm:mt-8 sm:text-xl sm:leading-9"
+              initial={isMobile ? { opacity: 0, y: 8 } : { opacity: 0, y: 24, filter: 'blur(10px)' }}
+              animate={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: isMobile ? 0.32 : 0.75, ease: [0.22, 1, 0.36, 1], delay: isMobile ? 0.04 : 0.18 }}
+            >
+              Construímos experiências digitais, automações e sistemas sob medida para empresas que precisam transformar presença, dados e operação em vantagem real.
+            </motion.p>
+          )}
 
           <motion.div
             className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row"

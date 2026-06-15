@@ -1,6 +1,7 @@
 import { type ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { useExtremeMobileCompatibility, useReduceMotion } from '../../hooks/useMediaQuery';
+import { cn } from '../../utils/cn';
+import { useAndroidCompatibility, useExtremeMobileCompatibility, useReduceMotion } from '../../hooks/useMediaQuery';
 
 type RevealProps = {
   children: ReactNode;
@@ -11,9 +12,14 @@ type RevealProps = {
 export function Reveal({ children, className, delay = 0 }: RevealProps) {
   const extremeMobileCompatibility = useExtremeMobileCompatibility();
   const reduceMotion = useReduceMotion();
+  const androidCompatibility = useAndroidCompatibility();
 
-  if (extremeMobileCompatibility || reduceMotion) {
-    return <div className={className}>{children}</div>;
+  if (extremeMobileCompatibility || reduceMotion || androidCompatibility) {
+    return (
+      <div className={cn(className, androidCompatibility && 'android-safe android-no-motion')}>
+        {children}
+      </div>
+    );
   }
 
   return (

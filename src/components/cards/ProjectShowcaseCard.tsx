@@ -3,6 +3,7 @@ import type { Project } from '../../data/site';
 import { cn } from '../../utils/cn';
 import { Reveal } from '../animations/Reveal';
 import { ButtonLink } from '../ui/Button';
+import { useAndroidCompatibility } from '../../hooks/useMediaQuery';
 
 const accentStyles: Record<
   Project['accent'],
@@ -36,6 +37,7 @@ export function ProjectShowcaseCard({
   featured?: boolean;
 }) {
   const accent = accentStyles[project.accent];
+  const androidCompatibility = useAndroidCompatibility();
 
   return (
     <Reveal>
@@ -43,6 +45,7 @@ export function ProjectShowcaseCard({
         className={cn(
           'relative overflow-hidden rounded-3xl border bg-[#0B0B12] p-5 sm:p-8',
           accent.border,
+          androidCompatibility && 'android-safe android-no-motion',
         )}
       >
         <div
