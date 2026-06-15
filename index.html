@@ -28,12 +28,9 @@
   </head>
   <body>
     <script>
-      try {
-        if (/Android/i.test(navigator.userAgent)) {
-          document.documentElement.dataset.androidCompat = 'true';
-        }
-      } catch (error) {
-        console.debug('android compat bootstrap failed', error);
+      // Aplica data-android-compat ANTES do React montar para evitar flash de efeitos pesados
+      if (/Android/i.test(navigator.userAgent)) {
+        document.documentElement.dataset.androidCompat = 'true';
       }
     </script>
     <div id="root"></div>

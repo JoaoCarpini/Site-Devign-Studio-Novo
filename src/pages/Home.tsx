@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import { ArrowRight, Building2, MoveRight, Network, ServerCog, ShieldCheck } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ServiceCard } from '../components/cards/ServiceCard';
 import { ArchitectureBlueprint } from '../components/sections/ArchitectureBlueprint';
@@ -15,7 +15,6 @@ import { Reveal } from '../components/animations/Reveal';
 import { ButtonLink } from '../components/ui/Button';
 import { SectionIntro } from '../components/ui/SectionIntro';
 import { services } from '../data/site';
-
 const companySignals = [
   {
     title: 'Arquitetura antes da superfície',
@@ -72,23 +71,19 @@ const ENABLE_BUDGET_CTA = true;
 const MOBILE_HOME_QUERY = '(max-width: 1024px)';
 
 export default function Home() {
+  // null = ainda não sabemos (evita flash de layout errado no Android)
   const [isMobileHome, setIsMobileHome] = useState<boolean | null>(null);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const mediaQuery = window.matchMedia(MOBILE_HOME_QUERY);
-    const update = () => setIsMobileHome(mediaQuery.matches);
-
-    update();
-    mediaQuery.addEventListener('change', update);
-
-    return () => mediaQuery.removeEventListener('change', update);
+    const mq = window.matchMedia(MOBILE_HOME_QUERY);
+    setIsMobileHome(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobileHome(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
   }, []);
 
-  if (isMobileHome === null) {
-    return null;
-  }
+  // Ainda hidratando — não renderiza nada para evitar layout duplo
+  if (isMobileHome === null) return null;
 
   if (isMobileHome) {
     return <MobileHomeExperience />;

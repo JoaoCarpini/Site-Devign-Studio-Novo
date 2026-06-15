@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { ScrollManager } from './components/animations/ScrollManager';
@@ -20,7 +20,7 @@ import Automation from './pages/services/Automation';
 import AI from './pages/services/AI';
 import LandingPages from './pages/services/LandingPages';
 import Integrations from './pages/services/Integrations';
-import { useAndroidCompatibility, useExtremeMobileCompatibility } from './hooks/useMediaQuery';
+import { useAndroidCompatibility, useExtremeMobileCompatibility, useMediaQuery } from './hooks/useMediaQuery';
 
 const MOBILE_HOME_QUERY = '(max-width: 1024px)';
 
@@ -28,23 +28,14 @@ export default function App() {
   const location = useLocation();
   const androidCompatibility = useAndroidCompatibility();
   const extremeMobileCompatibility = useExtremeMobileCompatibility();
-  const [isMobileHome, setIsMobileHome] = useState<boolean | null>(null);
+  // ContactPresence só aparece fora da home mobile
+  const isMobileHome = location.pathname === '/' && window.matchMedia(MOBILE_HOME_QUERY).matches;
 
   useEffect(() => {
-    document.documentElement.dataset.androidCompat = androidCompatibility ? 'true' : 'false';
+    // Aplicar imediatamente, sem esperar re-render
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    document.documentElement.dataset.androidCompat = isAndroid ? 'true' : 'false';
   }, [androidCompatibility]);
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const mediaQuery = window.matchMedia(MOBILE_HOME_QUERY);
-    const update = () => setIsMobileHome(location.pathname === '/' && mediaQuery.matches);
-
-    update();
-    mediaQuery.addEventListener('change', update);
-
-    return () => mediaQuery.removeEventListener('change', update);
-  }, [location.pathname]);
 
   return (
     <div className="page-shell">
@@ -93,7 +84,7 @@ export default function App() {
           </PageTransition>
         </AnimatePresence>
       )}
-      {isMobileHome === true ? null : <ContactPresence />}
+      {isMobileHome ? null : <ContactPresence />}
       <Footer />
     </div>
   );

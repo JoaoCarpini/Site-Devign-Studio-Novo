@@ -19,10 +19,10 @@ export function useMediaQuery(query: string) {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(query);
+    // Só registra o listener, não chama update() de novo
+    // (o estado inicial já foi setado corretamente no useState)
     const update = () => setMatches(mediaQuery.matches);
-
     mediaQuery.addEventListener('change', update);
-
     return () => mediaQuery.removeEventListener('change', update);
   }, [query]);
 
