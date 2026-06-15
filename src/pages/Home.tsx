@@ -70,20 +70,21 @@ const ENABLE_COMPANY_SIGNALS = true;
 const ENABLE_BUDGET_CTA = true;
 const MOBILE_HOME_QUERY = '(max-width: 1024px)';
 
+// Leitura síncrona fora do componente — roda uma vez antes de qualquer render
+// Evita o flash de layout no Android onde useEffect chega tarde demais
+const IS_MOBILE_HOME = typeof window !== 'undefined'
+  ? window.matchMedia(MOBILE_HOME_QUERY).matches
+  : false;
+
 export default function Home() {
-  // null = ainda não sabemos (evita flash de layout errado no Android)
-  const [isMobileHome, setIsMobileHome] = useState<boolean | null>(null);
+  const [isMobileHome, setIsMobileHome] = useState(IS_MOBILE_HOME);
 
   useEffect(() => {
     const mq = window.matchMedia(MOBILE_HOME_QUERY);
-    setIsMobileHome(mq.matches);
     const handler = (e: MediaQueryListEvent) => setIsMobileHome(e.matches);
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);
   }, []);
-
-  // Ainda hidratando — não renderiza nada para evitar layout duplo
-  if (isMobileHome === null) return null;
 
   if (isMobileHome) {
     return <MobileHomeExperience />;
