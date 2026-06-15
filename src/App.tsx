@@ -22,13 +22,21 @@ import LandingPages from './pages/services/LandingPages';
 import Integrations from './pages/services/Integrations';
 import { useAndroidCompatibility, useExtremeMobileCompatibility } from './hooks/useMediaQuery';
 
-// Detecta Android sincronamente antes de qualquer render
-const IS_ANDROID = typeof navigator !== 'undefined' && /Android/i.test(navigator.userAgent);
+// Detecta Android/mobile sincronamente antes de qualquer render
+// Usa userAgentData (Chrome 90+) com fallback para userAgent string
+const IS_ANDROID = typeof navigator !== 'undefined' && (
+  // API moderna (Chrome 90+) — mais confiável
+  ((navigator as any).userAgentData?.mobile === true) ||
+  // Fallback — UA string clássica
+  /Android/i.test(navigator.userAgent) ||
+  // Fallback adicional para UA Reduction do Chrome
+  /Mobile/i.test(navigator.userAgent)
+);
 const IS_MOBILE = typeof window !== 'undefined' && window.matchMedia('(max-width: 1024px)').matches;
 
 const routes = (location: ReturnType<typeof useLocation>) => (
   <Routes location={location}>
-    <Route path="/" element={<Home />} />
+    <Route path="/" element={<Home key={IS_MOBILE ? "mobile" : "desktop"} />} />
     <Route path="/servicos" element={<Services />} />
     <Route path="/projetos" element={<Projects />} />
     <Route path="/sobre" element={<About />} />

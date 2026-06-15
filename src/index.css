@@ -228,7 +228,9 @@ canvas {
   }
 
   .page-shell {
-    overflow-x: clip;
+    /* overflow-x: clip removido — causa GPU compositor crash no Chrome Android
+       com position:fixed headers. Overflow horizontal é controlado pelo html/body. */
+    overflow-x: unset;
   }
 
   *,
@@ -329,11 +331,9 @@ canvas {
 
     opacity: 0.08 !important;
 
-    mask-image: radial-gradient(
-      circle at 50% 20%,
-      black 0%,
-      transparent 45%
-    );
+    /* mask-image removido no mobile — força composite layer no Chrome Android */
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
   }
 
   .hero-fine-grid {
@@ -345,12 +345,9 @@ canvas {
 
     opacity: 0.06 !important;
 
-    mask-image: linear-gradient(
-      180deg,
-      black 0%,
-      black 45%,
-      transparent 100%
-    );
+    /* mask-image removido no mobile — força composite layer no Chrome Android */
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
   }
 
   button:hover,
