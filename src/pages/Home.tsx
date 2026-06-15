@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { ArrowRight, Building2, MoveRight, Network, ServerCog, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ServiceCard } from '../components/cards/ServiceCard';
@@ -14,7 +15,6 @@ import { Reveal } from '../components/animations/Reveal';
 import { ButtonLink } from '../components/ui/Button';
 import { SectionIntro } from '../components/ui/SectionIntro';
 import { services } from '../data/site';
-import { useIsMobile } from '../hooks/useMediaQuery';
 
 const companySignals = [
   {
@@ -69,11 +69,28 @@ const ENABLE_TECH_CLOUD = true;
 const ENABLE_TEAM_SECTION = true;
 const ENABLE_COMPANY_SIGNALS = true;
 const ENABLE_BUDGET_CTA = true;
+const MOBILE_HOME_QUERY = '(max-width: 1024px)';
 
 export default function Home() {
-  const useMobileHome = useIsMobile();
+  const [isMobileHome, setIsMobileHome] = useState<boolean | null>(null);
 
-  if (useMobileHome) {
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const mediaQuery = window.matchMedia(MOBILE_HOME_QUERY);
+    const update = () => setIsMobileHome(mediaQuery.matches);
+
+    update();
+    mediaQuery.addEventListener('change', update);
+
+    return () => mediaQuery.removeEventListener('change', update);
+  }, []);
+
+  if (isMobileHome === null) {
+    return null;
+  }
+
+  if (isMobileHome) {
     return <MobileHomeExperience />;
   }
 
