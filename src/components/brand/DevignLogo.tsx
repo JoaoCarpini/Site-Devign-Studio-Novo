@@ -84,11 +84,7 @@ export function DevignLogo({
   }
 
   return (
-    <Link
-      to={to}
-      className={classes}
-      aria-label="Devign Studio - início"
-    >
+    <Link to={to} className={classes}>
       {content}
     </Link>
   );
