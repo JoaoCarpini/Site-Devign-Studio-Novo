@@ -27,6 +27,15 @@
     <title>Devign Studio | Software House Premium</title>
   </head>
   <body>
+    <script>
+      try {
+        if (/Android/i.test(navigator.userAgent)) {
+          document.documentElement.dataset.androidCompat = 'true';
+        }
+      } catch (error) {
+        console.debug('android compat bootstrap failed', error);
+      }
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

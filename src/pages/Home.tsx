@@ -14,7 +14,7 @@ import { Reveal } from '../components/animations/Reveal';
 import { ButtonLink } from '../components/ui/Button';
 import { SectionIntro } from '../components/ui/SectionIntro';
 import { services } from '../data/site';
-import { useMediaQuery } from '../hooks/useMediaQuery';
+import { useIsMobile } from '../hooks/useMediaQuery';
 
 const companySignals = [
   {
@@ -69,10 +69,9 @@ const ENABLE_TECH_CLOUD = true;
 const ENABLE_TEAM_SECTION = true;
 const ENABLE_COMPANY_SIGNALS = true;
 const ENABLE_BUDGET_CTA = true;
-const MOBILE_HOME_QUERY = '(max-width: 1024px)';
 
 export default function Home() {
-  const useMobileHome = useMediaQuery(MOBILE_HOME_QUERY);
+  const useMobileHome = useIsMobile();
 
   if (useMobileHome) {
     return <MobileHomeExperience />;

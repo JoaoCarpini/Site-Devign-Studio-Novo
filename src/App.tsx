@@ -20,15 +20,13 @@ import Automation from './pages/services/Automation';
 import AI from './pages/services/AI';
 import LandingPages from './pages/services/LandingPages';
 import Integrations from './pages/services/Integrations';
-import { useAndroidCompatibility, useExtremeMobileCompatibility, useMediaQuery } from './hooks/useMediaQuery';
-
-const MOBILE_HOME_QUERY = '(max-width: 1024px)';
+import { useAndroidCompatibility, useExtremeMobileCompatibility, useIsMobile } from './hooks/useMediaQuery';
 
 export default function App() {
   const location = useLocation();
   const androidCompatibility = useAndroidCompatibility();
   const extremeMobileCompatibility = useExtremeMobileCompatibility();
-  const isMobileHome = useMediaQuery(MOBILE_HOME_QUERY) && location.pathname === '/';
+  const isMobileHome = useIsMobile() && location.pathname === '/';
 
   useEffect(() => {
     document.documentElement.dataset.androidCompat = androidCompatibility ? 'true' : 'false';

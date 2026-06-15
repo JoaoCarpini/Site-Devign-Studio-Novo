@@ -164,7 +164,7 @@ export function CinematicHero() {
 
 function MobileCinematicHero() {
   return (
-    <section className="relative overflow-hidden pt-[calc(5rem+env(safe-area-inset-top))]">
+    <section className="relative overflow-clip pt-[calc(5rem+env(safe-area-inset-top))]">
       <AuroraBackground />
       <div aria-hidden="true" className="hero-fine-grid absolute inset-0 z-0 opacity-20" />
 

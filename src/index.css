@@ -367,9 +367,11 @@ canvas {
     mix-blend-mode: normal !important;
   }
 
+  [class*='blur'],
   [class*='blur-'],
   [class*='blur['] {
     filter: none !important;
+    -webkit-filter: none !important;
   }
 
   .marquee-wrap {
