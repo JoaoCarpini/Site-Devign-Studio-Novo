@@ -6,17 +6,17 @@ export function HeroMockup({ className }: { className?: string }) {
   const reduceMotion = useReduceMotion();
 
   const barElements = [42, 58, 51, 72, 64, 88].map((height, index) => {
-    const className = 'rounded-t-xl bg-[linear-gradient(180deg,#f7f5ff,rgba(169,139,255,0.58))]';
+    const barClassName = 'rounded-t-xl bg-[linear-gradient(180deg,#f7f5ff,rgba(169,139,255,0.58))]';
     const style = { height: `${height}%` };
 
     if (reduceMotion) {
-      return <span key={height} className={className} style={style} />;
+      return <span key={height} className={barClassName} style={style} />;
     }
 
     return (
       <motion.span
         key={height}
-        className={className}
+        className={barClassName}
         style={style}
         initial={{ scaleY: 0.3, opacity: 0.4 }}
         animate={{ scaleY: 1, opacity: 1 }}
@@ -25,13 +25,8 @@ export function HeroMockup({ className }: { className?: string }) {
     );
   });
 
-  return (
-    <motion.div
-      className={cn('mockup-window relative mx-auto max-w-[45rem] rounded-[1.35rem] sm:rounded-[1.75rem]', className)}
-      initial={reduceMotion ? false : { opacity: 0, y: 40, rotateX: 7 }}
-      animate={reduceMotion ? undefined : { opacity: 1, y: 0, rotateX: 0 }}
-      transition={reduceMotion ? undefined : { duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-    >
+  const content = (
+    <>
       <div className="flex items-center justify-between border-b border-white/10 px-3.5 py-3 sm:px-5 sm:py-4">
         <div className="flex items-center gap-2">
           <span className="h-2.5 w-2.5 rounded-full bg-[#ff6b6b] sm:h-3 sm:w-3" />
@@ -46,7 +41,7 @@ export function HeroMockup({ className }: { className?: string }) {
           <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 sm:p-4">
             <span className="block h-2.5 w-20 rounded-full bg-violet-400/70" />
             <strong className="mt-4 block text-3xl font-semibold tracking-normal text-frost sm:mt-5 sm:text-4xl">98</strong>
-            <span className="mt-1 block text-[0.68rem] leading-4 text-muted sm:text-xs">Precisão técnica</span>
+            <span className="mt-1 block text-[0.68rem] leading-4 text-muted sm:text-xs">Precisao tecnica</span>
           </div>
 
           <div className="rounded-2xl border border-white/10 bg-white/[0.055] p-3 sm:p-4">
@@ -85,6 +80,23 @@ export function HeroMockup({ className }: { className?: string }) {
           </div>
         </div>
       </div>
+    </>
+  );
+
+  const mockupClassName = cn('mockup-window relative mx-auto max-w-[45rem] rounded-[1.35rem] sm:rounded-[1.75rem]', className);
+
+  if (reduceMotion) {
+    return <div className={mockupClassName}>{content}</div>;
+  }
+
+  return (
+    <motion.div
+      className={mockupClassName}
+      initial={{ opacity: 0, y: 40, rotateX: 7 }}
+      animate={{ opacity: 1, y: 0, rotateX: 0 }}
+      transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+    >
+      {content}
     </motion.div>
   );
 }

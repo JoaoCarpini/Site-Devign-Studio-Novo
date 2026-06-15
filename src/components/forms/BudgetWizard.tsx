@@ -1,4 +1,4 @@
-import { FormEvent, useMemo, useRef, useState, type ReactNode } from 'react';
+import { Fragment, FormEvent, useMemo, useRef, useState, type ElementType, type ReactNode } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { LucideIcon } from 'lucide-react';
 import {
@@ -308,6 +308,9 @@ export function BudgetWizard() {
     }),
     [form],
   );
+  const SubmittedContainer: ElementType = reduceMotion ? 'section' : motion.section;
+  const StepPresence: ElementType = reduceMotion ? Fragment : AnimatePresence;
+  const StepContainer: ElementType = reduceMotion ? 'div' : motion.div;
 
   const update = (field: keyof FormState, value: string) => {
     setForm((current) => ({ ...current, [field]: value }));
@@ -419,10 +422,14 @@ export function BudgetWizard() {
 
   if (submitted) {
     return (
-      <motion.section
-        initial={reduceMotion ? { opacity: 0, y: 10 } : { opacity: 0, y: 16, filter: 'blur(8px)' }}
-        animate={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, filter: 'blur(0px)' }}
-        transition={{ duration: reduceMotion ? 0.28 : 0.48, ease: [0.16, 1, 0.3, 1] }}
+      <SubmittedContainer
+        {...(!reduceMotion
+          ? {
+              initial: { opacity: 0, y: 16, filter: 'blur(8px)' },
+              animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
+              transition: { duration: 0.48, ease: [0.16, 1, 0.3, 1] },
+            }
+          : {})}
         className="relative overflow-hidden rounded-[1.6rem] border border-violet-300/25 bg-[#0b0b13]/88 p-6 shadow-[0_18px_60px_rgba(5,5,9,0.32)] sm:rounded-[2rem] sm:p-8 sm:shadow-[0_22px_80px_rgba(5,5,9,0.42)] sm:backdrop-blur-xl"
       >
         <div className="pointer-events-none absolute -right-16 -top-16 hidden h-48 w-48 rounded-full bg-violet-500/[0.16] blur-3xl sm:block" />
@@ -454,7 +461,7 @@ export function BudgetWizard() {
             </button>
           </div>
         </div>
-      </motion.section>
+      </SubmittedContainer>
     );
   }
 
@@ -480,24 +487,32 @@ export function BudgetWizard() {
           </div>
 
           <div className="mt-3 h-1 overflow-hidden rounded-full bg-white/[0.08]">
-            <motion.div
-              className="h-full rounded-full bg-gradient-to-r from-violet-500 via-violet-300 to-signal"
-              animate={{ width: `${progress}%` }}
-              transition={{ duration: reduceMotion ? 0.22 : 0.38, ease: [0.16, 1, 0.3, 1] }}
-            />
+            {reduceMotion ? (
+              <div className="h-full rounded-full bg-gradient-to-r from-violet-500 via-violet-300 to-signal" style={{ width: `${progress}%` }} />
+            ) : (
+              <motion.div
+                className="h-full rounded-full bg-gradient-to-r from-violet-500 via-violet-300 to-signal"
+                animate={{ width: `${progress}%` }}
+                transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
+              />
+            )}
           </div>
 
           <StepDots currentStep={step} setStep={setStep} disabled={isSubmitting} />
         </header>
 
         <main className="min-w-0 py-5 sm:py-7">
-          <AnimatePresence mode="wait">
-            <motion.div
+          <StepPresence {...(!reduceMotion ? { mode: 'wait' } : {})}>
+            <StepContainer
               key={step}
-              initial={reduceMotion ? { opacity: 0, y: 8 } : { opacity: 0, y: 14, filter: 'blur(8px)' }}
-              animate={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, filter: 'blur(0px)' }}
-              exit={reduceMotion ? { opacity: 0, y: -8 } : { opacity: 0, y: -12, filter: 'blur(8px)' }}
-              transition={{ duration: reduceMotion ? 0.24 : 0.42, ease: [0.16, 1, 0.3, 1] }}
+              {...(!reduceMotion
+                ? {
+                    initial: { opacity: 0, y: 14, filter: 'blur(8px)' },
+                    animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
+                    exit: { opacity: 0, y: -12, filter: 'blur(8px)' },
+                    transition: { duration: 0.42, ease: [0.16, 1, 0.3, 1] },
+                  }
+                : {})}
             >
               <StepIntro title={currentStep.title} description={currentStep.description} />
               {step === 0 ? (
@@ -607,19 +622,17 @@ export function BudgetWizard() {
               {step === 6 ? (
                 <ContactFields form={form} update={update} />
               ) : null}
-            </motion.div>
-          </AnimatePresence>
+            </StepContainer>
+          </StepPresence>
         </main>
 
         {error ? (
-          <motion.p
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
+          <p
             className="mb-3 flex gap-2 rounded-2xl border border-red-400/25 bg-red-500/[0.08] px-3 py-2.5 text-sm leading-5 text-red-100"
           >
             <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0 text-red-300" />
             {error}
-          </motion.p>
+          </p>
         ) : null}
 
         <footer className="grid grid-cols-[0.46fr_1fr] gap-2 border-t border-white/10 pt-3 sm:flex sm:items-center sm:justify-between sm:gap-3 sm:pt-5">
@@ -742,12 +755,12 @@ function OptionCard({
   onClick: () => void;
 }) {
   const Icon = option.icon;
+  const ButtonElement: ElementType = reduceMotion ? 'button' : motion.button;
 
   return (
-    <motion.button
+    <ButtonElement
       type="button"
-      whileHover={reduceMotion ? undefined : { y: -2 }}
-      whileTap={reduceMotion ? undefined : { scale: 0.985 }}
+      {...(!reduceMotion ? { whileHover: { y: -2 }, whileTap: { scale: 0.985 } } : {})}
       onClick={onClick}
       className={cn(
         'group relative flex min-h-[6.25rem] w-full min-w-0 items-start gap-3.5 overflow-hidden rounded-2xl border p-4 text-left transition duration-300 sm:min-h-[8.5rem] sm:block sm:p-4',
@@ -772,7 +785,7 @@ function OptionCard({
         <span className="mt-1 block text-[0.8rem] leading-5 text-mist sm:text-sm sm:leading-6">{option.description}</span>
       </span>
       {selected ? <CheckCircle2 className="absolute bottom-3 right-3 h-4 w-4 text-violet-300" /> : null}
-    </motion.button>
+    </ButtonElement>
   );
 }
 
@@ -787,11 +800,12 @@ function SelectChip({
   onClick: () => void;
   children: ReactNode;
 }) {
+  const ButtonElement: ElementType = reduceMotion ? 'button' : motion.button;
+
   return (
-    <motion.button
+    <ButtonElement
       type="button"
-      whileHover={reduceMotion ? undefined : { y: -1 }}
-      whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+      {...(!reduceMotion ? { whileHover: { y: -1 }, whileTap: { scale: 0.98 } } : {})}
       onClick={onClick}
       className={cn(
         'flex min-h-12 min-w-0 items-center justify-between gap-2 rounded-2xl border px-3 py-2.5 text-left text-sm font-semibold leading-snug transition duration-300',
@@ -809,7 +823,7 @@ function SelectChip({
       >
         <CheckCircle2 className="h-3 w-3" />
       </span>
-    </motion.button>
+    </ButtonElement>
   );
 }
 
@@ -908,12 +922,7 @@ function TrustBadge({ icon: Icon, text }: { icon: LucideIcon; text: string }) {
 
 function LoadingOverlay({ message }: { message: string }) {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="absolute inset-0 z-20 grid place-items-center bg-ink/82 p-4 sm:bg-ink/72 sm:backdrop-blur-md"
-    >
+    <div className="absolute inset-0 z-20 grid place-items-center bg-ink/82 p-4 sm:bg-ink/72 sm:backdrop-blur-md">
       <div className="relative overflow-hidden rounded-2xl border border-violet-300/20 bg-white/[0.07] p-5 text-center shadow-[0_20px_70px_rgba(141,92,255,0.14)]">
         <div className="mx-auto grid h-12 w-12 place-items-center rounded-2xl border border-violet-300/25 bg-violet-500/[0.12] text-violet-300">
           <Loader2 className="h-5 w-5 animate-spin" />
@@ -921,7 +930,7 @@ function LoadingOverlay({ message }: { message: string }) {
         <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-violet-300">Processando briefing</p>
         <p className="mt-2 max-w-sm text-sm leading-6 text-mist">{message}</p>
       </div>
-    </motion.div>
+    </div>
   );
 }
 

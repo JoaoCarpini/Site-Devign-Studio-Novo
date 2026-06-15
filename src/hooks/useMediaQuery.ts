@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 
 // Layout: apenas largura de tela — determina se o layout deve ser mobile
-export const MOBILE_LAYOUT_QUERY = '(max-width: 768px), (pointer: coarse)';
+export const MOBILE_LAYOUT_QUERY = '(max-width: 1023px), (pointer: coarse)';
 
 // Performance: touch OU tela pequena — determina se animações pesadas devem ser reduzidas
-export const REDUCE_MOTION_QUERY = '(max-width: 768px), (pointer: coarse)';
+export const REDUCE_MOTION_QUERY = '(max-width: 1023px), (pointer: coarse)';
+
+export const EXTREME_MOBILE_COMPAT_QUERY = '(max-width: 1023px)';
 
 // Preferência do usuário para reduzir movimento
 export const PREFERS_REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
@@ -32,6 +34,10 @@ export function useMediaQuery(query: string) {
 // Só ativa em telas <= 768px — não ativa em notebooks touchscreen ou iPads grandes
 export function useIsMobile() {
   return useMediaQuery(MOBILE_LAYOUT_QUERY);
+}
+
+export function useExtremeMobileCompatibility() {
+  return useMediaQuery(EXTREME_MOBILE_COMPAT_QUERY);
 }
 
 // Usado para decisões de PERFORMANCE (blur em animações, whileHover, whileTap, efeitos GPU)

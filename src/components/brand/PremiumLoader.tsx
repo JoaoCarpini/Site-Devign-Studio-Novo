@@ -1,7 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { DevignLogo } from './DevignLogo';
-import { useIsMobile } from '../../hooks/useMediaQuery';
+import { useExtremeMobileCompatibility, useIsMobile } from '../../hooks/useMediaQuery';
 
 const LOADER_MIN_MS = 1400;
 const LOADER_STORAGE_KEY = 'devign-loader-seen';
@@ -11,6 +11,7 @@ type PremiumLoaderProps = {
 };
 
 export function PremiumLoader({ onComplete }: PremiumLoaderProps) {
+  const extremeMobileCompatibility = useExtremeMobileCompatibility();
   const isMobile = useIsMobile();
   const [messageIndex, setMessageIndex] = useState(0);
   const messages = ['Inicializando ambiente Devign...', 'Preparando experiência premium...'];
@@ -39,6 +40,25 @@ export function PremiumLoader({ onComplete }: PremiumLoaderProps) {
       window.clearTimeout(completeTimer);
     };
   }, [onComplete, messages.length]);
+
+  if (extremeMobileCompatibility) {
+    return (
+      <div className="fixed inset-0 z-[100] grid place-items-center bg-[#040407]">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(141,92,255,0.2),transparent_52%)]" />
+        <div className="relative flex flex-col items-center px-6 text-center">
+          <div className="relative grid h-24 w-56 place-items-center sm:w-64">
+            <DevignLogo to="" variant="footer" className="relative" />
+          </div>
+          <p className="mt-8 text-xs font-semibold uppercase tracking-[0.24em] text-violet-300/90">
+            {messages[messageIndex]}
+          </p>
+          <div className="mt-6 h-px w-28 overflow-hidden rounded-full bg-white/10">
+            <span className="block h-full rounded-full bg-gradient-to-r from-violet-500 via-violet-300 to-signal" />
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <motion.div
@@ -116,10 +136,15 @@ export function usePremiumLoaderGate() {
 
 export function AppLoaderGate({ children }: { children: ReactNode }) {
   const { showLoader, completeLoader } = usePremiumLoaderGate();
+  const extremeMobileCompatibility = useExtremeMobileCompatibility();
 
   return (
     <>
-      <AnimatePresence mode="wait">{showLoader ? <PremiumLoader onComplete={completeLoader} /> : null}</AnimatePresence>
+      {extremeMobileCompatibility ? (
+        showLoader ? <PremiumLoader onComplete={completeLoader} /> : null
+      ) : (
+        <AnimatePresence mode="wait">{showLoader ? <PremiumLoader onComplete={completeLoader} /> : null}</AnimatePresence>
+      )}
       {children}
     </>
   );

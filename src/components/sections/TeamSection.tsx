@@ -134,12 +134,8 @@ function TeamCard({
   index: number;
   reduceMotion: boolean;
 }) {
-  return (
-    <motion.article
-      whileHover={reduceMotion ? undefined : { y: -8, scale: 1.012 }}
-      transition={reduceMotion ? undefined : { duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-      className="group relative h-full min-w-0 overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.052] p-5 shadow-[0_20px_70px_rgba(5,5,9,0.34)] sm:rounded-[1.65rem] sm:p-6 sm:shadow-[0_24px_90px_rgba(5,5,9,0.45)] sm:backdrop-blur-2xl"
-    >
+  const content = (
+    <>
       <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.35] to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
       <div className="absolute -right-20 -top-20 h-44 w-44 rounded-full bg-violet-500/0 blur-3xl transition duration-700 group-hover:bg-violet-500/[0.18]" />
       <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-violet-400/0 via-violet-400/40 to-violet-400/0 opacity-0 transition duration-700 group-hover:opacity-100" />
@@ -169,6 +165,22 @@ function TeamCard({
           <span className="h-2 w-2 rounded-full bg-signal shadow-[0_0_24px_rgba(77,212,198,0.7)]" />
         </div>
       </div>
+    </>
+  );
+
+  const className = 'group relative h-full min-w-0 overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.052] p-5 shadow-[0_20px_70px_rgba(5,5,9,0.34)] sm:rounded-[1.65rem] sm:p-6 sm:shadow-[0_24px_90px_rgba(5,5,9,0.45)] sm:backdrop-blur-2xl';
+
+  if (reduceMotion) {
+    return <article className={className}>{content}</article>;
+  }
+
+  return (
+    <motion.article
+      whileHover={{ y: -8, scale: 1.012 }}
+      transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+      className={className}
+    >
+      {content}
     </motion.article>
   );
 }

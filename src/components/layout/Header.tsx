@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight, Menu, X } from 'lucide-react';
 import { DevignLogo } from '../brand/DevignLogo';
 import { cn } from '../../utils/cn';
+import { useExtremeMobileCompatibility } from '../../hooks/useMediaQuery';
 
 const navItems = [
   { label: 'Home', to: '/' },
@@ -22,6 +23,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useLocation();
+  const extremeMobileCompatibility = useExtremeMobileCompatibility();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 16);
@@ -59,7 +61,9 @@ export function Header() {
                   active && 'text-frost',
                 )}
               >
-                {active ? (
+                {active && extremeMobileCompatibility ? (
+                  <span className="absolute inset-0 rounded-lg border border-white/[0.08] bg-white/[0.07] shadow-[0_8px_30px_rgba(0,0,0,0.15)]" />
+                ) : active ? (
                   <motion.span
                     layoutId="active-nav-indicator"
                     className="absolute inset-0 rounded-lg border border-white/[0.08] bg-white/[0.07] shadow-[0_8px_30px_rgba(0,0,0,0.15)]"
