@@ -674,8 +674,7 @@ html[data-android-compat='true'] .marquee-track.android-static {
 
 .mobile-home-card,
 .mobile-home-project,
-.mobile-home-row,
-.mobile-home-stack article {
+.mobile-home-row {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
   background: #0d0d17;
@@ -683,8 +682,7 @@ html[data-android-compat='true'] .marquee-track.android-static {
 }
 
 .mobile-home-card,
-.mobile-home-project,
-.mobile-home-stack article {
+.mobile-home-project {
   padding: 1rem;
 }
 
@@ -790,31 +788,82 @@ html[data-android-compat='true'] .marquee-track.android-static {
   line-height: 1.2;
 }
 
-.mobile-home-stack {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
+.mobile-home-section-lead {
+  max-width: 42rem;
+  margin-top: -0.35rem;
+  margin-bottom: 1.25rem;
+  color: #b9b2cf;
+  font-size: 0.95rem;
+  line-height: 1.7;
 }
 
-.mobile-home-stack article {
-  min-height: 8rem;
+.mobile-home-tech-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+}
+
+.mobile-home-tech-card {
+  display: grid;
+  width: 100%;
+  min-height: 7.4rem;
+  min-width: 0;
+  grid-template-columns: 2.65rem minmax(0, 1fr);
+  grid-template-areas:
+    "icon index"
+    "name name"
+    "layer layer";
+  align-content: start;
+  gap: 0.5rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1rem;
+  background: #0d0d17;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  color: #c8b8ff;
+  overflow: hidden;
+}
+
+.mobile-home-tech-icon {
+  display: grid;
+  width: 2.65rem;
+  height: 2.65rem;
+  place-items: center;
+  grid-area: icon;
+  border: 1px solid rgba(169, 139, 255, 0.24);
+  border-radius: 0.8rem;
+  background: rgba(141, 92, 255, 0.12);
   color: #c8b8ff;
 }
 
-.mobile-home-stack strong {
+.mobile-home-tech-index {
   display: block;
-  margin-top: 1rem;
-  color: #f7f5ff;
-  font-size: 1rem;
-  line-height: 1.2;
+  grid-area: index;
+  align-self: center;
+  color: #a98bff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.3;
+  text-align: right;
 }
 
-.mobile-home-stack span {
+.mobile-home-tech-card strong {
   display: block;
+  grid-area: name;
   margin-top: 0.35rem;
+  color: #f7f5ff;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.mobile-home-tech-card > span:last-child {
+  display: block;
+  grid-area: layer;
   color: #9b94b7;
   font-size: 0.78rem;
-  line-height: 1.3;
+  line-height: 1.4;
 }
 
 .mobile-home-cta {
@@ -852,8 +901,8 @@ html[data-android-compat='true'] .marquee-track.android-static {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .mobile-home-stack {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  .mobile-home-tech-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 

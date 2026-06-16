@@ -121,8 +121,9 @@ const stack = [
   { name: 'Python', layer: 'Automacao', icon: Bot },
   { name: 'PostgreSQL', layer: 'Dados', icon: Database },
   { name: 'IA', layer: 'Inteligencia', icon: BrainCircuit },
-  { name: 'GitHub', layer: 'Versao', icon: Github },
-  { name: 'Deploy', layer: 'Publicacao', icon: Rocket },
+  { name: 'Automacao', layer: 'Operacao', icon: Workflow },
+  { name: 'GitHub', layer: 'Versionamento', icon: Github },
+  { name: 'Vercel', layer: 'Deploy', icon: Rocket },
 ];
 
 const signals = ['Design premium', 'Software sob medida', 'Automacao inteligente'];
@@ -209,11 +210,17 @@ export function MobileHomeExperience() {
         </div>
       </MobileSection>
 
-      <MobileSection eyebrow="Tecnologia" title="Stack definida por funcao, nao por tendencia.">
-        <div className="mobile-home-stack">
-          {stack.map((item) => (
-            <article key={item.name}>
-              <item.icon className="h-5 w-5" />
+      <MobileSection eyebrow="Tecnologia" title="Stack definida por função, não por tendência." className="mobile-home-tech-section">
+        <p className="mobile-home-section-lead">
+          React, TypeScript, APIs, Python, PostgreSQL, IA e automação entram quando sustentam performance, integração e evolução.
+        </p>
+        <div className="mobile-home-tech-grid">
+          {stack.map((item, index) => (
+            <article key={item.name} className="mobile-home-tech-card">
+              <span className="mobile-home-tech-icon">
+                <item.icon className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <span className="mobile-home-tech-index">0{index + 1}</span>
               <strong>{item.name}</strong>
               <span>{item.layer}</span>
             </article>
@@ -240,15 +247,22 @@ function MobileSection({
   eyebrow,
   title,
   light = false,
+  className,
   children,
 }: {
   eyebrow: string;
   title: string;
   light?: boolean;
+  className?: string;
   children: ReactNode;
 }) {
+  const classes = [
+    light ? 'mobile-home-section mobile-home-section-light' : 'mobile-home-section',
+    className,
+  ].filter(Boolean).join(' ');
+
   return (
-    <section className={light ? 'mobile-home-section mobile-home-section-light' : 'mobile-home-section'}>
+    <section className={classes}>
       <div className="mobile-home-inner">
         <span className="mobile-home-eyebrow">{eyebrow}</span>
         <h2>{title}</h2>
