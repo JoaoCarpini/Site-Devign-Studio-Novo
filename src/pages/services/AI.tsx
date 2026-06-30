@@ -1,6 +1,6 @@
 import { ServiceDetailPage } from '../../components/service-pages/ServiceDetailPage';
-import { serviceMap } from '../../data/site';
+import { useService } from '../../hooks/useContent';
 
 export default function AI() {
-  return <ServiceDetailPage service={serviceMap.ai} />;
+  return <ServiceDetailPage service={useService('ai')} />;
 }

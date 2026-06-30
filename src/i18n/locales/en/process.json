@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "eyebrow": "Process",
+    "title": "A method for turning intent into technical direction.",
+    "description": "High-value digital projects demand control. Devign organizes diagnosis, strategy, design, development and delivery to reduce risk and keep focus on what matters."
+  },
+  "governance": {
+    "badge": "Governance",
+    "title": "Clarity about what will be built, why, and in what order.",
+    "guarantees": [
+      "Scope with clear deliverables, priorities and boundaries.",
+      "Stage-by-stage validation to reduce uncertainty.",
+      "Technical decisions translated with objectivity.",
+      "A foundation ready for support and evolution."
+    ]
+  },
+  "next": {
+    "eyebrow": "Next step",
+    "title": "Start with a well-structured assessment.",
+    "description": "The briefing gathers enough context to turn intent into a technical and commercial path.",
+    "cta": "Start diagnosis"
+  },
+  "steps": [
+    { "title": "Briefing", "text": "We map the business, constraints and expected impact before proposing any screen." },
+    { "title": "Strategy", "text": "We define architecture, priorities, narrative and success criteria." },
+    { "title": "Design", "text": "We design hierarchy, interaction and premium perception with precision." },
+    { "title": "Development", "text": "We build with components, performance and a foundation ready to evolve." },
+    { "title": "Delivery", "text": "We validate flows, responsiveness, deployment and essential documentation." },
+    { "title": "Support", "text": "We follow the rollout into production and plan the next evolution cycles." }
+  ]
+}

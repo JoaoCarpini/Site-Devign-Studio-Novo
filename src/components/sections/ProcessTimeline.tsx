@@ -1,7 +1,9 @@
-import { processSteps } from '../../data/site';
+import { useProcessSteps } from '../../hooks/useContent';
 import { Reveal } from '../animations/Reveal';
 
 export function ProcessTimeline() {
+  const processSteps = useProcessSteps();
+
   return (
     <div className="grid gap-4 lg:grid-cols-6">
       {processSteps.map((step, index) => (

@@ -1,31 +1,36 @@
 import { ArrowRight, CheckCircle2, Layers3 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { Link } from '../ui/LocaleLink';
 import type { Service } from '../../data/site';
 import { AuroraBackground } from '../backgrounds/AuroraBackground';
 import { Reveal } from '../animations/Reveal';
 import { ButtonLink } from '../ui/Button';
 import { SectionIntro } from '../ui/SectionIntro';
 import { FaqAccordion } from '../sections/FaqAccordion';
+import { useRoutes } from '../../hooks/useContent';
 
 export function ServiceDetailPage({ service }: { service: Service }) {
+  const { t } = useTranslation('services');
+  const routes = useRoutes();
+
   return (
     <>
       <section className="relative overflow-hidden pt-28 sm:pt-40">
         <AuroraBackground />
         <div className="container-premium relative pb-14 pt-6 sm:pb-20 sm:pt-8 lg:pb-28">
           <Reveal className="max-w-4xl">
-            <Link to="/servicos" className="eyebrow mb-6">
-              Serviços / {service.menuTitle}
+            <Link to={routes.services} className="eyebrow mb-6">
+              {t('detail.backLabel')} / {service.menuTitle}
             </Link>
             <h1 className="heading-xl text-balance">{service.hero}</h1>
             <p className="body-lead mt-7 max-w-3xl">{service.strategic}</p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink to="/orcamento">
+              <ButtonLink to={routes.budget}>
                 {service.cta}
                 <ArrowRight className="h-4 w-4" />
               </ButtonLink>
-              <ButtonLink to="/projetos" variant="secondary">
-                Explorar cases
+              <ButtonLink to={routes.projects} variant="secondary">
+                {t('detail.exploreButton')}
               </ButtonLink>
             </div>
           </Reveal>
@@ -44,9 +49,9 @@ export function ServiceDetailPage({ service }: { service: Service }) {
       <section className="section-band">
         <div className="container-premium grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <SectionIntro
-            eyebrow="Valor"
-            title="Cada entrega precisa sustentar percepção, operação ou escala."
-            text="Interface, arquitetura e tecnologia são tratadas como decisões de valor, não como acabamento."
+            eyebrow={t('detail.value.eyebrow')}
+            title={t('detail.value.title')}
+            text={t('detail.value.description')}
           />
           <div className="grid gap-3">
             {service.benefits.map((benefit, index) => (
@@ -64,14 +69,12 @@ export function ServiceDetailPage({ service }: { service: Service }) {
           <div className="grid gap-8 lg:grid-cols-[1fr_1.15fr] lg:items-center">
             <Reveal>
               <span className="inline-flex rounded-full border border-ink/10 bg-ink/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-violet-700">
-                Direção
+                {t('detail.direction.badge')}
               </span>
               <h2 className="mt-5 text-[2rem] font-semibold leading-tight tracking-normal text-ink sm:text-5xl">
-                Técnica, estética e estratégia no mesmo projeto.
+                {t('detail.direction.title')}
               </h2>
-              <p className="mt-5 text-base leading-8 text-[#4a4658]">
-                O objetivo não é produzir telas isoladas. É construir um ativo digital sólido, útil e defensável.
-              </p>
+              <p className="mt-5 text-base leading-8 text-[#4a4658]">{t('detail.direction.description')}</p>
             </Reveal>
             <div className="grid gap-4 sm:grid-cols-2">
               {service.differentials.map((item) => (
@@ -88,9 +91,9 @@ export function ServiceDetailPage({ service }: { service: Service }) {
       <section className="section-band">
         <div className="container-premium">
           <SectionIntro
-            eyebrow="Stack"
-            title="Tecnologia escolhida pela função do projeto."
-            text="A stack é definida por performance, manutenção e integração com o ecossistema da empresa."
+            eyebrow={t('detail.stack.eyebrow')}
+            title={t('detail.stack.title')}
+            text={t('detail.stack.description')}
             align="center"
           />
           <Reveal className="mx-auto mt-10 flex max-w-4xl flex-wrap justify-center gap-3">
@@ -106,9 +109,9 @@ export function ServiceDetailPage({ service }: { service: Service }) {
       <section className="section-band border-y border-white/10 bg-white/[0.025]">
         <div className="container-premium grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionIntro
-            eyebrow="Processo de entrega"
-            title="Método claro para reduzir risco."
-            text="Decisões, prioridades e evolução ficam visíveis do diagnóstico à publicação."
+            eyebrow={t('detail.process.eyebrow')}
+            title={t('detail.process.title')}
+            text={t('detail.process.description')}
           />
           <div className="grid gap-3">
             {service.process.map((item, index) => (
@@ -126,9 +129,9 @@ export function ServiceDetailPage({ service }: { service: Service }) {
       <section className="section-band">
         <div className="container-premium grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <SectionIntro
-            eyebrow="FAQ"
-            title="Perguntas antes de iniciar."
-            text="Respostas objetivas sobre escopo, integração e formato de entrega."
+            eyebrow={t('detail.faq.eyebrow')}
+            title={t('detail.faq.title')}
+            text={t('detail.faq.description')}
           />
           <Reveal>
             <FaqAccordion items={service.faq} />
@@ -140,13 +143,11 @@ export function ServiceDetailPage({ service }: { service: Service }) {
         <div className="container-premium">
           <div className="overflow-hidden rounded-[1.45rem] border border-white/10 bg-[linear-gradient(135deg,rgba(141,92,255,0.22),rgba(255,255,255,0.06)_42%,rgba(77,212,198,0.1))] p-5 shadow-premium sm:rounded-[2rem] sm:p-12">
             <Reveal className="max-w-3xl">
-              <span className="eyebrow mb-5">Próximo passo</span>
-              <h2 className="heading-lg">Vamos transformar contexto em direção técnica.</h2>
-              <p className="body-lead mt-5">
-                Envie um briefing inicial e receba uma leitura objetiva sobre caminho, prioridade e investimento provável.
-              </p>
-              <ButtonLink to="/orcamento" className="mt-8">
-                Iniciar diagnóstico
+              <span className="eyebrow mb-5">{t('detail.cta.eyebrow')}</span>
+              <h2 className="heading-lg">{t('detail.cta.title')}</h2>
+              <p className="body-lead mt-5">{t('detail.cta.description')}</p>
+              <ButtonLink to={routes.budget} className="mt-8">
+                {t('detail.cta.button')}
                 <ArrowRight className="h-4 w-4" />
               </ButtonLink>
             </Reveal>

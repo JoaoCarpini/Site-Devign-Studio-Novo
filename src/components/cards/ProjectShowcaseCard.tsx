@@ -1,9 +1,11 @@
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import type { Project } from '../../data/site';
 import { cn } from '../../utils/cn';
 import { Reveal } from '../animations/Reveal';
 import { ButtonLink } from '../ui/Button';
 import { useAndroidCompatibility } from '../../hooks/useMediaQuery';
+import { useRoutes } from '../../hooks/useContent';
 
 const accentStyles: Record<
   Project['accent'],
@@ -38,6 +40,8 @@ export function ProjectShowcaseCard({
 }) {
   const accent = accentStyles[project.accent];
   const androidCompatibility = useAndroidCompatibility();
+  const { t } = useTranslation('projects');
+  const routes = useRoutes();
 
   return (
     <Reveal>
@@ -99,7 +103,7 @@ export function ProjectShowcaseCard({
           <div className="mt-6 grid gap-4 lg:grid-cols-2">
             <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-300">
-                Problema
+                {t('card.problem')}
               </p>
 
               <p className="mt-3 text-sm leading-7 text-zinc-300">
@@ -109,7 +113,7 @@ export function ProjectShowcaseCard({
 
             <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-300">
-                Solução
+                {t('card.solution')}
               </p>
 
               <p className="mt-3 text-sm leading-7 text-zinc-300">
@@ -120,7 +124,7 @@ export function ProjectShowcaseCard({
 
           <div className="mt-6">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white">
-              Funcionalidades
+              {t('card.features')}
             </p>
 
             <div className="mt-4 grid gap-2">
@@ -148,8 +152,8 @@ export function ProjectShowcaseCard({
           </div>
 
           <div className="mt-8">
-            <ButtonLink to="/orcamento">
-              Conversar sobre projeto
+            <ButtonLink to={routes.budget}>
+              {t('card.talkButton')}
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
           </div>

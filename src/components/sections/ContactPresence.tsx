@@ -1,36 +1,46 @@
 import { ArrowUpRight, Instagram, Mail, MapPin, Phone } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Reveal } from '../animations/Reveal';
 import { cn } from '../../utils/cn';
 import { useAndroidCompatibility } from '../../hooks/useMediaQuery';
+import type { LucideIcon } from 'lucide-react';
 
-const contactItems = [
-  {
-    label: 'Email',
-    value: 'contato.devignstudio@outlook.com',
-    href: 'mailto:contato.devignstudio@outlook.com',
-    icon: Mail,
-  },
-  {
-    label: 'Whatsapp',
-    value: '+55 (19) 99226-6955',
-    href: 'https://wa.me/5519992266955',
-    icon: Phone,
-  },
-  {
-    label: 'Localização',
-    value: 'Porto Ferreira, SP - Brasil',
-    icon: MapPin,
-  },
-  {
-    label: 'Instagram',
-    value: '@devignstudio2026',
-    href: 'https://www.instagram.com/devignstudio2026/',
-    icon: Instagram,
-  },
-];
+type ContactItem = {
+  label: string;
+  value: string;
+  href?: string;
+  icon: LucideIcon;
+};
 
 export function ContactPresence() {
   const androidCompatibility = useAndroidCompatibility();
+  const { t } = useTranslation('common');
+
+  const contactItems: ContactItem[] = [
+    {
+      label: t('contact.items.email_label'),
+      value: 'contato.devignstudio@outlook.com',
+      href: 'mailto:contato.devignstudio@outlook.com',
+      icon: Mail,
+    },
+    {
+      label: t('contact.items.whatsapp_label'),
+      value: '+55 (19) 99226-6955',
+      href: 'https://wa.me/5519992266955',
+      icon: Phone,
+    },
+    {
+      label: t('contact.items.location_label'),
+      value: t('contact.items.location_value'),
+      icon: MapPin,
+    },
+    {
+      label: t('contact.items.instagram_label'),
+      value: '@devignstudio2026',
+      href: 'https://www.instagram.com/devignstudio2026/',
+      icon: Instagram,
+    },
+  ];
 
   return (
     <section className="relative overflow-hidden border-t border-white/10 bg-[#06060b] py-14 sm:py-24">
@@ -52,15 +62,15 @@ export function ContactPresence() {
       <div className="container-premium relative">
         <Reveal className="mx-auto max-w-3xl text-center">
           <span className="eyebrow mb-5">
-            Contato institucional
+            {t('contact.eyebrow')}
           </span>
 
           <h2 className="heading-md text-balance">
-            Presença real para conversas com contexto.
+            {t('contact.title')}
           </h2>
 
           <p className="body-lead mx-auto mt-4 max-w-2xl">
-            Canais diretos para iniciar uma conversa estratégica com a Devign Studio.
+            {t('contact.description')}
           </p>
         </Reveal>
 

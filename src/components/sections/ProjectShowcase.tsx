@@ -1,14 +1,19 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Activity, BrainCircuit, Gauge, Layers3, ScanLine, Workflow } from 'lucide-react';
-import { projects } from '../../data/site';
+import { useTranslation } from 'react-i18next';
 import { cn } from '../../utils/cn';
 import { Reveal } from '../animations/Reveal';
 import { ButtonLink } from '../ui/Button';
 import { SectionIntro } from '../ui/SectionIntro';
 import { ProjectShowcaseCard } from '../cards/ProjectShowcaseCard';
 import { useReduceMotion } from '../../hooks/useMediaQuery';
+import { useProjects, useRoutes } from '../../hooks/useContent';
 
 export function ProjectShowcase({ compact = false }: { compact?: boolean }) {
+  const { t } = useTranslation('home');
+  const projects = useProjects();
+  const routes = useRoutes();
+
   if (compact) return <ProjectTeaserShowcase />;
 
   return (
@@ -16,18 +21,18 @@ export function ProjectShowcase({ compact = false }: { compact?: boolean }) {
       <div className="container-premium">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionIntro
-            eyebrow="Showcase"
-            title="Cases com profundidade de produto."
-            text="Projetos com contexto de negócio, arquitetura técnica, funcionalidades reais e visual de software premium."
+            eyebrow={t('showcase.eyebrow')}
+            title={t('showcase.title')}
+            text={t('showcase.description')}
           />
-          <ButtonLink to="/projetos" className="w-fit shadow-glow">
-            Explorar portfólio
+          <ButtonLink to={routes.projects} className="w-fit shadow-glow">
+            {t('showcase.exploreButton')}
             <ArrowRight className="h-4 w-4" />
           </ButtonLink>
         </div>
 
         <div className="mt-8 grid gap-5 sm:mt-12 sm:gap-8">
-          {(compact ? projects.slice(0, 4) : projects).map((project, index) => (
+          {projects.map((project, index) => (
             <ProjectShowcaseCard key={project.slug} project={project} featured={index === 0} />
           ))}
         </div>
@@ -36,32 +41,7 @@ export function ProjectShowcase({ compact = false }: { compact?: boolean }) {
   );
 }
 
-const teaserCopy = [
-  {
-    label: 'Operação inteligente',
-    title: 'Automação operacional inteligente.',
-    detail: 'Fluxos conectados para reduzir ruído e revelar gargalos reais.',
-    icon: Workflow,
-  },
-  {
-    label: 'Produto escalável',
-    title: 'Experiência digital preparada para escala.',
-    detail: 'Interfaces, dados e jornadas desenhadas para uso recorrente.',
-    icon: Layers3,
-  },
-  {
-    label: 'IA aplicada',
-    title: 'IA aplicada ao fluxo operacional.',
-    detail: 'Triagem, leitura e suporte à decisão com contexto controlado.',
-    icon: BrainCircuit,
-  },
-  {
-    label: 'Infraestrutura',
-    title: 'Infraestrutura estratégica para crescimento.',
-    detail: 'APIs, permissões e bases preparadas para evolução modular.',
-    icon: Gauge,
-  },
-];
+const teaserIcons = [Workflow, Layers3, BrainCircuit, Gauge];
 
 const previewBars = [
   [54, 72, 46, 84, 62],
@@ -72,6 +52,14 @@ const previewBars = [
 
 function ProjectTeaserShowcase() {
   const reduceMotion = useReduceMotion();
+  const { t } = useTranslation('home');
+  const projects = useProjects();
+  const routes = useRoutes();
+  const teaserCopy = t('showcase.teaser.items', { returnObjects: true }) as Array<{
+    label: string;
+    title: string;
+    detail: string;
+  }>;
 
   return (
     <section className="section-band relative overflow-hidden">
@@ -82,13 +70,13 @@ function ProjectTeaserShowcase() {
       <div className="container-premium relative z-10">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionIntro
-            eyebrow="Experiências digitais"
-            title="Fragmentos de sistemas em movimento."
-            text="A Home mostra apenas sinais: interfaces parciais, indicadores e fluxos. Os detalhes completos vivem no portfólio."
+            eyebrow={t('showcase.teaser.eyebrow')}
+            title={t('showcase.teaser.title')}
+            text={t('showcase.teaser.description')}
           />
           <Reveal>
-            <ButtonLink to="/projetos" className="w-full sm:w-fit">
-              Explorar cases
+            <ButtonLink to={routes.projects} className="w-full sm:w-fit">
+              {t('showcase.teaser.exploreButton')}
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
           </Reveal>
@@ -97,7 +85,7 @@ function ProjectTeaserShowcase() {
         <div className="mt-8 grid auto-rows-fr gap-4 md:grid-cols-2 xl:mt-12 xl:grid-cols-4">
           {projects.slice(0, 4).map((project, index) => {
             const copy = teaserCopy[index];
-            const Icon = copy.icon;
+            const Icon = teaserIcons[index];
 
             return (
               <Reveal key={project.slug} delay={index * 0.05} className="h-full">
@@ -140,11 +128,9 @@ function ProjectTeaserShowcase() {
 
         <Reveal className="mt-10 sm:mt-14">
           <div className="flex flex-col gap-5 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between sm:pt-8">
-            <p className="max-w-2xl text-sm leading-7 text-muted">
-              Cada preview é intencionalmente incompleto. O valor está no sistema por trás: arquitetura, operação, dados e experiência.
-            </p>
-            <ButtonLink to="/projetos" variant="secondary" className="w-full sm:w-fit">
-              Ver soluções em operação
+            <p className="max-w-2xl text-sm leading-7 text-muted">{t('showcase.teaser.footerText')}</p>
+            <ButtonLink to={routes.projects} variant="secondary" className="w-full sm:w-fit">
+              {t('showcase.teaser.footerButton')}
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
           </div>

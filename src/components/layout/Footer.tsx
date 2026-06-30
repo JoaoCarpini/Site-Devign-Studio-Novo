@@ -1,30 +1,33 @@
 import { ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { Link } from '../ui/LocaleLink';
 import { DevignLogo } from '../brand/DevignLogo';
-import { services } from '../../data/site';
-
-const quickLinks = [
-  { label: 'Projetos', to: '/projetos' },
-  { label: 'Processo', to: '/processo' },
-  { label: 'Sobre', to: '/sobre' },
-  { label: 'Orçamento', to: '/orcamento' },
-];
+import { useServices, useRoutes } from '../../hooks/useContent';
 
 export function Footer() {
+  const { t } = useTranslation('common');
+  const services = useServices();
+  const routes = useRoutes();
+
+  const quickLinks = [
+    { label: t('footer.quickLinks.projects'), to: routes.projects },
+    { label: t('footer.quickLinks.process'), to: routes.process },
+    { label: t('footer.quickLinks.about'), to: routes.about },
+    { label: t('footer.quickLinks.budget'), to: routes.budget },
+  ];
+
   return (
     <footer className="border-t border-white/10 bg-[#06060b]">
       <div className="container-premium py-14">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr_1fr]">
           <div>
             <DevignLogo variant="footer" />
-            <p className="mt-1 text-sm text-muted">Software house premium</p>
-            <p className="mt-6 max-w-md text-sm leading-7 text-muted">
-              Tecnologia sob medida para empresas que precisam sustentar presença, operação e crescimento com mais precisão.
-            </p>
+            <p className="mt-1 text-sm text-muted">{t('footer.tagline')}</p>
+            <p className="mt-6 max-w-md text-sm leading-7 text-muted">{t('footer.description')}</p>
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-frost">Serviços</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-frost">{t('footer.services')}</h3>
             <div className="mt-5 grid gap-3">
               {services.slice(0, 5).map((service) => (
                 <Link key={service.key} to={service.path} className="text-sm text-muted transition hover:text-frost">
@@ -35,7 +38,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-frost">Navegação</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-frost">{t('footer.navigation')}</h3>
             <div className="mt-5 grid gap-3">
               {quickLinks.map((item) => (
                 <Link key={item.label} to={item.to} className="inline-flex items-center gap-2 text-sm text-muted transition hover:text-frost">
@@ -48,7 +51,9 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>Copyright © {new Date().getFullYear()} Devign Studio. Todos os direitos reservados.</p>
+          <p>
+            Copyright © {new Date().getFullYear()} Devign Studio. {t('footer.copyright')}
+          </p>
           <div className="flex gap-4">
             <a href="https://www.instagram.com/devignstudio2026/" target="_blank" rel="noopener noreferrer" className="transition hover:text-frost">
               Instagram

@@ -1,0 +1,434 @@
+{
+  "page": {
+    "eyebrow": "Servicios",
+    "title": "Diseño estratégico y tecnología trabajando como un único sistema.",
+    "description": "Devign une identidad visual, experiencia digital, sistemas, automatizaciones e IA para construir marcas más fuertes, operaciones más inteligentes y presencia digital premium.",
+    "cta": "Definir alcance",
+    "design": {
+      "eyebrow": "Diseño y presencia",
+      "title": "Antes del código, existe la percepción.",
+      "description": "Identidad visual, branding y experiencia definen cómo se percibe una empresa antes incluso de la primera conversación. Ese es el punto donde el diseño y la tecnología se encuentran.",
+      "items": [
+        {
+          "title": "Identidad Visual",
+          "text": "Construcción de sistemas visuales para marcas que necesitan transmitir autoridad, sofisticación y consistencia."
+        },
+        {
+          "title": "Branding Estratégico",
+          "text": "Dirección de marca, lenguaje visual y posicionamiento para crear una presencia digital más fuerte y memorable."
+        },
+        {
+          "title": "UI/UX Premium",
+          "text": "Interfaces con estética refinada, jerarquía clara y experiencia pensada para la percepción, el uso y la conversión."
+        },
+        {
+          "title": "Presencia Digital",
+          "text": "Sitios, páginas y experiencias digitales que unen diseño, narrativa y tecnología para sostener valor."
+        }
+      ]
+    },
+    "tech": {
+      "eyebrow": "Tecnología y producto",
+      "title": "Código con dirección visual. Diseño con ejecución real.",
+      "description": "Devign no separa la estética del funcionamiento. Cada entrega combina interfaz, branding, arquitectura, automatización e ingeniería para crear activos digitales completos."
+    },
+    "standard": {
+      "eyebrow": "Estándar Devign",
+      "title": "El diferencial está en la unión entre marca, experiencia e ingeniería.",
+      "description": "Una solución digital sólida no nace solo del código. Necesita verse premium, comunicar valor, funcionar bien y sostener el crecimiento.",
+      "items": [
+        {
+          "title": "Dirección visual",
+          "text": "Antes de la interfaz, definimos percepción: estilo, jerarquía, tono visual y presencia de marca."
+        },
+        {
+          "title": "Arquitectura digital",
+          "text": "Datos, páginas, módulos e integraciones organizados para funcionar con claridad."
+        },
+        {
+          "title": "Flujos automatizados",
+          "text": "Jobs, webhooks y disparadores para estandarizar la ejecución sin ruido operacional."
+        },
+        {
+          "title": "Base evolutiva",
+          "text": "Deploy, documentación y estructura preparada para el mantenimiento y el crecimiento."
+        }
+      ]
+    },
+    "direction": {
+      "badge": "Dirección estratégica",
+      "title": "La tecnología sin dirección visual se convierte en herramienta. El diseño sin ejecución se convierte en concepto.",
+      "description": "Devign conecta ambos lados: crea una presencia visual fuerte y entrega la estructura técnica necesaria para que esa presencia funcione de verdad.",
+      "pillars": [
+        "Identidad visual y tecnología trabajando como un único sistema.",
+        "Branding, interfaz e ingeniería conectados para elevar la percepción de valor.",
+        "Sistemas, APIs y automatizaciones con dirección visual premium.",
+        "Presencia digital creada para verse fuerte, funcionar bien y escalar con claridad."
+      ]
+    }
+  },
+  "detail": {
+    "backLabel": "Servicios",
+    "value": {
+      "eyebrow": "Valor",
+      "title": "Cada entrega necesita sostener percepción, operación o escala.",
+      "description": "Interfaz, arquitectura y tecnología se tratan como decisiones de valor, no como acabado."
+    },
+    "direction": {
+      "badge": "Dirección",
+      "title": "Técnica, estética y estrategia en el mismo proyecto.",
+      "description": "El objetivo no es producir pantallas aisladas. Es construir un activo digital sólido, útil y defendible."
+    },
+    "stack": {
+      "eyebrow": "Stack",
+      "title": "Tecnología elegida según la función del proyecto.",
+      "description": "El stack se define por rendimiento, mantenimiento e integración con el ecosistema de la empresa."
+    },
+    "process": {
+      "eyebrow": "Proceso de entrega",
+      "title": "Método claro para reducir el riesgo.",
+      "description": "Decisiones, prioridades y evolución permanecen visibles desde el diagnóstico hasta la publicación."
+    },
+    "faq": {
+      "eyebrow": "Preguntas frecuentes",
+      "title": "Preguntas antes de empezar.",
+      "description": "Respuestas concretas sobre alcance, integración y formato de entrega."
+    },
+    "cta": {
+      "eyebrow": "Próximo paso",
+      "title": "Transformemos contexto en dirección técnica.",
+      "description": "Envía un briefing inicial y recibe una lectura objetiva sobre el camino, la prioridad y la inversión probable.",
+      "button": "Iniciar diagnóstico"
+    },
+    "exploreButton": "Explorar casos"
+  },
+  "web-development": {
+    "path": "/servicios/desarrollo-web",
+    "title": "Desarrollo Web",
+    "menuTitle": "Desarrollo Web",
+    "kicker": "Presencia de alto valor",
+    "summary": "Experiencias digitales construidas para posicionamiento premium, claridad comercial y autoridad.",
+    "hero": "Experiencias digitales para marcas que necesitan verse tan fuertes como la solución que entregan.",
+    "strategic": "La presencia digital no es una vitrina. Es infraestructura de percepción. Devign diseña interfaces con narrativa, rendimiento y dirección visual para sostener conversaciones comerciales de mayor valor.",
+    "benefits": [
+      "Percepción premium desde el primer contacto.",
+      "Arquitectura de contenido clara, rápida y orientada a la decisión.",
+      "Interfaces que combinan autoridad, estética y conversión calificada.",
+      "Base lista para analítica, CRM, automatizaciones y evolución."
+    ],
+    "differentials": [
+      "Dirección visual propia, sin estética de plantilla.",
+      "Copy de posicionamiento, no texto decorativo.",
+      "Componentes preparados para mantenimiento y expansión.",
+      "Refinamiento visual validado en cada breakpoint."
+    ],
+    "process": [
+      "Diagnóstico de posicionamiento y público de mayor valor.",
+      "Arquitectura de las páginas y definición de los mensajes principales.",
+      "Diseño visual con dirección premium y prototipo navegable.",
+      "Implementación, optimización y publicación con precisión."
+    ],
+    "faq": [
+      {
+        "question": "¿El sitio puede integrarse con CRM o WhatsApp?",
+        "answer": "Sí. La estructura puede recibir formularios, píxeles, analítica, CRM, automatizaciones y enlaces con mensajes preformateados."
+      },
+      {
+        "question": "¿Trabajan con contenido y copy?",
+        "answer": "Sí. La entrega incluye la organización estratégica del mensaje para que el sitio venda autoridad, no solo liste servicios."
+      },
+      {
+        "question": "¿El sitio queda preparado para SEO?",
+        "answer": "La base técnica, la jerarquía de contenido, el rendimiento y los metadatos se planifican para una presencia orgánica consistente."
+      }
+    ],
+    "metrics": [
+      { "label": "Entrega guiada", "value": "4-8 sem." },
+      { "label": "Rendimiento objetivo", "value": "90+" },
+      { "label": "Páginas clave", "value": "5-12" }
+    ],
+    "cta": "Construir presencia premium"
+  },
+  "web-systems": {
+    "path": "/servicios/sistemas-web",
+    "title": "Sistemas Web",
+    "menuTitle": "Sistemas Web",
+    "kicker": "Operación escalable",
+    "summary": "Infraestructuras digitales para organizar datos, flujos y decisiones críticas.",
+    "hero": "Sistemas web para operaciones que exigen control, precisión y escala.",
+    "strategic": "Los sistemas internos deben reducir el ruido, no crear una capa más de complejidad. Devign diseña plataformas con flujos claros, permisos, datos confiables y visión ejecutiva.",
+    "benefits": [
+      "Registros, flujos e indicadores en una base coherente.",
+      "Interfaces de uso recurrente, diseñadas para reducir la fricción.",
+      "Permisos, autenticación y módulos preparados desde el inicio.",
+      "Datos estructurados para reportes, dashboards y decisiones."
+    ],
+    "differentials": [
+      "Proceso modelado antes de la interfaz.",
+      "UX operacional para el uso diario.",
+      "Backend con rendimiento, seguridad y mantenimiento en vista.",
+      "Documentación y visión de evolución del producto."
+    ],
+    "process": [
+      "Mapeo de las rutinas y reglas críticas.",
+      "Prototipo de flujos, roles y pantallas principales.",
+      "Desarrollo por módulos con validaciones frecuentes.",
+      "Entrega asistida, ajustes finos y plan de soporte."
+    ],
+    "faq": [
+      {
+        "question": "¿Desarrollan sistemas para uso interno?",
+        "answer": "Sí. Creamos sistemas administrativos, paneles operacionales, portales y herramientas para equipos."
+      },
+      {
+        "question": "¿Es posible empezar con un MVP?",
+        "answer": "Sí. Priorizamos el núcleo de mayor impacto y avanzamos por módulos para reducir el riesgo y acelerar la validación."
+      },
+      {
+        "question": "¿El sistema puede tener niveles de acceso?",
+        "answer": "Sí. La arquitectura puede incluir autenticación, permisos por perfil, registros de auditoría y áreas restringidas."
+      }
+    ],
+    "metrics": [
+      { "label": "Módulos iniciales", "value": "3-6" },
+      { "label": "Flujos mapeados", "value": "100%" },
+      { "label": "Evolución", "value": "modular" }
+    ],
+    "cta": "Planificar un sistema a medida"
+  },
+  "apis": {
+    "path": "/servicios/apis",
+    "title": "APIs",
+    "menuTitle": "APIs",
+    "kicker": "Conectividad estratégica",
+    "summary": "Contratos digitales para conectar datos, productos y operaciones con previsibilidad.",
+    "hero": "APIs diseñadas para empresas que necesitan integrar, escalar y mantener el control.",
+    "strategic": "Una API define cómo circula la operación. Devign crea contratos claros, seguros y documentados para que los sistemas se comuniquen sin improvisación.",
+    "benefits": [
+      "Conexión entre sistemas internos, plataformas y productos digitales.",
+      "Datos estandarizados para reducir la inconsistencia.",
+      "Rutas versionadas, autenticadas y documentadas.",
+      "Base lista para dashboards, automatizaciones e integraciones futuras."
+    ],
+    "differentials": [
+      "Contratos bien definidos antes de la implementación.",
+      "Arquitectura enfocada en seguridad, logs y observabilidad.",
+      "Documentación práctica para equipos técnicos y socios.",
+      "Pruebas de rutas críticas y manejo de errores previsible."
+    ],
+    "process": [
+      "Relevamiento de fuentes, consumidores y reglas de acceso.",
+      "Definición de contratos, autenticación y modelo de datos.",
+      "Implementación de las rutas, validaciones y documentación.",
+      "Pruebas, deploy y monitoreo inicial."
+    ],
+    "faq": [
+      {
+        "question": "¿Integran APIs de terceros?",
+        "answer": "Sí. Trabajamos con integraciones de pagos, CRM, ERPs, automatización, IA y plataformas según demanda."
+      },
+      {
+        "question": "¿La API puede documentarse?",
+        "answer": "Sí. Entregamos documentación clara para uso interno, socios o equipos técnicos."
+      },
+      {
+        "question": "¿Es posible crear webhooks?",
+        "answer": "Sí. Los webhooks son útiles para eventos, notificaciones, integraciones asíncronas y automatizaciones."
+      }
+    ],
+    "metrics": [
+      { "label": "Contratos", "value": "claros" },
+      { "label": "Autenticación", "value": "segura" },
+      { "label": "Integraciones", "value": "a medida" }
+    ],
+    "cta": "Diseñar una API estratégica"
+  },
+  "automation": {
+    "path": "/servicios/automatizacion",
+    "title": "Automatización",
+    "menuTitle": "Automatización",
+    "kicker": "Flujos sin fricción",
+    "summary": "Flujos inteligentes para reducir el ruido operacional y el trabajo repetitivo.",
+    "hero": "Automatizaciones para operaciones que necesitan velocidad, control y consistencia.",
+    "strategic": "Las rutinas manuales consumen margen y atención. Devign transforma cuellos de botella en flujos automatizados, conectando herramientas sin perder trazabilidad.",
+    "benefits": [
+      "Menos retrabajo en rutinas administrativas, comerciales y operacionales.",
+      "Flujos entre formularios, hojas de cálculo, CRM, sistemas y APIs.",
+      "Alertas, reportes y actualizaciones sin intervención manual.",
+      "Operación más previsible, con menos fallas de ejecución."
+    ],
+    "differentials": [
+      "Mapeo previo a la automatización para evitar complejidad innecesaria.",
+      "Integraciones con herramientas que la empresa ya utiliza.",
+      "Logs y puntos de control para seguir las ejecuciones.",
+      "Documentación del flujo para mantenimiento y evolución."
+    ],
+    "process": [
+      "Identificación de cuellos de botella y actividades repetitivas.",
+      "Diseño del flujo con disparadores, reglas y excepciones.",
+      "Implementación, pruebas controladas y ajustes.",
+      "Monitoreo inicial y transferencia operacional."
+    ],
+    "faq": [
+      {
+        "question": "¿La automatización puede usar sistemas ya existentes?",
+        "answer": "Sí. El objetivo es conectar herramientas actuales siempre que sea más inteligente que reemplazarlo todo."
+      },
+      {
+        "question": "¿Automatizan WhatsApp, hojas de cálculo o CRM?",
+        "answer": "Sí, siempre que la integración sea viable y respete las políticas de las plataformas involucradas."
+      },
+      {
+        "question": "¿Cómo se evitan las fallas en las automatizaciones?",
+        "answer": "Creamos validaciones, logs, alertas y manejo de escenarios previsibles de error."
+      }
+    ],
+    "metrics": [
+      { "label": "Tiempo recuperado", "value": "semanal" },
+      { "label": "Errores manuales", "value": "menor" },
+      { "label": "Flujos", "value": "auditables" }
+    ],
+    "cta": "Diseñar automatizaciones inteligentes"
+  },
+  "ai": {
+    "path": "/servicios/ia",
+    "title": "IA Aplicada",
+    "menuTitle": "IA",
+    "kicker": "Inteligencia aplicada",
+    "summary": "Inteligencia aplicada donde el rendimiento, el contexto y la decisión realmente importan.",
+    "hero": "IA incorporada a la operación con contexto, control y utilidad medible.",
+    "strategic": "La IA solo importa cuando mejora un flujo real. Devign crea capas inteligentes para clasificación, análisis, atención y automatización con contexto de negocio.",
+    "benefits": [
+      "Asistentes internos para acelerar la investigación, clasificación, atención y análisis.",
+      "Automatización de lectura, clasificación y generación de respuestas con contexto.",
+      "Integración con bases de datos, sistemas y APIs de la operación.",
+      "Experiencias con límites, revisión y control para uso profesional."
+    ],
+    "differentials": [
+      "IA aplicada a casos de uso medibles, no solo demostraciones.",
+      "Flujos con contexto, memoria controlada y registros de validación.",
+      "Integración con herramientas existentes y fuentes de datos.",
+      "Enfoque en seguridad, utilidad y gobernanza básica."
+    ],
+    "process": [
+      "Elección del caso de uso y métricas de valor.",
+      "Mapeo de datos, fuentes y límites de respuesta.",
+      "Prototipo funcional con pruebas reales.",
+      "Integración al flujo, ajustes y plan de evolución."
+    ],
+    "faq": [
+      {
+        "question": "¿La IA puede acceder a datos de la empresa?",
+        "answer": "Sí, cuando tiene sentido técnico y legal. El acceso se modela con cuidado, límites y trazabilidad."
+      },
+      {
+        "question": "¿Crean chatbots?",
+        "answer": "Sí, pero priorizamos asistentes con contexto, gobernanza y utilidad operacional."
+      },
+      {
+        "question": "¿Se puede empezar en pequeño?",
+        "answer": "Sí. Un piloto bien elegido suele ser la mejor forma de validar el valor antes de escalar."
+      }
+    ],
+    "metrics": [
+      { "label": "Piloto", "value": "rápido" },
+      { "label": "Contexto", "value": "controlado" },
+      { "label": "Valor", "value": "medido" }
+    ],
+    "cta": "Aplicar IA con estrategia"
+  },
+  "landing-pages": {
+    "path": "/servicios/landing-pages",
+    "title": "Landing Pages",
+    "menuTitle": "Landing Pages",
+    "kicker": "Conversión refinada",
+    "summary": "Páginas de campaña con narrativa precisa, estética premium y conversión calificada.",
+    "hero": "Landing pages para ofertas que necesitan comunicar valor con precisión.",
+    "strategic": "Una oferta premium necesita foco. Devign estructura páginas con promesa clara, prueba social, jerarquía visual y CTA sin excesos.",
+    "benefits": [
+      "Comunicación directa para lanzamiento, tráfico pago, captación o validación.",
+      "Estructura de copy enfocada en la decisión, las objeciones y el valor percibido.",
+      "Dirección visual con impacto y lectura precisa en cualquier pantalla.",
+      "Integraciones con WhatsApp, formularios, CRM, píxeles y analítica."
+    ],
+    "differentials": [
+      "Secciones pensadas para dirigir la atención, no solo llenar espacio.",
+      "Jerarquía visual clara para móvil y escritorio.",
+      "CTAs y formularios posicionados con intención.",
+      "Rendimiento adecuado para campañas pagas."
+    ],
+    "process": [
+      "Comprensión de la oferta, el público y el mecanismo de conversión.",
+      "Wireframe con narrativa y bloques de prueba.",
+      "Diseño, desarrollo e integraciones.",
+      "Publicación, pruebas y ajustes de conversión."
+    ],
+    "faq": [
+      {
+        "question": "¿Hacen páginas para tráfico pago?",
+        "answer": "Sí. Estructuramos páginas con velocidad, tracking y claridad para campañas."
+      },
+      {
+        "question": "¿La landing page puede tener formulario y WhatsApp?",
+        "answer": "Sí. Podemos combinar formulario, WhatsApp, CRM, píxeles y eventos de conversión."
+      },
+      {
+        "question": "¿La página se puede lanzar rápido?",
+        "answer": "Sí, dependiendo del alcance. Las landing pages concretas pueden tener ciclos más cortos que los sitios institucionales completos."
+      }
+    ],
+    "metrics": [
+      { "label": "Foco", "value": "conversión" },
+      { "label": "Campañas", "value": "listas" },
+      { "label": "Integraciones", "value": "CRM" }
+    ],
+    "cta": "Crear una página de conversión premium"
+  },
+  "integrations": {
+    "path": "/servicios/integraciones",
+    "title": "Integraciones",
+    "menuTitle": "Integraciones",
+    "kicker": "Ecosistema conectado",
+    "summary": "Integraciones entre plataformas, datos y operaciones para eliminar islas de información.",
+    "hero": "Integraciones a medida para conectar herramientas sin perder control operacional.",
+    "strategic": "Cuando los datos viven separados, la operación pierde precisión. Devign conecta sistemas, normaliza información y crea flujos confiables entre plataformas.",
+    "benefits": [
+      "Conexión entre CRM, ERP, pagos, formularios, dashboards y sistemas internos.",
+      "Datos más consistentes para el seguimiento comercial y operacional.",
+      "Reducción de la digitación manual y duplicidad entre herramientas.",
+      "Flujos con logs, alertas y manejo de excepciones."
+    ],
+    "differentials": [
+      "Elección cuidadosa entre API, webhook, base de datos, automatización o middleware.",
+      "Modelo de datos claro para evitar inconsistencias entre plataformas.",
+      "Documentación del flujo y puntos de monitoreo.",
+      "Entrega pensada para el mantenimiento, no solo el funcionamiento inicial."
+    ],
+    "process": [
+      "Inventario de herramientas, datos y eventos.",
+      "Definición del flujo ideal y reglas de sincronización.",
+      "Implementación de las integraciones y manejo de fallas.",
+      "Validación con datos reales y seguimiento inicial."
+    ],
+    "faq": [
+      {
+        "question": "¿Integran herramientas sin API oficial?",
+        "answer": "Evaluamos caso por caso. Cuando no existe API, puede haber alternativas, pero siempre con atención a la estabilidad y las políticas de la plataforma."
+      },
+      {
+        "question": "¿Es posible integrar con un dashboard?",
+        "answer": "Sí. Las integraciones pueden alimentar dashboards ejecutivos y reportes operacionales."
+      },
+      {
+        "question": "¿Cómo saber si una integración es viable?",
+        "answer": "Analizamos documentación, permisos, volumen de datos, frecuencia y reglas de negocio antes de proponer el diseño final."
+      }
+    ],
+    "metrics": [
+      { "label": "Datos", "value": "unificados" },
+      { "label": "Fallas", "value": "controladas" },
+      { "label": "Operación", "value": "conectada" }
+    ],
+    "cta": "Conectar mi ecosistema digital"
+  }
+}

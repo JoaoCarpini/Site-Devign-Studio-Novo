@@ -1,23 +1,16 @@
 import { Bot, BrainCircuit, Cloud, Code2, Database, Github, ServerCog, Workflow } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Reveal } from '../animations/Reveal';
 import { cn } from '../../utils/cn';
 import { useAndroidCompatibility, useIsMobile } from '../../hooks/useMediaQuery';
 
-const technologies = [
-  { name: 'React', layer: 'Interfaces', icon: Code2 },
-  { name: 'TypeScript', layer: 'Contratos', icon: ServerCog },
-  { name: 'APIs', layer: 'Integração', icon: Workflow },
-  { name: 'Python', layer: 'Automação', icon: Bot },
-  { name: 'PostgreSQL', layer: 'Dados', icon: Database },
-  { name: 'IA', layer: 'Inteligência', icon: BrainCircuit },
-  { name: 'Automação', layer: 'Operação', icon: Workflow },
-  { name: 'GitHub', layer: 'Versionamento', icon: Github },
-  { name: 'Vercel', layer: 'Deploy', icon: Cloud },
-];
+const icons = [Code2, ServerCog, Workflow, Bot, Database, BrainCircuit, Workflow, Github, Cloud];
 
 export function TechCloud() {
   const isMobile = useIsMobile();
   const androidCompatibility = useAndroidCompatibility();
+  const { t } = useTranslation('home');
+  const technologies = t('mobile.stack', { returnObjects: true }) as Array<{ name: string; layer: string }>;
 
   const cardClassName = cn(
     'min-w-0 rounded-2xl border border-white/10 bg-white/[0.055] p-4 text-left transition duration-300',
@@ -32,7 +25,7 @@ export function TechCloud() {
       isMobile ? 'grid-cols-1' : 'grid-cols-2 sm:grid-cols-3',
     )}>
       {technologies.map((technology, index) => {
-        const Icon = technology.icon;
+        const Icon = icons[index];
 
         return (
           <div key={technology.name} className={cardClassName}>

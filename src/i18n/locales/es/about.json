@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "eyebrow": "Sobre Devign",
+    "title": "Una software house premium para empresas que necesitan sostener presencia, operación y escala.",
+    "description": "Devign Studio combina diseño, ingeniería y automatización para construir activos digitales con precisión técnica y percepción premium.",
+    "card": {
+      "label": "Posicionamiento",
+      "title": "Menos ejecución aislada. Más estrategia, ingeniería y presencia digital operando como sistema.",
+      "items": ["Luxury tech", "Software a medida", "Automatización estratégica"]
+    }
+  },
+  "vision": {
+    "eyebrow": "Visión",
+    "title": "Tecnología con forma, método e impacto operacional.",
+    "description": "Devign existe para reemplazar la improvisación digital por activos que aumentan la claridad comercial, la eficiencia interna o la capacidad de escala.",
+    "pillars": [
+      {
+        "title": "Presencia como activo",
+        "text": "Interfaces, narrativa y acabado para marcas que necesitan sostener valor antes de la primera conversación."
+      },
+      {
+        "title": "Ingeniería aplicada",
+        "text": "Sistemas, APIs, datos y automatizaciones pensados para la rutina real y la evolución."
+      },
+      {
+        "title": "Operación conectada",
+        "text": "Tecnología integrada a procesos comerciales, atención, gestión e indicadores."
+      }
+    ]
+  },
+  "tech": {
+    "eyebrow": "Tecnologías",
+    "title": "Stack para interfaces, APIs, datos, automatización e IA aplicada.",
+    "description": "La elección tecnológica sigue la función del proyecto: presencia premium, operación interna, dashboards, integraciones o inteligencia aplicada."
+  },
+  "process": {
+    "eyebrow": "Proceso",
+    "title": "Un método claro para reducir la incertidumbre.",
+    "description": "Cada entrega avanza por prioridad, dirección visual, arquitectura, desarrollo y soporte."
+  },
+  "culture": {
+    "eyebrow": "Cultura",
+    "title": "Una operación compacta para mejores decisiones.",
+    "description": "La cultura de Devign combina sentido estético, visión de negocio y responsabilidad de ingeniería para construir activos digitales, no piezas sueltas.",
+    "cardText": "Decisiones con contexto, acabado consistente y foco en lo que mejora la experiencia real.",
+    "signals": ["Pensamiento de producto", "Entrega orientada a valor", "Comunicación directa", "Calidad visual y técnica"]
+  },
+  "principles": {
+    "eyebrow": "Principios",
+    "title": "El estándar es pensar como socio técnico, no como proveedor de pantallas.",
+    "items": [
+      "Claridad antes que complejidad. La tecnología necesita mejorar la decisión.",
+      "Diseño como activo de posicionamiento. La percepción también es infraestructura comercial.",
+      "Arquitectura como protección de futuro. El software necesita evolucionar sin perder control.",
+      "Proceso con transparencia. Prioridad, alcance y compromisos deben estar visibles."
+    ]
+  },
+  "cta": {
+    "title": "Los proyectos serios empiezan con contexto, método y dirección técnica.",
+    "description": "Cuéntanos a dónde quiere llegar tu empresa. Devign organiza la ruta entre presencia digital, software, automatización e integración.",
+    "button": "Iniciar diagnóstico"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "hero": {
+    "badge": "Devign Studio / Software house premium",
+    "title": "Infraestructura digital para marcas que operan en un nivel superior.",
+    "description": "Construimos experiencias digitales, automatizaciones y sistemas a medida para empresas que necesitan transformar presencia, datos y operación en ventaja real.",
+    "cta_primary": "Iniciar proyecto",
+    "cta_cases": "Explorar casos",
+    "cta_scope": "Definir alcance",
+    "pills": ["Software a medida", "APIs estratégicas", "Automatizaciones", "IA aplicada", "Presencia premium"],
+    "metrics": [
+      { "value": "360°", "label": "Estrategia, diseño e ingeniería" },
+      { "value": "Premium", "label": "Presencia digital de alto valor" },
+      { "value": "Escala", "label": "Arquitectura para operaciones reales" }
+    ],
+    "mockup_stack_label": "Stack",
+    "mockup_stack": "React · Python · APIs",
+    "mockup_delivery_label": "Entrega",
+    "mockup_delivery": "Arquitectura a medida"
+  },
+  "institutional": {
+    "eyebrow": "Institucional",
+    "title": "Una presencia digital para empresas que necesitan sostener valor.",
+    "description": "Cada sección fue pensada para presentar visión, tecnología y método sin excesos. La marca comunica madurez antes de la primera conversación.",
+    "routes": [
+      { "label": "Servicios", "to": "/servicios", "text": "Capas de tecnología para presencia, operación y escala." },
+      { "label": "Proyectos", "to": "/proyectos", "text": "Fragmentos de productos digitales, sistemas y soluciones en operación." },
+      { "label": "Proceso", "to": "/proceso", "text": "Estrategia, diseño e ingeniería avanzando con control." },
+      { "label": "Nosotros", "to": "/sobre", "text": "Visión, principios y estándar de exigencia de Devign." }
+    ]
+  },
+  "serviceCards": {
+    "eyebrow": "Frentes de entrega",
+    "title": "Software, automatización y presencia digital bajo una misma dirección.",
+    "description": "Devign combina interfaz, datos e ingeniería para construir activos digitales con valor comercial y sostenibilidad operacional."
+  },
+  "tech": {
+    "eyebrow": "Tecnología",
+    "title": "Stack definido por función, no por tendencia.",
+    "description": "React, TypeScript, APIs, Python, PostgreSQL, IA y automatización entran en juego cuando sostienen rendimiento, integración y evolución."
+  },
+  "signals": [
+    {
+      "title": "Arquitectura antes que la superficie",
+      "text": "Datos, permisos e integraciones definidos antes del acabado visual."
+    },
+    {
+      "title": "Producto en operación",
+      "text": "Interfaces diseñadas para la rutina real, lectura rápida y uso recurrente."
+    },
+    {
+      "title": "Ecosistema conectado",
+      "text": "APIs, automatizaciones y datos integrados para reducir el ruido operacional."
+    }
+  ],
+  "budgetCta": {
+    "eyebrow": "Presupuesto",
+    "title": "Empieza con contexto, no con una estimación superficial.",
+    "description": "Devign califica contexto, prioridad, alcance e inversión antes de sugerir el camino técnico.",
+    "cta": "Iniciar diagnóstico"
+  },
+  "proofPoints": [
+    { "label": "Capas digitales", "value": "360°" },
+    { "label": "Arquitectura", "value": "a medida" },
+    { "label": "Entrega", "value": "estratégica" },
+    { "label": "Enfoque", "value": "B2B y high-ticket" }
+  ],
+  "showcase": {
+    "eyebrow": "Showcase",
+    "title": "Casos con profundidad de producto.",
+    "description": "Proyectos con contexto de negocio, arquitectura técnica, funcionalidades reales y una estética de software premium.",
+    "exploreButton": "Explorar portafolio",
+    "teaser": {
+      "eyebrow": "Experiencias digitales",
+      "title": "Fragmentos de sistemas en movimiento.",
+      "description": "El inicio muestra solo señales: interfaces parciales, indicadores y flujos. Los detalles completos viven en el portafolio.",
+      "exploreButton": "Explorar casos",
+      "items": [
+        { "label": "Operación inteligente", "title": "Automatización operativa inteligente.", "detail": "Flujos conectados para reducir el ruido y revelar cuellos de botella reales." },
+        { "label": "Producto escalable", "title": "Experiencia digital preparada para escalar.", "detail": "Interfaces, datos y recorridos diseñados para uso recurrente." },
+        { "label": "IA aplicada", "title": "IA aplicada al flujo operativo.", "detail": "Triaje, lectura y apoyo a la decisión con contexto controlado." },
+        { "label": "Infraestructura", "title": "Infraestructura estratégica para el crecimiento.", "detail": "APIs, permisos y bases preparadas para una evolución modular." }
+      ],
+      "footerText": "Cada vista previa es intencionalmente incompleta. El valor está en el sistema detrás: arquitectura, operación, datos y experiencia.",
+      "footerButton": "Ver soluciones en operación"
+    }
+  },
+  "mobile": {
+    "eyebrow": "Devign Studio / Software house premium",
+    "title": "Infraestructura digital para marcas que operan en un nivel superior.",
+    "description": "Construimos experiencias digitales, automatizaciones y sistemas a medida para empresas que necesitan transformar presencia, datos y operación en ventaja real.",
+    "cta_primary": "Iniciar diagnóstico",
+    "cta_cases": "Explorar casos",
+    "signals": ["Diseño premium", "Software a medida", "Automatización inteligente"],
+    "sections": {
+      "services_eyebrow": "Qué desarrollamos",
+      "services_title": "Capas digitales para presencia, operación y escala.",
+      "method_eyebrow": "Método",
+      "method_title": "Diseño, estrategia e ingeniería trabajando como sistema.",
+      "process_eyebrow": "Proceso",
+      "process_title": "Un ciclo claro para construir con control.",
+      "projects_eyebrow": "Proyectos",
+      "projects_title": "Señales de productos digitales reales.",
+      "tech_eyebrow": "Tecnología",
+      "tech_title": "Stack definido por función, no por tendencia.",
+      "tech_description": "React, TypeScript, APIs, Python, PostgreSQL, IA y automatización entran en juego cuando sostienen rendimiento, integración y evolución.",
+      "budget_eyebrow": "Presupuesto",
+      "budget_title": "Empieza con contexto, no con una estimación superficial.",
+      "budget_description": "Devign califica contexto, prioridad, alcance e inversión antes de sugerir el camino técnico.",
+      "budget_cta": "Iniciar diagnóstico"
+    },
+    "services": [
+      { "title": "Landing pages", "text": "Páginas directas para comunicar valor, captar demanda y validar campañas." },
+      { "title": "Sistemas web", "text": "Interfaces operacionales para equipos, clientes, procesos y datos internos." },
+      { "title": "Automatizaciones", "text": "Flujos que reducen el trabajo manual y hacen la operación más previsible." },
+      { "title": "IA aplicada", "text": "Asistentes, clasificación y lectura de información conectados al contexto real." },
+      { "title": "APIs", "text": "Integraciones y contratos para conectar sistemas, plataformas y rutinas." },
+      { "title": "Dashboards", "text": "Indicadores organizados para lectura rápida y toma de decisiones." }
+    ],
+    "pillars": [
+      { "title": "Claridad comercial", "text": "El mensaje, la jerarquía y las llamadas principales aparecen sin competencia visual." },
+      { "title": "Arquitectura controlada", "text": "Cada entrega nace con alcance, prioridades y criterios técnicos definidos." },
+      { "title": "Producto operable", "text": "El foco es crear interfaces que funcionen bien en la rutina real, no solo en la presentación." }
+    ],
+    "process": [
+      { "title": "Diagnóstico", "text": "Entendemos contexto, público, operación, restricciones e impacto esperado." },
+      { "title": "Dirección", "text": "Definimos narrativa, arquitectura, prioridades y camino de implementación." },
+      { "title": "Construcción", "text": "Desarrollamos pantallas, datos, integraciones y automatizaciones con validación progresiva." },
+      { "title": "Entrega", "text": "Publicamos, revisamos el comportamiento responsivo y preparamos los próximos ciclos." }
+    ],
+    "projects": [
+      {
+        "category": "Sistema operacional",
+        "title": "Panel para operaciones digitales",
+        "text": "Flujos, indicadores y áreas de acción organizados para que los equipos sigan la rutina y la prioridad.",
+        "tags": ["Dashboard", "APIs", "Rutina"]
+      },
+      {
+        "category": "Presencia premium",
+        "title": "Sitio institucional de alto valor",
+        "text": "Narrativa, páginas comerciales y base visual para sostener autoridad antes del primer contacto.",
+        "tags": ["Branding", "Web", "Conversión"]
+      },
+      {
+        "category": "Automatización aplicada",
+        "title": "Flujo conectado a la atención al cliente",
+        "text": "Clasificación, notificaciones y organización de datos para reducir la fricción entre canales y operación.",
+        "tags": ["Automatización", "CRM", "WhatsApp"]
+      }
+    ],
+    "stack": [
+      { "name": "React", "layer": "Interfaces" },
+      { "name": "TypeScript", "layer": "Contratos" },
+      { "name": "APIs", "layer": "Integración" },
+      { "name": "Python", "layer": "Automatización" },
+      { "name": "PostgreSQL", "layer": "Datos" },
+      { "name": "IA", "layer": "Inteligencia" },
+      { "name": "Automatización", "layer": "Operación" },
+      { "name": "GitHub", "layer": "Versionado" },
+      { "name": "Vercel", "layer": "Deploy" }
+    ]
+  }
+}

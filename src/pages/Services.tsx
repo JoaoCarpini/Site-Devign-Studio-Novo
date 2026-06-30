@@ -10,85 +10,44 @@ import {
   Sparkles,
   Workflow,
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { AuroraBackground } from '../components/backgrounds/AuroraBackground';
 import { ServiceCard } from '../components/cards/ServiceCard';
 import { Reveal } from '../components/animations/Reveal';
 import { ButtonLink } from '../components/ui/Button';
 import { SectionIntro } from '../components/ui/SectionIntro';
-import { services } from '../data/site';
+import { useServices, useRoutes } from '../hooks/useContent';
 
-const pillars = [
-  'Identidade visual e tecnologia trabalhando como um único sistema.',
-  'Branding, interface e engenharia conectados para elevar percepção de valor.',
-  'Sistemas, APIs e automações com direção visual premium.',
-  'Presença digital criada para parecer forte, funcionar bem e escalar com clareza.',
-];
-
-const designServices = [
-  {
-    title: 'Identidade Visual',
-    text: 'Construção de sistemas visuais para marcas que precisam transmitir autoridade, sofisticação e consistência.',
-    icon: Palette,
-  },
-  {
-    title: 'Branding Estratégico',
-    text: 'Direção de marca, linguagem visual e posicionamento para criar presença digital mais forte e memorável.',
-    icon: Sparkles,
-  },
-  {
-    title: 'UI/UX Premium',
-    text: 'Interfaces com estética refinada, hierarquia clara e experiência pensada para percepção, uso e conversão.',
-    icon: PenTool,
-  },
-  {
-    title: 'Presença Digital',
-    text: 'Sites, páginas e experiências digitais que unem design, narrativa e tecnologia para sustentar valor.',
-    icon: Network,
-  },
-];
-
-const deliveryStandards = [
-  {
-    title: 'Direção visual',
-    text: 'Antes da interface, definimos percepção: estilo, hierarquia, tom visual e presença da marca.',
-    icon: Palette,
-  },
-  {
-    title: 'Arquitetura digital',
-    text: 'Dados, páginas, módulos e integrações organizados para funcionar com clareza.',
-    icon: Database,
-  },
-  {
-    title: 'Fluxos automatizados',
-    text: 'Jobs, webhooks e gatilhos para padronizar execução sem ruído operacional.',
-    icon: Workflow,
-  },
-  {
-    title: 'Base evolutiva',
-    text: 'Deploy, documentação e estrutura preparada para manutenção e crescimento.',
-    icon: GitBranch,
-  },
-];
+const designIcons = [Palette, Sparkles, PenTool, Network];
+const standardIcons = [Palette, Database, Workflow, GitBranch];
 
 export default function Services() {
+  const { t } = useTranslation('services');
+  const services = useServices();
+  const routes = useRoutes();
+
+  const pillars = t('page.direction.pillars', { returnObjects: true }) as string[];
+  const designServices = (t('page.design.items', { returnObjects: true }) as Array<{ title: string; text: string }>).map(
+    (item, index) => ({ ...item, icon: designIcons[index] }),
+  );
+  const deliveryStandards = (t('page.standard.items', { returnObjects: true }) as Array<{ title: string; text: string }>).map(
+    (item, index) => ({ ...item, icon: standardIcons[index] }),
+  );
+
   return (
     <>
       <section className="relative overflow-hidden pt-28 sm:pt-40">
         <AuroraBackground />
         <div className="container-premium relative pb-14 pt-6 sm:pb-20 sm:pt-8 lg:pb-28">
           <Reveal className="max-w-4xl">
-            <span className="eyebrow mb-6">Serviços</span>
+            <span className="eyebrow mb-6">{t('page.eyebrow')}</span>
 
-            <h1 className="heading-xl text-balance">
-              Design estratégico e tecnologia trabalhando como um único sistema.
-            </h1>
+            <h1 className="heading-xl text-balance">{t('page.title')}</h1>
 
-            <p className="body-lead mt-7 max-w-3xl">
-              A Devign une identidade visual, experiência digital, sistemas, automações e IA para construir marcas mais fortes, operações mais inteligentes e presença digital premium.
-            </p>
+            <p className="body-lead mt-7 max-w-3xl">{t('page.description')}</p>
 
-            <ButtonLink to="/orcamento" className="mt-9">
-              Mapear escopo
+            <ButtonLink to={routes.budget} className="mt-9">
+              {t('page.cta')}
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
           </Reveal>
@@ -98,9 +57,9 @@ export default function Services() {
       <section className="section-band pt-6 sm:pt-16">
         <div className="container-premium">
           <SectionIntro
-            eyebrow="Design & presença"
-            title="Antes do código, existe percepção."
-            text="Identidade visual, branding e experiência definem como uma empresa é percebida antes mesmo da primeira conversa. Esse é o ponto onde design e tecnologia se encontram."
+            eyebrow={t('page.design.eyebrow')}
+            title={t('page.design.title')}
+            text={t('page.design.description')}
           />
 
           <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -139,9 +98,9 @@ export default function Services() {
       <section className="section-band border-y border-white/10 bg-white/[0.025]">
         <div className="container-premium">
           <SectionIntro
-            eyebrow="Tecnologia & produto"
-            title="Código com direção visual. Design com execução real."
-            text="A Devign não separa estética de funcionamento. Cada entrega combina interface, branding, arquitetura, automação e engenharia para criar ativos digitais completos."
+            eyebrow={t('page.tech.eyebrow')}
+            title={t('page.tech.title')}
+            text={t('page.tech.description')}
           />
 
           <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -157,9 +116,9 @@ export default function Services() {
       <section className="section-band">
         <div className="container-premium">
           <SectionIntro
-            eyebrow="Padrão Devign"
-            title="O diferencial está na união entre marca, experiência e engenharia."
-            text="Uma solução digital forte não nasce só do código. Ela precisa parecer premium, comunicar valor, funcionar bem e sustentar crescimento."
+            eyebrow={t('page.standard.eyebrow')}
+            title={t('page.standard.title')}
+            text={t('page.standard.description')}
           />
 
           <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -199,16 +158,14 @@ export default function Services() {
         <div className="container-premium grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <Reveal>
             <span className="inline-flex rounded-full border border-ink/10 bg-ink/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-violet-700">
-              Direção estratégica
+              {t('page.direction.badge')}
             </span>
 
             <h2 className="mt-5 text-[2rem] font-semibold leading-tight tracking-normal text-ink sm:text-5xl">
-              Tecnologia sem direção visual vira ferramenta. Design sem execução vira conceito.
+              {t('page.direction.title')}
             </h2>
 
-            <p className="mt-5 text-base leading-8 text-[#4a4658]">
-              A Devign conecta os dois lados: cria presença visual forte e entrega a estrutura técnica necessária para que essa presença funcione de verdade.
-            </p>
+            <p className="mt-5 text-base leading-8 text-[#4a4658]">{t('page.direction.description')}</p>
           </Reveal>
 
           <div className="grid gap-4">

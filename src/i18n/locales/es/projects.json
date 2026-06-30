@@ -1,0 +1,110 @@
+{
+  "card": {
+    "problem": "Problema",
+    "solution": "Solución",
+    "result": "Resultado",
+    "features": "Funcionalidades",
+    "talkButton": "Hablar sobre el proyecto",
+    "talkButtonShort": "Hablar"
+  },
+  "page": {
+    "eyebrow": "Portafolio",
+    "title": "Proyectos digitales con estándar high-end.",
+    "description": "Beelivery, Devign Stock, Kronos y Contract AI se presentan con contexto real: identidad, software, automatización, stack, diferenciales y resultado esperado.",
+    "cta": "Iniciar proyecto similar",
+    "authority": {
+      "eyebrow": "Autoridad técnica",
+      "title": "Casos con profundidad estratégica.",
+      "signals": [
+        "Proyectos con contexto estratégico y propuesta visual clara.",
+        "Identidad, software y automatización presentados con coherencia.",
+        "Stacks y disciplinas mostradas según la naturaleza real de cada proyecto.",
+        "Casos estructurados con solución, diferenciales y resultado esperado."
+      ]
+    },
+    "deck": {
+      "badge": "Company deck",
+      "title": "Portafolio institucional con firma visual de Devign.",
+      "description": "Presentaciones, materiales comerciales y showcases siguen la identidad de la marca: premium, tecnológica y preparada para conversaciones de mayor valor."
+    },
+    "detailed": {
+      "eyebrow": "Casos detallados",
+      "title": "Cada proyecto comunica tecnología, negocio y ejecución.",
+      "description": "La estructura del portafolio transmite profundidad técnica, madurez visual y capacidad de construir software empresarial."
+    },
+    "nextCase": {
+      "eyebrow": "Próximo caso",
+      "title": "Tu software puede ser el próximo producto con estándar Devign.",
+      "description": "Envía un briefing y transforma operación, datos, automatizaciones o IA aplicada en un producto digital con arquitectura sólida.",
+      "cta": "Iniciar proyecto"
+    }
+  },
+  "beelivery": {
+    "title": "Beelivery",
+    "category": "Plataforma logística y de delivery",
+    "summary": "Sistema para la operación de entregas con panel de pedidos, estado en tiempo real, rutas y seguimiento operacional.",
+    "context": "Una operación de delivery necesita coordinar pedidos, disponibilidad, repartidores, plazos y comunicación sin depender de hojas de cálculo o mensajes sueltos.",
+    "problem": "Los pedidos llegaban por canales distintos, el seguimiento era manual y la gestión no tenía una visión consolidada de los cuellos de botella en la entrega.",
+    "solution": "Creamos una plataforma con panel operacional, flujo de estados, base de clientes, lectura de rendimiento y arquitectura preparada para integraciones con pagos, WhatsApp y APIs externas.",
+    "result": "Operación más previsible, atención más rápida y base lista para escalar pedidos sin aumentar proporcionalmente el trabajo manual.",
+    "features": ["Gestión de pedidos", "Estado en tiempo real", "Panel operacional", "Base de clientes", "Integraciones futuras"],
+    "differentials": ["Flujo operacional claro", "Dashboard para la toma de decisiones", "Arquitectura lista para módulos logísticos"],
+    "stack": ["React", "TypeScript", "APIs", "PostgreSQL", "Vercel", "GitHub"],
+    "metrics": [
+      { "label": "Visión operacional", "value": "tiempo real" },
+      { "label": "Canales", "value": "unificados" },
+      { "label": "Escala", "value": "modular" }
+    ]
+  },
+  "devign-stock": {
+    "title": "Devign Stock",
+    "category": "Sistema de inventario y dashboard",
+    "summary": "Software de control de inventario con movimientos, indicadores, gestión de productos y lectura ejecutiva de la operación.",
+    "context": "Las empresas con inventario activo necesitan rastrear entradas, salidas, disponibilidad, productos críticos e historial sin depender de controles paralelos.",
+    "problem": "La operación dependía de registros manuales y no contaba con lectura rápida de disponibilidad, rupturas de stock, rotación y artículos que requerían acción inmediata.",
+    "solution": "Desarrollamos una aplicación con registro de productos, movimientos, indicadores, filtros e interfaz clara para el uso diario de equipos operacionales.",
+    "result": "Proceso más trazable, menor retrabajo y lectura inmediata de los puntos críticos del inventario.",
+    "features": ["Registro de productos", "Movimientos", "Indicadores", "Filtros operacionales", "Historial"],
+    "differentials": ["Interfaz de uso recurrente", "Datos centralizados", "Base lista para reportes avanzados"],
+    "stack": ["Python", "PostgreSQL", "Dashboard", "Automatización", "GitHub"],
+    "metrics": [
+      { "label": "Control", "value": "centralizado" },
+      { "label": "Trazabilidad", "value": "histórica" },
+      { "label": "Operación", "value": "menos manual" }
+    ]
+  },
+  "kronos": {
+    "title": "Kronos",
+    "category": "Identidad visual premium",
+    "summary": "Proyecto de identidad visual con dirección creativa, posicionamiento premium y lenguaje refinado para una marca de alta percepción.",
+    "context": "La marca necesitaba transmitir sofisticación, fuerza visual y claridad de posicionamiento sin caer en una estética genérica o excesivamente decorativa.",
+    "problem": "La percepción visual todavía no sostenía el nivel de autoridad deseado. Faltaban consistencia, jerarquía, firma gráfica y una dirección premium reconocible.",
+    "solution": "Construimos una identidad visual con sistema de marca, paleta, tipografía, composiciones, aplicaciones digitales y dirección creativa para reforzar presencia y valor percibido.",
+    "result": "Una marca más sofisticada, consistente y preparada para presentarse con autoridad en canales digitales, materiales institucionales y experiencias comerciales.",
+    "features": ["Sistema visual", "Paleta y tipografía", "Aplicaciones digitales", "UI Concepts", "Motion Identity"],
+    "differentials": ["Dirección premium", "Consistencia de marca", "Posicionamiento visual refinado"],
+    "stack": ["Branding", "Identidad Visual", "Diseño Estratégico", "Dirección Creativa", "Figma", "Adobe Illustrator"],
+    "metrics": [
+      { "label": "Marca", "value": "premium" },
+      { "label": "Dirección", "value": "creativa" },
+      { "label": "Presencia", "value": "refinada" }
+    ]
+  },
+  "contract-ai": {
+    "title": "Contract AI",
+    "category": "Automatización documental con IA",
+    "summary": "Plataforma inteligente para la generación automatizada de contratos con llenado dinámico, organización documental y reducción del trabajo manual.",
+    "context": "Empresas y profesionales perdían tiempo creando contratos manualmente, revisando campos repetitivos y organizando documentos de forma descentralizada.",
+    "problem": "La operación documental era lenta, repetitiva y propensa a errores de llenado, además de dificultar la trazabilidad y la estandarización.",
+    "solution": "Desarrollamos una plataforma con generación automatizada de contratos, llenado inteligente, organización de documentos y estructura preparada para integraciones futuras.",
+    "result": "Proceso documental más rápido, estandarizado y escalable, reduciendo el retrabajo y aumentando la previsibilidad operacional.",
+    "features": ["Generación automática de contratos", "Llenado dinámico", "Organización documental", "Flujo automatizado", "Escalabilidad operacional"],
+    "differentials": ["Reducción del trabajo manual", "Estandarización documental", "Arquitectura escalable"],
+    "stack": ["React", "TypeScript", "IA", "Automatización", "APIs", "PostgreSQL"],
+    "metrics": [
+      { "label": "Proceso", "value": "automatizado" },
+      { "label": "Documentos", "value": "estandarizados" },
+      { "label": "Operación", "value": "más rápida" }
+    ]
+  }
+}

@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, CalendarDays, CheckCircle2, Layers3, Sparkles } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { HeroBrandBackdrop } from '../brand/HeroBrandBackdrop';
 import { AuroraBackground } from '../backgrounds/AuroraBackground';
 import { ButtonLink } from '../ui/Button';
 import { HeroMockup } from './HeroMockup';
 import { useAndroidCompatibility, useIsMobile, useReduceMotion } from '../../hooks/useMediaQuery';
+import { useRoutes } from '../../hooks/useContent';
 
 const particles = [
   { left: '9%', top: '26%', delay: 0, size: 3 },
@@ -16,14 +18,6 @@ const particles = [
   { left: '93%', top: '34%', delay: 1.4, size: 2 },
 ];
 
-const capabilityPills = ['Software sob medida', 'APIs estratégicas', 'Automações', 'IA aplicada', 'Presença premium'];
-
-const heroMetrics = [
-  { value: '360°', label: 'Estratégia, design e engenharia' },
-  { value: 'Premium', label: 'Presença digital de alto valor' },
-  { value: 'Escala', label: 'Arquitetura para operações reais' },
-];
-
 const ENABLE_HERO_METRICS = true;
 
 export function CinematicHero() {
@@ -31,6 +25,11 @@ export function CinematicHero() {
   const reduceMotion = useReduceMotion();
   const androidCompatibility = useAndroidCompatibility();
   const animatedMetrics = !reduceMotion && !androidCompatibility;
+  const { t } = useTranslation('home');
+  const routes = useRoutes();
+
+  const capabilityPills = t('hero.pills', { returnObjects: true }) as string[];
+  const heroMetrics = t('hero.metrics', { returnObjects: true }) as Array<{ value: string; label: string }>;
 
   if (isMobile) {
     return <MobileCinematicHero />;
@@ -66,7 +65,7 @@ export function CinematicHero() {
           {androidCompatibility ? (
             <div className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/[0.065] px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-violet-300 shadow-[0_0_50px_rgba(141,92,255,0.16)] sm:mb-7 sm:gap-3 sm:px-4 sm:text-xs sm:tracking-[0.24em] sm:backdrop-blur-2xl">
               <Sparkles className="h-4 w-4" />
-              Devign Studio / Software house premium
+              {t('hero.badge')}
             </div>
           ) : (
             <motion.div
@@ -76,13 +75,13 @@ export function CinematicHero() {
               className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/[0.065] px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-violet-300 shadow-[0_0_50px_rgba(141,92,255,0.16)] sm:mb-7 sm:gap-3 sm:px-4 sm:text-xs sm:tracking-[0.24em] sm:backdrop-blur-2xl"
             >
               <Sparkles className="h-4 w-4" />
-              Devign Studio / Software house premium
+              {t('hero.badge')}
             </motion.div>
           )}
 
           {androidCompatibility ? (
             <h1 className="max-w-6xl text-balance text-[clamp(2.85rem,15vw,4.35rem)] font-semibold leading-[0.92] tracking-normal text-frost sm:text-[clamp(3.5rem,7vw,7.7rem)] sm:leading-[0.88]">
-              Infraestrutura digital para marcas que operam em alto nível.
+              {t('hero.title')}
             </h1>
           ) : (
             <motion.h1
@@ -91,13 +90,13 @@ export function CinematicHero() {
               animate={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, filter: 'blur(0px)' }}
               transition={{ duration: isMobile ? 0.34 : 0.9, ease: [0.22, 1, 0.36, 1], delay: isMobile ? 0.02 : 0.08 }}
             >
-              Infraestrutura digital para marcas que operam em alto nível.
+              {t('hero.title')}
             </motion.h1>
           )}
 
           {androidCompatibility ? (
             <p className="mt-6 max-w-2xl text-base leading-7 text-mist sm:mt-8 sm:text-xl sm:leading-9">
-              Construímos experiências digitais, automações e sistemas sob medida para empresas que precisam transformar presença, dados e operação em vantagem real.
+              {t('hero.description')}
             </p>
           ) : (
             <motion.p
@@ -106,7 +105,7 @@ export function CinematicHero() {
               animate={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, filter: 'blur(0px)' }}
               transition={{ duration: isMobile ? 0.32 : 0.75, ease: [0.22, 1, 0.36, 1], delay: isMobile ? 0.04 : 0.18 }}
             >
-              Construímos experiências digitais, automações e sistemas sob medida para empresas que precisam transformar presença, dados e operação em vantagem real.
+              {t('hero.description')}
             </motion.p>
           )}
 
@@ -116,16 +115,16 @@ export function CinematicHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.26 }}
           >
-            <ButtonLink to="/orcamento" className="w-full px-6 sm:w-auto">
-              Iniciar projeto
+            <ButtonLink to={routes.budget} className="w-full px-6 sm:w-auto">
+              {t('hero.cta_primary')}
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </ButtonLink>
-            <ButtonLink to="/projetos" variant="secondary" className="w-full px-6 sm:w-auto">
-              Explorar cases
+            <ButtonLink to={routes.projects} variant="secondary" className="w-full px-6 sm:w-auto">
+              {t('hero.cta_cases')}
             </ButtonLink>
-            <ButtonLink to="/orcamento" variant="ghost" className="hidden px-4 sm:inline-flex">
+            <ButtonLink to={routes.budget} variant="ghost" className="hidden px-4 sm:inline-flex">
               <CalendarDays className="h-4 w-4" />
-              Mapear escopo
+              {t('hero.cta_scope')}
             </ButtonLink>
           </motion.div>
 
@@ -157,8 +156,8 @@ export function CinematicHero() {
             animate={{ y: [-5, 5, -5] }}
             transition={{ duration: 7.2, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-violet-300">Stack</span>
-            <p className="mt-1 text-sm font-semibold text-frost">React · Python · APIs</p>
+            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-violet-300">{t('hero.mockup_stack_label')}</span>
+            <p className="mt-1 text-sm font-semibold text-frost">{t('hero.mockup_stack')}</p>
           </motion.div>
 
           <motion.div
@@ -166,15 +165,15 @@ export function CinematicHero() {
             animate={{ y: [6, -6, 6] }}
             transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-300">Entrega</span>
-            <p className="mt-1 text-sm font-semibold text-frost">Arquitetura sob medida</p>
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-300">{t('hero.mockup_delivery_label')}</span>
+            <p className="mt-1 text-sm font-semibold text-frost">{t('hero.mockup_delivery')}</p>
           </motion.div>
         </motion.div>
       </div>
 
       {ENABLE_HERO_METRICS ? (
         <div className="container-premium relative z-10 pb-16 sm:pb-32 lg:pb-36">
-          <HeroMetricsGrid animated={!reduceMotion} />
+          <HeroMetricsGrid metrics={heroMetrics} animated={animatedMetrics} />
         </div>
       ) : null}
 
@@ -184,6 +183,12 @@ export function CinematicHero() {
 }
 
 function MobileCinematicHero() {
+  const { t } = useTranslation('home');
+  const routes = useRoutes();
+
+  const capabilityPills = t('hero.pills', { returnObjects: true }) as string[];
+  const heroMetrics = t('hero.metrics', { returnObjects: true }) as Array<{ value: string; label: string }>;
+
   return (
     <section className="relative overflow-clip pt-[calc(5rem+env(safe-area-inset-top))]">
       <AuroraBackground />
@@ -193,24 +198,24 @@ function MobileCinematicHero() {
         <div>
           <div className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/[0.065] px-3 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-violet-300 shadow-[0_0_50px_rgba(141,92,255,0.16)] min-[390px]:text-[0.68rem] min-[390px]:tracking-[0.16em]">
             <Sparkles className="h-4 w-4" />
-            Devign Studio / Software house premium
+            {t('hero.badge')}
           </div>
 
           <h1 className="max-w-6xl text-balance text-[clamp(2.35rem,12vw,4.35rem)] font-semibold leading-[0.96] tracking-normal text-frost min-[390px]:text-[clamp(2.85rem,15vw,4.35rem)] min-[390px]:leading-[0.92]">
-            Infraestrutura digital para marcas que operam em alto nível.
+            {t('hero.title')}
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-7 text-mist">
-            Construímos experiências digitais, automações e sistemas sob medida para empresas que precisam transformar presença, dados e operação em vantagem real.
+            {t('hero.description')}
           </p>
 
           <div className="mt-7 flex flex-col gap-3">
-            <ButtonLink to="/orcamento" className="w-full px-6">
-              Iniciar projeto
+            <ButtonLink to={routes.budget} className="w-full px-6">
+              {t('hero.cta_primary')}
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </ButtonLink>
-            <ButtonLink to="/projetos" variant="secondary" className="w-full px-6">
-              Explorar cases
+            <ButtonLink to={routes.projects} variant="secondary" className="w-full px-6">
+              {t('hero.cta_cases')}
             </ButtonLink>
           </div>
 
@@ -230,17 +235,23 @@ function MobileCinematicHero() {
 
       {ENABLE_HERO_METRICS ? (
         <div className="container-premium relative z-10 pb-16">
-          <HeroMetricsGrid />
+          <HeroMetricsGrid metrics={heroMetrics} />
         </div>
       ) : null}
     </section>
   );
 }
 
-function HeroMetricsGrid({ animated = false }: { animated?: boolean }) {
+function HeroMetricsGrid({
+  metrics,
+  animated = false,
+}: {
+  metrics: Array<{ value: string; label: string }>;
+  animated?: boolean;
+}) {
   return (
     <div className="grid grid-cols-1 gap-2.5 border-t border-white/10 pt-5 md:grid-cols-3 md:gap-3">
-      {heroMetrics.map((item, index) => {
+      {metrics.map((item, index) => {
         const content = (
           <>
             <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-signal" />

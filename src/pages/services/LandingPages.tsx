@@ -1,6 +1,6 @@
 import { ServiceDetailPage } from '../../components/service-pages/ServiceDetailPage';
-import { serviceMap } from '../../data/site';
+import { useService } from '../../hooks/useContent';
 
 export default function LandingPages() {
-  return <ServiceDetailPage service={serviceMap['landing-pages']} />;
+  return <ServiceDetailPage service={useService('landing-pages')} />;
 }

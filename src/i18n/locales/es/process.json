@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "eyebrow": "Proceso",
+    "title": "Un método para transformar la intención en dirección técnica.",
+    "description": "Los proyectos digitales de alto valor exigen control. Devign organiza diagnóstico, estrategia, diseño, desarrollo y entrega para reducir el riesgo y mantener el foco en lo que importa."
+  },
+  "governance": {
+    "badge": "Gobernanza",
+    "title": "Claridad sobre qué se construirá, por qué y en qué orden.",
+    "guarantees": [
+      "Alcance con entregables, prioridades y límites claros.",
+      "Validaciones por etapa para reducir la incertidumbre.",
+      "Decisiones técnicas traducidas con objetividad.",
+      "Base preparada para soporte y evolución."
+    ]
+  },
+  "next": {
+    "eyebrow": "Próximo paso",
+    "title": "Empieza con una lectura bien estructurada.",
+    "description": "El briefing reúne el contexto suficiente para transformar la intención en un camino técnico y comercial.",
+    "cta": "Iniciar diagnóstico"
+  },
+  "steps": [
+    { "title": "Briefing", "text": "Mapeamos el negocio, las restricciones y el impacto esperado antes de proponer cualquier pantalla." },
+    { "title": "Estrategia", "text": "Definimos arquitectura, prioridades, narrativa y criterios de éxito." },
+    { "title": "Diseño", "text": "Diseñamos jerarquía, interacción y percepción premium con precisión." },
+    { "title": "Desarrollo", "text": "Construimos con componentes, rendimiento y base preparada para evolucionar." },
+    { "title": "Entrega", "text": "Validamos flujos, responsividad, deploy y documentación esencial." },
+    { "title": "Soporte", "text": "Acompañamos la entrada en producción y planificamos los ciclos de evolución." }
+  ]
+}

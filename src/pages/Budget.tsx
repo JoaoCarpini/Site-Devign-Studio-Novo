@@ -1,15 +1,17 @@
 import { CheckCircle2, LockKeyhole, MessageCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { AuroraBackground } from '../components/backgrounds/AuroraBackground';
 import { Reveal } from '../components/animations/Reveal';
 import { BudgetWizard } from '../components/forms/BudgetWizard';
 
-const signals = [
-  { label: 'Briefing estratégico', icon: CheckCircle2 },
-  { label: 'Contato validado', icon: LockKeyhole },
-  { label: 'Conversa com contexto', icon: MessageCircle },
-];
+const signalIcons = [CheckCircle2, LockKeyhole, MessageCircle];
 
 export default function Budget() {
+  const { t } = useTranslation('budget');
+  const signals = (t('page.budget.signals', { returnObjects: true }) as Array<{ label: string }>).map(
+    (item, index) => ({ ...item, icon: signalIcons[index] }),
+  );
+
   return (
     <section className="relative max-w-full overflow-x-hidden pt-24 sm:pt-32 lg:pt-36">
       <AuroraBackground />
@@ -18,13 +20,12 @@ export default function Budget() {
 
       <div className="container-premium relative mx-auto grid max-w-7xl gap-6 pb-12 pt-4 sm:gap-9 sm:pb-20 lg:grid-cols-[0.68fr_1.32fr] lg:items-start lg:gap-12 lg:pb-28">
         <Reveal className="order-last min-w-0 lg:sticky lg:top-28 lg:order-first">
-          <span className="eyebrow mb-4">Diagnóstico inicial</span>
+          <span className="eyebrow mb-4">{t('page.budget.eyebrow')}</span>
           <h1 className="max-w-3xl text-balance text-[clamp(1.5rem,6vw,3.2rem)] font-semibold leading-[0.98] tracking-normal text-frost lg:text-[4rem]">
-            Contexto claro antes da proposta.
+            {t('page.budget.title')}
           </h1>
           <p className="mt-4 max-w-2xl text-sm leading-6 text-mist sm:text-base sm:leading-8">
-            Um fluxo curto para organizar objetivo, investimento, prazo e prioridades. A conversa começa com direção,
-            não com suposições.
+            {t('page.budget.description')}
           </p>
 
           <div className="mt-5 hidden gap-2.5 sm:grid-cols-3 lg:mt-8 lg:grid lg:grid-cols-1">

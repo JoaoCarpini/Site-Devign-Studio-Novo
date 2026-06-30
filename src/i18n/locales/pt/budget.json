@@ -1,0 +1,174 @@
+{
+  "page": {
+    "budget": {
+      "eyebrow": "Diagnóstico inicial",
+      "title": "Contexto claro antes da proposta.",
+      "description": "Um fluxo curto para organizar objetivo, investimento, prazo e prioridades. A conversa começa com direção, não com suposições.",
+      "signals": [
+        { "label": "Briefing estratégico" },
+        { "label": "Contato validado" },
+        { "label": "Conversa com contexto" }
+      ]
+    },
+    "contact": {
+      "eyebrow": "Contato / Orçamento",
+      "title": "Vamos qualificar o projeto antes da proposta.",
+      "description": "Preencha o briefing inicial para entendermos tipo de projeto, objetivo, investimento, prazo e funcionalidades. Isso permite uma conversa mais precisa e uma proposta com direção real.",
+      "returnLabel": "Retorno",
+      "returnText": "Após o envio, a próxima etapa é uma conversa objetiva para validar escopo, prioridade e caminho técnico."
+    }
+  },
+  "wizard": {
+    "headerLabel": "Diagnóstico estratégico",
+    "steps": [
+      {
+        "label": "Projeto",
+        "eyebrow": "Etapa 01",
+        "title": "Que tipo de ativo digital sua empresa precisa construir?",
+        "description": "Escolha a frente principal. Isso orienta tecnologia, design e profundidade de escopo."
+      },
+      {
+        "label": "Objetivo",
+        "eyebrow": "Etapa 02",
+        "title": "Qual prioridade deve orientar a entrega?",
+        "description": "A prioridade define foco, reduz ruído e guia as decisões de impacto."
+      },
+      {
+        "label": "Investimento",
+        "eyebrow": "Etapa 03",
+        "title": "Qual faixa de investimento faz sentido agora?",
+        "description": "A referência calibra profundidade, ritmo e nível de arquitetura."
+      },
+      {
+        "label": "Prazo",
+        "eyebrow": "Etapa 04",
+        "title": "Qual janela de tempo precisa ser considerada?",
+        "description": "O timing ajuda a organizar urgência, complexidade e fases."
+      },
+      {
+        "label": "Escopo",
+        "eyebrow": "Etapa 05",
+        "title": "Quais recursos pertencem à primeira versão?",
+        "description": "Selecione os pontos mais relevantes. A análise pode reorganizar prioridades por fase."
+      },
+      {
+        "label": "Conexões",
+        "eyebrow": "Etapa 06",
+        "title": "Quais integrações podem entrar no projeto?",
+        "description": "Integrações impactam arquitetura, segurança e esforço técnico."
+      },
+      {
+        "label": "Contato",
+        "eyebrow": "Etapa 07",
+        "title": "Dados para contato e pré-diagnóstico.",
+        "description": "As informações serão validadas antes do envio. Depois, a conversa segue com o resumo do briefing."
+      }
+    ],
+    "technologyGroupLabel": "Tecnologia & produto digital",
+    "designGroupLabel": "Design & presença estratégica",
+    "otherGroupLabel": "Outros formatos",
+    "technologyProjectTypes": [
+      { "title": "Website Institucional", "description": "Presença digital premium para posicionamento, autoridade e confiança comercial." },
+      { "title": "Sistema Web", "description": "Aplicação sob medida para operação, gestão, vendas ou atendimento." },
+      { "title": "Dashboard", "description": "Painéis executivos para indicadores, dados operacionais e leitura de performance." },
+      { "title": "API", "description": "Camada técnica para integrar sistemas, dados, produtos e fluxos internos." },
+      { "title": "Automação", "description": "Processos digitais para reduzir trabalho manual e aumentar consistência." },
+      { "title": "IA", "description": "Inteligência aplicada a triagem, análise, atendimento ou produtividade." },
+      { "title": "Landing Page", "description": "Página de conversão com copy, estrutura e visual orientados a resultado." }
+    ],
+    "designProjectTypes": [
+      { "title": "Identidade Visual Digital", "description": "Sistema visual coerente para site, produto e materiais digitais com padrão premium." },
+      { "title": "Presença Digital Estratégica", "description": "Direção de marca, narrativa e experiência para elevar percepção e clareza comercial." },
+      { "title": "Branding para Empresas", "description": "Posicionamento, linguagem visual e consistência para marcas B2B e high-ticket." },
+      { "title": "Estrutura Visual para Redes Sociais", "description": "Templates, hierarquia e direção visual para canais digitais com padrão estratégico." }
+    ],
+    "otherProjectType": { "title": "Outro", "description": "Projeto específico que combina tecnologia, design ou presença digital sob medida." },
+    "objectives": [
+      { "title": "Captar clientes", "description": "Construir uma jornada digital mais clara, confiável e orientada a conversão." },
+      { "title": "Automatizar processos", "description": "Eliminar rotinas repetitivas e criar fluxos mais rápidos para a operação." },
+      { "title": "Modernizar empresa", "description": "Atualizar presença, sistemas ou processos para um padrão mais competitivo." },
+      { "title": "Melhorar presença digital", "description": "Elevar percepção de valor, clareza comercial e experiência da marca." },
+      { "title": "Escalar operação", "description": "Preparar tecnologia, dados e integrações para suportar crescimento." }
+    ],
+    "budgetRanges": [
+      { "title": "R$500 — R$1.500", "description": "Ajustes pontuais, páginas simples ou validação inicial de escopo." },
+      { "title": "R$1.500 — R$5.000", "description": "Landing pages premium, websites objetivos e automações menores." },
+      { "title": "R$5.000 — R$15.000", "description": "Sistemas, integrações, dashboards e experiências digitais mais completas." },
+      { "title": "R$15.000+", "description": "Produtos sob medida, arquitetura escalável e projetos de maior impacto." }
+    ],
+    "timelineOptions": [
+      { "title": "Até 30 dias", "description": "Projeto com prioridade alta, escopo objetivo e tomada de decisão rápida." },
+      { "title": "1 a 2 meses", "description": "Janela ideal para websites premium, landing pages e automações bem definidas." },
+      { "title": "2 a 4 meses", "description": "Ritmo indicado para sistemas, dashboards e integrações com mais profundidade." },
+      { "title": "Projeto contínuo", "description": "Evolução por ciclos, suporte técnico e melhorias progressivas." }
+    ],
+    "featureOptions": [
+      "Área administrativa",
+      "Painel com indicadores",
+      "Área de usuários e acessos",
+      "Formulários personalizados",
+      "Automações",
+      "Inteligência Artificial",
+      "Integração com outros sistemas",
+      "Relatórios e métricas",
+      "Pagamentos online",
+      "Notificações automáticas",
+      "Upload de arquivos",
+      "Área do cliente",
+      "Controle financeiro",
+      "Gestão de estoque",
+      "Dashboard operacional",
+      "Multiusuários",
+      "Agenda e agendamentos",
+      "Assinaturas e planos",
+      "Chat interno",
+      "Integração com WhatsApp"
+    ],
+    "integrationOptions": ["WhatsApp", "CRM", "ERP", "Pagamentos", "Planilhas", "Banco de dados", "APIs externas", "Nenhuma definida"],
+    "phaseMessages": {
+      "idle": "",
+      "validating": "Validando entrada com segurança...",
+      "sending": "Organizando briefing para análise...",
+      "whatsapp": "Preparando continuidade no WhatsApp..."
+    },
+    "validation": {
+      "projectType": "Selecione o tipo de projeto para continuar.",
+      "objective": "Escolha o objetivo principal do projeto.",
+      "budget": "Selecione a faixa de orçamento estimada.",
+      "timeline": "Selecione o prazo desejado para o projeto.",
+      "features": "Selecione ao menos uma funcionalidade importante.",
+      "integrations": "Selecione ao menos uma integração ou marque \"Nenhuma definida\".",
+      "contactRequired": "Preencha nome, empresa, email, telefone e descrição do projeto.",
+      "emailInvalid": "Informe um email válido para seguirmos com segurança.",
+      "descriptionShort": "Descreva o projeto com um pouco mais de contexto.",
+      "submitFailed": "Não foi possível concluir o envio agora. Verifique sua conexão e tente novamente."
+    },
+    "contactFields": {
+      "name": "Nome",
+      "company": "Empresa",
+      "email": "Email",
+      "phone": "Telefone / WhatsApp",
+      "descriptionLabel": "Descrição do projeto",
+      "descriptionPlaceholder": "Contexto, objetivo, dores atuais, referências e qualquer requisito importante.",
+      "trust": {
+        "validation": "Validação segura",
+        "antiSpam": "Anti-spam ativo",
+        "crm": "Pronto para CRM/API"
+      }
+    },
+    "footer": {
+      "back": "Voltar",
+      "next": "Continuar",
+      "send": "Enviar para análise"
+    },
+    "submitted": {
+      "badge": "Onboarding concluído",
+      "title": "Briefing recebido com contexto.",
+      "description": "A Devign recebeu as informações essenciais do projeto. A conversa agora continua no WhatsApp com mais precisão.",
+      "summary": { "project": "Projeto", "objective": "Objetivo", "investment": "Investimento" },
+      "continueWhatsapp": "Continuar no WhatsApp",
+      "reviewBriefing": "Revisar briefing"
+    },
+    "loadingOverlay": "Processando briefing"
+  }
+}

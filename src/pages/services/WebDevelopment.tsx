@@ -1,6 +1,6 @@
 import { ServiceDetailPage } from '../../components/service-pages/ServiceDetailPage';
-import { serviceMap } from '../../data/site';
+import { useService } from '../../hooks/useContent';
 
 export default function WebDevelopment() {
-  return <ServiceDetailPage service={serviceMap['web-development']} />;
+  return <ServiceDetailPage service={useService('web-development')} />;
 }

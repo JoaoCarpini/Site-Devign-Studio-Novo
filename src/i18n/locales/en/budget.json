@@ -1,0 +1,174 @@
+{
+  "page": {
+    "budget": {
+      "eyebrow": "Initial diagnosis",
+      "title": "Clear context before the proposal.",
+      "description": "A short flow to organize objective, investment, timeline and priorities. The conversation starts with direction, not assumptions.",
+      "signals": [
+        { "label": "Strategic briefing" },
+        { "label": "Verified contact" },
+        { "label": "Conversation with context" }
+      ]
+    },
+    "contact": {
+      "eyebrow": "Contact / Budget",
+      "title": "Let's qualify the project before the proposal.",
+      "description": "Fill out the initial briefing so we can understand the project type, objective, investment, timeline and features. This allows for a more precise conversation and a proposal with real direction.",
+      "returnLabel": "Next steps",
+      "returnText": "After submission, the next step is an objective conversation to validate scope, priority and technical path."
+    }
+  },
+  "wizard": {
+    "headerLabel": "Strategic diagnosis",
+    "steps": [
+      {
+        "label": "Project",
+        "eyebrow": "Step 01",
+        "title": "What kind of digital asset does your company need to build?",
+        "description": "Choose the main focus. This guides technology, design and scope depth."
+      },
+      {
+        "label": "Objective",
+        "eyebrow": "Step 02",
+        "title": "What priority should guide the delivery?",
+        "description": "The priority defines focus, reduces noise and guides high-impact decisions."
+      },
+      {
+        "label": "Investment",
+        "eyebrow": "Step 03",
+        "title": "What investment range makes sense right now?",
+        "description": "This reference calibrates depth, pace and level of architecture."
+      },
+      {
+        "label": "Timeline",
+        "eyebrow": "Step 04",
+        "title": "What time window needs to be considered?",
+        "description": "Timing helps organize urgency, complexity and phases."
+      },
+      {
+        "label": "Scope",
+        "eyebrow": "Step 05",
+        "title": "Which features belong in the first version?",
+        "description": "Select the most relevant points. The analysis may reorganize priorities by phase."
+      },
+      {
+        "label": "Connections",
+        "eyebrow": "Step 06",
+        "title": "Which integrations could be part of the project?",
+        "description": "Integrations affect architecture, security and technical effort."
+      },
+      {
+        "label": "Contact",
+        "eyebrow": "Step 07",
+        "title": "Contact details and pre-diagnosis.",
+        "description": "The information will be validated before submission. After that, the conversation continues with a summary of the briefing."
+      }
+    ],
+    "technologyGroupLabel": "Technology & digital product",
+    "designGroupLabel": "Design & strategic presence",
+    "otherGroupLabel": "Other formats",
+    "technologyProjectTypes": [
+      { "title": "Institutional Website", "description": "Premium digital presence for positioning, authority and commercial trust." },
+      { "title": "Web System", "description": "Tailored application for operations, management, sales or customer service." },
+      { "title": "Dashboard", "description": "Executive panels for indicators, operational data and performance reporting." },
+      { "title": "API", "description": "A technical layer to integrate systems, data, products and internal flows." },
+      { "title": "Automation", "description": "Digital processes to reduce manual work and increase consistency." },
+      { "title": "AI", "description": "Intelligence applied to triage, analysis, customer service or productivity." },
+      { "title": "Landing Page", "description": "Conversion page with copy, structure and visuals oriented toward results." }
+    ],
+    "designProjectTypes": [
+      { "title": "Digital Visual Identity", "description": "A coherent visual system for site, product and digital materials with a premium standard." },
+      { "title": "Strategic Digital Presence", "description": "Brand direction, narrative and experience to elevate perception and commercial clarity." },
+      { "title": "Branding for Companies", "description": "Positioning, visual language and consistency for B2B and high-ticket brands." },
+      { "title": "Visual Structure for Social Media", "description": "Templates, hierarchy and visual direction for digital channels with a strategic standard." }
+    ],
+    "otherProjectType": { "title": "Other", "description": "A specific project combining technology, design or tailored digital presence." },
+    "objectives": [
+      { "title": "Acquire customers", "description": "Build a clearer, more reliable, conversion-oriented digital journey." },
+      { "title": "Automate processes", "description": "Eliminate repetitive routines and create faster flows for the operation." },
+      { "title": "Modernize the company", "description": "Update presence, systems or processes to a more competitive standard." },
+      { "title": "Improve digital presence", "description": "Elevate perceived value, commercial clarity and brand experience." },
+      { "title": "Scale operations", "description": "Prepare technology, data and integrations to support growth." }
+    ],
+    "budgetRanges": [
+      { "title": "$300 — $800", "description": "Small adjustments, simple pages or initial scope validation." },
+      { "title": "$800 — $2,500", "description": "Premium landing pages, focused websites and smaller automations." },
+      { "title": "$2,500 — $7,500", "description": "Systems, integrations, dashboards and more complete digital experiences." },
+      { "title": "$7,500+", "description": "Tailored products, scalable architecture and higher-impact projects." }
+    ],
+    "timelineOptions": [
+      { "title": "Up to 30 days", "description": "High-priority project, focused scope and fast decision-making." },
+      { "title": "1 to 2 months", "description": "Ideal window for premium websites, landing pages and well-defined automations." },
+      { "title": "2 to 4 months", "description": "Recommended pace for systems, dashboards and more in-depth integrations." },
+      { "title": "Ongoing project", "description": "Evolution by cycles, technical support and progressive improvements." }
+    ],
+    "featureOptions": [
+      "Admin area",
+      "Dashboard with indicators",
+      "User and access area",
+      "Custom forms",
+      "Automations",
+      "Artificial Intelligence",
+      "Integration with other systems",
+      "Reports and metrics",
+      "Online payments",
+      "Automatic notifications",
+      "File upload",
+      "Customer area",
+      "Financial control",
+      "Inventory management",
+      "Operational dashboard",
+      "Multi-user support",
+      "Scheduling and appointments",
+      "Subscriptions and plans",
+      "Internal chat",
+      "WhatsApp integration"
+    ],
+    "integrationOptions": ["WhatsApp", "CRM", "ERP", "Payments", "Spreadsheets", "Database", "External APIs", "None defined"],
+    "phaseMessages": {
+      "idle": "",
+      "validating": "Securely validating input...",
+      "sending": "Organizing briefing for review...",
+      "whatsapp": "Preparing to continue on WhatsApp..."
+    },
+    "validation": {
+      "projectType": "Select a project type to continue.",
+      "objective": "Choose the project's main objective.",
+      "budget": "Select the estimated budget range.",
+      "timeline": "Select the desired project timeline.",
+      "features": "Select at least one important feature.",
+      "integrations": "Select at least one integration or mark \"None defined\".",
+      "contactRequired": "Fill in name, company, email, phone and project description.",
+      "emailInvalid": "Enter a valid email so we can proceed securely.",
+      "descriptionShort": "Describe the project with a bit more context.",
+      "submitFailed": "We couldn't complete the submission right now. Check your connection and try again."
+    },
+    "contactFields": {
+      "name": "Name",
+      "company": "Company",
+      "email": "Email",
+      "phone": "Phone / WhatsApp",
+      "descriptionLabel": "Project description",
+      "descriptionPlaceholder": "Context, objective, current pain points, references and any important requirements.",
+      "trust": {
+        "validation": "Secure validation",
+        "antiSpam": "Active anti-spam",
+        "crm": "CRM/API ready"
+      }
+    },
+    "footer": {
+      "back": "Back",
+      "next": "Continue",
+      "send": "Send for review"
+    },
+    "submitted": {
+      "badge": "Onboarding complete",
+      "title": "Briefing received with context.",
+      "description": "Devign has received the essential project information. The conversation now continues on WhatsApp with more precision.",
+      "summary": { "project": "Project", "objective": "Objective", "investment": "Investment" },
+      "continueWhatsapp": "Continue on WhatsApp",
+      "reviewBriefing": "Review briefing"
+    },
+    "loadingOverlay": "Processing briefing"
+  }
+}

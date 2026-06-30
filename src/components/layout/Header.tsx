@@ -1,22 +1,24 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { ArrowRight, Menu, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { DevignLogo } from '../brand/DevignLogo';
+import { Link } from '../ui/LocaleLink';
+import { LanguageSwitcher } from '../ui/LanguageSwitcher';
 import { cn } from '../../utils/cn';
+import { getLangFromPath, getLangPrefix } from '../../i18n';
+import { useRoutes } from '../../hooks/useContent';
 import { useAndroidCompatibility, useExtremeMobileCompatibility } from '../../hooks/useMediaQuery';
 
-const navItems = [
-  { label: 'Home', to: '/' },
-  { label: 'Serviços', to: '/servicos' },
-  { label: 'Projetos', to: '/projetos' },
-  { label: 'Processo', to: '/processo' },
-  { label: 'Sobre', to: '/sobre' },
-  { label: 'Orçamento', to: '/orcamento' },
-];
+function getStrippedPath(pathname: string): string {
+  const lang = getLangFromPath(pathname);
+  const prefix = getLangPrefix(lang);
+  return (prefix ? pathname.slice(prefix.length) : pathname) || '/';
+}
 
-function isActive(current: string, target: string) {
-  return target === '/' ? current === '/' : current.startsWith(target);
+function isActive(strippedPathname: string, routePath: string) {
+  return routePath === '/' ? strippedPathname === '/' : strippedPathname.startsWith(routePath);
 }
 
 export function Header() {
@@ -25,6 +27,19 @@ export function Header() {
   const { pathname } = useLocation();
   const extremeMobileCompatibility = useExtremeMobileCompatibility();
   const androidCompatibility = useAndroidCompatibility();
+  const { t } = useTranslation('common');
+  const routes = useRoutes();
+
+  const strippedPathname = getStrippedPath(pathname);
+
+  const navItems = [
+    { label: t('nav.home'), to: routes.home },
+    { label: t('nav.services'), to: routes.services },
+    { label: t('nav.projects'), to: routes.projects },
+    { label: t('nav.process'), to: routes.process },
+    { label: t('nav.about'), to: routes.about },
+    { label: t('nav.budget'), to: routes.budget },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 16);
@@ -51,7 +66,7 @@ export function Header() {
 
         <div className="hidden items-center gap-0.5 rounded-2xl border border-white/[0.08] bg-white/[0.025] p-1 lg:flex">
           {navItems.map((item) => {
-            const active = isActive(pathname, item.to);
+            const active = isActive(strippedPathname, item.to);
 
             return (
               <Link
@@ -78,11 +93,12 @@ export function Header() {
         </div>
 
         <div className="hidden items-center gap-2 lg:flex">
+          <LanguageSwitcher />
           <Link
-            to="/orcamento"
+            to={routes.budget}
             className="group inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-white/10 bg-frost px-3.5 text-xs font-semibold text-ink shadow-[0_10px_36px_rgba(0,0,0,0.18)] transition duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_14px_48px_rgba(141,92,255,0.14)] active:scale-[0.98]"
           >
-            Iniciar projeto
+            {t('nav.startProject')}
             <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
           </Link>
         </div>
@@ -91,7 +107,7 @@ export function Header() {
           type="button"
           className="grid h-10 w-10 place-items-center rounded-[1rem] border border-white/10 bg-white/[0.05] text-frost transition duration-300 hover:bg-white/[0.08] lg:hidden"
           onClick={() => setIsOpen((value) => !value)}
-          aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
+          aria-label={isOpen ? t('nav.closeMenu') : t('nav.openMenu')}
           aria-expanded={isOpen}
         >
           {isOpen ? <X className="h-4.5 w-4.5" /> : <Menu className="h-4.5 w-4.5" />}
@@ -106,7 +122,7 @@ export function Header() {
       >
         <div className="grid gap-1 p-2">
           {navItems.map((item) => {
-            const active = isActive(pathname, item.to);
+            const active = isActive(strippedPathname, item.to);
 
             return (
               <Link
@@ -122,11 +138,12 @@ export function Header() {
               </Link>
             );
           })}
+          <LanguageSwitcher className="mt-1 w-full justify-center" />
           <Link
-            to="/orcamento"
-            className="mt-2 inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-frost px-4 text-xs font-semibold text-ink transition duration-300 hover:bg-white active:scale-[0.99] sm:text-sm"
+            to={routes.budget}
+            className="mt-1 inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-frost px-4 text-xs font-semibold text-ink transition duration-300 hover:bg-white active:scale-[0.99] sm:text-sm"
           >
-            Iniciar projeto
+            {t('nav.startProject')}
             <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           </Link>
         </div>

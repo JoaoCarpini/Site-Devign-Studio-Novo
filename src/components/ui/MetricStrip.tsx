@@ -1,7 +1,9 @@
-import { proofPoints } from '../../data/site';
+import { useProofPoints } from '../../hooks/useContent';
 import { Reveal } from '../animations/Reveal';
 
 export function MetricStrip() {
+  const proofPoints = useProofPoints();
+
   return (
     <Reveal className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       {proofPoints.map((item) => (

@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "eyebrow": "About Devign",
+    "title": "A premium software house for companies that need to sustain presence, operations and scale.",
+    "description": "Devign Studio combines design, engineering and automation to build digital assets with technical precision and premium perception.",
+    "card": {
+      "label": "Positioning",
+      "title": "Less isolated execution. More strategy, engineering and digital presence operating as a system.",
+      "items": ["Luxury tech", "Tailored software", "Strategic automation"]
+    }
+  },
+  "vision": {
+    "eyebrow": "Vision",
+    "title": "Technology with form, method and operational impact.",
+    "description": "Devign exists to replace digital improvisation with assets that increase commercial clarity, internal efficiency or scaling capacity.",
+    "pillars": [
+      {
+        "title": "Presence as an asset",
+        "text": "Interfaces, narrative and finish for brands that need to sustain value before the first conversation."
+      },
+      {
+        "title": "Applied engineering",
+        "text": "Systems, APIs, data and automations designed for real-world routine and evolution."
+      },
+      {
+        "title": "Connected operations",
+        "text": "Technology integrated with sales processes, customer service, management and indicators."
+      }
+    ]
+  },
+  "tech": {
+    "eyebrow": "Technologies",
+    "title": "A stack for interfaces, APIs, data, automation and applied AI.",
+    "description": "Technology choices follow the project's function: premium presence, internal operations, dashboards, integrations or applied intelligence."
+  },
+  "process": {
+    "eyebrow": "Process",
+    "title": "A clear method to reduce uncertainty.",
+    "description": "Every delivery moves through priority, visual direction, architecture, development and support."
+  },
+  "culture": {
+    "eyebrow": "Culture",
+    "title": "A compact operation for better decisions.",
+    "description": "Devign's culture combines aesthetic sense, business vision and engineering responsibility to build digital assets, not loose pieces.",
+    "cardText": "Decisions made with context, consistent finish and a focus on what actually improves the real experience.",
+    "signals": ["Product thinking", "Value-driven delivery", "Direct communication", "Visual and technical quality"]
+  },
+  "principles": {
+    "eyebrow": "Principles",
+    "title": "The standard is to think like a technical partner, not a screen vendor.",
+    "items": [
+      "Clarity before complexity. Technology needs to improve decision-making.",
+      "Design as a positioning asset. Perception is also commercial infrastructure.",
+      "Architecture as protection for the future. Software needs to evolve without losing control.",
+      "Process with transparency. Priority, scope and trade-offs need to stay visible."
+    ]
+  },
+  "cta": {
+    "title": "Serious projects start with context, method and technical direction.",
+    "description": "Tell us where your company wants to go. Devign maps the route between digital presence, software, automation and integration.",
+    "button": "Start diagnosis"
+  }
+}

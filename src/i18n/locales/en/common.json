@@ -1,0 +1,101 @@
+{
+  "routes": {
+    "home": "/",
+    "services": "/services",
+    "projects": "/projects",
+    "process": "/process",
+    "about": "/about",
+    "budget": "/budget"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "process": "Process",
+    "about": "About",
+    "budget": "Budget",
+    "startProject": "Start project",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "footer": {
+    "tagline": "Premium software house",
+    "description": "Tailored technology for companies that need to sustain presence, operations and growth with greater precision.",
+    "services": "Services",
+    "navigation": "Navigation",
+    "copyright": "All rights reserved.",
+    "quickLinks": {
+      "projects": "Projects",
+      "process": "Process",
+      "about": "About",
+      "budget": "Budget"
+    }
+  },
+  "contact": {
+    "eyebrow": "Institutional contact",
+    "title": "Real presence for conversations with context.",
+    "description": "Direct channels to start a strategic conversation with Devign Studio.",
+    "items": {
+      "email_label": "Email",
+      "whatsapp_label": "WhatsApp",
+      "location_label": "Location",
+      "location_value": "Porto Ferreira, SP - Brazil",
+      "instagram_label": "Instagram"
+    }
+  },
+  "buttons": {
+    "exploreCases": "Explore cases",
+    "mapScope": "Map scope",
+    "startDiagnosis": "Start diagnosis",
+    "startProject": "Start a similar project",
+    "back": "Back",
+    "next": "Continue",
+    "send": "Send for review",
+    "exploreServices": "Explore services"
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Page off the route.",
+    "description": "This path isn't part of the site's current architecture.",
+    "backHome": "Back to home"
+  },
+  "lang": {
+    "label": "EN",
+    "pt": "Português",
+    "en": "English",
+    "es": "Español"
+  },
+  "team": {
+    "eyebrow": "Team",
+    "compactTitle": "Strategy, design and engineering in the same core.",
+    "compactText": "Devign combines brand vision, consultative relationship and software architecture to deliver high-value digital experiences.",
+    "fullTitle": "A lean team for high-value digital projects.",
+    "fullText": "Devign's structure unites commercial clarity, visual finish and technical execution. Positioning, experience, software and evolution work as a system.",
+    "cardLabels": ["Brand", "Delivery", "Engineering"],
+    "structureText": "Compact structure, fast decisions and specialized execution.",
+    "compactButton": "Meet the core team",
+    "members": [
+      {
+        "name": "Gabrielle Almeida",
+        "initials": "GA",
+        "role": "Head of Design & Branding",
+        "description": "Visual direction, identity and digital experiences for brands that need to sustain premium perception.",
+        "signal": "Design system"
+      },
+      {
+        "name": "Isabely Perez",
+        "initials": "IP",
+        "role": "Customer Success & Strategy",
+        "description": "Strategy, relationship management and alignment between business context, experience and delivery.",
+        "signal": "Client strategy"
+      },
+      {
+        "name": "João Pedro Carpini",
+        "initials": "JP",
+        "role": "Lead Developer & Automation",
+        "description": "Systems, automations and technology architecture for efficiency, scale and performance.",
+        "signal": "Software architecture"
+      }
+    ]
+  }
+}

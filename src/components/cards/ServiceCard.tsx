@@ -1,5 +1,5 @@
 import { ArrowUpRight, Bot, BrainCircuit, Cable, Globe2, LayoutDashboard, PanelsTopLeft, Workflow } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from '../ui/LocaleLink';
 import type { Service, ServiceKey } from '../../data/site';
 
 const icons: Record<ServiceKey, typeof Globe2> = {

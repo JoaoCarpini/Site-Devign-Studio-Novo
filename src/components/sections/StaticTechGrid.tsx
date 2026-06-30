@@ -1,15 +1,12 @@
-const technologies = [
-  { name: 'React', layer: 'Interfaces' },
-  { name: 'TypeScript', layer: 'Contratos' },
-  { name: 'APIs', layer: 'Integracao' },
-  { name: 'Python', layer: 'Automacao' },
-  { name: 'PostgreSQL', layer: 'Dados' },
-  { name: 'IA', layer: 'Inteligencia' },
-  { name: 'GitHub', layer: 'Versionamento' },
-  { name: 'Vercel', layer: 'Deploy' },
-];
+import { useTranslation } from 'react-i18next';
+
+const SKIP_INDEX = 6;
 
 export function StaticTechGrid() {
+  const { t } = useTranslation('home');
+  const stack = t('mobile.stack', { returnObjects: true }) as Array<{ name: string; layer: string }>;
+  const technologies = stack.filter((_, index) => index !== SKIP_INDEX);
+
   return (
     <div className="grid grid-cols-2 gap-3">
       {technologies.map((technology) => (

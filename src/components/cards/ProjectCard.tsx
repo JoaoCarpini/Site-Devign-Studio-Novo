@@ -1,8 +1,10 @@
 import { ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import type { Project } from '../../data/site';
 import { ButtonLink } from '../ui/Button';
 import { cn } from '../../utils/cn';
 import { useAndroidCompatibility } from '../../hooks/useMediaQuery';
+import { useRoutes } from '../../hooks/useContent';
 
 const accentStyles: Record<Project['accent'], string> = {
   violet: 'from-violet-500/28 via-violet-400/10 to-transparent text-violet-400',
@@ -12,6 +14,8 @@ const accentStyles: Record<Project['accent'], string> = {
 
 export function ProjectCard({ project }: { project: Project }) {
   const androidCompatibility = useAndroidCompatibility();
+  const { t } = useTranslation('projects');
+  const routes = useRoutes();
 
   return (
     <article className={cn(
@@ -51,15 +55,15 @@ export function ProjectCard({ project }: { project: Project }) {
 
         <div className="mt-4 grid gap-3 text-xs text-mist sm:mt-6 sm:gap-4 sm:text-sm md:grid-cols-3">
           <div>
-            <span className="font-semibold text-frost">Problema</span>
+            <span className="font-semibold text-frost">{t('card.problem')}</span>
             <p className="mt-1.5 leading-5 text-muted sm:mt-2 sm:leading-6">{project.problem}</p>
           </div>
           <div className="hidden sm:block">
-            <span className="font-semibold text-frost">Solução</span>
+            <span className="font-semibold text-frost">{t('card.solution')}</span>
             <p className="mt-1.5 leading-5 text-muted sm:mt-2 sm:leading-6">{project.solution}</p>
           </div>
           <div className="hidden md:block">
-            <span className="font-semibold text-frost">Resultado</span>
+            <span className="font-semibold text-frost">{t('card.result')}</span>
             <p className="mt-1.5 leading-5 text-muted sm:mt-2 sm:leading-6">{project.result}</p>
           </div>
         </div>
@@ -77,8 +81,8 @@ export function ProjectCard({ project }: { project: Project }) {
           )}
         </div>
 
-        <ButtonLink to="/orcamento" variant="secondary" className="mt-4 w-full sm:mt-7 sm:w-auto">
-          Conversar
+        <ButtonLink to={routes.budget} variant="secondary" className="mt-4 w-full sm:mt-7 sm:w-auto">
+          {t('card.talkButtonShort')}
           <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
         </ButtonLink>
       </div>

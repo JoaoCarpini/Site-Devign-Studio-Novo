@@ -1,6 +1,6 @@
 import { ServiceDetailPage } from '../../components/service-pages/ServiceDetailPage';
-import { serviceMap } from '../../data/site';
+import { useService } from '../../hooks/useContent';
 
 export default function Automation() {
-  return <ServiceDetailPage service={serviceMap.automation} />;
+  return <ServiceDetailPage service={useService('automation')} />;
 }

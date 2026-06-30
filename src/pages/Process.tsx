@@ -1,28 +1,27 @@
 import { ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { AuroraBackground } from '../components/backgrounds/AuroraBackground';
 import { ProcessTimeline } from '../components/sections/ProcessTimeline';
 import { Reveal } from '../components/animations/Reveal';
 import { ButtonLink } from '../components/ui/Button';
 import { SectionIntro } from '../components/ui/SectionIntro';
-
-const guarantees = [
-  'Escopo com entregáveis, prioridades e limites claros.',
-  'Validações por etapa para reduzir incerteza.',
-  'Decisões técnicas traduzidas com objetividade.',
-  'Base preparada para suporte e evolução.',
-];
+import { useRoutes } from '../hooks/useContent';
 
 export default function Process() {
+  const { t } = useTranslation('process');
+  const routes = useRoutes();
+  const guarantees = t('governance.guarantees', { returnObjects: true }) as string[];
+
   return (
     <>
       <section className="relative overflow-hidden pt-28 sm:pt-40">
         <AuroraBackground />
         <div className="container-premium relative pb-14 pt-6 sm:pb-20 sm:pt-8 lg:pb-28">
           <Reveal className="max-w-4xl">
-            <span className="eyebrow mb-6">Processo</span>
-            <h1 className="heading-xl text-balance">Um método para transformar intenção em direção técnica.</h1>
+            <span className="eyebrow mb-6">{t('hero.eyebrow')}</span>
+            <h1 className="heading-xl text-balance">{t('hero.title')}</h1>
             <p className="body-lead mt-7 max-w-3xl">
-              Projetos digitais de alto valor exigem controle. A Devign organiza diagnóstico, estratégia, design, desenvolvimento e entrega para reduzir risco e manter foco no que importa.
+              {t('hero.description')}
             </p>
           </Reveal>
         </div>
@@ -38,10 +37,10 @@ export default function Process() {
         <div className="container-premium grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <Reveal>
             <span className="inline-flex rounded-full border border-ink/10 bg-ink/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-violet-700">
-              Governança
+              {t('governance.badge')}
             </span>
             <h2 className="mt-5 text-[2rem] font-semibold leading-tight tracking-normal text-ink sm:text-5xl">
-              Clareza sobre o que será construído, por quê e em qual ordem.
+              {t('governance.title')}
             </h2>
           </Reveal>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -57,12 +56,12 @@ export default function Process() {
       <section className="section-band">
         <div className="container-premium rounded-[1.45rem] border border-white/10 bg-white/[0.055] p-5 shadow-premium backdrop-blur-2xl sm:rounded-[2rem] sm:p-12">
           <SectionIntro
-            eyebrow="Próximo passo"
-            title="Comece com uma leitura bem estruturada."
-            text="O briefing reúne contexto suficiente para transformar intenção em caminho técnico e comercial."
+            eyebrow={t('next.eyebrow')}
+            title={t('next.title')}
+            text={t('next.description')}
           />
-          <ButtonLink to="/orcamento" className="mt-8">
-            Iniciar diagnóstico
+          <ButtonLink to={routes.budget} className="mt-8">
+            {t('next.cta')}
             <ArrowRight className="h-4 w-4" />
           </ButtonLink>
         </div>

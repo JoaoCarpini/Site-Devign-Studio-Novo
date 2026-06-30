@@ -29,6 +29,7 @@ import {
   Users,
   Workflow,
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { BriefingApiError, submitBriefing } from '../../services/briefingApi';
 import { buildWhatsAppUrl, openWhatsApp } from '../../services/whatsapp';
 import type { BriefingPayload } from '../../types/briefing';
@@ -45,6 +46,8 @@ type SelectOption = {
   icon: LucideIcon;
 };
 
+type StepInfo = { label: string; eyebrow: string; title: string; description: string };
+
 const initialState: FormState = {
   projectType: '',
   objective: '',
@@ -60,234 +63,16 @@ const initialState: FormState = {
   website: '',
 };
 
-const steps = [
-  {
-    label: 'Projeto',
-    eyebrow: 'Etapa 01',
-    title: 'Que tipo de ativo digital sua empresa precisa construir?',
-    description: 'Escolha a frente principal. Isso orienta tecnologia, design e profundidade de escopo.',
-  },
-  {
-    label: 'Objetivo',
-    eyebrow: 'Etapa 02',
-    title: 'Qual prioridade deve orientar a entrega?',
-    description: 'A prioridade define foco, reduz ruído e guia as decisões de impacto.',
-  },
-  {
-    label: 'Investimento',
-    eyebrow: 'Etapa 03',
-    title: 'Qual faixa de investimento faz sentido agora?',
-    description: 'A referência calibra profundidade, ritmo e nível de arquitetura.',
-  },
-  {
-    label: 'Prazo',
-    eyebrow: 'Etapa 04',
-    title: 'Qual janela de tempo precisa ser considerada?',
-    description: 'O timing ajuda a organizar urgência, complexidade e fases.',
-  },
-  {
-    label: 'Escopo',
-    eyebrow: 'Etapa 05',
-    title: 'Quais recursos pertencem à primeira versão?',
-    description: 'Selecione os pontos mais relevantes. A análise pode reorganizar prioridades por fase.',
-  },
-  {
-    label: 'Conexões',
-    eyebrow: 'Etapa 06',
-    title: 'Quais integrações podem entrar no projeto?',
-    description: 'Integrações impactam arquitetura, segurança e esforço técnico.',
-  },
-  {
-    label: 'Contato',
-    eyebrow: 'Etapa 07',
-    title: 'Dados para contato e pré-diagnóstico.',
-    description: 'As informações serão validadas antes do envio. Depois, a conversa segue com o resumo do briefing.',
-  },
-];
-
-const technologyProjectTypes: SelectOption[] = [
-  {
-    title: 'Website Institucional',
-    description: 'Presença digital premium para posicionamento, autoridade e confiança comercial.',
-    icon: Globe2,
-  },
-  {
-    title: 'Sistema Web',
-    description: 'Aplicação sob medida para operação, gestão, vendas ou atendimento.',
-    icon: AppWindow,
-  },
-  {
-    title: 'Dashboard',
-    description: 'Painéis executivos para indicadores, dados operacionais e leitura de performance.',
-    icon: BarChart3,
-  },
-  {
-    title: 'API',
-    description: 'Camada técnica para integrar sistemas, dados, produtos e fluxos internos.',
-    icon: Cable,
-  },
-  {
-    title: 'Automação',
-    description: 'Processos digitais para reduzir trabalho manual e aumentar consistência.',
-    icon: Workflow,
-  },
-  {
-    title: 'IA',
-    description: 'Inteligência aplicada a triagem, análise, atendimento ou produtividade.',
-    icon: BrainCircuit,
-  },
-  {
-    title: 'Landing Page',
-    description: 'Página de conversão com copy, estrutura e visual orientados a resultado.',
-    icon: PanelsTopLeft,
-  },
-];
-
-const designProjectTypes: SelectOption[] = [
-  {
-    title: 'Identidade Visual Digital',
-    description: 'Sistema visual coerente para site, produto e materiais digitais com padrão premium.',
-    icon: Palette,
-  },
-  {
-    title: 'Presença Digital Estratégica',
-    description: 'Direção de marca, narrativa e experiência para elevar percepção e clareza comercial.',
-    icon: Radar,
-  },
-  {
-    title: 'Branding para Empresas',
-    description: 'Posicionamento, linguagem visual e consistência para marcas B2B e high-ticket.',
-    icon: Building2,
-  },
-  {
-    title: 'Estrutura Visual para Redes Sociais',
-    description: 'Templates, hierarquia e direção visual para canais digitais com padrão estratégico.',
-    icon: LayoutGrid,
-  },
-];
-
-const projectTypeGroups = [
-  { eyebrow: 'Tecnologia & produto digital', options: technologyProjectTypes },
-  { eyebrow: 'Design & presença estratégica', options: designProjectTypes },
-];
-
-const otherProjectType: SelectOption = {
-  title: 'Outro',
-  description: 'Projeto específico que combina tecnologia, design ou presença digital sob medida.',
-  icon: Sparkles,
-};
-
-const objectives: SelectOption[] = [
-  {
-    title: 'Captar clientes',
-    description: 'Construir uma jornada digital mais clara, confiável e orientada a conversão.',
-    icon: Users,
-  },
-  {
-    title: 'Automatizar processos',
-    description: 'Eliminar rotinas repetitivas e criar fluxos mais rápidos para a operação.',
-    icon: Workflow,
-  },
-  {
-    title: 'Modernizar empresa',
-    description: 'Atualizar presença, sistemas ou processos para um padrão mais competitivo.',
-    icon: Building2,
-  },
-  {
-    title: 'Melhorar presença digital',
-    description: 'Elevar percepção de valor, clareza comercial e experiência da marca.',
-    icon: Target,
-  },
-  {
-    title: 'Escalar operação',
-    description: 'Preparar tecnologia, dados e integrações para suportar crescimento.',
-    icon: TrendingUp,
-  },
-];
-
-const budgetRanges: SelectOption[] = [
-  {
-    title: 'R$500 — R$1.500',
-    description: 'Ajustes pontuais, páginas simples ou validação inicial de escopo.',
-    icon: BadgeCheck,
-  },
-  {
-    title: 'R$1.500 — R$5.000',
-    description: 'Landing pages premium, websites objetivos e automações menores.',
-    icon: BadgeCheck,
-  },
-  {
-    title: 'R$5.000 — R$15.000',
-    description: 'Sistemas, integrações, dashboards e experiências digitais mais completas.',
-    icon: BadgeCheck,
-  },
-  {
-    title: 'R$15.000+',
-    description: 'Produtos sob medida, arquitetura escalável e projetos de maior impacto.',
-    icon: BadgeCheck,
-  },
-];
-
-const timelineOptions: SelectOption[] = [
-  {
-    title: 'Até 30 dias',
-    description: 'Projeto com prioridade alta, escopo objetivo e tomada de decisão rápida.',
-    icon: Clock3,
-  },
-  {
-    title: '1 a 2 meses',
-    description: 'Janela ideal para websites premium, landing pages e automações bem definidas.',
-    icon: Clock3,
-  },
-  {
-    title: '2 a 4 meses',
-    description: 'Ritmo indicado para sistemas, dashboards e integrações com mais profundidade.',
-    icon: Clock3,
-  },
-  {
-    title: 'Projeto contínuo',
-    description: 'Evolução por ciclos, suporte técnico e melhorias progressivas.',
-    icon: Clock3,
-  },
-];
-
-const featureOptions = [
-  'Área administrativa',
-  'Painel com indicadores',
-  'Área de usuários e acessos',
-  'Formulários personalizados',
-  'Automações',
-  'Inteligência Artificial',
-  'Integração com outros sistemas',
-  'Relatórios e métricas',
-  'Pagamentos online',
-  'Notificações automáticas',
-  'Upload de arquivos',
-  'Área do cliente',
-  'Controle financeiro',
-  'Gestão de estoque',
-  'Dashboard operacional',
-  'Multiusuários',
-  'Agenda e agendamentos',
-  'Assinaturas e planos',
-  'Chat interno',
-  'Integração com WhatsApp',
-];
-
-const integrationOptions = ['WhatsApp', 'CRM', 'ERP', 'Pagamentos', 'Planilhas', 'Banco de dados', 'APIs externas', 'Nenhuma definida'];
-
-const phaseMessages: Record<SubmitPhase, string> = {
-  idle: '',
-  validating: 'Validando entrada com segurança...',
-  sending: 'Organizando briefing para análise...',
-  whatsapp: 'Preparando continuidade no WhatsApp...',
-};
+const technologyIcons = [Globe2, AppWindow, BarChart3, Cable, Workflow, BrainCircuit, PanelsTopLeft];
+const designIcons = [Palette, Radar, Building2, LayoutGrid];
+const objectiveIcons = [Users, Workflow, Building2, Target, TrendingUp];
 
 function isEmailFormatValid(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 export function BudgetWizard() {
+  const { t } = useTranslation('budget');
   const startedAtRef = useRef(Date.now());
   const reduceMotion = useReduceMotion();
   const [step, setStep] = useState(0);
@@ -296,6 +81,42 @@ export function BudgetWizard() {
   const [submitted, setSubmitted] = useState(false);
   const [submitPhase, setSubmitPhase] = useState<SubmitPhase>('idle');
   const [submittedWhatsappUrl, setSubmittedWhatsappUrl] = useState('');
+
+  const steps = t('wizard.steps', { returnObjects: true }) as StepInfo[];
+
+  const technologyProjectTypes: SelectOption[] = (
+    t('wizard.technologyProjectTypes', { returnObjects: true }) as Array<{ title: string; description: string }>
+  ).map((item, index) => ({ ...item, icon: technologyIcons[index] }));
+
+  const designProjectTypes: SelectOption[] = (
+    t('wizard.designProjectTypes', { returnObjects: true }) as Array<{ title: string; description: string }>
+  ).map((item, index) => ({ ...item, icon: designIcons[index] }));
+
+  const projectTypeGroups = [
+    { eyebrow: t('wizard.technologyGroupLabel'), options: technologyProjectTypes },
+    { eyebrow: t('wizard.designGroupLabel'), options: designProjectTypes },
+  ];
+
+  const otherProjectType: SelectOption = {
+    ...(t('wizard.otherProjectType', { returnObjects: true }) as { title: string; description: string }),
+    icon: Sparkles,
+  };
+
+  const objectives: SelectOption[] = (
+    t('wizard.objectives', { returnObjects: true }) as Array<{ title: string; description: string }>
+  ).map((item, index) => ({ ...item, icon: objectiveIcons[index] }));
+
+  const budgetRanges: SelectOption[] = (
+    t('wizard.budgetRanges', { returnObjects: true }) as Array<{ title: string; description: string }>
+  ).map((item) => ({ ...item, icon: BadgeCheck }));
+
+  const timelineOptions: SelectOption[] = (
+    t('wizard.timelineOptions', { returnObjects: true }) as Array<{ title: string; description: string }>
+  ).map((item) => ({ ...item, icon: Clock3 }));
+
+  const featureOptions = t('wizard.featureOptions', { returnObjects: true }) as string[];
+  const integrationOptions = t('wizard.integrationOptions', { returnObjects: true }) as string[];
+  const phaseMessages = t('wizard.phaseMessages', { returnObjects: true }) as Record<SubmitPhase, string>;
 
   const currentStep = steps[step];
   const progress = ((step + 1) / steps.length) * 100;
@@ -328,18 +149,18 @@ export function BudgetWizard() {
   };
 
   const validateStep = () => {
-    if (step === 0 && !form.projectType) return 'Selecione o tipo de projeto para continuar.';
-    if (step === 1 && !form.objective) return 'Escolha o objetivo principal do projeto.';
-    if (step === 2 && !form.budget) return 'Selecione a faixa de orçamento estimada.';
-    if (step === 3 && !form.timeline) return 'Selecione o prazo desejado para o projeto.';
-    if (step === 4 && !form.features.length) return 'Selecione ao menos uma funcionalidade importante.';
-    if (step === 5 && !form.integrations.length) return 'Selecione ao menos uma integração ou marque "Nenhuma definida".';
+    if (step === 0 && !form.projectType) return t('wizard.validation.projectType');
+    if (step === 1 && !form.objective) return t('wizard.validation.objective');
+    if (step === 2 && !form.budget) return t('wizard.validation.budget');
+    if (step === 3 && !form.timeline) return t('wizard.validation.timeline');
+    if (step === 4 && !form.features.length) return t('wizard.validation.features');
+    if (step === 5 && !form.integrations.length) return t('wizard.validation.integrations');
     if (step === 6) {
       if (!form.name || !form.company || !form.email || !form.phone || !form.description) {
-        return 'Preencha nome, empresa, email, telefone e descrição do projeto.';
+        return t('wizard.validation.contactRequired');
       }
-      if (!isEmailFormatValid(form.email)) return 'Informe um email válido para seguirmos com segurança.';
-      if (form.description.trim().length < 24) return 'Descreva o projeto com um pouco mais de contexto.';
+      if (!isEmailFormatValid(form.email)) return t('wizard.validation.emailInvalid');
+      if (form.description.trim().length < 24) return t('wizard.validation.descriptionShort');
     }
 
     return '';
@@ -361,8 +182,6 @@ export function BudgetWizard() {
   const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log('SUBMIT DISPAROU');
-
     if (isSubmitting) return;
 
     const validation = validateStep();
@@ -378,14 +197,9 @@ export function BudgetWizard() {
     try {
       setSubmitPhase('sending');
 
-      console.log('ANTES DO FETCH');
-
       const response = await submitBriefing(
         briefingPayload,
       );
-
-      console.log('APÓS FETCH');
-      console.log('API RESPONSE:', response);
 
       const whatsappUrl =
         response.whatsappUrl ||
@@ -396,8 +210,6 @@ export function BudgetWizard() {
       setSubmitPhase('whatsapp');
 
       setSubmitted(true);
-
-      console.log('WHATSAPP URL:', whatsappUrl);
 
       setTimeout(() => {
         try {
@@ -412,7 +224,7 @@ export function BudgetWizard() {
       const message =
         requestError instanceof BriefingApiError
           ? requestError.message
-          : 'Não foi possível concluir o envio agora. Verifique sua conexão e tente novamente.';
+          : t('wizard.validation.submitFailed');
 
       setError(message);
     } finally {
@@ -438,26 +250,26 @@ export function BudgetWizard() {
             <CheckCircle2 className="h-7 w-7" />
           </div>
           <span className="mt-5 inline-flex rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-violet-300">
-            Onboarding concluído
+            {t('wizard.submitted.badge')}
           </span>
-          <h2 className="mt-4 text-2xl font-semibold leading-tight text-frost sm:text-3xl">Briefing recebido com contexto.</h2>
+          <h2 className="mt-4 text-2xl font-semibold leading-tight text-frost sm:text-3xl">{t('wizard.submitted.title')}</h2>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-mist sm:text-base sm:leading-7">
-            A Devign recebeu as informações essenciais do projeto. A conversa agora continua no WhatsApp com mais precisão.
+            {t('wizard.submitted.description')}
           </p>
 
           <div className="mt-5 grid gap-2 rounded-2xl border border-white/10 bg-ink/50 p-3 sm:grid-cols-3">
-            <SummaryItem label="Projeto" value={form.projectType} />
-            <SummaryItem label="Objetivo" value={form.objective} />
-            <SummaryItem label="Investimento" value={form.budget} />
+            <SummaryItem label={t('wizard.submitted.summary.project')} value={form.projectType} />
+            <SummaryItem label={t('wizard.submitted.summary.objective')} value={form.objective} />
+            <SummaryItem label={t('wizard.submitted.summary.investment')} value={form.budget} />
           </div>
 
           <div className="mt-6 flex flex-col gap-2 sm:flex-row">
             <a className={cn(buttonStyles('primary'), 'w-full sm:w-auto')} href={submittedWhatsappUrl || buildWhatsAppUrl(briefingPayload)} target="_blank" rel="noreferrer">
-              Continuar no WhatsApp
+              {t('wizard.submitted.continueWhatsapp')}
               <ArrowRight className="h-4 w-4" />
             </a>
             <button className={cn(buttonStyles('secondary'), 'w-full sm:w-auto')} type="button" onClick={() => setSubmitted(false)}>
-              Revisar briefing
+              {t('wizard.submitted.reviewBriefing')}
             </button>
           </div>
         </div>
@@ -472,14 +284,14 @@ export function BudgetWizard() {
     >
       <div className="pointer-events-none absolute inset-x-10 -top-28 hidden h-48 rounded-full bg-violet-500/[0.14] blur-3xl sm:block" />
 
-      {isSubmitting ? <LoadingOverlay message={phaseMessages[submitPhase]} /> : null}
+      {isSubmitting ? <LoadingOverlay message={phaseMessages[submitPhase]} label={t('wizard.loadingOverlay')} /> : null}
 
       <div className="relative min-w-0">
         <header className="rounded-[1.3rem] border border-white/10 bg-white/[0.045] p-4 sm:rounded-[1.55rem] sm:p-5">
           <div className="flex items-center justify-between gap-3">
             <div className="min-w-0">
               <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-violet-300">{currentStep.eyebrow}</p>
-              <p className="mt-1 text-sm font-semibold text-frost">Diagnóstico estratégico</p>
+              <p className="mt-1 text-sm font-semibold text-frost">{t('wizard.headerLabel')}</p>
             </div>
             <span className="shrink-0 rounded-full border border-white/10 bg-ink/60 px-3 py-1.5 text-xs font-semibold text-mist">
               {step + 1}/{steps.length}
@@ -498,7 +310,7 @@ export function BudgetWizard() {
             )}
           </div>
 
-          <StepDots currentStep={step} setStep={setStep} disabled={isSubmitting} />
+          <StepDots steps={steps} currentStep={step} setStep={setStep} disabled={isSubmitting} />
         </header>
 
         <main className="min-w-0 py-5 sm:py-7">
@@ -534,7 +346,7 @@ export function BudgetWizard() {
                     </div>
                   ))}
                   <div>
-                    <GroupLabel muted>Outros formatos</GroupLabel>
+                    <GroupLabel muted>{t('wizard.otherGroupLabel')}</GroupLabel>
                     <OptionGrid compact>
                       <OptionCard
                         option={otherProjectType}
@@ -643,7 +455,7 @@ export function BudgetWizard() {
             disabled={step === 0 || isSubmitting}
           >
             <ArrowLeft className="h-4 w-4" />
-            <span className="hidden xs:inline">Voltar</span>
+            <span className="hidden xs:inline">{t('wizard.footer.back')}</span>
           </button>
 
           {step < steps.length - 1 ? (
@@ -653,7 +465,7 @@ export function BudgetWizard() {
               onClick={goNext}
               disabled={isSubmitting}
             >
-              Continuar
+              {t('wizard.footer.next')}
               <ArrowRight className="h-4 w-4" />
             </button>
           ) : (
@@ -663,7 +475,7 @@ export function BudgetWizard() {
               disabled={isSubmitting}
             >
               {isSubmitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
-              Enviar para análise
+              {t('wizard.footer.send')}
             </button>
           )}
         </footer>
@@ -673,10 +485,12 @@ export function BudgetWizard() {
 }
 
 function StepDots({
+  steps,
   currentStep,
   disabled,
   setStep,
 }: {
+  steps: StepInfo[];
   currentStep: number;
   disabled: boolean;
   setStep: (step: number) => void;
@@ -834,6 +648,8 @@ function ContactFields({
   form: FormState;
   update: (field: keyof FormState, value: string) => void;
 }) {
+  const { t } = useTranslation('budget');
+
   return (
     <div className="mt-5 min-w-0">
       <input
@@ -847,28 +663,28 @@ function ContactFields({
       />
 
       <div className="grid min-w-0 gap-3 sm:grid-cols-2">
-        <Field label="Nome" value={form.name} onChange={(value) => update('name', value)} required />
-        <Field label="Empresa" value={form.company} onChange={(value) => update('company', value)} required />
-        <Field label="Email" type="email" value={form.email} onChange={(value) => update('email', value)} required />
-        <Field label="Telefone / WhatsApp" value={form.phone} onChange={(value) => update('phone', value)} required />
+        <Field label={t('wizard.contactFields.name')} value={form.name} onChange={(value) => update('name', value)} required />
+        <Field label={t('wizard.contactFields.company')} value={form.company} onChange={(value) => update('company', value)} required />
+        <Field label={t('wizard.contactFields.email')} type="email" value={form.email} onChange={(value) => update('email', value)} required />
+        <Field label={t('wizard.contactFields.phone')} value={form.phone} onChange={(value) => update('phone', value)} required />
       </div>
 
       <label className="mt-4 block text-sm font-semibold text-frost" htmlFor="description">
-        Descrição do projeto <span className="text-violet-300">*</span>
+        {t('wizard.contactFields.descriptionLabel')} <span className="text-violet-300">*</span>
       </label>
       <textarea
         id="description"
         className="mt-2 min-h-32 w-full min-w-0 resize-y rounded-2xl border border-white/10 bg-ink/70 px-4 py-3 text-sm leading-6 text-mist outline-none transition duration-300 placeholder:text-muted/70 focus:border-violet-300 focus:bg-ink/85 focus:shadow-[0_0_0_3px_rgba(141,92,255,0.12)] sm:min-h-40 sm:text-base"
-        placeholder="Contexto, objetivo, dores atuais, referências e qualquer requisito importante."
+        placeholder={t('wizard.contactFields.descriptionPlaceholder')}
         value={form.description}
         onChange={(event) => update('description', event.target.value)}
         required
       />
 
       <div className="mt-4 grid gap-2 rounded-2xl border border-white/10 bg-ink/45 p-2.5 sm:grid-cols-3">
-        <TrustBadge icon={ShieldCheck} text="Validação segura" />
-        <TrustBadge icon={LockKeyhole} text="Anti-spam ativo" />
-        <TrustBadge icon={DatabaseZap} text="Pronto para CRM/API" />
+        <TrustBadge icon={ShieldCheck} text={t('wizard.contactFields.trust.validation')} />
+        <TrustBadge icon={LockKeyhole} text={t('wizard.contactFields.trust.antiSpam')} />
+        <TrustBadge icon={DatabaseZap} text={t('wizard.contactFields.trust.crm')} />
       </div>
     </div>
   );
@@ -890,7 +706,7 @@ function Field({
   const id = label
     .toLowerCase()
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/\s+|\/+/g, '-');
 
   return (
@@ -920,14 +736,14 @@ function TrustBadge({ icon: Icon, text }: { icon: LucideIcon; text: string }) {
   );
 }
 
-function LoadingOverlay({ message }: { message: string }) {
+function LoadingOverlay({ message, label }: { message: string; label: string }) {
   return (
     <div className="absolute inset-0 z-20 grid place-items-center bg-ink/82 p-4 sm:bg-ink/72 sm:backdrop-blur-md">
       <div className="relative overflow-hidden rounded-2xl border border-violet-300/20 bg-white/[0.07] p-5 text-center shadow-[0_20px_70px_rgba(141,92,255,0.14)]">
         <div className="mx-auto grid h-12 w-12 place-items-center rounded-2xl border border-violet-300/25 bg-violet-500/[0.12] text-violet-300">
           <Loader2 className="h-5 w-5 animate-spin" />
         </div>
-        <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-violet-300">Processando briefing</p>
+        <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-violet-300">{label}</p>
         <p className="mt-2 max-w-sm text-sm leading-6 text-mist">{message}</p>
       </div>
     </div>

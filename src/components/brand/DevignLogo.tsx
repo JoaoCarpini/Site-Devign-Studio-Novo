@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '../ui/LocaleLink';
 import { cn } from '../../utils/cn';
 import { brandAssets } from '../../config/brand';
 

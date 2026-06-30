@@ -1,39 +1,25 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, BadgeCheck, CircuitBoard, Layers3 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { Link } from '../ui/LocaleLink';
 import { Reveal } from '../animations/Reveal';
 import { buttonStyles } from '../ui/Button';
 import { SectionIntro } from '../ui/SectionIntro';
 import { cn } from '../../utils/cn';
 import { useReduceMotion } from '../../hooks/useMediaQuery';
+import { useRoutes } from '../../hooks/useContent';
 
 type TeamSectionProps = {
   compact?: boolean;
 };
 
-const teamMembers = [
-  {
-    name: 'Gabrielle Almeida',
-    initials: 'GA',
-    role: 'Head of Design & Branding',
-    description: 'Direção visual, identidade e experiências digitais para marcas que precisam sustentar percepção premium.',
-    signal: 'Design system',
-  },
-  {
-    name: 'Isabely Perez',
-    initials: 'IP',
-    role: 'Customer Success & Strategy',
-    description: 'Estratégia, relacionamento e alinhamento entre contexto de negócio, experiência e entrega.',
-    signal: 'Client strategy',
-  },
-  {
-    name: 'João Pedro Carpini',
-    initials: 'JP',
-    role: 'Lead Developer & Automation',
-    description: 'Sistemas, automações e arquitetura tecnológica para eficiência, escala e performance.',
-    signal: 'Software architecture',
-  },
-];
+type TeamMember = {
+  name: string;
+  initials: string;
+  role: string;
+  description: string;
+  signal: string;
+};
 
 const particles = [
   'left-[8%] top-[18%]',
@@ -45,6 +31,11 @@ const particles = [
 
 export function TeamSection({ compact = false }: TeamSectionProps) {
   const reduceMotion = useReduceMotion();
+  const { t } = useTranslation('common');
+  const routes = useRoutes();
+  const teamMembers = t('team.members', { returnObjects: true }) as TeamMember[];
+  const cardLabels = t('team.cardLabels', { returnObjects: true }) as string[];
+  const cardIcons = [Layers3, BadgeCheck, CircuitBoard];
 
   return (
     <section className="section-band relative overflow-hidden border-y border-white/10 bg-ink">
@@ -65,36 +56,28 @@ export function TeamSection({ compact = false }: TeamSectionProps) {
       <div className="container-premium relative">
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <SectionIntro
-            eyebrow="Equipe"
-            title={compact ? 'Estratégia, design e engenharia no mesmo núcleo.' : 'Uma equipe enxuta para projetos digitais de alto valor.'}
-            text={
-              compact
-                ? 'A Devign combina visão de marca, relacionamento consultivo e arquitetura de software para entregar experiências digitais de alto valor.'
-                : 'A estrutura da Devign une clareza comercial, acabamento visual e execução técnica. Posicionamento, experiência, software e evolução trabalham como sistema.'
-            }
+            eyebrow={t('team.eyebrow')}
+            title={compact ? t('team.compactTitle') : t('team.fullTitle')}
+            text={compact ? t('team.compactText') : t('team.fullText')}
           />
 
           <Reveal delay={0.08}>
             <div className="relative min-w-0 rounded-[1.45rem] border border-white/10 bg-white/[0.045] p-4 shadow-premium sm:rounded-[2rem] sm:p-6 sm:backdrop-blur-2xl">
               <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/50 to-transparent" />
               <div className="grid gap-3 sm:grid-cols-3">
-                {[
-                  { label: 'Marca', icon: Layers3 },
-                  { label: 'Entrega', icon: BadgeCheck },
-                  { label: 'Engenharia', icon: CircuitBoard },
-                ].map((item) => {
-                  const Icon = item.icon;
+                {cardLabels.map((label, index) => {
+                  const Icon = cardIcons[index];
 
                   return (
-                    <div key={item.label} className="min-w-0 rounded-[1.25rem] border border-white/10 bg-ink/50 p-4">
+                    <div key={label} className="min-w-0 rounded-[1.25rem] border border-white/10 bg-ink/50 p-4">
                       <Icon className="h-5 w-5 text-violet-400" />
-                      <span className="mt-4 block break-words text-xs font-semibold uppercase tracking-[0.14em] text-muted sm:tracking-[0.18em]">{item.label}</span>
+                      <span className="mt-4 block break-words text-xs font-semibold uppercase tracking-[0.14em] text-muted sm:tracking-[0.18em]">{label}</span>
                     </div>
                   );
                 })}
               </div>
               <div className="mt-5 flex min-w-0 items-center justify-between gap-4 rounded-[1.25rem] border border-violet-400/20 bg-violet-500/10 px-4 py-3">
-                <span className="text-sm font-semibold text-frost">Estrutura compacta, decisão rápida e execução especializada.</span>
+                <span className="text-sm font-semibold text-frost">{t('team.structureText')}</span>
                 <span className="hidden h-px flex-1 bg-premium-line sm:block" />
               </div>
             </div>
@@ -114,8 +97,8 @@ export function TeamSection({ compact = false }: TeamSectionProps) {
 
         {compact ? (
           <Reveal delay={0.12} className="mt-10 flex justify-center">
-            <Link className={buttonStyles('secondary')} to="/sobre">
-              Conhecer núcleo
+            <Link className={buttonStyles('secondary')} to={routes.about}>
+              {t('team.compactButton')}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Reveal>
@@ -130,7 +113,7 @@ function TeamCard({
   index,
   reduceMotion,
 }: {
-  member: (typeof teamMembers)[number];
+  member: TeamMember;
   index: number;
   reduceMotion: boolean;
 }) {
